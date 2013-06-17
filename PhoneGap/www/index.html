@@ -22,31 +22,193 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>
-        <title>Натяжные потолки</title>
-    </head>
-    <body>
-        <div class="main_toolbar">
-            <div class="menu"><a href=""><img src="img/menu3.jpg"></a></div>
-            <div class="title">1 шаг</div>
-        </div>
-        <div class="app">
-            <h1>Расчет потолка</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Подключение устройства</p>
-                <p class="event received"><a href="main.html">Введите данные</a></p>
-            </div>
-        </div>
-        <div class="footer_toolbar">
-            <div class="footer_menu">
-                <div class="next_step_btn"><a href="2step.html">далее</a></div>
-            </div>
-        </div>
+        
         <script type="text/javascript" src="cordova-2.7.0.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
-        </script>
+            </script>
+        
+<!-- chrome debuger -->
+        <script src="http://localhost:8080/target/target-script-min.js#anonymous"></script> 
+
+<!-- рабочие скрипты 1.3.1 -->
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.3.1.css" />
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/jquery.mobile-1.3.1.js"></script>
+        
+<!-- обращение к БД -->
+        <script type="text/javascript" charset="utf-8">
+            
+            // Wait for Cordova to load
+            //
+            document.addEventListener("deviceready", onDeviceReady, false);
+            
+            function onDeviceReady() {
+                var key1 = window.localStorage.getItem("key");                
+            }
+
+            
+            </script>
+        <title>Натяжные потолки</title>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+          <div data-role="header" data-position="fixed" id="header" data-id="myheader">
+            <h1>Home page</h1>
+            <a href="#defaultpanel" data-role="button" data-inline="true" data-icon="bars">Меню</a>
+          </div>
+          <div data-role="content">
+            <h3>Устройство готово к работе</h3>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Подключение устройства</p>
+                <p class="event received"><a href="main.html">Ready</a></p>
+            </div>
+          </div>
+          <div data-role="footer" data-position="fixed" data-id="myfooter" id="footer">
+              <a href="2step.html" data-role="button" data-icon="arrow-r" data-inline="true" data-iconpos="right" data-transition="slide" style="float:right;">далее</a>
+          </div>
+         
+          <!-- defaultpanel  -->
+            <div data-role="panel" id="defaultpanel" data-theme="a">
+         
+              <div class="panel-content">
+                <h3>Введите ваши значения</h3> <!-- значения настроек -->
+
+
+                <h5>Настройте параметры цен</h5>
+                <div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+                    <div data-role="collapsible">
+                        <h3>
+                            <a href="#" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="c">
+                                <span>Цены на Материалы</span>                        
+                            </a>
+                        </h3>
+                        <div aria-hidden="true">                        
+                            <p>I'm the collapsible content for section 1</p>
+                        </div>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>
+                            <a href="#" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="c">
+                                <span>Цены на работу</span>                        
+                            </a>
+                        </h3>
+                        <div aria-hidden="true">                        
+                            <p>I'm the collapsible content for section 2</p>
+                        </div>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>
+                            <a href="#" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="c">
+                                <span>Дополнительные параметры цены</span>
+                            </a>
+                        </h3>
+                        <div aria-hidden="true">                        
+                            <p>I'm the collapsible content for section 3</p>
+                        </div>
+                    </div>
+                </div> <!-- конец настройки параметров цен -->
+
+                <h5>Внесите Ваши личные данные</h5> <!-- телефон почта -->
+                <div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+                    <div data-role="collapsible">
+                        <h3>
+                            <a href="#" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="c">
+                                <span>Ваши контакты</span>                        
+                            </a>
+                        </h3>
+                        <div aria-hidden="true">
+                            <!-- телефон пользователя -->
+                                <label for="name_user">Имя:</label>
+                                <input type="text" name="name_user" id="name_user" value="">
+                            <!-- телефон пользователя -->
+                                <label for="tel">Телефон:</label>
+                                <input type="text" name="tel" id="phone_user" value="">
+                            <!-- электронная почта пользователя -->
+                                <label for="text-basic">E-mail:</label>
+                                <input type="text" name="text-basic" id="email_user" value="">
+                            <!-- да нет отправлять на мою почту -->
+                                <form>
+                                    <div data-role="fieldcontain">
+                                        <label for="flip-7">Отправлять на мою почту:</label>
+                                        <select name="flip-7" id="yesno_email_user" data-role="slider" data-mini="true"  data-track-theme="a" data-theme="a">
+                                            <option value="off">Off</option>
+                                            <option value="on">On</option>
+                                        </select>
+                                    </div>
+                                </form>
+                        </div>
+                    </div>
+                    <div data-role="collapsible"> <!-- геопозиционирование -->
+                        <h3>
+                            <a href="#" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="c">
+                                <span>Локализация</span>                        
+                            </a>
+                        </h3>
+                        <div aria-hidden="true">
+                        <!-- включить геопозиционилование -->
+                            <form>
+                                <div data-role="fieldcontain">
+                                    <label for="flip-7">Включить геопозиционирование:</label>
+                                    <select name="flip-7" id="enable_geo" data-role="slider" data-mini="true"  data-track-theme="a" data-theme="a">
+                                        <option value="off">Off</option>
+                                        <option value="on">On</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div> <!-- конец настройки личных данных -->
+
+                <h4>Внесите данные компании</h4>
+                <div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+                    <div data-role="collapsible">
+                        <h3>
+                            <a href="#" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="c">
+                                <span>Менеджер</span>                        
+                            </a>
+                        </h3>
+                        <div aria-hidden="true">
+                        <!-- телефон менеджера -->
+                            <label for="tel">Телефон менеджера:</label>
+                            <input type="tel" name="tel" id="phone_manager" value="">
+                        <!-- электронная почта менеджера -->
+                            <label for="text-basic">E-mail менеджера:</label>
+                            <input type="text" name="text-basic" id="email_manager" value="">
+                        </div>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>
+                            <a href="#" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="c">
+                                <span>Цех</span>                        
+                            </a>
+                        </h3>
+                        <div aria-hidden="true">                        
+                        <!-- телефон цеха -->
+                            <label for="tel">Телефон цеха:</label>
+                            <input type="tel" name="tel" id="phone_workshop" value="">
+                        <!-- электронная почта цеха -->
+                            <label for="text-basic">E-mail цеха:</label>
+                            <input type="text" name="text-basic" id="email_workshop" value="">
+                        </div>
+                    </div>
+                </div> <!-- конец настройки параметров цен -->
+
+                <a href="#demo-links" id="save_btn" data-rel="close" data-role="button" data-theme="a" data-icon="delete" data-inline="true">Сохранить настройки</a>
+                
+                <!-- скрипт записи имени в БД -->
+                  <script type="text/javascript" charset="utf-8">
+                      function someFunc(){
+                          name_user = document.getElementById("name_user").value;
+                          window.localStorage.setItem("key", name_user);
+                      }
+                      document.getElementById("save_btn").onclick = someFunc;
+                  </script>
+              </div><!-- /content wrapper for padding -->
+         
+            </div><!-- /defaultpanel -->
+        </div>
     </body>
 </html>

@@ -33,44 +33,30 @@
         <script src="http://localhost:8080/target/target-script-min.js#anonymous"></script> 
 
 <!-- рабочие скрипты 1.3.1 -->
-        <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/jquery.mobile-1.3.1.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
         <script src="js/jquery-1.9.1.min.js"></script>
         <script src="js/jquery.mobile-1.3.1.js"></script>
+
+    <!-- обращение к БД -->
+        // <script type="text/javascript" charset="utf-8">
+        // // Wait for Cordova to load
+              document.addEventListener("deviceready", onDeviceReady, false);
+        // </script>
         
-<!-- обращение к БД -->
-            <script type="text/javascript" charset="utf-8">
-            // Wait for Cordova to load
-            document.addEventListener("deviceready", onDeviceReady, false);
-            
-            function onDeviceReady() {
-                //извлекаем данные настроек из памяти
-                document.getElementById("name_user").value = window.localStorage.getItem("key_name_user");
-                document.getElementById("phone_user").value = window.localStorage.getItem("key_phone_user");
-                document.getElementById("email_user").value = window.localStorage.getItem("key_email_user");
-                
-                document.getElementById("name_manager").value = window.localStorage.getItem("key_name_manager");
-                document.getElementById("phone_manager").value = window.localStorage.getItem("key_phone_manager");
-                document.getElementById("email_manager").value = window.localStorage.getItem("key_email_manager");
-                
-                document.getElementById("phone_workshop").value = window.localStorage.getItem("key_phone_workshop");
-                document.getElementById("email_workshop").value = window.localStorage.getItem("key_email_workshop");
-            }
-            </script>
         <title>Натяжные потолки</title>
     </head>
     <body>
         <div data-role="page" id="page1">
           <div data-role="header" data-position="fixed" id="header" data-id="myheader">
-            <h1>Home page</h1>
+            <h1>Новый замер</h1>
             <a href="#defaultpanel" data-role="button" data-inline="true" data-icon="bars">Меню</a>
           </div>
           <div data-role="content">
-            <h3>Устройство готово к работе</h3>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Подключение устройства</p>
-                <p class="event received"><a href="main.html">Ready</a></p>
-            </div>
+            
+              
+              <!--<a href="#demo-links" id="message" class="message" data-rel="close" data-role="button" data-theme="a" data-icon="ok" data-inline="true">Тест сообщение</a>-->
+              <!--скрипт проверки работы базы данных-->
           </div>
           <div data-role="footer" data-position="fixed" data-id="myfooter" id="footer">
               <a href="2step.html" data-role="button" data-icon="arrow-r" data-inline="true" data-iconpos="right" data-transition="slide" style="float:right;">далее</a>
@@ -78,140 +64,16 @@
          
           <!-- defaultpanel  -->
             <div data-role="panel" id="defaultpanel" data-theme="a">
-         
               <div class="panel-content">
-                <h3>Введите ваши значения</h3> <!-- значения настроек -->
-
-
-                <h5>Настройте параметры цен</h5>
-                <div data-role="collapsible-set" data-theme="c" data-content-theme="d">
-                    <div data-role="collapsible">
-                        <h3>
-                            <a href="#" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="c">
-                                <span>Цены на Материалы</span>                        
-                            </a>
-                        </h3>
-                        <div aria-hidden="true">                        
-                            <p>I'm the collapsible content for section 1</p>
-                        </div>
-                    </div>
-                    <div data-role="collapsible">
-                        <h3>
-                            <a href="#" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="c">
-                                <span>Цены на работу</span>                        
-                            </a>
-                        </h3>
-                        <div aria-hidden="true">                        
-                            <p>I'm the collapsible content for section 2</p>
-                        </div>
-                    </div>
-                    <div data-role="collapsible">
-                        <h3>
-                            <a href="#" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="c">
-                                <span>Дополнительные параметры цены</span>
-                            </a>
-                        </h3>
-                        <div aria-hidden="true">                        
-                            <p>I'm the collapsible content for section 3</p>
-                        </div>
-                    </div>
-                </div> <!-- конец настройки параметров цен -->
-
-                <h5>Внесите Ваши личные данные</h5> <!-- телефон почта -->
-                <div data-role="collapsible-set" data-theme="c" data-content-theme="d">
-                    <div data-role="collapsible">
-                        <h3>
-                            <a href="#" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="c">
-                                <span>Ваши контакты</span>                        
-                            </a>
-                        </h3>
-                        <div aria-hidden="true">
-                            <!-- телефон пользователя -->
-                                <label for="name_user">Имя:</label>
-                                <input type="text" name="name_user" id="name_user" value="">
-                            <!-- телефон пользователя -->
-                                <label for="tel">Телефон:</label>
-                                <input type="tel" name="tel" id="phone_user" value="">
-                            <!-- электронная почта пользователя -->
-                                <label for="text-basic">E-mail:</label>
-                                <input type="email" name="email_user" id="email_user" value="">
-                            <!-- да нет отправлять на мою почту -->
-                        </div>
-                    </div>
-                </div> <!-- конец настройки личных данных -->
-
-                <h4>Внесите данные компании</h4>
-                <div data-role="collapsible-set" data-theme="c" data-content-theme="d">
-                    <div data-role="collapsible">
-                        <h3>
-                            <a href="#" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="c">
-                                <span>Менеджер</span>                        
-                            </a>
-                        </h3>
-                        <div aria-hidden="true">
-                        <!-- имя менеджера -->
-                            <label for="name_manager">Имя менеджера:</label>
-                            <input type="text" name="name_manager" id="name_manager" value="">
-                        <!-- телефон менеджера -->
-                            <label for="tel">Телефон менеджера:</label>
-                            <input type="tel" name="tel" id="phone_manager" value="">
-                        <!-- электронная почта менеджера -->
-                            <label for="text-basic">E-mail менеджера:</label>
-                            <input type="email" name="email_manager" id="email_manager" value="">
-                        </div>
-                    </div>
-                    <div data-role="collapsible">
-                        <h3>
-                            <a href="#" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="c">
-                                <span>Цех</span>                        
-                            </a>
-                        </h3>
-                        <div aria-hidden="true">                        
-                        <!-- телефон цеха -->
-                            <label for="phone_workshop">Телефон цеха:</label>
-                            <input type="tel" name="phone_workshop" id="phone_workshop" value="">
-                        <!-- электронная почта цеха -->
-                            <label for="email_workshop">E-mail цеха:</label>
-                            <input type="email" name="email_workshop" id="email_workshop" value="">
-                        </div>
-                    </div>
-                </div> <!-- конец настройки параметров цен -->
-
-                <a href="#demo-links" id="save_btn" data-rel="close" data-role="button" data-theme="a" data-icon="ok" data-inline="true">Сохранить настройки</a>
-                
-                <!-- Записываем данные настроек в БД -->
-                  <script type="text/javascript" charset="utf-8">
-                      function someFunc(){
-                          // создание переменных данных пользователя и запись их в базу
-                          name_user = document.getElementById("name_user").value;
-                          window.localStorage.setItem("key_name_user", name_user);
-                          phone_user = document.getElementById("phone_user").value;
-                          window.localStorage.setItem("key_phone_user", phone_user);
-                          email_user = document.getElementById("email_user").value;
-                          window.localStorage.setItem("key_email_user", email_user);
-                          document.getElementById("name_user").value = name_user;
-                          
-                          // создание переменных данных менеджера и запись их в базу
-                          name_manager = document.getElementById("name_manager").value;
-                          window.localStorage.setItem("key_name_manager", name_manager);
-                          phone_manager = document.getElementById("phone_manager").value;
-                          window.localStorage.setItem("key_phone_manager", phone_manager);
-                          email_manager = document.getElementById("email_manager").value;
-                          window.localStorage.setItem("key_email_manager", email_manager);
-                          
-                          // создание переменных данных цеха и запись их в базу
-                          phone_workshop = document.getElementById("phone_workshop").value;
-                          window.localStorage.setItem("key_phone_workshop", phone_workshop);
-                          email_workshop = document.getElementById("email_workshop").value;
-                          window.localStorage.setItem("key_email_workshop", email_workshop);
-                          
-                          alert("Данные пользователя: " + " Имя: " + name_user + " Телефон:" + phone_user + " E-email: " + email_user);
-                      }
-                      document.getElementById("save_btn").onclick = someFunc;
-                  </script>
+                  <h2>Меню</h2>
+                  <h3>Настройки</h3>
+                  <a href="contactPage.html" data-role="button" data-theme="c" data-iconpos="right" data-icon="arrow-r" data-transition="slide" data-inline="false">Контакты</a>
+                  <a href="pricePage.html" data-role="button" data-theme="c" data-iconpos="right" data-icon="arrow-r" data-transition="slide" data-inline="false">Цены</a>
+                  <a href="helpPage.html" data-role="button" data-theme="c" data-iconpos="right" data-icon="arrow-r" data-transition="slide" data-inline="false">Помощь</a>
               </div><!-- /content wrapper for padding -->
-         
             </div><!-- /defaultpanel -->
         </div>
+        <script type="text/javascript" src="EmailComposer.js"></script>
+        <script type="text/javascript" src="js/save_bd.js"></script>
     </body>
 </html>

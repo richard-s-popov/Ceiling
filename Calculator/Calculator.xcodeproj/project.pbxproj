@@ -19,6 +19,7 @@
 		09598159177F676E001D2122 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09598157177F676E001D2122 /* MainStoryboard.storyboard */; };
 		0959815C177F676E001D2122 /* CalcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0959815B177F676E001D2122 /* CalcViewController.m */; };
 		09879C8217835733005B5E40 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09879C8117835733005B5E40 /* SettingsViewController.m */; };
+		26BF92FE1788441600C90497 /* PlotRectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BF92FD1788441600C90497 /* PlotRectViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		0959815B177F676E001D2122 /* CalcViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalcViewController.m; sourceTree = "<group>"; };
 		09879C8017835733005B5E40 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		09879C8117835733005B5E40 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		26BF92FC1788441600C90497 /* PlotRectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotRectViewController.h; sourceTree = "<group>"; };
+		26BF92FD1788441600C90497 /* PlotRectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotRectViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				09598146177F676E001D2122 /* Supporting Files */,
 				09879C8017835733005B5E40 /* SettingsViewController.h */,
 				09879C8117835733005B5E40 /* SettingsViewController.m */,
+				26BF92FC1788441600C90497 /* PlotRectViewController.h */,
+				26BF92FD1788441600C90497 /* PlotRectViewController.m */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 				09598150177F676E001D2122 /* CalcAppDelegate.m in Sources */,
 				0959815C177F676E001D2122 /* CalcViewController.m in Sources */,
 				09879C8217835733005B5E40 /* SettingsViewController.m in Sources */,
+				26BF92FE1788441600C90497 /* PlotRectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

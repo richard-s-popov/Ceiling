@@ -14,6 +14,8 @@
 
 @implementation PlotRectViewController
 
+CGSize size;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,20 +30,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    NSLog(@"Creating image");
-    NSLog(@"%f %f", _imageView.frame.size.height, _imageView.frame.size.width);
-    CGSize size = _imageView.frame.size;
+    // Сохраняем размеры области рисования
+    size = _imageView.frame.size;
+    
     UIGraphicsBeginImageContext(size);
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
     CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
     
-    CGContextFillRect(context, CGRectMake(0.0f, 0.0f, 240.0f, 240.0f));
-    
-    CGContextSetLineWidth(context, 5.0f);
-    CGContextMoveToPoint(context, 100.0f, 100.0f);
-    CGContextAddLineToPoint(context, 150.0f, 150.0f);
+    CGContextFillRect(context, CGRectMake(0.0f, 0.0f, size.height, size.width));
     CGContextStrokePath(context);
     
     UIImage* result = UIGraphicsGetImageFromCurrentImageContext();
@@ -50,7 +48,36 @@
     _imageView.image = result;
     [_imageView setNeedsDisplay];
     
-    NSLog(@"Image creation finished");
+    //NSLog(@"Image creation finished");
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    UITouch *touch = [[event allTouches] anyObject];
+    
+    CGPoint location = [touch locationInView:_imageView];
+    
+    // Находим этот адов коэффицент
+    CGFloat k = size.height / (size.height - 45);
+    location.y = location.y * k;
+    
+    UIGraphicsBeginImageContext(size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
+    CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
+    
+    CGContextFillRect(context, CGRectMake(0.0f, 0.0f, size.width, size.height));
+    
+    CGContextSetLineWidth(context, 5.0f);
+    CGContextMoveToPoint(context, 100.0f, 100.0f);
+    CGContextAddLineToPoint(context, location.x, location.y);
+    CGContextStrokePath(context);
+    
+    UIImage* result = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    _imageView.image = result;
+    [_imageView setNeedsDisplay];
 }
 
 - (void)drawRect:(CGRect)rect {

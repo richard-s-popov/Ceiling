@@ -27,17 +27,10 @@ enum {
 
 @implementation CalcViewController
 
-@synthesize userName;
-@synthesize userPhone;
-@synthesize userEmail;
+
 
 - (void)viewDidLoad
 {
-    // загружаем сохраненные данные в поля настроек из родительского класса
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    userName = [defaults objectForKey:@"savedUserName"];
-    userPhone = [defaults objectForKey:@"savedUserPhone"];
-    userEmail = [defaults objectForKey:@"savedUserEmail"];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -158,8 +151,6 @@ enum {
     NSString *str = [NSString stringWithFormat:@"%g",x];
     [displayLabel setText:str];
     
-    //тест переменных родительского класса
-    NSLog(@"OK %@", userName);
 }
 
 @end

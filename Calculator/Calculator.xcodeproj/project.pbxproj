@@ -21,6 +21,13 @@
 		09879C8217835733005B5E40 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09879C8117835733005B5E40 /* SettingsViewController.m */; };
 		09C82BBD1789DD8B00A47057 /* SettingsOptionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */; };
 		09C82BC01789DFE300A47057 /* SettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBF1789DFE200A47057 /* SettingsService.m */; };
+		09D5DF66178CEAA5004FAA8C /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF63178CEAA5004FAA8C /* ECSlidingViewController.m */; };
+		09D5DF67178CEAA5004FAA8C /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF65178CEAA5004FAA8C /* UIImage+ImageWithUIView.m */; };
+		09D5DF6A178CEAED004FAA8C /* InitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF69178CEAED004FAA8C /* InitViewController.m */; };
+		09D5DF6D178CEB32004FAA8C /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF6C178CEB32004FAA8C /* MenuViewController.m */; };
+		09D5DF70178CEB66004FAA8C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF6F178CEB66004FAA8C /* MainViewController.m */; };
+		09D5DF73178CEB80004FAA8C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF72178CEB80004FAA8C /* SecondViewController.m */; };
+		09D5DF77178CEE16004FAA8C /* BuildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF76178CEE16004FAA8C /* BuildViewController.m */; };
 		26BF92FE1788441600C90497 /* PlotRectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BF92FD1788441600C90497 /* PlotRectViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +54,20 @@
 		09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsOptionsModel.m; sourceTree = "<group>"; };
 		09C82BBE1789DFE200A47057 /* SettingsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsService.h; sourceTree = "<group>"; };
 		09C82BBF1789DFE200A47057 /* SettingsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsService.m; sourceTree = "<group>"; };
+		09D5DF62178CEAA5004FAA8C /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
+		09D5DF63178CEAA5004FAA8C /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
+		09D5DF64178CEAA5004FAA8C /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
+		09D5DF65178CEAA5004FAA8C /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
+		09D5DF68178CEAED004FAA8C /* InitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitViewController.h; sourceTree = "<group>"; };
+		09D5DF69178CEAED004FAA8C /* InitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitViewController.m; sourceTree = "<group>"; };
+		09D5DF6B178CEB32004FAA8C /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		09D5DF6C178CEB32004FAA8C /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		09D5DF6E178CEB66004FAA8C /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		09D5DF6F178CEB66004FAA8C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		09D5DF71178CEB80004FAA8C /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		09D5DF72178CEB80004FAA8C /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		09D5DF75178CEE16004FAA8C /* BuildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildViewController.h; sourceTree = "<group>"; };
+		09D5DF76178CEE16004FAA8C /* BuildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildViewController.m; sourceTree = "<group>"; };
 		26BF92FC1788441600C90497 /* PlotRectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotRectViewController.h; sourceTree = "<group>"; };
 		26BF92FD1788441600C90497 /* PlotRectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotRectViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +116,7 @@
 		09598145177F676E001D2122 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				09D5DF61178CEAA5004FAA8C /* ECSlidingViewController */,
 				09C82BBA1789DD5000A47057 /* Model */,
 				0959814E177F676E001D2122 /* CalcAppDelegate.h */,
 				0959814F177F676E001D2122 /* CalcAppDelegate.m */,
@@ -108,6 +130,7 @@
 				26BF92FD1788441600C90497 /* PlotRectViewController.m */,
 				09C82BBE1789DFE200A47057 /* SettingsService.h */,
 				09C82BBF1789DFE200A47057 /* SettingsService.m */,
+				09D5DF74178CEDC1004FAA8C /* Menu */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -133,6 +156,34 @@
 				09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		09D5DF61178CEAA5004FAA8C /* ECSlidingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				09D5DF62178CEAA5004FAA8C /* ECSlidingViewController.h */,
+				09D5DF63178CEAA5004FAA8C /* ECSlidingViewController.m */,
+				09D5DF64178CEAA5004FAA8C /* UIImage+ImageWithUIView.h */,
+				09D5DF65178CEAA5004FAA8C /* UIImage+ImageWithUIView.m */,
+			);
+			path = ECSlidingViewController;
+			sourceTree = "<group>";
+		};
+		09D5DF74178CEDC1004FAA8C /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				09D5DF68178CEAED004FAA8C /* InitViewController.h */,
+				09D5DF69178CEAED004FAA8C /* InitViewController.m */,
+				09D5DF75178CEE16004FAA8C /* BuildViewController.h */,
+				09D5DF76178CEE16004FAA8C /* BuildViewController.m */,
+				09D5DF6B178CEB32004FAA8C /* MenuViewController.h */,
+				09D5DF6C178CEB32004FAA8C /* MenuViewController.m */,
+				09D5DF6E178CEB66004FAA8C /* MainViewController.h */,
+				09D5DF6F178CEB66004FAA8C /* MainViewController.m */,
+				09D5DF71178CEB80004FAA8C /* SecondViewController.h */,
+				09D5DF72178CEB80004FAA8C /* SecondViewController.m */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +260,13 @@
 				26BF92FE1788441600C90497 /* PlotRectViewController.m in Sources */,
 				09C82BBD1789DD8B00A47057 /* SettingsOptionsModel.m in Sources */,
 				09C82BC01789DFE300A47057 /* SettingsService.m in Sources */,
+				09D5DF66178CEAA5004FAA8C /* ECSlidingViewController.m in Sources */,
+				09D5DF67178CEAA5004FAA8C /* UIImage+ImageWithUIView.m in Sources */,
+				09D5DF6A178CEAED004FAA8C /* InitViewController.m in Sources */,
+				09D5DF6D178CEB32004FAA8C /* MenuViewController.m in Sources */,
+				09D5DF70178CEB66004FAA8C /* MainViewController.m in Sources */,
+				09D5DF73178CEB80004FAA8C /* SecondViewController.m in Sources */,
+				09D5DF77178CEE16004FAA8C /* BuildViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

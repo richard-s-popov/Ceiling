@@ -87,6 +87,12 @@ enum {
     
 }
 
+- (IBAction)menuBtn:(id)sender {
+    
+    [self.slidingViewController anchorTopViewTo:ECRight];
+    
+}
+
 
 - (IBAction)digit:(id)sender{
     

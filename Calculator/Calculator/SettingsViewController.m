@@ -7,6 +7,8 @@
 //
 
 #import "SettingsViewController.h"
+#import "ECSlidingViewController.h"
+
 
 //константы: теги полей (нужны для определения полей)
 enum {
@@ -97,8 +99,7 @@ enum {
                                               ];
     
     [self.view addGestureRecognizer:tapOnScrolView];
-	
-    // Do any additional setup after loading the view.
+    
 }
 
 
@@ -191,13 +192,5 @@ enum {
     
 }
 
-
-/* метод изменения label (тестовый не определен в header файле)
- 
- - (IBAction)displaySettings:(id)sender {
- 
- [userSettingsLabel setText:[NSString stringWithFormat:@"hello %@",userName]];
- 
- }*/
 
 @end

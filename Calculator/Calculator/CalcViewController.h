@@ -29,4 +29,6 @@
 - (IBAction)inverseSign:(id)sender;
 - (IBAction)dotDivider:(id)sender;
 
+- (IBAction)menuBtn:(id)sender;
+
 @end

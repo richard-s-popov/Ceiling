@@ -104,4 +104,9 @@ CGSize size;
     CGContextFillRect(context, CGRectMake(20, 20, 100, 100));
 }
 
+- (IBAction)menuBtn:(id)sender {
+    
+    [self.slidingViewController anchorTopViewTo:ECRight];
+    
+}
 @end

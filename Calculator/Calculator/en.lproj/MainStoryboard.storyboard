@@ -54,26 +54,27 @@
                     <view key="view" contentMode="scaleToFill" id="1GA-RA-w7U">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" id="ynC-Qe-0vL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Home" id="26h-fZ-bpP">
+                                        <barButtonItem key="leftBarButtonItem" title="меню" id="Fah-RM-Zos">
+                                            <connections>
+                                                <action selector="menuBtn:" destination="buf-8V-Va5" id="hCg-Sj-ggf"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" red="0.15045119749999999" green="0.69038722829999999" blue="0.5838211687" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgI-Ql-VkD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="439" y="1829"/>
-        </scene>
-        <!--Second View Controller-->
-        <scene sceneID="Td5-Ir-TkL">
-            <objects>
-                <viewController storyboardIdentifier="Second" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TmE-aM-0al" customClass="SecondViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yFE-TS-5qD">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.69275085300000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ey-gy-KTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="839" y="1827"/>
         </scene>
         <!--Plot Rect View Controller - Чертеж-->
         <scene sceneID="5nj-I0-Y8h">
@@ -87,6 +88,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <navigationBar contentMode="scaleToFill" id="Qvs-g2-sb9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Чертеж" id="lg4-ed-LGS">
+                                        <barButtonItem key="leftBarButtonItem" title="меню" id="6wd-a9-xDZ">
+                                            <connections>
+                                                <action selector="menuBtn:" destination="P3h-FK-9FS" id="SBb-Z8-Css"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -124,7 +138,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TEXT" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yxn-Cp-Z4L">
-                                <rect key="frame" x="20" y="22" width="280" height="68"/>
+                                <rect key="frame" x="20" y="52" width="280" height="68"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -425,6 +439,19 @@
                                     <action selector="dotDivider:" destination="2" eventType="touchUpInside" id="BO4-fZ-vsQ"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" id="YKQ-fA-iuO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Калькулятор" id="S5K-jK-bS5">
+                                        <barButtonItem key="leftBarButtonItem" title="меню" id="t8q-TL-ZId">
+                                            <connections>
+                                                <action selector="menuBtn:" destination="2" id="47Y-Ji-Gyq"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -438,10 +465,10 @@
             </objects>
             <point key="canvasLocation" x="37" y="454"/>
         </scene>
-        <!--View Controller - Главная страница-->
+        <!--Options View Controller - Главная страница-->
         <scene sceneID="d4c-NJ-mSn">
             <objects>
-                <viewController id="F3i-nh-6UN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainOpt" useStoryboardIdentifierAsRestorationIdentifier="YES" id="F3i-nh-6UN" customClass="OptionsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rtR-d6-Cij">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -464,7 +491,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.85628587369999998" green="0.85628587369999998" blue="0.85628587369999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Главная страница" id="3Tc-VH-Hyq"/>
+                    <navigationItem key="navigationItem" title="Главная страница" id="3Tc-VH-Hyq">
+                        <barButtonItem key="leftBarButtonItem" title="меню" id="CaF-1d-f1J">
+                            <connections>
+                                <action selector="optMenuBtn:" destination="F3i-nh-6UN" id="mdy-T5-kh7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WdH-hK-Ckn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -599,6 +632,67 @@
             <point key="canvasLocation" x="439" y="1129"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="BuildViewController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BuildViewController.h"/>
+        </class>
+        <class className="CalcViewController" superclassName="SettingsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalcViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clear:"/>
+                <relationship kind="action" name="clearAll:"/>
+                <relationship kind="action" name="digit:"/>
+                <relationship kind="action" name="dotDivider:"/>
+                <relationship kind="action" name="inverseSign:"/>
+                <relationship kind="action" name="menuBtn:"/>
+                <relationship kind="action" name="operation:"/>
+                <relationship kind="outlet" name="displayLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="InitViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitViewController.h"/>
+        </class>
+        <class className="MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="menuBtn:"/>
+            </relationships>
+        </class>
+        <class className="MenuViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+        </class>
+        <class className="OptionsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="optMenuBtn:"/>
+            </relationships>
+        </class>
+        <class className="PlotRectViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlotRectViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="menuBtn:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="SettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="saveSettings:"/>
+                <relationship kind="outlet" name="managerEmailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="managerNameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="managerPhoneField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="manufactoryEmailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="manufactoryPhoneField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="settingsScroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="userEmailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userNameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userPhoneField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

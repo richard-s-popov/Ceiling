@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingsOptionsModel.h"
+#import "SettingsService.h"
 
 @interface SettingsViewController : UIViewController <UITextFieldDelegate, UIScrollViewDelegate> {
 
@@ -24,25 +26,9 @@
     
     __weak IBOutlet UIScrollView *settingsScroller;
     
-    
 }
-
-//создание переменных контакты пользователя
-@property (nonatomic, weak) NSString * userName;
-@property (nonatomic, weak) NSString * userPhone;
-@property (nonatomic, weak) NSString * userEmail;
-
-//создание переменных контакты менеджера
-@property (nonatomic, weak) NSString * managerName;
-@property (nonatomic, weak) NSString * managerPhone;
-@property (nonatomic, weak) NSString * managerEmail;
-
-//создание переменных контакты цеха
-@property (nonatomic, weak) NSString * manufactoryPhone;
-@property (nonatomic, weak) NSString * manufactoryEmail;
 
 
 - (IBAction)saveSettings:(id)sender;
-
 
 @end

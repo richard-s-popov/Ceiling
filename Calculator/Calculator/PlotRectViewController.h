@@ -12,5 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+- (IBAction)menuBtn:(id)sender;
+
 @end
 		

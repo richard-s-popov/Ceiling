@@ -7,6 +7,8 @@
 //
 
 #import "PlotRectViewController.h"
+#import "ECSlidingViewController.h"
+#import "MenuViewController.h"
 
 @interface PlotRectViewController ()
 
@@ -47,6 +49,19 @@ CGSize size;
     
     _imageView.image = result;
     [_imageView setNeedsDisplay];
+    
+    //добавляем меню
+    self.view.layer.shadowOpacity = 0.75f;
+    self.view.layer.shadowRadius = 10.0f;
+    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
+    
+    if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
+        self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+    }
+    
+    
+    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
     
     //NSLog(@"Image creation finished");
 }
@@ -89,4 +104,9 @@ CGSize size;
     CGContextFillRect(context, CGRectMake(20, 20, 100, 100));
 }
 
+- (IBAction)menuBtn:(id)sender {
+    
+    [self.slidingViewController anchorTopViewTo:ECRight];
+    
+}
 @end

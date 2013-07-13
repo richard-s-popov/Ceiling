@@ -7,6 +7,8 @@
 //
 
 #import "SettingsViewController.h"
+#import "ECSlidingViewController.h"
+
 
 //константы: теги полей (нужны для определения полей)
 enum {
@@ -26,20 +28,6 @@ enum {
 
 
 @implementation SettingsViewController
-
-
-//переменные контактов
-@synthesize userName;
-@synthesize userPhone;
-@synthesize userEmail;
-
-@synthesize managerName;
-@synthesize managerPhone;
-@synthesize managerEmail;
-
-@synthesize manufactoryPhone;
-@synthesize manufactoryEmail;
-
 
 
 // скрываем клавиатуру по нажатию кнопки
@@ -84,27 +72,26 @@ enum {
     manufactoryEmailField.delegate = self;
     
     
-    // загружаем сохраненные данные из памяти
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    userName = [defaults objectForKey:@"savedUserName"];
-    userPhone = [defaults objectForKey:@"savedUserPhone"];
-    userEmail = [defaults objectForKey:@"savedUserEmail"];
-    managerName = [defaults objectForKey:@"savedManagerName"];
-    managerPhone = [defaults objectForKey:@"savedManagerPhone"];
-    managerEmail = [defaults objectForKey:@"savedManagerEmail"];
-    manufactoryPhone = [defaults objectForKey:@"savedManufactoryPhone"];
-    manufactoryEmail = [defaults objectForKey:@"savedManufactoryEmail"];
+    //создаем новый объект SettingsOptionsModel для помещения в него сохраненных настроек из класса SettingsServise (метода Read)
+    SettingsOptionsModel * settingsModal = [SettingsOptionsModel new];
+    SettingsService * settingsService = [SettingsService new];
+    
+    //присваеваем объекту settingsServise то что возвращает функция Read в классе SettingsServise (то есть сохраненные настройки)
+    settingsModal = settingsService.Read;
     
     //загружаем данные в поля
-    [userNameField setText:userName];
-    [userPhoneField setText:userPhone];
-    [userEmailField setText:userEmail];
-    [managerNameField setText:managerName];
-    [managerPhoneField setText:managerPhone];
-    [managerEmailField setText:managerEmail];
-    [manufactoryPhoneField setText:manufactoryPhone];
-    [manufactoryEmailField setText:manufactoryEmail];
+    userNameField.text = [settingsModal userName];
+    userPhoneField.text = [settingsModal userPhone];
+    userEmailField.text = [settingsModal userEmail];
+    
+    managerNameField.text = [settingsModal managerName];
+    managerPhoneField.text = [settingsModal managerPhone];
+    managerEmailField.text = [settingsModal managerEmail];
+    
+    manufactoryPhoneField.text = [settingsModal manufactoryPhone];
+    manufactoryEmailField.text = [settingsModal manufactoryEmail];
 
+    
     //скрываем клавиатуру по нажатию на фон
     UITapGestureRecognizer *tapOnScrolView = [[UITapGestureRecognizer alloc]
                                               initWithTarget:self
@@ -112,10 +99,31 @@ enum {
                                               ];
     
     [self.view addGestureRecognizer:tapOnScrolView];
-	
-    // Do any additional setup after loading the view.
+    
 }
 
+
+- (IBAction)saveSettings:(id)sender {
+    
+    //создаем новый объект модели SettingsOptionsModel для передачи его в класс SettingsServise
+    SettingsOptionsModel * settingsOptions = [SettingsOptionsModel new];
+    
+    [settingsOptions setUserName:userNameField.text];
+    [settingsOptions setUserPhone:userPhoneField.text];
+    [settingsOptions setUserEmail:userEmailField.text];
+    
+    [settingsOptions setManagerName:managerNameField.text];
+    [settingsOptions setManagerPhone:managerPhoneField.text];
+    [settingsOptions setManagerEmail:managerEmailField.text];
+    
+    [settingsOptions setManufactoryPhone:manufactoryPhoneField.text];
+    [settingsOptions setManufactoryEmail:manufactoryEmailField.text];
+    
+    //передаем созданый объект settingsOptions в класс SettingsServise в функцию Save как параметр
+    SettingsService * settingsServise = [SettingsService new];
+    [settingsServise Save:settingsOptions];
+    
+}
 
 
 //поднимаем View для видимости поля ввода
@@ -170,36 +178,6 @@ enum {
 }
 
 
-- (IBAction)saveSettings:(id)sender {
-    
-    userName = userNameField.text;
-    userPhone = userPhoneField.text;
-    userEmail = userEmailField.text;
-    
-    managerName = managerEmailField.text;
-    managerPhone = managerPhoneField.text;
-    managerEmail = managerEmailField.text;
-    
-    manufactoryPhone = manufactoryPhoneField.text;
-    manufactoryEmail = manufactoryEmailField.text;
-    
-    
-    // сохраняем данные о пользователе, менеджере и цехе
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:userName forKey:@"savedUserName"];
-    [defaults setObject:userPhone forKey:@"savedUserPhone"];
-    [defaults setObject:userEmail forKey:@"savedUserEmail"];
-    [defaults setObject:managerName forKey:@"savedManagerName"];
-    [defaults setObject:managerPhone forKey:@"savedManagerPhone"];
-    [defaults setObject:managerEmail forKey:@"savedManagerEmail"];
-    [defaults setObject:manufactoryPhone forKey:@"savedManufactoryPhone"];
-    [defaults setObject:manufactoryEmail forKey:@"savedManufactoryEmail"];
-    
-    [defaults synchronize];
-    
-}
-
-
 //метод скрытия клавиатуры по нажитию на background
 - (void)dismissKeyboard {
     
@@ -214,13 +192,5 @@ enum {
     
 }
 
-
-/* метод изменения label (тестовый не определен в header файле)
- 
- - (IBAction)displaySettings:(id)sender {
- 
- [userSettingsLabel setText:[NSString stringWithFormat:@"hello %@",userName]];
- 
- }*/
 
 @end

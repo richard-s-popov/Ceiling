@@ -7,6 +7,9 @@
 //
 
 #import "CalcViewController.h"
+#import "ECSlidingViewController.h"
+#import "MenuViewController.h"
+
 
 enum {
     
@@ -27,20 +30,27 @@ enum {
 
 @implementation CalcViewController
 
-@synthesize userName;
-@synthesize userPhone;
-@synthesize userEmail;
+
 
 - (void)viewDidLoad
 {
-    // загружаем сохраненные данные в поля настроек из родительского класса
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    userName = [defaults objectForKey:@"savedUserName"];
-    userPhone = [defaults objectForKey:@"savedUserPhone"];
-    userEmail = [defaults objectForKey:@"savedUserEmail"];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    //добавляем меню
+    
+    self.view.layer.shadowOpacity = 0.75f;
+    self.view.layer.shadowRadius = 10.0f;
+    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
+    
+    if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
+        self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+    }
+    
+    
+    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
 }
 
 - (IBAction)clear:(id)sender {
@@ -74,6 +84,12 @@ enum {
         dotFlag = YES;
         
     }
+    
+}
+
+- (IBAction)menuBtn:(id)sender {
+    
+    [self.slidingViewController anchorTopViewTo:ECRight];
     
 }
 
@@ -158,8 +174,6 @@ enum {
     NSString *str = [NSString stringWithFormat:@"%g",x];
     [displayLabel setText:str];
     
-    //тест переменных родительского класса
-    NSLog(@"OK %@", userName);
 }
 
 @end

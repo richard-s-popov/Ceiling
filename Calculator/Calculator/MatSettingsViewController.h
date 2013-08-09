@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MatSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> 
+@interface MatSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *sectionTitle;
 @property (weak, nonatomic) IBOutlet UITextField *rowTitle;

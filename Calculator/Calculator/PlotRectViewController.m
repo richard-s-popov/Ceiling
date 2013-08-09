@@ -88,25 +88,44 @@ bool perimeterFinished;
     location.y = location.y * scaleFactor;
     location.x = location.x * scaleFactor;
     
+    CGPoint selectedFirstPoint = CGPointZero;
+    CGPoint selectedSecondPoint = CGPointZero;
+    
     // если периметр закончен, то больше не строим точки
     if (perimeterFinished) {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Preset Saving..." message:@"Describe the Preset\n\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
-        UITextField *textField;
-        textField = [[UITextField alloc] init];
-        [textField setBackgroundColor:[UIColor whiteColor]];
-        textField.delegate = self;
-        textField.borderStyle = UITextBorderStyleLine;
-        textField.frame = CGRectMake(15, 75, 255, 30);
-        textField.font = [UIFont fontWithName:@"ArialMT" size:20];
-        textField.placeholder = @"Preset Name";
-        textField.textAlignment = UITextAlignmentCenter;
-        textField.keyboardAppearance = UIKeyboardTypePhonePad;
-        textField.keyboardType = UIKeyboardTypeNumberPad;
-        [textField becomeFirstResponder];
-        [alert addSubview:textField];
-        [alert show];
+        bool lineSelected = false;
         
-        return;
+        for (int i = 0; i < [points count] - 1; i++) {
+            if ([self lineCircleIntersection:location.x circleY:location.y circleRadius:20.0 pointX1:[[points objectAtIndex:i] CGPointValue].x pointY1:[[points objectAtIndex:i] CGPointValue].y pointX2:[[points objectAtIndex:i + 1] CGPointValue].x pointY2:[[points objectAtIndex:i + 1] CGPointValue].y]){
+                
+                lineSelected = true;
+                
+                selectedFirstPoint =  CGPointMake([[points objectAtIndex:i] CGPointValue].x, [[points objectAtIndex:i] CGPointValue].y);
+                selectedSecondPoint =  CGPointMake([[points objectAtIndex:i + 1] CGPointValue].x, [[points objectAtIndex:i + 1] CGPointValue].y);
+                
+                break;
+                
+                            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Preset Saving..." message:@"Describe the Preset\n\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+                            UITextField *textField;
+                            textField = [[UITextField alloc] init];
+                            [textField setBackgroundColor:[UIColor whiteColor]];
+                            textField.delegate = self;
+                            textField.borderStyle = UITextBorderStyleLine;
+                            textField.frame = CGRectMake(15, 75, 255, 30);
+                            textField.font = [UIFont fontWithName:@"ArialMT" size:20];
+                            textField.placeholder = @"Preset Name";
+                            textField.textAlignment = UITextAlignmentCenter;
+                            textField.keyboardAppearance = UIKeyboardTypePhonePad;
+                            textField.keyboardType = UIKeyboardTypeNumberPad;
+                            [textField becomeFirstResponder];
+                            [alert addSubview:textField];
+                            [alert show];
+            }
+        }
+        
+        if (!lineSelected){
+            return;
+        }
     }
     
     // если точка была нажата рядом с последней, то не учитываем
@@ -120,10 +139,15 @@ bool perimeterFinished;
         
         location.x = [[points objectAtIndex:0] CGPointValue].x;
         location.y = [[points objectAtIndex:0] CGPointValue].y;
+        
+        [points addObject:[NSValue valueWithCGPoint:location]];
     }
 
-    [points addObject:[NSValue valueWithCGPoint:location]];
-    NSLog(@"%i", [points count]);
+    if (!perimeterFinished)
+    {
+        [points addObject:[NSValue valueWithCGPoint:location]];
+        NSLog(@"%i", [points count]);
+    }
     
     UIGraphicsBeginImageContext(size);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -142,17 +166,37 @@ bool perimeterFinished;
     else
     {
         for (int i = 0; i < [points count] - 1; i++) {
+            if (selectedFirstPoint.x != 0.0 && selectedFirstPoint.y != 0.0
+                && selectedFirstPoint.x == [[points objectAtIndex:i] CGPointValue].x
+                && selectedFirstPoint.y == [[points objectAtIndex:i] CGPointValue].y)
+            {
+                CGContextSetStrokeColorWithColor(context, [[UIColor greenColor] CGColor]);
+            }
+            else {
+                CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
+            }
             CGContextMoveToPoint(context, [[points objectAtIndex:i] CGPointValue].x, [[points objectAtIndex:i] CGPointValue].y);
             CGContextAddLineToPoint(context, [[points objectAtIndex:i + 1] CGPointValue].x, [[points objectAtIndex:i + 1] CGPointValue].y);
+            
+            CGContextStrokePath(context);
         }
     }
     
-    CGContextStrokePath(context);
-    
     // зарисовка точек
     for (int i = 0; i < [points count]; i++) {
+        if (selectedFirstPoint.x != 0.0 && selectedFirstPoint.y != 0.0
+            && selectedFirstPoint.x == [[points objectAtIndex:i] CGPointValue].x
+            && selectedFirstPoint.y == [[points objectAtIndex:i] CGPointValue].y) {
+            CGContextSetRGBFillColor(context, 0.0, 204.0, 0.0, 1.0);
+        } else if (selectedSecondPoint.x != 0.0 && selectedSecondPoint.y != 0.0
+            && selectedSecondPoint.x == [[points objectAtIndex:i] CGPointValue].x
+            && selectedSecondPoint.y == [[points objectAtIndex:i] CGPointValue].y) {
+            CGContextSetRGBFillColor(context, 0.0, 204.0, 0.0, 1.0);
+        } else {
+            CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
+        }
+        
         CGContextAddArc(context, [[points objectAtIndex:i] CGPointValue].x, [[points objectAtIndex:i] CGPointValue].y, 10 * scaleFactor, 0, 2*M_PI, YES);
-        CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
         CGContextDrawPath(context, kCGPathFill);
     }
     
@@ -189,42 +233,32 @@ bool perimeterFinished;
     double p = y1 - y2;
     double s = x1 - x2;
     
-    if (EqualDoubles(s, 0.0, 0.001))
+    if ([self equalDoubles:s d2:0.0 prec:0.001])
     {
         s = 0.001;
     }
     
-    double A = s*s+p*p;
-    double B = s*s*k+2.0*z*p+s*l*p;
-    double C = q*s*s+z*z+s*l*z;
+    double A = s * s + p * p;
+    double B = s * s * k + 2.0 * z * p + s * l * p;
+    double C = q * s * s + z * z + s * l * z;
     
-    double D = B*B-4.0*A*C;
+    double D = B * B - 4.0 * A * C;
     
     if (D < 0.0)
     {
-        return 0;
+        return false;
     }
     else if (D < 0.001)
     {
-        xa = -B/(2.0*A);
-        ya = (p*xa + z)/s;
-        return 1;
-    }
-    else
-    {
-        xa = (-B + sqrt(D))/(2.0*A);
-        ya = (p*xa + z)/s;
-        
-        xb = (-B - sqrt(D))/(2.0*A);
-        yb = (p*xb + z)/s;
+        return true;
     }
     
     return true;
 }
 
--(bool)equalDoubles:(double)n1 d2:(double)n2 prec(double)precision_
+-(bool)equalDoubles:(double)n1 d2:(double)n2 prec:(double)precision_
 {
-    return (fabs(n1-n2) <= precision_);
+    return (abs(n1-n2) <= precision_);
 }
 
 - (IBAction)menuBtn:(id)sender {

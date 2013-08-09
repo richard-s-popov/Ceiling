@@ -30,6 +30,10 @@
 		09D5DF70178CEB66004FAA8C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF6F178CEB66004FAA8C /* MainViewController.m */; };
 		09D5DF77178CEE16004FAA8C /* BuildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF76178CEE16004FAA8C /* BuildViewController.m */; };
 		26BF92FE1788441600C90497 /* PlotRectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BF92FD1788441600C90497 /* PlotRectViewController.m */; };
+		26DE9D9117B4DEDD00503ED5 /* img1353839745.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26DE9D8D17B4DEDD00503ED5 /* img1353839745.jpg */; };
+		26DE9D9217B4DEDD00503ED5 /* 6973.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DE9D8E17B4DEDD00503ED5 /* 6973.png */; };
+		26DE9D9317B4DEDD00503ED5 /* 1921039.gif in Resources */ = {isa = PBXBuildFile; fileRef = 26DE9D8F17B4DEDD00503ED5 /* 1921039.gif */; };
+		26DE9D9417B4DEDD00503ED5 /* миллиметровка.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26DE9D9017B4DEDD00503ED5 /* миллиметровка.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +76,10 @@
 		09D5DF76178CEE16004FAA8C /* BuildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildViewController.m; sourceTree = "<group>"; };
 		26BF92FC1788441600C90497 /* PlotRectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotRectViewController.h; sourceTree = "<group>"; };
 		26BF92FD1788441600C90497 /* PlotRectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotRectViewController.m; sourceTree = "<group>"; };
+		26DE9D8D17B4DEDD00503ED5 /* img1353839745.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = img1353839745.jpg; path = ../../../../Downloads/img1353839745.jpg; sourceTree = "<group>"; };
+		26DE9D8E17B4DEDD00503ED5 /* 6973.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 6973.png; path = ../../../../Downloads/6973.png; sourceTree = "<group>"; };
+		26DE9D8F17B4DEDD00503ED5 /* 1921039.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 1921039.gif; path = ../../../../Downloads/1921039.gif; sourceTree = "<group>"; };
+		26DE9D9017B4DEDD00503ED5 /* миллиметровка.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "миллиметровка.jpg"; path = "../../../../Downloads/миллиметровка.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +126,7 @@
 		09598145177F676E001D2122 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				26DE9D8C17B4DE9400503ED5 /* Content */,
 				09C93E841791B39F00A4FBDC /* menuButton@2x.png */,
 				09D5DF61178CEAA5004FAA8C /* ECSlidingViewController */,
 				09C82BBA1789DD5000A47057 /* Model */,
@@ -189,6 +198,17 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		26DE9D8C17B4DE9400503ED5 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				26DE9D8D17B4DEDD00503ED5 /* img1353839745.jpg */,
+				26DE9D8E17B4DEDD00503ED5 /* 6973.png */,
+				26DE9D8F17B4DEDD00503ED5 /* 1921039.gif */,
+				26DE9D9017B4DEDD00503ED5 /* миллиметровка.jpg */,
+			);
+			name = Content;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -247,6 +267,10 @@
 				09598156177F676E001D2122 /* Default-568h@2x.png in Resources */,
 				09598159177F676E001D2122 /* MainStoryboard.storyboard in Resources */,
 				09C93E851791B39F00A4FBDC /* menuButton@2x.png in Resources */,
+				26DE9D9117B4DEDD00503ED5 /* img1353839745.jpg in Resources */,
+				26DE9D9217B4DEDD00503ED5 /* 6973.png in Resources */,
+				26DE9D9317B4DEDD00503ED5 /* 1921039.gif in Resources */,
+				26DE9D9417B4DEDD00503ED5 /* миллиметровка.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		091954321791E71A0087B140 /* MatSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 091954311791E71A0087B140 /* MatSettingsViewController.m */; };
 		09598140177F676E001D2122 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0959813F177F676E001D2122 /* UIKit.framework */; };
 		09598142177F676E001D2122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09598141177F676E001D2122 /* Foundation.framework */; };
 		09598144177F676E001D2122 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09598143177F676E001D2122 /* CoreGraphics.framework */; };
@@ -33,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		091954301791E71A0087B140 /* MatSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatSettingsViewController.h; sourceTree = "<group>"; };
+		091954311791E71A0087B140 /* MatSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatSettingsViewController.m; sourceTree = "<group>"; };
 		0959813C177F676E001D2122 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0959813F177F676E001D2122 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09598141177F676E001D2122 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -136,6 +139,8 @@
 				09C93E861791B78100A4FBDC /* OptionsViewController.h */,
 				09C93E871791B78100A4FBDC /* OptionsViewController.m */,
 				09D5DF74178CEDC1004FAA8C /* Menu */,
+				091954301791E71A0087B140 /* MatSettingsViewController.h */,
+				091954311791E71A0087B140 /* MatSettingsViewController.m */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 				09D5DF70178CEB66004FAA8C /* MainViewController.m in Sources */,
 				09D5DF77178CEE16004FAA8C /* BuildViewController.m in Sources */,
 				09C93E881791B78100A4FBDC /* OptionsViewController.m in Sources */,
+				091954321791E71A0087B140 /* MatSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -76,7 +76,7 @@ enum {
     SettingsOptionsModel * settingsModal = [SettingsOptionsModel new];
     SettingsService * settingsService = [SettingsService new];
     
-    //присваеваем объекту settingsServise то что возвращает функция Read в классе SettingsServise (то есть сохраненные настройки)
+    //присваеваем объекту settingsModal то что возвращает функция Read в классе SettingsServise (то есть сохраненные настройки)
     settingsModal = settingsService.Read;
     
     //загружаем данные в поля

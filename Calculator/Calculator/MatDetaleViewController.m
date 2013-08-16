@@ -7,15 +7,17 @@
 //
 
 #import "MatDetaleViewController.h"
-#import "MathModel.h"
 #import "MathSingleViewController.h"
 
 @interface MatDetaleViewController ()
 
 @end
 
+
 @implementation MatDetaleViewController
 @synthesize tbl;
+@synthesize mathModel;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,14 +32,65 @@
 {
     [super viewDidLoad];
     
-    //переменная где будет хранится то что возвращает метод fetchData (массив данных)
-    _data = [MathModel fetchData];
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNew)];
-    self.navigationItem.leftBarButtonItem = addButton;
+    //Создаем объект модели материалов
+    //заполняем объект данными
+    NSMutableArray *innerArrayMaterial = [NSMutableArray array];
     
-	// Do any additional setup after loading the view.
+    MathModel *modelMaterial;
+    
+    modelMaterial = [[MathModel alloc] init];
+    modelMaterial.nameMaterial = @"Сатин";
+    modelMaterial.widthMaterial = @"150см";
+    modelMaterial.priceMaterial = @"200 руб/м2";
+    
+    [innerArrayMaterial addObject:modelMaterial];
+    
+    modelMaterial = [[MathModel alloc] init];
+    modelMaterial.nameMaterial = @"Глянец";
+    modelMaterial.widthMaterial = @"180см";
+    modelMaterial.priceMaterial = @"250 руб/м2";
+    
+    [innerArrayMaterial addObject:modelMaterial];
+    
+
+    
+    //подготовка к отправке данных в MaterialServise
+    MaterialServise *modelMaterialServise = [[MaterialServise alloc] init];
+    [modelMaterialServise SaveMaterial:innerArrayMaterial];
+    
+    
+    //передаем данные из функции Read класс MaterialServise в объект mathModel
+    mathModel = [MaterialServise Read];
+    
+    
+    //добавляем кнопку редактирования 
+    UIBarButtonItem *edit =[[UIBarButtonItem alloc]
+                             initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+                             target:self
+                             action:@selector(editing)];
+    self.navigationItem.rightBarButtonItem = edit;
 }
+
+
+//описание работы кнопки редактирования
+- (void)editing {
+    [self.tbl setEditing:!self.tbl.editing animated:YES];
+}
+
+
+//описание метода редактирования
+//- (void)tableView:(UITableView *)tableView
+//commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+//forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        [mathModel removeObjectAtIndex:indexPath.row];
+//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+//                         withRowAnimation:UITableViewRowAnimationFade];
+//    }
+//}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -45,10 +98,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return _data.count;
+    return mathModel.count;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
@@ -56,19 +111,13 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
     
     //создаем объект ячейки из массива данных
-    MathModel *item = [_data objectAtIndex:indexPath.row];
+    MathModel *item = [mathModel objectAtIndex:indexPath.row];
     cell.textLabel.text = item.nameMaterial;
     cell.detailTextLabel.text = item.widthMaterial;
     
     return cell;
 }
 
-- (void) addNew {
-    
-    [items addObject:@"Новая запись"];
-    [tbl reloadData];
-    
-}
 
 //отслеживание segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -77,10 +126,11 @@
     NSIndexPath *indexPath = [self.tbl indexPathForSelectedRow];
     
     if (indexPath) {
-        MathModel *item = [_data objectAtIndex:indexPath.row];
+        MathModel *item = [mathModel objectAtIndex:indexPath.row];
         [segue.destinationViewController setDetail:item];
     }
 }
+
 
 //анимация затухания выделения ячейки при возвращении в таблицу
 - (void) viewWillAppear:(BOOL)animated {

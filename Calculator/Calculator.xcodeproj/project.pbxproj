@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		091954321791E71A0087B140 /* MatSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 091954311791E71A0087B140 /* MatSettingsViewController.m */; };
+		09249A7417BD71BE00162B4F /* MaterialServise.m in Sources */ = {isa = PBXBuildFile; fileRef = 09249A7317BD71BE00162B4F /* MaterialServise.m */; };
 		09598140177F676E001D2122 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0959813F177F676E001D2122 /* UIKit.framework */; };
 		09598142177F676E001D2122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09598141177F676E001D2122 /* Foundation.framework */; };
 		09598144177F676E001D2122 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09598143177F676E001D2122 /* CoreGraphics.framework */; };
@@ -39,6 +40,8 @@
 /* Begin PBXFileReference section */
 		091954301791E71A0087B140 /* MatSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatSettingsViewController.h; sourceTree = "<group>"; };
 		091954311791E71A0087B140 /* MatSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatSettingsViewController.m; sourceTree = "<group>"; };
+		09249A7217BD71BE00162B4F /* MaterialServise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialServise.h; sourceTree = "<group>"; };
+		09249A7317BD71BE00162B4F /* MaterialServise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialServise.m; sourceTree = "<group>"; };
 		0959813C177F676E001D2122 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0959813F177F676E001D2122 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09598141177F676E001D2122 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -213,6 +216,8 @@
 				09FA8C7F17BCE00C000C1C89 /* MatDetaleViewController.m */,
 				09EB559A17BD1B7400E182CB /* MathSingleViewController.h */,
 				09EB559B17BD1B7400E182CB /* MathSingleViewController.m */,
+				09249A7217BD71BE00162B4F /* MaterialServise.h */,
+				09249A7317BD71BE00162B4F /* MaterialServise.m */,
 			);
 			name = Math;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 				09FA8C8017BCE00C000C1C89 /* MatDetaleViewController.m in Sources */,
 				09EB559C17BD1B7400E182CB /* MathSingleViewController.m in Sources */,
 				09EB559F17BD1D3900E182CB /* MathModel.m in Sources */,
+				09249A7417BD71BE00162B4F /* MaterialServise.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

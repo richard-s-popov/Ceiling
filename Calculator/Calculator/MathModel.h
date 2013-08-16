@@ -13,7 +13,8 @@
 @property (nonatomic, copy) NSString *nameMaterial;
 @property (nonatomic, copy) NSString *widthMaterial;
 @property (nonatomic, copy) NSString *priceMaterial;
+@property (nonatomic, copy) NSString *titleSectionMaterial;
 
-+ (NSArray *) fetchData;
+//+ (NSArray *) fetchData;
 
 @end

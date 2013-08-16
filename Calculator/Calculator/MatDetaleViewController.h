@@ -8,14 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "MathModel.h"
+#import "MaterialServise.h"
 
 @interface MatDetaleViewController : UIViewController <UITableViewDelegate , UITableViewDataSource> {
 
     NSMutableArray *items;
-    NSArray *_data;
+    NSMutableArray *dataMaterial;
 }
 
+@property (nonatomic, strong) NSArray *mathModel;
 @property (weak, nonatomic) IBOutlet UITableView *tbl;
-- (void) addNew;
+
 
 @end

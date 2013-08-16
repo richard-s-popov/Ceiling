@@ -677,7 +677,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XvX-33-R2G">
-                                <rect key="frame" x="215" y="23" width="42" height="21"/>
+                                <rect key="frame" x="207" y="23" width="47" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -832,90 +832,6 @@
             <point key="canvasLocation" x="629" y="1477"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="BuildViewController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BuildViewController.h"/>
-        </class>
-        <class className="CalcViewController" superclassName="SettingsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalcViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clear:"/>
-                <relationship kind="action" name="clearAll:"/>
-                <relationship kind="action" name="digit:"/>
-                <relationship kind="action" name="dotDivider:"/>
-                <relationship kind="action" name="inverseSign:"/>
-                <relationship kind="action" name="menuBtn:"/>
-                <relationship kind="action" name="operation:"/>
-                <relationship kind="outlet" name="displayLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ECSlidingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
-        </class>
-        <class className="InitViewController" superclassName="ECSlidingViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitViewController.h"/>
-        </class>
-        <class className="MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="menuBtn:"/>
-            </relationships>
-        </class>
-        <class className="MatDetaleViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatDetaleViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tbl" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="MatSettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addRowBtn:"/>
-                <relationship kind="action" name="addSelectionBtn:"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="rowTitle" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="sectionTitle" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MathSingleViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MathSingleViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="nameMaterialInDetail" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="priceMaterialInDetail" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MenuViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-        </class>
-        <class className="OptionsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="optMenuBtn:"/>
-            </relationships>
-        </class>
-        <class className="PlotRectViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlotRectViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="menuBtn:"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="SettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="saveSettings:"/>
-                <relationship kind="outlet" name="managerEmailField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="managerNameField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="managerPhoneField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="manufactoryEmailField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="manufactoryPhoneField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="settingsScroller" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="userEmailField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="userNameField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="userPhoneField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

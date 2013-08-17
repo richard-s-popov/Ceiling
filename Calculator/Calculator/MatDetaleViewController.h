@@ -20,7 +20,7 @@
 }
 
 @property (nonatomic, retain) NSMutableArray *innerArrayMaterial;
-@property (nonatomic, strong) NSArray *mathModel;
+@property (nonatomic, strong) NSArray *savedArray;
 @property (weak, nonatomic) IBOutlet UITableView *tbl;
 
 @property (nonatomic, strong) NSString *nameValueMaterial;

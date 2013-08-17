@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MathModel : NSObject
+@interface MathModel : NSArray
 
 @property (nonatomic, copy) NSString *nameMaterial;
 @property (nonatomic, copy) NSString *widthMaterial;
 @property (nonatomic, copy) NSString *priceMaterial;
+@property (nonatomic) NSString *idMaterial;
+
 @property (nonatomic, copy) NSString *titleSectionMaterial;
 
-//+ (NSArray *) fetchData;
 
 @end

@@ -16,7 +16,7 @@
 @implementation MatDetaleViewController
 
 @synthesize tbl;
-@synthesize mathModel;
+@synthesize savedArray;
 @synthesize innerArrayMaterial;
 
 @synthesize nameValueMaterial;
@@ -36,37 +36,66 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-            
-    //извлекаем сохраненные параметры материала
-    NSUserDefaults *singleMaterialDefoults = [NSUserDefaults standardUserDefaults];
-    
-    nameValueMaterial = [singleMaterialDefoults objectForKey:@"nameValueMaterialKey"];
-    widthValueMaterial = [singleMaterialDefoults objectForKey:@"widthValueMaterialKey"];
-    priceValueMaterial = [singleMaterialDefoults objectForKey:@"priceValueMaterialKey"];
 
-    [singleMaterialDefoults synchronize];
     
+    //передаем данные из функции Read класс MaterialServise в объект mathModel
+    savedArray = [MaterialServise Read];
+
+    
+    //инициализируем объекты массива и материала
     self.innerArrayMaterial = [NSMutableArray array];
+    MathModel *exemplarMaterial;
     
-    MathModel *modelMaterial;
     
-    modelMaterial = [[MathModel alloc] init];
-    modelMaterial.nameMaterial = nameValueMaterial;
-    modelMaterial.widthMaterial = widthValueMaterial;
-    modelMaterial.priceMaterial = priceValueMaterial;
+    //цыкл для загрузки данных
+    //извлечение счетчика колличества сохраненных объектов count
+    NSUserDefaults *count = [NSUserDefaults standardUserDefaults];
+    NSString *strCount = [count objectForKey:@"countCicle"];
+    int intCount = [strCount integerValue];
     
-    [innerArrayMaterial addObject:modelMaterial];
     
-    [innerArrayMaterial addObject:modelMaterial];
-
+    //добавляем первый материал если счетчик колличества материалов равен 0
+    //задаем нулевой объект
+    if (intCount == 0) {
+        //заполняем нулевой объект данными
+        exemplarMaterial = [[MathModel alloc] init];
+        exemplarMaterial.nameMaterial = @"первый материал";
+        exemplarMaterial.widthMaterial = @"ширина";
+        exemplarMaterial.priceMaterial = @"цена";
+        exemplarMaterial.idMaterial = @"0";
+        //заполняем ячейку массива материалов по индексу
+        [innerArrayMaterial addObject:exemplarMaterial];
+    }
+    
+    
+    //пересоздаем материалы в контроллере из памяти
+    int n = 0;
+    while (n!=intCount) {
+        //инициализируем новый объект материала для заполнения
+        exemplarMaterial = [[MathModel alloc] init];
+        exemplarMaterial = [savedArray objectAtIndex:n];
+        
+        [innerArrayMaterial addObject:exemplarMaterial];
+        n++;
+    }  
+    
+    //чистим настройки в plist
+    n = 15;
+    while (n>=intCount) {
+        NSLog(@"номер эллемента = %d", n);
+        NSUserDefaults *materials = [NSUserDefaults standardUserDefaults];
+        //удаляем настройки из plist
+        [materials removeObjectForKey:[NSString stringWithFormat:@"nameMaterialObject%d", n]];
+        [materials removeObjectForKey:[NSString stringWithFormat:@"widthMaterialObject%d", n]];
+        [materials removeObjectForKey:[NSString stringWithFormat:@"priceMaterialObject%d", n]];
+        [materials removeObjectForKey:[NSString stringWithFormat:@"idMaterialObject%d", n]];     
+        n--;
+    }
+    
     
     //подготовка к отправке данных в MaterialServise
     MaterialServise *modelMaterialServise = [[MaterialServise alloc] init];
     [modelMaterialServise SaveMaterial:innerArrayMaterial];
-    
-    
-    //передаем данные из функции Read класс MaterialServise в объект mathModel
-    mathModel = [MaterialServise Read];
     
     
     //добавляем кнопку редактирования 
@@ -78,27 +107,32 @@
 }
 
 
+//нажатие на кнопку добавить
 - (IBAction)addBtn:(id)sender {
     
-    MathModel *modelMaterial;
     
-    modelMaterial = [[MathModel alloc] init];
-    modelMaterial.nameMaterial = @"Новый материал";
-    modelMaterial.widthMaterial = @"";
-    modelMaterial.priceMaterial = @"";
+    //создаем экземпляр нового материала
+    MathModel *exemplarMaterial;
+    //заполняем экземпляр статичными данными
+    exemplarMaterial = [[MathModel alloc] init];
+    exemplarMaterial.nameMaterial = @"Новый материал";
+    exemplarMaterial.widthMaterial = @"";
+    exemplarMaterial.priceMaterial = @"";
+    //присваиваем id материалу по числу count
+    exemplarMaterial.idMaterial = [NSString stringWithFormat:@"%d", innerArrayMaterial.count];
+    [innerArrayMaterial addObject:exemplarMaterial];
     
-    [innerArrayMaterial addObject:modelMaterial];
     
     //подготовка к отправке данных в MaterialServise
     MaterialServise *modelMaterialServise = [[MaterialServise alloc] init];
     [modelMaterialServise SaveMaterial:innerArrayMaterial];
     
+    
     //передаем данные из функции Read класс MaterialServise в объект mathModel
-    mathModel = [MaterialServise Read];
+    savedArray = [MaterialServise Read];
     
-    //проверка уменьшения эллементов массива mathModel класса MaterialServise
-    NSLog(@"mathModel.count = %d", mathModel.count);
     
+    //пересобираем таблицу
     [tbl reloadData];
 }
 
@@ -114,18 +148,20 @@
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //удаляем ячейку с материалом непосредственно из массива
         [innerArrayMaterial removeObjectAtIndex:indexPath.row];
+
         
         //подготовка к отправке данных в MaterialServise
         MaterialServise *modelMaterialServise = [[MaterialServise alloc] init];
         [modelMaterialServise SaveMaterial:innerArrayMaterial];
         
-        //передаем данные из функции Read класс MaterialServise в объект mathModel
-        mathModel = [MaterialServise Read];
+        
+        //передаем данные из функции Read класс MaterialServise в объект savedArray
+        savedArray = [MaterialServise Read];
 
-        //проверка уменьшения эллементов массива mathModel класса MaterialServise
-        NSLog(@"mathModel.count = %d", mathModel.count);
         
         [tbl deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                          withRowAnimation:UITableViewRowAnimationFade];
@@ -142,7 +178,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return mathModel.count;
+    return savedArray.count;
 }
 
 
@@ -152,9 +188,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
     
     //создаем объект ячейки из массива данных
-    MathModel *item = [mathModel objectAtIndex:indexPath.row];
-    cell.textLabel.text = item.nameMaterial;
-    cell.detailTextLabel.text = item.widthMaterial;
+    MathModel *exemplarMaterial = [savedArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = exemplarMaterial.nameMaterial;
+    cell.detailTextLabel.text = exemplarMaterial.widthMaterial;
     
     return cell;
 }
@@ -163,12 +199,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 //отслеживание segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
-    NSLog(@"PrepareForSeq %@", segue.identifier);
     NSIndexPath *indexPath = [self.tbl indexPathForSelectedRow];
     
     if (indexPath) {
-        MathModel *item = [mathModel objectAtIndex:indexPath.row];
-        [segue.destinationViewController setDetail:item];
+        MathModel *exemplarMaterial = [savedArray objectAtIndex:indexPath.row];
+        [segue.destinationViewController setDetail:exemplarMaterial];
     }
 }
 

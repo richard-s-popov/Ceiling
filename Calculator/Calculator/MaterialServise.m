@@ -12,64 +12,64 @@
 
 - (void)SaveMaterial:(NSMutableArray *)model {
     
+    
     //сохранение счетчика
     NSUserDefaults *count = [NSUserDefaults standardUserDefaults];
     [count setObject:[NSString stringWithFormat:@"%d", model.count] forKey:@"countCicle"];
     [count synchronize];
-    
     //преобразование счетчика в integer
     NSString *strCount = [count objectForKey:@"countCicle"];
     int intCount = [strCount integerValue];
     
+    
     //цыкл для сохранения данных
     int n = 0;
     while (n!=intCount) {
-        
-        MathModel *mathModelInner = [model objectAtIndex:n];
-        NSLog(@"\n \n сохрание step1 - %@", mathModelInner.nameMaterial);
-        
+        //создание объекта материала на основе индекса массива
+        MathModel *exemplarMaterial = [model objectAtIndex:n];
         //сохранение данных переданных из класса MatDetaleViewController
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        
-        [defaults setObject:[mathModelInner nameMaterial] forKey:[NSString stringWithFormat:@"nameMaterialKey%d", n]];
-        [defaults setObject:[mathModelInner widthMaterial] forKey:[NSString stringWithFormat:@"widthMaterialKey%d", n]];
-        [defaults setObject:[mathModelInner priceMaterial] forKey:[NSString stringWithFormat:@"priseMaterialKey%d", n]];
-        
-        [defaults synchronize];
-        
-        n++;//увеличиваем счетчик
+        NSUserDefaults *materials = [NSUserDefaults standardUserDefaults];
+        [materials setObject:[exemplarMaterial nameMaterial] forKey:[NSString stringWithFormat:@"nameMaterialObject%d", n]];
+        [materials setObject:[exemplarMaterial widthMaterial] forKey:[NSString stringWithFormat:@"widthMaterialObject%d", n]];
+        [materials setObject:[exemplarMaterial priceMaterial] forKey:[NSString stringWithFormat:@"priceMaterialObject%d", n]];
+        [materials setObject:[NSString stringWithFormat:@"%d", n] forKey:[NSString stringWithFormat:@"idMaterialObject%d", n]];
+        [materials synchronize];
+        //увеличиваем счетчик
+        n++;
     }
-    
 }
 
 
 + (NSMutableArray *)Read {
     
-    NSMutableArray *resultMaterials = [[NSMutableArray alloc] init];
     
+    NSMutableArray *resultMaterials = [[NSMutableArray alloc] init];
     MathModel *savedMaterial;
     
+    
+    //извлечение счетчика count
     NSUserDefaults *count = [NSUserDefaults standardUserDefaults];
     NSString *strCount = [count objectForKey:@"countCicle"];
     int intCount = [strCount integerValue];
     
+    
+    //цыкл основанный на общем колличестве материалов в массиве
     int n = 0;
     while (n!=intCount) {
+        //создание объекта материала для сохранения данных
         savedMaterial = [[MathModel alloc] init];
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        
-        [savedMaterial setNameMaterial:[defaults objectForKey:[NSString stringWithFormat:@"nameMaterialKey%d", n]]];
-        [savedMaterial setWidthMaterial:[defaults objectForKey:[NSString stringWithFormat:@"widthMaterialKey%d", n]]];
-        [savedMaterial setPriceMaterial:[defaults objectForKey:[NSString stringWithFormat:@"priseMaterialKey%d", n]]];
-        
+        //извлечение данных материала из plist по очередности
+        NSUserDefaults *materials = [NSUserDefaults standardUserDefaults];
+        [savedMaterial setNameMaterial:[materials objectForKey:[NSString stringWithFormat:@"nameMaterialObject%d", n]]];
+        [savedMaterial setWidthMaterial:[materials objectForKey:[NSString stringWithFormat:@"widthMaterialObject%d", n]]];
+        [savedMaterial setPriceMaterial:[materials objectForKey:[NSString stringWithFormat:@"priceMaterialObject%d", n]]];
+        [savedMaterial setIdMaterial:[materials objectForKey:[NSString stringWithFormat:@"idMaterialObject%d", n]]];
+        //добавление объекта материала в массив предназначенный для дальнейшей передачи данных в контроллер
         [resultMaterials addObject:savedMaterial];
-        
-        //лог о сохранненном объекте
-        NSLog(@"сохранен объект:\n %@ \n %@ \n %@",[defaults objectForKey:[NSString stringWithFormat:@"nameMaterialKey%d", n]]);
-        
-        n++;//увеличиваем счетчик
+        //увеличиваем счетчик
+        n++;
     }
+    
     
     return resultMaterials;
 }

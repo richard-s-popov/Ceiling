@@ -42,10 +42,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) setDetail:(MathModel *)detail {
 
-    _detail = detail;
-    NSLog(@"%@", _detail.widthMaterial);
+//передаем экземпляр материала по сигвэю
+- (void) setDetail:(MathModel *)segueExemplarMaterial {
+
+    _detail = segueExemplarMaterial;
 }
 
 - (void) reloadData {
@@ -63,16 +64,12 @@
 //действие по нажатию на кнопку сохранинея
 - (IBAction)saveMaterialSingle:(id)sender {
     
-    NSUserDefaults *singleMaterialDefoults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *materials = [NSUserDefaults standardUserDefaults];
     
-    [singleMaterialDefoults setObject:editMaterialName.text forKey:@"nameValueMaterialKey"];
-    [singleMaterialDefoults setObject:editMaterialWidth.text forKey:@"widthValueMaterialKey"];
-    [singleMaterialDefoults setObject:editMaterialPrice.text forKey:@"priceValueMaterialKey"];
+    [materials setObject:editMaterialName.text forKey:[NSString stringWithFormat:@"nameMaterialObject%@", _detail.idMaterial]];
+    [materials setObject:editMaterialWidth.text forKey:[NSString stringWithFormat:@"widthMaterialObject%@", _detail.idMaterial]];
+    [materials setObject:editMaterialPrice.text forKey:[NSString stringWithFormat:@"priceMaterialObject%@", _detail.idMaterial]];
     
-    [singleMaterialDefoults synchronize];
-    
-    
-    //выводим лог для проверки
-    NSLog(@"сохранен материал в defaults %@", [singleMaterialDefoults objectForKey:@"nameValueMaterialKey"]);
+    [materials synchronize];
 }
 @end

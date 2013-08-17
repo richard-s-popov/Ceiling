@@ -41,7 +41,7 @@
 }
 
 
-+ (NSArray *)Read {
++ (NSMutableArray *)Read {
     
     NSMutableArray *resultMaterials = [[NSMutableArray alloc] init];
     

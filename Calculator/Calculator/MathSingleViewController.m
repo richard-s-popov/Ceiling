@@ -51,8 +51,14 @@
     
     nameMaterialInDetail.text = [NSString stringWithFormat:@"%@ %@", _detail.nameMaterial, _detail.widthMaterial];
     
-    priceMaterialInDetail.text =[NSString stringWithFormat:@"%@", _detail.priceMaterial];
+    priceMaterialInDetail.text =[NSString stringWithFormat:@"%@ руб/м2", _detail.priceMaterial];
+    
+    
     
 }
 
+- (IBAction)saveMaterialSingle:(id)sender {
+    
+    
+}
 @end

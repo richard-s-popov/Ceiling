@@ -15,8 +15,10 @@
 
 
 @implementation MatDetaleViewController
+
 @synthesize tbl;
 @synthesize mathModel;
+@synthesize innerArrayMaterial;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,21 +37,28 @@
     
     //Создаем объект модели материалов
     //заполняем объект данными
-    NSMutableArray *innerArrayMaterial = [NSMutableArray array];
+    self.innerArrayMaterial = [NSMutableArray array];
     
     MathModel *modelMaterial;
     
     modelMaterial = [[MathModel alloc] init];
     modelMaterial.nameMaterial = @"Сатин";
     modelMaterial.widthMaterial = @"150см";
-    modelMaterial.priceMaterial = @"200 руб/м2";
+    modelMaterial.priceMaterial = @"200";
     
     [innerArrayMaterial addObject:modelMaterial];
     
     modelMaterial = [[MathModel alloc] init];
     modelMaterial.nameMaterial = @"Глянец";
     modelMaterial.widthMaterial = @"180см";
-    modelMaterial.priceMaterial = @"250 руб/м2";
+    modelMaterial.priceMaterial = @"250";
+    
+    [innerArrayMaterial addObject:modelMaterial];
+    
+    modelMaterial = [[MathModel alloc] init];
+    modelMaterial.nameMaterial = @"Матовый";
+    modelMaterial.widthMaterial = @"280см";
+    modelMaterial.priceMaterial = @"340";
     
     [innerArrayMaterial addObject:modelMaterial];
     
@@ -75,21 +84,33 @@
 
 //описание работы кнопки редактирования
 - (void)editing {
-    [self.tbl setEditing:!self.tbl.editing animated:YES];
+    [tbl setEditing:!self.tbl.editing animated:YES];
 }
 
 
 //описание метода редактирования
-//- (void)tableView:(UITableView *)tableView
-//commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-//forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        [mathModel removeObjectAtIndex:indexPath.row];
-//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-//                         withRowAnimation:UITableViewRowAnimationFade];
-//    }
-//}
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [innerArrayMaterial removeObjectAtIndex:indexPath.row];
+        
+        //попытка провести все действия mvc при удалении
+        //подготовка к отправке данных в MaterialServise
+        MaterialServise *modelMaterialServise = [[MaterialServise alloc] init];
+        [modelMaterialServise SaveMaterial:innerArrayMaterial];
+        
+        //передаем данные из функции Read класс MaterialServise в объект mathModel
+        mathModel = [MaterialServise Read];
+
+        //проверка уменьшения эллементов массива mathModel класса MaterialServise
+        NSLog(@"mathModel.count = %d", mathModel.count);
+        
+        [tbl deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
 
 
 - (void)didReceiveMemoryWarning

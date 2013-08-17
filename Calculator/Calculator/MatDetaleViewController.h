@@ -14,8 +14,10 @@
 
     NSMutableArray *items;
     NSMutableArray *dataMaterial;
+    NSMutableArray *innerArrayMaterial;
 }
 
+@property (nonatomic, retain) NSMutableArray *innerArrayMaterial;
 @property (nonatomic, strong) NSArray *mathModel;
 @property (weak, nonatomic) IBOutlet UITableView *tbl;
 

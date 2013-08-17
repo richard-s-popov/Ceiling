@@ -15,4 +15,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameMaterialInDetail;
 @property (weak, nonatomic) IBOutlet UILabel *priceMaterialInDetail;
 
+@property (weak, nonatomic) IBOutlet UITextField *editMaterialName;
+@property (weak, nonatomic) IBOutlet UITextField *editMaterialWidth;
+@property (weak, nonatomic) IBOutlet UITextField *editMaterialPrice;
+
+- (IBAction)saveMaterialSingle:(id)sender;
+
 @end

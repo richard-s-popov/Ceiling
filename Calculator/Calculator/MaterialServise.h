@@ -14,6 +14,6 @@
 
 
 - (void)SaveMaterial:(NSMutableArray *)model;
-+ (NSArray *)Read;
++ (NSMutableArray *)Read;
 
 @end

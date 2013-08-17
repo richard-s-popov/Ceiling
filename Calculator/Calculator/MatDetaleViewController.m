@@ -7,7 +7,6 @@
 //
 
 #import "MatDetaleViewController.h"
-#import "MathSingleViewController.h"
 
 @interface MatDetaleViewController ()
 
@@ -19,6 +18,10 @@
 @synthesize tbl;
 @synthesize mathModel;
 @synthesize innerArrayMaterial;
+
+@synthesize nameValueMaterial;
+@synthesize widthValueMaterial;
+@synthesize priceValueMaterial;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,35 +36,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+            
+    //извлекаем сохраненные параметры материала
+    NSUserDefaults *singleMaterialDefoults = [NSUserDefaults standardUserDefaults];
     
+    nameValueMaterial = [singleMaterialDefoults objectForKey:@"nameValueMaterialKey"];
+    widthValueMaterial = [singleMaterialDefoults objectForKey:@"widthValueMaterialKey"];
+    priceValueMaterial = [singleMaterialDefoults objectForKey:@"priceValueMaterialKey"];
+
+    [singleMaterialDefoults synchronize];
     
-    //Создаем объект модели материалов
-    //заполняем объект данными
     self.innerArrayMaterial = [NSMutableArray array];
     
     MathModel *modelMaterial;
     
     modelMaterial = [[MathModel alloc] init];
-    modelMaterial.nameMaterial = @"Сатин";
-    modelMaterial.widthMaterial = @"150см";
-    modelMaterial.priceMaterial = @"200";
+    modelMaterial.nameMaterial = nameValueMaterial;
+    modelMaterial.widthMaterial = widthValueMaterial;
+    modelMaterial.priceMaterial = priceValueMaterial;
     
     [innerArrayMaterial addObject:modelMaterial];
     
-    modelMaterial = [[MathModel alloc] init];
-    modelMaterial.nameMaterial = @"Глянец";
-    modelMaterial.widthMaterial = @"180см";
-    modelMaterial.priceMaterial = @"250";
-    
     [innerArrayMaterial addObject:modelMaterial];
-    
-    modelMaterial = [[MathModel alloc] init];
-    modelMaterial.nameMaterial = @"Матовый";
-    modelMaterial.widthMaterial = @"280см";
-    modelMaterial.priceMaterial = @"340";
-    
-    [innerArrayMaterial addObject:modelMaterial];
-    
 
     
     //подготовка к отправке данных в MaterialServise
@@ -82,6 +78,31 @@
 }
 
 
+- (IBAction)addBtn:(id)sender {
+    
+    MathModel *modelMaterial;
+    
+    modelMaterial = [[MathModel alloc] init];
+    modelMaterial.nameMaterial = @"Новый материал";
+    modelMaterial.widthMaterial = @"";
+    modelMaterial.priceMaterial = @"";
+    
+    [innerArrayMaterial addObject:modelMaterial];
+    
+    //подготовка к отправке данных в MaterialServise
+    MaterialServise *modelMaterialServise = [[MaterialServise alloc] init];
+    [modelMaterialServise SaveMaterial:innerArrayMaterial];
+    
+    //передаем данные из функции Read класс MaterialServise в объект mathModel
+    mathModel = [MaterialServise Read];
+    
+    //проверка уменьшения эллементов массива mathModel класса MaterialServise
+    NSLog(@"mathModel.count = %d", mathModel.count);
+    
+    [tbl reloadData];
+}
+
+
 //описание работы кнопки редактирования
 - (void)editing {
     [tbl setEditing:!self.tbl.editing animated:YES];
@@ -96,7 +117,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [innerArrayMaterial removeObjectAtIndex:indexPath.row];
         
-        //попытка провести все действия mvc при удалении
         //подготовка к отправке данных в MaterialServise
         MaterialServise *modelMaterialServise = [[MaterialServise alloc] init];
         [modelMaterialServise SaveMaterial:innerArrayMaterial];
@@ -156,9 +176,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 //анимация затухания выделения ячейки при возвращении в таблицу
 - (void) viewWillAppear:(BOOL)animated {
 
+    
     [super viewWillAppear:animated];
     [self.tbl deselectRowAtIndexPath:[self.tbl indexPathForSelectedRow] animated:YES];
 }
+
 
 @end
 

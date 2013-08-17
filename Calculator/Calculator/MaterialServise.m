@@ -11,20 +11,22 @@
 @implementation MaterialServise
 
 - (void)SaveMaterial:(NSMutableArray *)model {
-
-    NSUserDefaults *count = [NSUserDefaults standardUserDefaults];
     
+    //сохранение счетчика
+    NSUserDefaults *count = [NSUserDefaults standardUserDefaults];
     [count setObject:[NSString stringWithFormat:@"%d", model.count] forKey:@"countCicle"];
     [count synchronize];
     
+    //преобразование счетчика в integer
     NSString *strCount = [count objectForKey:@"countCicle"];
     int intCount = [strCount integerValue];
     
+    //цыкл для сохранения данных
     int n = 0;
     while (n!=intCount) {
         
         MathModel *mathModelInner = [model objectAtIndex:n];
-        NSLog(@"%@", mathModelInner.nameMaterial);
+        NSLog(@"\n \n сохрание step1 - %@", mathModelInner.nameMaterial);
         
         //сохранение данных переданных из класса MatDetaleViewController
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -62,6 +64,9 @@
         [savedMaterial setPriceMaterial:[defaults objectForKey:[NSString stringWithFormat:@"priseMaterialKey%d", n]]];
         
         [resultMaterials addObject:savedMaterial];
+        
+        //лог о сохранненном объекте
+        NSLog(@"сохранен объект:\n %@ \n %@ \n %@",[defaults objectForKey:[NSString stringWithFormat:@"nameMaterialKey%d", n]]);
         
         n++;//увеличиваем счетчик
     }

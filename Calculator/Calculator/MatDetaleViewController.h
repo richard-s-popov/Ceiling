@@ -9,17 +9,24 @@
 #import <UIKit/UIKit.h>
 #import "MathModel.h"
 #import "MaterialServise.h"
+#import "MathSingleViewController.h"
 
 @interface MatDetaleViewController : UIViewController <UITableViewDelegate , UITableViewDataSource> {
 
     NSMutableArray *items;
     NSMutableArray *dataMaterial;
     NSMutableArray *innerArrayMaterial;
+    
 }
 
 @property (nonatomic, retain) NSMutableArray *innerArrayMaterial;
 @property (nonatomic, strong) NSArray *mathModel;
 @property (weak, nonatomic) IBOutlet UITableView *tbl;
 
+@property (nonatomic, strong) NSString *nameValueMaterial;
+@property (nonatomic, strong) NSString *widthValueMaterial;
+@property (nonatomic, strong) NSString *priceValueMaterial;
+
+- (IBAction)addBtn:(id)sender;
 
 @end

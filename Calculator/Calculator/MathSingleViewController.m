@@ -16,6 +16,9 @@
 
 @synthesize nameMaterialInDetail;
 @synthesize priceMaterialInDetail;
+@synthesize editMaterialName;
+@synthesize editMaterialWidth;
+@synthesize editMaterialPrice;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,8 +60,19 @@
     
 }
 
+//действие по нажатию на кнопку сохранинея
 - (IBAction)saveMaterialSingle:(id)sender {
     
+    NSUserDefaults *singleMaterialDefoults = [NSUserDefaults standardUserDefaults];
     
+    [singleMaterialDefoults setObject:editMaterialName.text forKey:@"nameValueMaterialKey"];
+    [singleMaterialDefoults setObject:editMaterialWidth.text forKey:@"widthValueMaterialKey"];
+    [singleMaterialDefoults setObject:editMaterialPrice.text forKey:@"priceValueMaterialKey"];
+    
+    [singleMaterialDefoults synchronize];
+    
+    
+    //выводим лог для проверки
+    NSLog(@"сохранен материал в defaults %@", [singleMaterialDefoults objectForKey:@"nameValueMaterialKey"]);
 }
 @end

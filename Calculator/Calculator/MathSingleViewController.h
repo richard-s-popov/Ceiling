@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MathModel.h"
+#import "MatDetaleViewController.h"
 
 @interface MathSingleViewController : UIViewController
 

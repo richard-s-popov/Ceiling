@@ -36,7 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    NSLog(@"viewDidLoad has worked");
     
     //передаем данные из функции Read класс MaterialServise в объект mathModel
     savedArray = [MaterialServise Read];
@@ -73,16 +73,19 @@
     while (n!=intCount) {
         //инициализируем новый объект материала для заполнения
         exemplarMaterial = [[MathModel alloc] init];
-        exemplarMaterial = [savedArray objectAtIndex:n];
+        NSUserDefaults *materials = [NSUserDefaults standardUserDefaults];
+        [exemplarMaterial setNameMaterial:[materials objectForKey:[NSString stringWithFormat:@"nameMaterialObject%d", n]]];
+        [exemplarMaterial setWidthMaterial:[materials objectForKey:[NSString stringWithFormat:@"widthMaterialObject%d", n]]];
+        [exemplarMaterial setPriceMaterial:[materials objectForKey:[NSString stringWithFormat:@"priceMaterialObject%d", n]]];
+        [exemplarMaterial setIdMaterial:[materials objectForKey:[NSString stringWithFormat:@"idMaterialObject%d", n]]];
         
         [innerArrayMaterial addObject:exemplarMaterial];
         n++;
     }  
     
     //чистим настройки в plist
-    n = 15;
+    n = 50;
     while (n>=intCount) {
-        NSLog(@"номер эллемента = %d", n);
         NSUserDefaults *materials = [NSUserDefaults standardUserDefaults];
         //удаляем настройки из plist
         [materials removeObjectForKey:[NSString stringWithFormat:@"nameMaterialObject%d", n]];
@@ -109,7 +112,7 @@
 
 //нажатие на кнопку добавить
 - (IBAction)addBtn:(id)sender {
-    
+    NSLog(@"addBtn has worked");
     
     //создаем экземпляр нового материала
     MathModel *exemplarMaterial;
@@ -150,6 +153,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSLog(@"delete cell is worked");
         //удаляем ячейку с материалом непосредственно из массива
         [innerArrayMaterial removeObjectAtIndex:indexPath.row];
 
@@ -183,10 +187,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     static NSString *const CellId = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
     
+    NSLog(@"Cell %d is filled", indexPath.row);
     //создаем объект ячейки из массива данных
     MathModel *exemplarMaterial = [savedArray objectAtIndex:indexPath.row];
     cell.textLabel.text = exemplarMaterial.nameMaterial;
@@ -204,16 +209,47 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     if (indexPath) {
         MathModel *exemplarMaterial = [savedArray objectAtIndex:indexPath.row];
         [segue.destinationViewController setDetail:exemplarMaterial];
+        NSLog(@"array MathModel worked with segue %d", indexPath.row);
     }
 }
 
 
 //анимация затухания выделения ячейки при возвращении в таблицу
-- (void) viewWillAppear:(BOOL)animated {
-
+- (void) viewDidAppear:(BOOL)animated {
+    NSLog(@"viewDidApear is worked");
     
-    [super viewWillAppear:animated];
+    NSIndexPath *selectedIndexPath = [self.tbl indexPathForSelectedRow];
+    
+    [super viewDidAppear:animated];
+    
+    if (selectedIndexPath) {
+        //изменяем данные в массиве
+        MathModel *changedMaterial = [[MathModel alloc] init];
+        changedMaterial = [innerArrayMaterial objectAtIndex:selectedIndexPath.row];
+        
+        //извлекаем данные из памяти
+        NSUserDefaults *materials =[NSUserDefaults standardUserDefaults];
+        [changedMaterial setNameMaterial:[materials objectForKey:[NSString stringWithFormat:@"nameMaterialObject%d", selectedIndexPath.row]]];
+        [changedMaterial setWidthMaterial:[materials objectForKey:[NSString stringWithFormat:@"widthMaterialObject%d", selectedIndexPath.row]]];
+        [changedMaterial setPriceMaterial:[materials objectForKey:[NSString stringWithFormat:@"priceMaterialObject%d", selectedIndexPath.row]]];
+        [changedMaterial setIdMaterial:[materials objectForKey:[NSString stringWithFormat:@"idMaterialObject%d", selectedIndexPath.row]]];
+        
+        //записываем объект материала обратно в массив
+        [innerArrayMaterial replaceObjectAtIndex:selectedIndexPath.row withObject:changedMaterial];
+        
+        //передаем массив для обработки классом MaterialService
+        MaterialServise *modelMaterialServise = [[MaterialServise alloc] init];
+        [modelMaterialServise SaveMaterial:innerArrayMaterial];
+        
+        //передаем сохраненный массив из функции Read класс MaterialServise
+        savedArray = [MaterialServise Read];
+        
+        [self.tbl reloadRowsAtIndexPaths:[NSArray arrayWithObject:selectedIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        NSLog(@"condition in viewWillApear has worked");
+    }
+    
     [self.tbl deselectRowAtIndexPath:[self.tbl indexPathForSelectedRow] animated:YES];
+    
 }
 
 

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MathModel : NSArray
+@interface MathModel : NSObject
 
 @property (nonatomic, copy) NSString *nameMaterial;
 @property (nonatomic, copy) NSString *widthMaterial;

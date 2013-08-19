@@ -19,6 +19,7 @@
 @synthesize editMaterialName;
 @synthesize editMaterialWidth;
 @synthesize editMaterialPrice;
+@synthesize idMaterial;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,8 +58,6 @@
     
     priceMaterialInDetail.text =[NSString stringWithFormat:@"%@ руб/м2", _detail.priceMaterial];
     
-    
-    
 }
 
 //действие по нажатию на кнопку сохранинея
@@ -72,4 +71,5 @@
     
     [materials synchronize];
 }
+
 @end

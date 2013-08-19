@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MathModel.h"
 #import "MatDetaleViewController.h"
+#import "MaterialServise.h"
 
 @interface MathSingleViewController : UIViewController
 
@@ -19,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *editMaterialName;
 @property (weak, nonatomic) IBOutlet UITextField *editMaterialWidth;
 @property (weak, nonatomic) IBOutlet UITextField *editMaterialPrice;
+
+@property (nonatomic, strong) NSString *idMaterial;
 
 - (IBAction)saveMaterialSingle:(id)sender;
 

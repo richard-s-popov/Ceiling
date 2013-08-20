@@ -11,7 +11,7 @@
 #import "MatDetaleViewController.h"
 #import "MaterialServise.h"
 
-@interface MathSingleViewController : UIViewController
+@interface MathSingleViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) MathModel *detail;
 @property (weak, nonatomic) IBOutlet UILabel *nameMaterialInDetail;

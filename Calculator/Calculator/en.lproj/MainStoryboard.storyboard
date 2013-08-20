@@ -86,7 +86,7 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" red="0.15045119749999999" green="0.69038722829999999" blue="0.5838211687" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.88789497713239185" green="0.90371791749438712" blue="0.9068080357142857" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgI-Ql-VkD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -646,7 +646,7 @@
                                 <rect key="frame" x="20" y="60" width="179" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <action selector="saveMaterialSingle:" destination="NvY-Cc-9xU" eventType="editingDidEnd" id="CSF-Q3-5uG"/>
                                 </connections>
@@ -655,7 +655,7 @@
                                 <rect key="frame" x="20" y="103" width="179" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="saveMaterialSingle:" destination="NvY-Cc-9xU" eventType="editingDidEnd" id="2fF-6p-JZI"/>
                                 </connections>
@@ -664,7 +664,7 @@
                                 <rect key="frame" x="20" y="145" width="179" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="saveMaterialSingle:" destination="NvY-Cc-9xU" eventType="editingDidEnd" id="xw9-fW-O1C"/>
                                 </connections>

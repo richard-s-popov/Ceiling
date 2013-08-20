@@ -30,9 +30,31 @@
     return self;
 }
 
+// скрываем клавиатуру по нажатию кнопки
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    //поля материалов
+    [editMaterialName resignFirstResponder];
+    [editMaterialWidth resignFirstResponder];
+    [editMaterialPrice resignFirstResponder];
+    return YES;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    editMaterialName.delegate = self;
+    editMaterialWidth.delegate = self;
+    editMaterialPrice.delegate = self;
+    
+    //скрываем клавиатуру по нажатию на фон
+    UITapGestureRecognizer *tapOnScrolView = [[UITapGestureRecognizer alloc]
+                                              initWithTarget:self
+                                              action:@selector(dismissKeyboard)
+                                              ];
+    
+    [self.view addGestureRecognizer:tapOnScrolView];
     
     [self reloadData];
 }
@@ -73,6 +95,17 @@
     [materials setObject:editMaterialPrice.text forKey:[NSString stringWithFormat:@"priceMaterialObject%@", _detail.idMaterial]];
     
     [materials synchronize];
+}
+
+
+//метод скрытия клавиатуры по нажатию на фон
+- (void)dismissKeyboard {
+    
+    [editMaterialName resignFirstResponder];
+    [editMaterialWidth resignFirstResponder];
+    [editMaterialPrice resignFirstResponder];
+
+    
 }
 
 @end

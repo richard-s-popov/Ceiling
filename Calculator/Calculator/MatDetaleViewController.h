@@ -10,6 +10,7 @@
 #import "MathModel.h"
 #import "MaterialServise.h"
 #import "MathSingleViewController.h"
+#import "MaterialCell.h"
 
 @interface MatDetaleViewController : UIViewController <UITableViewDelegate , UITableViewDataSource> {
 
@@ -27,6 +28,5 @@
 @property (nonatomic, strong) NSString *widthValueMaterial;
 @property (nonatomic, strong) NSString *priceValueMaterial;
 
-- (IBAction)addBtn:(id)sender;
 
 @end

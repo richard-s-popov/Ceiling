@@ -51,12 +51,15 @@
 }
 
 - (void) reloadData {
-    
+    //изменяем titile и lable динамически
     self.navigationItem.title = [NSString stringWithFormat:@"%@ %@", _detail.nameMaterial, _detail.widthMaterial];
-    
     nameMaterialInDetail.text = [NSString stringWithFormat:@"%@ %@", _detail.nameMaterial, _detail.widthMaterial];
-    
     priceMaterialInDetail.text =[NSString stringWithFormat:@"%@ руб/м2", _detail.priceMaterial];
+    
+    //вносим данные в поля
+    editMaterialName.text = _detail.nameMaterial;
+    editMaterialWidth.text = _detail.widthMaterial;
+    editMaterialPrice.text = _detail.priceMaterial;
     
 }
 

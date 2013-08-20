@@ -21,6 +21,8 @@
 		0959815C177F676E001D2122 /* CalcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0959815B177F676E001D2122 /* CalcViewController.m */; };
 		0982696E17C26BC0007DB54D /* Phone_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982696D17C26BC0007DB54D /* Phone_settings.png */; };
 		0982697117C27142007DB54D /* MaterialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982697017C27142007DB54D /* MaterialCell.m */; };
+		0982697517C3E9C6007DB54D /* emailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982697417C3E9C6007DB54D /* emailViewController.m */; };
+		0982697717C3EE98007DB54D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0982697617C3EE98007DB54D /* MessageUI.framework */; };
 		09879C8217835733005B5E40 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09879C8117835733005B5E40 /* SettingsViewController.m */; };
 		09C82BBD1789DD8B00A47057 /* SettingsOptionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */; };
 		09C82BC01789DFE300A47057 /* SettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBF1789DFE200A47057 /* SettingsService.m */; };
@@ -60,6 +62,9 @@
 		0982696D17C26BC0007DB54D /* Phone_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phone_settings.png; sourceTree = "<group>"; };
 		0982696F17C27142007DB54D /* MaterialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialCell.h; sourceTree = "<group>"; };
 		0982697017C27142007DB54D /* MaterialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialCell.m; sourceTree = "<group>"; };
+		0982697317C3E9C6007DB54D /* emailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = emailViewController.h; sourceTree = "<group>"; };
+		0982697417C3E9C6007DB54D /* emailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = emailViewController.m; sourceTree = "<group>"; };
+		0982697617C3EE98007DB54D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		09879C8017835733005B5E40 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		09879C8117835733005B5E40 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		09C82BBB1789DD8B00A47057 /* SettingsOptionsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsOptionsModel.h; sourceTree = "<group>"; };
@@ -96,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0982697717C3EE98007DB54D /* MessageUI.framework in Frameworks */,
 				09598140177F676E001D2122 /* UIKit.framework in Frameworks */,
 				09598142177F676E001D2122 /* Foundation.framework in Frameworks */,
 				09598144177F676E001D2122 /* CoreGraphics.framework in Frameworks */,
@@ -108,6 +114,7 @@
 		09598133177F676E001D2122 = {
 			isa = PBXGroup;
 			children = (
+				0982697617C3EE98007DB54D /* MessageUI.framework */,
 				09598145177F676E001D2122 /* Calculator */,
 				0959813E177F676E001D2122 /* Frameworks */,
 				0959813D177F676E001D2122 /* Products */,
@@ -135,6 +142,7 @@
 		09598145177F676E001D2122 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				0982697217C3E9A2007DB54D /* e-mail */,
 				09C93E841791B39F00A4FBDC /* menuButton@2x.png */,
 				09D5DF61178CEAA5004FAA8C /* ECSlidingViewController */,
 				09C82BBA1789DD5000A47057 /* Model */,
@@ -171,6 +179,15 @@
 				09598155177F676E001D2122 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0982697217C3E9A2007DB54D /* e-mail */ = {
+			isa = PBXGroup;
+			children = (
+				0982697317C3E9C6007DB54D /* emailViewController.h */,
+				0982697417C3E9C6007DB54D /* emailViewController.m */,
+			);
+			name = "e-mail";
 			sourceTree = "<group>";
 		};
 		09C82BBA1789DD5000A47057 /* Model */ = {
@@ -313,6 +330,7 @@
 				09EB559F17BD1D3900E182CB /* MathModel.m in Sources */,
 				09249A7417BD71BE00162B4F /* MaterialServise.m in Sources */,
 				0982697117C27142007DB54D /* MaterialCell.m in Sources */,
+				0982697517C3E9C6007DB54D /* emailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

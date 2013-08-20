@@ -128,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hao-Jn-Zti" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="37" y="-225"/>
+            <point key="canvasLocation" x="79" y="-231"/>
         </scene>
         <!--Build View Controller-->
         <scene sceneID="OLL-Lv-Fru">
@@ -481,7 +481,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="37" y="454"/>
+            <point key="canvasLocation" x="-367" y="444"/>
+        </scene>
+        <!--Email View Controller-->
+        <scene sceneID="aik-aJ-WJi">
+            <objects>
+                <viewController storyboardIdentifier="E-Mail" id="Uxx-Kj-FDb" customClass="emailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PIA-1D-nbZ">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" id="tH1-cX-Kne">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="отправить E-Mail" id="yxT-wl-NgX">
+                                        <barButtonItem key="leftBarButtonItem" title="меню" id="gFz-Ao-R0f">
+                                            <connections>
+                                                <action selector="menuBtn:" destination="Uxx-Kj-FDb" id="YhB-ew-mXC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kDa-Gj-BOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="79" y="444"/>
         </scene>
         <!--Options View Controller - Настройки-->
         <scene sceneID="d4c-NJ-mSn">
@@ -924,6 +953,12 @@
                 <relationship kind="outlet" name="userEmailField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="userNameField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="userPhoneField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="emailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/emailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="menuBtn:"/>
             </relationships>
         </class>
     </classes>

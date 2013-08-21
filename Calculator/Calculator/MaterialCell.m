@@ -1,14 +1,15 @@
 //
-//  TestTableViewController.m
+//  MaterialCell.m
 //  Calculator
 //
-//  Created by Александр Коровкин on 09.08.13.
+//  Created by Александр Коровкин on 19.08.13.
 //  Copyright (c) 2013 Александр Коровкин. All rights reserved.
 //
 
-#import "TestTableViewController.h"
+#import "MaterialCell.h"
 
-@implementation TestTableViewController
+@implementation MaterialCell
+@synthesize priceCell;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

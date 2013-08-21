@@ -38,7 +38,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.menu = [NSArray arrayWithObjects:@"Главная", @"Настройки", @"Чертеж", @"Калькулятор", nil];
+    self.menu = [NSArray arrayWithObjects:@"Главная", @"Настройки", @"Чертеж", @"Калькулятор", @"E-Mail", nil];
     
     
     [self.slidingViewController setAnchorRightRevealAmount:200.0f];
@@ -55,14 +55,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [self.menu count];
 }

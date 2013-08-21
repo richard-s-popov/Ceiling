@@ -152,6 +152,9 @@ bool perimeterFinished;
     UIGraphicsBeginImageContext(size);
     CGContextRef context = UIGraphicsGetCurrentContext();
     
+    //CGContextTranslateCTM(context, 0.0f, size.height);
+    //CGContextScaleCTM(context, 1.0f, -1.0f);
+    
     CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
     CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
     
@@ -175,6 +178,7 @@ bool perimeterFinished;
             else {
                 CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
             }
+            
             CGContextMoveToPoint(context, [[points objectAtIndex:i] CGPointValue].x, [[points objectAtIndex:i] CGPointValue].y);
             CGContextAddLineToPoint(context, [[points objectAtIndex:i + 1] CGPointValue].x, [[points objectAtIndex:i + 1] CGPointValue].y);
             
@@ -195,6 +199,11 @@ bool perimeterFinished;
         } else {
             CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
         }
+        
+        CGContextSetLineWidth(context, 2.0f * scaleFactor);
+        CGContextSelectFont(context, "Helvetica", 20.f, kCGEncodingMacRoman);
+        CGContextSetTextDrawingMode(context, kCGTextFillStroke);
+        CGContextShowTextAtPoint(context, 100, 100, "Test Text", 9);
         
         CGContextAddArc(context, [[points objectAtIndex:i] CGPointValue].x, [[points objectAtIndex:i] CGPointValue].y, 10 * scaleFactor, 0, 2*M_PI, YES);
         CGContextDrawPath(context, kCGPathFill);

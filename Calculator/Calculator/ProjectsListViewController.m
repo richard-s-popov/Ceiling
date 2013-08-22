@@ -1,23 +1,21 @@
 //
-//  MenuViewController.m
+//  ProjectsListViewController.m
 //  Calculator
 //
-//  Created by Александр Коровкин on 10.07.13.
+//  Created by Александр Коровкин on 22.08.13.
 //  Copyright (c) 2013 Александр Коровкин. All rights reserved.
 //
 
-#import "MenuViewController.h"
+#import "ProjectsListViewController.h"
 #import "ECSlidingViewController.h"
+#import "MenuViewController.h"
 
-@interface MenuViewController ()
-
-@property (strong, nonatomic) NSArray *menu;
+@interface ProjectsListViewController ()
 
 @end
 
-@implementation MenuViewController
-@synthesize menu;
-
+@implementation ProjectsListViewController
+@synthesize menuBtn;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,12 +35,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    self.menu = [NSArray arrayWithObjects:@"Главная", @"Настройки", @"Чертеж", @"Калькулятор", @"E-Mail", @"Проект", nil];
-    
-    
-    [self.slidingViewController setAnchorRightRevealAmount:200.0f];
-    self.slidingViewController.underLeftWidthLayout = ECFullWidth;
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,18 +54,16 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.menu count];
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-    }
+    static NSString *CellIdentifier = @"CellProject";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.menu objectAtIndex:indexPath.row]];
+    cell.textLabel.text = @"First";
+    // Configure the cell...
     
     return cell;
 }
@@ -128,17 +118,12 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+- (IBAction)menuBtn:(id)sender {
     
-    NSString *identifier = [NSString stringWithFormat:@"%@", [self.menu objectAtIndex:indexPath.row]];
+    [self.slidingViewController anchorTopViewTo:ECRight];
     
-    UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-    
-    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-        CGRect frame = self.slidingViewController.topViewController.view.frame;
-        self.slidingViewController.topViewController = newTopViewController;
-        self.slidingViewController.topViewController.view.frame = frame;
-        [self.slidingViewController resetTopView];
-    }];
 }
 
 @end

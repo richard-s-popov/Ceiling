@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProjectsListViewController.h"
+#import "ProjectModel.h"
+#import "ProjectServise.h"
 
 @interface ProjectDetailViewController : UIViewController <UITextFieldDelegate>
 
@@ -15,6 +18,7 @@
 @property (nonatomic) int editCount;
 @property (strong, nonatomic) IBOutlet UIView *viewProject;
 @property (weak, nonatomic) IBOutlet UITextView *explaneTextView;
+@property (nonatomic, strong) ProjectModel *detail;
 
 
 @end

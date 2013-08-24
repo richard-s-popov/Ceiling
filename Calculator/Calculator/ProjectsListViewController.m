@@ -7,11 +7,7 @@
 //
 
 #import "ProjectsListViewController.h"
-#import "ECSlidingViewController.h"
-#import "MenuViewController.h"
-#import "ProjectModel.h"
-#import "ProjectDetailViewController.h"
-#import "ProjectServise.h"
+
 
 @interface ProjectsListViewController ()
 
@@ -80,6 +76,12 @@
                                  target:self
                                  action:@selector(addBtn)];
     self.navigationItem.leftBarButtonItem = addButton;
+    //добавляем кнопку редактирования
+    UIBarButtonItem *edit =[[UIBarButtonItem alloc]
+                            initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+                            target:self
+                            action:@selector(editing)];
+    self.navigationItem.rightBarButtonItem = edit;
 }
 
 - (void)addBtn {
@@ -95,6 +97,35 @@
     
     [tbl reloadData];
 }
+
+
+- (void)editing {
+    [tbl setEditing:!self.tbl.editing animated:YES];
+}
+
+
+//описание метода редактирования
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //удаляем ячейку с материалом непосредственно из массива
+        [clientsList removeObjectAtIndex:indexPath.row];
+        
+        
+        //отдаем данные в ProjectService
+        ProjectServise *newArrayProjects = [[ProjectServise alloc] init];
+        [newArrayProjects SaveProject:clientsList];
+        //получаем сохраненные данные из ProjectService
+        savedProjects = [ProjectServise Read];
+        
+        [tbl deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                   withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -135,44 +166,18 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+//отслеживание segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    NSIndexPath *indexPath = [self.tbl indexPathForSelectedRow];
+    
+    if (indexPath) {
+        ProjectModel *projectExemplar = [clientsList objectAtIndex:indexPath.row];
+        [segue.destinationViewController setDetail:projectExemplar];
+    }
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
@@ -186,6 +191,48 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+
+//анимация затухания выделения ячейки при возвращении в таблицу
+- (void) viewDidAppear:(BOOL)animated {
+    
+    NSIndexPath *selectedIndexPath = [self.tbl indexPathForSelectedRow];
+    
+    [super viewDidAppear:animated];
+    
+    //изменяем данные в массиве
+    ProjectModel *changedProject = [[ProjectModel alloc] init];
+    changedProject = [clientsList objectAtIndex:selectedIndexPath.row];
+    //извлекаем данные из памяти
+    NSUserDefaults *projects =[NSUserDefaults standardUserDefaults];
+    NSString *newName = [projects objectForKey:[NSString stringWithFormat:@"clientName%d", selectedIndexPath.row]];
+    NSString *newAdress = [projects objectForKey:[NSString stringWithFormat:@"clientAdress%d", selectedIndexPath.row]];
+    NSString *newId = [projects objectForKey:[NSString stringWithFormat:@"clientId%d", selectedIndexPath.row]];
+    
+    NSLog(@"new name - %@",newName);
+    //проверяем изменились ли данные
+    if ((selectedIndexPath) && ((changedProject.clientName != newName) || (changedProject.clientAdress != newAdress) )) {
+        
+        [changedProject setClientName:newName];
+        [changedProject setClientAdress:newAdress];
+        [changedProject setClientId:newId];
+        
+        //записываем объект материала обратно в массив
+        [clientsList replaceObjectAtIndex:selectedIndexPath.row withObject:changedProject];
+        
+        //отдаем данные в ProjectService
+        ProjectServise *newArrayProjects = [[ProjectServise alloc] init];
+        [newArrayProjects SaveProject:clientsList];
+        //получаем сохраненные данные из ProjectService
+        savedProjects = [ProjectServise Read];
+        
+        [self.tbl reloadRowsAtIndexPaths:[NSArray arrayWithObject:selectedIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    }
+    
+    [self.tbl deselectRowAtIndexPath:[self.tbl indexPathForSelectedRow] animated:YES];
+    
+}
+
 
 - (IBAction)menuBtn:(id)sender {
     

@@ -16,5 +16,6 @@
 @property (nonatomic) NSInteger *clientSpot;
 @property (nonatomic) NSInteger *clientBypass;
 @property (nonatomic, weak) UIImage *clientPlan;
+@property (nonatomic, weak) NSString *clientId;
 
 @end

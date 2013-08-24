@@ -7,9 +7,6 @@
 //
 
 #import "ProjectDetailViewController.h"
-#import "ProjectsListViewController.h"
-#import "ProjectModel.h"
-#import "ProjectServise.h"
 
 @interface ProjectDetailViewController ()
 
@@ -59,6 +56,23 @@
     
     [self.view addGestureRecognizer:tapOnScrolView];
     
+    [self reloadData];
+    
+}
+
+- (void) setDetail:(ProjectModel *)projectSegue {
+    _detail = projectSegue;
+
+}
+
+
+//перехват метода viewDidLoad
+- (void) reloadData {
+    //изменяем titile и lable динамически
+    self.navigationItem.title = [NSString stringWithFormat:@"%@", _detail.clientAdress];
+    nameClient.text = [NSString stringWithFormat:@"%@", _detail.clientName];
+    adressClient.text =[NSString stringWithFormat:@"%@", _detail.clientAdress];
+    
 }
 
 
@@ -77,6 +91,15 @@
     } else {
         NSLog(@"not editing");
         editCount = 0;
+        
+        //сохраняем данные по нажатию на Done
+        NSUserDefaults *projects = [NSUserDefaults standardUserDefaults];
+        [projects setObject:nameClient.text forKey:[NSString stringWithFormat:@"clientName%@",_detail.clientId]];
+        [projects setObject:adressClient.text forKey:[NSString stringWithFormat:@"clientAdress%@",_detail.clientId]];
+        
+        NSLog(@"new name in detail - %@",[projects objectForKey:[NSString stringWithFormat:@"clientName%@",_detail.clientId]]);
+        [projects synchronize];
+        
         [self dismissKeyboard];
     }
 }

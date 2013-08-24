@@ -28,6 +28,7 @@
         projectExemplar = [projectsArray objectAtIndex:n];
         [projects setObject:projectExemplar.clientName forKey:[NSString stringWithFormat:@"clientName%d",n]];
         [projects setObject:projectExemplar.clientAdress forKey:[NSString stringWithFormat:@"clientAdress%d",n]];
+        [projects setObject:projectExemplar.clientId forKey:[NSString stringWithFormat:@"clientId%d",n]];
         
         n++;
     }
@@ -50,6 +51,7 @@
         savedProject = [[ProjectModel alloc] init];
         [savedProject setClientName:[projects objectForKey:[NSString stringWithFormat:@"clientName%d",n]]];
         [savedProject setClientAdress:[projects objectForKey:[NSString stringWithFormat:@"clientAdress%d",n]]];
+        [savedProject setClientId:[projects objectForKey:[NSString stringWithFormat:@"clientId%d",n]]];
         
         [resultProjects addObject:savedProject];
         n++;

@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ECSlidingViewController.h"
+#import "MenuViewController.h"
+#import "ProjectModel.h"
+#import "ProjectDetailViewController.h"
+#import "ProjectServise.h"
 
-@interface ProjectsListViewController : UITableViewController {
+@interface ProjectsListViewController : UITableViewController <UITableViewDelegate , UITableViewDataSource> {
 
     NSMutableArray *clientsList;
 

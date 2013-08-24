@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+
+
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>
+        <title>Натяжные потолки</title>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+          <div data-role="header" data-position="fixed" data-id="myheader">
+            <h1>Second Step</h1>
+            <a href="#defaultpanel" data-role="button" data-inline="true" data-icon="bars">Меню</a>
+          </div>
+          <div data-role="content">
+            <h3>Default options</h3>
+            <p>This panel has all the default options: positioned on the left with the reveal display mode. The panel markup is <em>before</em> the header, content and footer in the source order.</p>
+            <p>To close, click off the panel, swipe left or right, hit the Esc key, or use the button below:</p>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p>
+          </div>
+            <div data-role="footer" data-position="fixed" id="footer" data-id="myfooter">
+                    <a href="index.html" data-role="button" data-inline="true" data-icon="arrow-l" data-back="true" data-transition="slide" data-iconpos="left">назад</a>
+                    <a href="3step.html"  data-role="button" data-inline="true" data-icon="arrow-r" data-transition="slide" data-iconpos="right" style="float:right;" >далее</a>
+            </div>
+         
+          <!-- defaultpanel  -->
+            <div data-role="panel" id="defaultpanel" data-theme="a">
+         
+              <div class="panel-content">
+                <h3>Default panel options</h3>
+                <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-collapsible-set ui-corner-all">
+                    <div data-role="collapsible" class="ui-collapsible ui-collapsible-inset ui-collapsible-themed-content ui-first-child ui-collapsible-collapsed"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-btn-icon-left ui-btn-up-a" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="a"><span class="ui-btn-inner"><span class="ui-btn-text">1 - Theme A<span class="ui-collapsible-heading-status"> click to expand contents</span></span><span class="ui-icon ui-icon-shadow ui-icon-plus">&nbsp;</span></span></a></h3><div class="ui-collapsible-content ui-body-a ui-collapsible-content-collapsed" aria-hidden="true">
+                        
+                        <p>Content theme A</p>
+                    </div></div>
+                    <div data-role="collapsible" class="ui-collapsible ui-collapsible-inset ui-collapsible-themed-content ui-last-child ui-collapsible-collapsed"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-btn-icon-left ui-btn-up-a" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="a"><span class="ui-btn-inner"><span class="ui-btn-text">2 - Theme A<span class="ui-collapsible-heading-status"> click to expand contents</span></span><span class="ui-icon ui-icon-shadow ui-icon-plus">&nbsp;</span></span></a></h3><div class="ui-collapsible-content ui-body-a ui-collapsible-content-collapsed" aria-hidden="true">
+                        
+                        <p>Content theme A</p>
+                    </div></div>
+                </div>
+                <a href="#demo-links" data-rel="close" data-role="button" data-theme="c" data-icon="delete" data-inline="true">Close panel</a>
+              </div><!-- /content wrapper for padding -->
+         
+            </div><!-- /defaultpanel -->
+            <script type="text/javascript" src="cordova-2.7.0.js"></script>
+                <script type="text/javascript" src="js/index.js"></script>
+                <script type="text/javascript">
+                    app.initialize();
+            </script>
+        </div>
+    </body>
+</html>

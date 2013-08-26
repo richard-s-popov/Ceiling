@@ -102,18 +102,9 @@
     //передаем данные из функции Read класс MaterialServise в объект mathModel
     savedArray = [MaterialServise Read];
     
-    //добавляем кнопку редактирования 
-    UIBarButtonItem *edit =[[UIBarButtonItem alloc]
-                             initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
-                             target:self
-                             action:@selector(editing)];
-    self.navigationItem.rightBarButtonItem = edit;
-    //добавляем кнопку добавления материала
-    UIBarButtonItem *addButton =[[UIBarButtonItem alloc]
-                            initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                            target:self
-                            action:@selector(addBtn)];
-    self.navigationItem.leftBarButtonItem = addButton;
+    //кнопка редактирования
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 }
 
 
@@ -146,9 +137,26 @@
 }
 
 
-//описание работы кнопки редактирования
-- (void)editing {
-    [tbl setEditing:!self.tbl.editing animated:YES];
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:!self.tbl.editing animated:animated];
+    [tbl setEditing:editing animated:animated];
+    
+    if (editing) {
+        NSLog(@"editing project list");
+        //добавляем кнопку добавления материала
+        UIBarButtonItem *addButton =[[UIBarButtonItem alloc]
+                                     initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                     target:self
+                                     action:@selector(addBtn)];
+        self.navigationItem.leftBarButtonItem = addButton;
+        self.navigationItem.leftItemsSupplementBackButton = NO;
+    }
+    else {
+        //добавляем кнопку добавления материала
+        self.navigationItem.leftItemsSupplementBackButton = YES;
+        self.navigationItem.leftBarButtonItem = NO;
+        NSLog(@"done");
+    }
 }
 
 

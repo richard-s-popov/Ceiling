@@ -16,7 +16,6 @@
 @interface ProjectsListViewController : UIViewController <UITableViewDelegate , UITableViewDataSource> {
 
     NSMutableArray *clientsList;
-
 }
 
 @property (nonatomic) NSArray *savedProjects;

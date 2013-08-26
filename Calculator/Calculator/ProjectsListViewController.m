@@ -82,19 +82,15 @@
     //получаем сохраненные данные из ProjectService
     savedProjects = [ProjectServise Read];
     
-    
-    //добавляем кнопку добавить
-    UIBarButtonItem *addButton =[[UIBarButtonItem alloc]
-                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                 target:self
-                                 action:@selector(addBtn)];
-    self.navigationItem.leftBarButtonItem = addButton;
-    //добавляем кнопку редактирования
-    UIBarButtonItem *edit =[[UIBarButtonItem alloc]
-                            initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
-                            target:self
-                            action:@selector(editing)];
-    self.navigationItem.rightBarButtonItem = edit;
+
+    //кнопка редактирования
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //кнопка меню
+    UIBarButtonItem *menuButton =[[UIBarButtonItem alloc]
+                                  initWithTitle:@"меню" style:UIBarButtonItemStyleBordered
+                                  target:self
+                                  action:@selector(menuBtn)];
+    self.navigationItem.leftBarButtonItem = menuButton;
 }
 
 - (void)addBtn {
@@ -116,9 +112,40 @@
 }
 
 
-- (void)editing {
-    [tbl setEditing:!self.tbl.editing animated:YES];
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:!self.tbl.editing animated:animated];
+    [tbl setEditing:editing animated:animated];
+    
+    if (editing) {
+        NSLog(@"editing project list");
+        //добавляем кнопку добавить
+        UIBarButtonItem *addButton =[[UIBarButtonItem alloc]
+                                     initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                     target:self
+                                     action:@selector(addBtn)];
+        self.navigationItem.leftBarButtonItem = addButton;
+    }
+    else {
+        //добвляем кнопку меню
+        UIBarButtonItem *menuButton =[[UIBarButtonItem alloc]
+                                      initWithTitle:@"меню" style:UIBarButtonItemStyleBordered
+                                     target:self
+                                     action:@selector(menuBtn)];
+        self.navigationItem.leftBarButtonItem = menuButton;
+    }
 }
+
+
+//- (void)editing {
+//    [tbl setEditing:!self.tbl.editing animated:YES];
+//    if (tbl.editing) {
+//        NSLog(@"editing project list");
+//    }
+//    else {
+//        NSLog(@"done");
+//    }
+//}
+
 
 
 //описание метода редактирования
@@ -248,6 +275,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     [self.tbl deselectRowAtIndexPath:[self.tbl indexPathForSelectedRow] animated:YES];
     
+}
+
+- (void)menuBtn {
+    
+    [self.slidingViewController anchorTopViewTo:ECRight];
+
 }
 
 @end

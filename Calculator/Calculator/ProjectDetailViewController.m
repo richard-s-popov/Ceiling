@@ -18,6 +18,7 @@
 @synthesize editCount;
 @synthesize adressClient;
 @synthesize explaneTextView;
+@synthesize detail;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,7 +62,7 @@
 }
 
 - (void) setDetail:(ProjectModel *)projectSegue {
-    _detail = projectSegue;
+    detail = projectSegue;
 
 }
 
@@ -69,9 +70,14 @@
 //перехват метода viewDidLoad
 - (void) reloadData {
     //изменяем titile и lable динамически
-    self.navigationItem.title = [NSString stringWithFormat:@"%@", _detail.clientAdress];
-    nameClient.text = [NSString stringWithFormat:@"%@", _detail.clientName];
-    adressClient.text =[NSString stringWithFormat:@"%@", _detail.clientAdress];
+    self.navigationItem.title = [NSString stringWithFormat:@"%@", detail.clientAdress];
+    nameClient.text = [NSString stringWithFormat:@"%@", detail.clientName];
+    adressClient.text =[NSString stringWithFormat:@"%@", detail.clientAdress];
+    
+    NSString *clientId = detail.clientId;
+    NSString *clientName = detail.clientName;
+    NSString *clientAdress = detail.clientAdress;
+    NSLog(@"editing client - %@ %@ %@",clientId, clientName, clientAdress);
     
 }
 
@@ -86,19 +92,24 @@
 - (void) setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing: editing animated: animated];
     if (editing) {
-        NSLog(@"editing");
+
         editCount = 1;
     } else {
-        NSLog(@"not editing");
+
         editCount = 0;
+        
+        NSString *clientId = detail.clientId;
+        NSLog(@"edited clientId - %@",clientId);
         
         //сохраняем данные по нажатию на Done
         NSUserDefaults *projects = [NSUserDefaults standardUserDefaults];
-        [projects setObject:nameClient.text forKey:[NSString stringWithFormat:@"clientName%@",_detail.clientId]];
-        [projects setObject:adressClient.text forKey:[NSString stringWithFormat:@"clientAdress%@",_detail.clientId]];
+        [projects setObject:nameClient.text forKey:[NSString stringWithFormat:@"clientName%@",clientId]];
+        [projects setObject:adressClient.text forKey:[NSString stringWithFormat:@"clientAdress%@",clientId]];
+        [projects setObject:clientId forKey:[NSString stringWithFormat:@"clientId%@",clientId]];
         
-        NSLog(@"new name in detail - %@",[projects objectForKey:[NSString stringWithFormat:@"clientName%@",_detail.clientId]]);
         [projects synchronize];
+        
+        
         
         [self dismissKeyboard];
     }
@@ -106,7 +117,7 @@
 
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    NSLog(@"Hello");
+
     if (editCount == 0) {
         return NO;
     }

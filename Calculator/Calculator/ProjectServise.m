@@ -7,9 +7,6 @@
 //
 
 #import "ProjectServise.h"
-#import "ProjectDetailViewController.h"
-#import "ProjectsListViewController.h"
-#import "ProjectModel.h"
 
 @implementation ProjectServise
 
@@ -28,8 +25,9 @@
         projectExemplar = [projectsArray objectAtIndex:n];
         [projects setObject:projectExemplar.clientName forKey:[NSString stringWithFormat:@"clientName%d",n]];
         [projects setObject:projectExemplar.clientAdress forKey:[NSString stringWithFormat:@"clientAdress%d",n]];
-        [projects setObject:projectExemplar.clientId forKey:[NSString stringWithFormat:@"clientId%d",n]];
+        [projects setObject:[NSString stringWithFormat:@"%d",n] forKey:[NSString stringWithFormat:@"clientId%d",n]];
         
+        NSLog(@"%d",n);
         n++;
     }
     

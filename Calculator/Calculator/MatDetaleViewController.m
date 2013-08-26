@@ -167,7 +167,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         MaterialServise *modelMaterialServise = [[MaterialServise alloc] init];
         [modelMaterialServise SaveMaterial:innerArrayMaterial];
         
-        
         //передаем данные из функции Read класс MaterialServise в объект savedArray
         savedArray = [MaterialServise Read];
 
@@ -198,10 +197,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     if (cell == nil) {
         cell = [[MaterialCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellId];
     }
+    
     //создаем объект ячейки из массива данных
     MathModel *exemplarMaterial = [savedArray objectAtIndex:indexPath.row];
-//    cell.textLabel.text = exemplarMaterial.nameMaterial;
-//    cell.detailTextLabel.text = exemplarMaterial.widthMaterial;
+
     cell.priceCell.text = exemplarMaterial.priceMaterial;
     cell.nameCell.text = exemplarMaterial.nameMaterial;
     cell.widthCell.text = [NSString stringWithFormat:@"%@ - ширина полотна", exemplarMaterial.widthMaterial];

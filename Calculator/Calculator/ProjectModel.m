@@ -16,5 +16,6 @@
 @synthesize clientSpot;
 @synthesize clientBypass;
 @synthesize clientPlan;
+@synthesize clientId;
 
 @end

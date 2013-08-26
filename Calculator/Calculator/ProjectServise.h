@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ProjectDetailViewController.h"
+#import "ProjectsListViewController.h"
+#import "ProjectModel.h"
 
 @interface ProjectServise : NSObject
 

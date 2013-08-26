@@ -14,14 +14,14 @@
 @end
 
 @implementation ProjectsListViewController
-@synthesize menuBtn;
 @synthesize clientsList;
 @synthesize savedProjects;
 @synthesize tbl;
+@synthesize projectsCount;
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -36,7 +36,7 @@
     savedProjects = [ProjectServise Read];
     
     NSUserDefaults *projects = [NSUserDefaults standardUserDefaults];
-    NSNumber *projectsCount = [projects objectForKey:@"porjectsCount"];
+    projectsCount = [projects objectForKey:@"porjectsCount"];
     
     
     self.clientsList = [[NSMutableArray alloc] init];
@@ -48,9 +48,9 @@
         projectExemplar = [[ProjectModel alloc] init];
         projectExemplar.clientName = @"Иван Иванович";
         projectExemplar.clientAdress = @"Октябрьская 34 - 20";
+        projectExemplar.clientId = @"0";
         
         [clientsList addObject:projectExemplar];
-        NSLog(@"count = %d",clientsList.count);
     }
     
     //заполнение массива данными
@@ -62,7 +62,20 @@
         n++;
     }
     
-
+    //чистим настройки в plist
+    n = 50;
+    while (n >= [projectsCount intValue]) {
+        
+        NSUserDefaults *projects = [NSUserDefaults standardUserDefaults];
+        //удаляем настройки из plist
+        [projects removeObjectForKey:[NSString stringWithFormat:@"clientName%d", n]];
+        [projects removeObjectForKey:[NSString stringWithFormat:@"clientAdress%d", n]];
+        [projects removeObjectForKey:[NSString stringWithFormat:@"clientId%d", n]];
+        
+        n--;
+    }
+    
+    
     //отдаем данные в ProjectService
     ProjectServise *newArrayProjects = [[ProjectServise alloc] init];
     [newArrayProjects SaveProject:clientsList];
@@ -89,13 +102,17 @@
     ProjectModel *projectExemplar = [[ProjectModel alloc] init];
     projectExemplar.clientName = @"Новый клиент";
     projectExemplar.clientAdress = @"адрес";
+    projectExemplar.clientId = [NSString stringWithFormat:@"%@", projectsCount ];
     [clientsList addObject:projectExemplar];
     
     //отдаем данные в ProjectService
     ProjectServise *newArrayProjects = [[ProjectServise alloc] init];
     [newArrayProjects SaveProject:clientsList];
-    
+    //получаем сохраненные данные из ProjectService
+    savedProjects = [ProjectServise Read];
+        
     [tbl reloadData];
+    
 }
 
 
@@ -144,7 +161,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return clientsList.count;
+    return savedProjects.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -154,11 +171,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     ProjectModel *projectModel = [[ProjectModel alloc] init];
-    projectModel = [clientsList objectAtIndex:indexPath.row];
+    projectModel = [savedProjects objectAtIndex:indexPath.row];
     
     cell.textLabel.text = projectModel.clientName;
     cell.detailTextLabel.text = projectModel.clientAdress;
-    NSLog(@"name = %@", projectModel.clientName);
 
     
     // Configure the cell...
@@ -173,7 +189,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     NSIndexPath *indexPath = [self.tbl indexPathForSelectedRow];
     
     if (indexPath) {
-        ProjectModel *projectExemplar = [clientsList objectAtIndex:indexPath.row];
+        ProjectModel *projectExemplar = [savedProjects objectAtIndex:indexPath.row];
         [segue.destinationViewController setDetail:projectExemplar];
     }
 }
@@ -203,16 +219,17 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     //изменяем данные в массиве
     ProjectModel *changedProject = [[ProjectModel alloc] init];
     changedProject = [clientsList objectAtIndex:selectedIndexPath.row];
+    
     //извлекаем данные из памяти
     NSUserDefaults *projects =[NSUserDefaults standardUserDefaults];
     NSString *newName = [projects objectForKey:[NSString stringWithFormat:@"clientName%d", selectedIndexPath.row]];
     NSString *newAdress = [projects objectForKey:[NSString stringWithFormat:@"clientAdress%d", selectedIndexPath.row]];
     NSString *newId = [projects objectForKey:[NSString stringWithFormat:@"clientId%d", selectedIndexPath.row]];
     
-    NSLog(@"new name - %@",newName);
     //проверяем изменились ли данные
-    if ((selectedIndexPath) && ((changedProject.clientName != newName) || (changedProject.clientAdress != newAdress) )) {
-        
+    if ((selectedIndexPath) && ((changedProject.clientName != newName) || (changedProject.clientAdress != newAdress))) {
+//    if (selectedIndexPath) {
+    
         [changedProject setClientName:newName];
         [changedProject setClientAdress:newAdress];
         [changedProject setClientId:newId];
@@ -230,13 +247,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     }
     
     [self.tbl deselectRowAtIndexPath:[self.tbl indexPathForSelectedRow] animated:YES];
-    
-}
-
-
-- (IBAction)menuBtn:(id)sender {
-    
-    [self.slidingViewController anchorTopViewTo:ECRight];
     
 }
 

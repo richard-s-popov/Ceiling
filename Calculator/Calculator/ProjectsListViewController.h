@@ -13,17 +13,16 @@
 #import "ProjectDetailViewController.h"
 #import "ProjectServise.h"
 
-@interface ProjectsListViewController : UITableViewController <UITableViewDelegate , UITableViewDataSource> {
+@interface ProjectsListViewController : UIViewController <UITableViewDelegate , UITableViewDataSource> {
 
     NSMutableArray *clientsList;
 
 }
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuBtn;
 @property (nonatomic) NSArray *savedProjects;
 
-- (IBAction)menuBtn:(id)sender;
 @property (nonatomic, retain) NSMutableArray *clientsList;
 @property (strong, nonatomic) IBOutlet UITableView *tbl;
+@property (nonatomic, strong) NSNumber *projectsCount;
 
 @end

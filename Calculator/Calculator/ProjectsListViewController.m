@@ -18,6 +18,7 @@
 @synthesize savedProjects;
 @synthesize tbl;
 @synthesize projectsCount;
+@synthesize explaneText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,6 +49,14 @@
         projectExemplar = [[ProjectModel alloc] init];
         projectExemplar.clientName = @"Иван Иванович";
         projectExemplar.clientAdress = @"Октябрьская 34 - 20";
+        projectExemplar.clientLuster = @"0";
+        projectExemplar.clientBypass = @"0";
+        projectExemplar.clientSpot = @"0";
+
+        explaneText = [[UITextView alloc] init];
+        explaneText.text = @"Описание прокта";
+        projectExemplar.clientExplane = explaneText;
+        
         projectExemplar.clientId = @"0";
         
         [clientsList addObject:projectExemplar];
@@ -70,7 +79,12 @@
         //удаляем настройки из plist
         [projects removeObjectForKey:[NSString stringWithFormat:@"clientName%d", n]];
         [projects removeObjectForKey:[NSString stringWithFormat:@"clientAdress%d", n]];
+        [projects removeObjectForKey:[NSString stringWithFormat:@"clientLuster%d",n]];
+        [projects removeObjectForKey:[NSString stringWithFormat:@"clientBypass%d",n]];
+        [projects removeObjectForKey:[NSString stringWithFormat:@"clientSpot%d",n]];
+        [projects removeObjectForKey:[NSString stringWithFormat:@"clientExplane%d", n]];
         [projects removeObjectForKey:[NSString stringWithFormat:@"clientId%d", n]];
+
         
         n--;
     }
@@ -98,6 +112,14 @@
     ProjectModel *projectExemplar = [[ProjectModel alloc] init];
     projectExemplar.clientName = @"Новый клиент";
     projectExemplar.clientAdress = @"адрес";
+    projectExemplar.clientLuster = @"0";
+    projectExemplar.clientBypass = @"0";
+    projectExemplar.clientSpot = @"0";
+
+    explaneText = [[UITextView alloc] init];
+    explaneText.text = @"Редактировать описание";
+    projectExemplar.clientExplane = explaneText;
+    
     projectExemplar.clientId = [NSString stringWithFormat:@"%@", projectsCount ];
     [clientsList addObject:projectExemplar];
     
@@ -252,17 +274,31 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     NSString *newName = [projects objectForKey:[NSString stringWithFormat:@"clientName%d", selectedIndexPath.row]];
     NSString *newAdress = [projects objectForKey:[NSString stringWithFormat:@"clientAdress%d", selectedIndexPath.row]];
     NSString *newId = [projects objectForKey:[NSString stringWithFormat:@"clientId%d", selectedIndexPath.row]];
+    NSString *newLuster = [projects objectForKey:[NSString stringWithFormat:@"clientLuster%d", selectedIndexPath.row]];
+    NSString *newBypass = [projects objectForKey:[NSString stringWithFormat:@"clientBypass%d", selectedIndexPath.row]];
+    NSString *newSpot = [projects objectForKey:[NSString stringWithFormat:@"clientSpot%d", selectedIndexPath.row]];
+
+    explaneText = [[UITextView alloc] init];
+    explaneText.text = [projects objectForKey:[NSString stringWithFormat:@"clientExplane%d",selectedIndexPath.row]];
+    NSLog(@"luster = %@", changedProject.clientLuster);
+    
     
     //проверяем изменились ли данные
-    if ((selectedIndexPath) && ((changedProject.clientName != newName) || (changedProject.clientAdress != newAdress))) {
-//    if (selectedIndexPath) {
-    
-        [changedProject setClientName:newName];
-        [changedProject setClientAdress:newAdress];
-        [changedProject setClientId:newId];
+    if ((selectedIndexPath) && ((changedProject.clientName != newName) || (changedProject.clientAdress != newAdress) || (changedProject.clientExplane.text.length != explaneText.text.length))) {
+        
+        changedProject.clientName = newName;
+        changedProject.clientAdress = newAdress;
+        changedProject.clientId = newId;
+        changedProject.clientExplane = [[UITextView alloc] init];
+        changedProject.clientExplane = explaneText;
+        changedProject.clientLuster = newLuster;
+        changedProject.clientBypass = newBypass;
+        changedProject.clientSpot = newSpot;
         
         //записываем объект материала обратно в массив
         [clientsList replaceObjectAtIndex:selectedIndexPath.row withObject:changedProject];
+        
+        NSLog(@"changed luster = %@", changedProject.clientLuster);
         
         //отдаем данные в ProjectService
         ProjectServise *newArrayProjects = [[ProjectServise alloc] init];

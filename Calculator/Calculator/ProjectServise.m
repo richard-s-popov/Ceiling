@@ -25,9 +25,13 @@
         projectExemplar = [projectsArray objectAtIndex:n];
         [projects setObject:projectExemplar.clientName forKey:[NSString stringWithFormat:@"clientName%d",n]];
         [projects setObject:projectExemplar.clientAdress forKey:[NSString stringWithFormat:@"clientAdress%d",n]];
+        [projects setObject:projectExemplar.clientExplane.text forKey:[NSString stringWithFormat:@"clientExplane%d",n]];
+        [projects setObject:projectExemplar.clientLuster forKey:[NSString stringWithFormat:@"clientLuster%d",n]];
+        [projects setObject:projectExemplar.clientBypass forKey:[NSString stringWithFormat:@"clientBypass%d",n]];
+        [projects setObject:projectExemplar.clientSpot forKey:[NSString stringWithFormat:@"clientSpot%d",n]];
+
         [projects setObject:[NSString stringWithFormat:@"%d",n] forKey:[NSString stringWithFormat:@"clientId%d",n]];
         
-        NSLog(@"%d",n);
         n++;
     }
     
@@ -49,6 +53,14 @@
         savedProject = [[ProjectModel alloc] init];
         [savedProject setClientName:[projects objectForKey:[NSString stringWithFormat:@"clientName%d",n]]];
         [savedProject setClientAdress:[projects objectForKey:[NSString stringWithFormat:@"clientAdress%d",n]]];
+        [savedProject setClientLuster:[projects objectForKey:[NSString stringWithFormat:@"clientLuster%d",n]]];
+        [savedProject setClientBypass:[projects objectForKey:[NSString stringWithFormat:@"clientBypass%d",n]]];
+        [savedProject setClientSpot:[projects objectForKey:[NSString stringWithFormat:@"clientSpot%d",n]]];
+
+        UITextView *explaneText = [[UITextView alloc] init];
+        explaneText.text = [projects objectForKey:[NSString stringWithFormat:@"clientExplane%d",n]];
+        [savedProject setClientExplane:explaneText];
+        
         [savedProject setClientId:[projects objectForKey:[NSString stringWithFormat:@"clientId%d",n]]];
         
         [resultProjects addObject:savedProject];

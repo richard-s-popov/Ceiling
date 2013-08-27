@@ -12,10 +12,12 @@
 
 @property (nonatomic, weak) NSString *clientName;
 @property (nonatomic, weak) NSString *clientAdress;
-@property (nonatomic) NSInteger *clientLuster;
-@property (nonatomic) NSInteger *clientSpot;
-@property (nonatomic) NSInteger *clientBypass;
+@property (nonatomic) NSString *clientLuster;
+@property (nonatomic) NSString *clientSpot;
+@property (nonatomic) NSString *clientBypass;
 @property (nonatomic, weak) UIImage *clientPlan;
 @property (nonatomic, weak) NSString *clientId;
+@property (nonatomic, strong) UITextView *clientExplane;
+
 
 @end

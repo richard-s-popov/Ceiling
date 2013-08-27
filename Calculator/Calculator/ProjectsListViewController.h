@@ -23,5 +23,6 @@
 @property (nonatomic, retain) NSMutableArray *clientsList;
 @property (strong, nonatomic) IBOutlet UITableView *tbl;
 @property (nonatomic, strong) NSNumber *projectsCount;
+@property (nonatomic, strong) UITextView *explaneText;
 
 @end

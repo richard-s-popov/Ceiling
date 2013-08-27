@@ -17,5 +17,6 @@
 @synthesize clientBypass;
 @synthesize clientPlan;
 @synthesize clientId;
+@synthesize clientExplane;
 
 @end

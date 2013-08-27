@@ -11,14 +11,19 @@
 #import "ProjectModel.h"
 #import "ProjectServise.h"
 
-@interface ProjectDetailViewController : UIViewController <UITextFieldDelegate>
+@interface ProjectDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate >
 
 @property ( nonatomic) IBOutlet UITextField *nameClient;
 @property (weak, nonatomic) IBOutlet UITextField *adressClient;
 @property (nonatomic) int editCount;
 @property (strong, nonatomic) IBOutlet UIView *viewProject;
-@property (weak, nonatomic) IBOutlet UITextView *explaneTextView;
+@property (nonatomic, strong) IBOutlet UITextView *explaneTextView;
 @property (nonatomic, strong) ProjectModel *detail;
+@property (weak, nonatomic) IBOutlet UITextField *lusterClient;
+@property (weak, nonatomic) IBOutlet UITextField *bypassClient;
+@property (weak, nonatomic) IBOutlet UITextField *spotClient;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *settingsScroller;
 
 
 @end

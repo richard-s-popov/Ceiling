@@ -10,4 +10,13 @@
 
 @implementation ProjectModel
 
+@synthesize clientName;
+@synthesize clientAdress;
+@synthesize clientLuster;
+@synthesize clientSpot;
+@synthesize clientBypass;
+@synthesize clientPlan;
+@synthesize clientId;
+@synthesize clientExplane;
+
 @end

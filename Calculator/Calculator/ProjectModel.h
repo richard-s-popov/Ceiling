@@ -10,4 +10,14 @@
 
 @interface ProjectModel : NSObject
 
+@property (nonatomic, weak) NSString *clientName;
+@property (nonatomic, weak) NSString *clientAdress;
+@property (nonatomic) NSString *clientLuster;
+@property (nonatomic) NSString *clientSpot;
+@property (nonatomic) NSString *clientBypass;
+@property (nonatomic, weak) UIImage *clientPlan;
+@property (nonatomic, weak) NSString *clientId;
+@property (nonatomic, strong) UITextView *clientExplane;
+
+
 @end

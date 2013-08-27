@@ -7,11 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ECSlidingViewController.h"
+#import "MenuViewController.h"
+#import "ProjectModel.h"
+#import "ProjectDetailViewController.h"
+#import "ProjectServise.h"
 
-@interface ProjectsListViewController : UITableViewController
+@interface ProjectsListViewController : UIViewController <UITableViewDelegate , UITableViewDataSource> {
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuBtn;
+    NSMutableArray *clientsList;
+}
 
-- (IBAction)menuBtn:(id)sender;
+@property (nonatomic) NSArray *savedProjects;
+
+@property (nonatomic, retain) NSMutableArray *clientsList;
+@property (strong, nonatomic) IBOutlet UITableView *tbl;
+@property (nonatomic, strong) NSNumber *projectsCount;
+@property (nonatomic, strong) UITextView *explaneText;
 
 @end

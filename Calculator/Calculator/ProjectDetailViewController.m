@@ -17,6 +17,12 @@
 @synthesize viewProject;
 @synthesize editCount;
 @synthesize adressClient;
+@synthesize explaneTextView;
+@synthesize detail;
+@synthesize settingsScroller;
+@synthesize lusterClient;
+@synthesize bypassClient;
+@synthesize spotClient;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,8 +46,15 @@
 {
     [super viewDidLoad];
     
+    [settingsScroller setScrollEnabled:YES];
+    [settingsScroller setContentSize:CGSizeMake(320, 850)];
+    
     [nameClient setDelegate:self];
     [adressClient setDelegate:self];
+    [explaneTextView setDelegate:self];
+    [lusterClient setDelegate:self];
+    [bypassClient setDelegate:self];
+    [spotClient setDelegate:self];
     
     editCount = 0;
     
@@ -54,6 +67,27 @@
                                               ];
     
     [self.view addGestureRecognizer:tapOnScrolView];
+    
+    [self reloadData];
+    
+}
+
+- (void) setDetail:(ProjectModel *)projectSegue {
+    detail = projectSegue;
+
+}
+
+
+//перехват метода viewDidLoad
+- (void) reloadData {
+    //изменяем titile и lable динамически
+    self.navigationItem.title = [NSString stringWithFormat:@"%@", detail.clientAdress];
+    nameClient.text = [NSString stringWithFormat:@"%@", detail.clientName];
+    adressClient.text =[NSString stringWithFormat:@"%@", detail.clientAdress];
+    lusterClient.text = [NSString stringWithFormat:@"%@", detail.clientLuster];
+    bypassClient.text = [NSString stringWithFormat:@"%@", detail.clientBypass];
+    spotClient.text = [NSString stringWithFormat:@"%@", detail.clientSpot];
+    explaneTextView.text = detail.clientExplane.text;
     
 }
 
@@ -68,18 +102,50 @@
 - (void) setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing: editing animated: animated];
     if (editing) {
-        NSLog(@"editing");
+
         editCount = 1;
     } else {
-        NSLog(@"not editing");
+
         editCount = 0;
+        
+        NSString *clientId = detail.clientId;
+        NSLog(@"edited clientId - %@",clientId);
+        
+        //сохраняем данные по нажатию на Done
+        NSUserDefaults *projects = [NSUserDefaults standardUserDefaults];
+        [projects setObject:nameClient.text forKey:[NSString stringWithFormat:@"clientName%@",clientId]];
+        [projects setObject:adressClient.text forKey:[NSString stringWithFormat:@"clientAdress%@",clientId]];
+        [projects setObject:explaneTextView.text forKey:[NSString stringWithFormat:@"clientExplane%@", clientId]];
+        [projects setObject:lusterClient.text forKey:[NSString stringWithFormat:@"clientLuster%@",clientId]];
+        [projects setObject:bypassClient.text forKey:[NSString stringWithFormat:@"clientBypass%@",clientId]];
+        [projects setObject:spotClient.text forKey:[NSString stringWithFormat:@"clientSpot%@",clientId]];
+
+        
+        [projects setObject:clientId forKey:[NSString stringWithFormat:@"clientId%@",clientId]];
+        
+        
+        
+        [projects synchronize];
+
         [self dismissKeyboard];
     }
 }
 
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    NSLog(@"Hello");
+
+    if (editCount == 0) {
+        return NO;
+    }
+    else {
+        return YES;
+    }
+}
+
+
+//РЕДАКТИРОВАНИЕ  textView TRUE or FALSE В ФУНКЦИИ
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    
     if (editCount == 0) {
         return NO;
     }
@@ -93,6 +159,10 @@
     
     [nameClient resignFirstResponder];
     [adressClient resignFirstResponder];
+    [explaneTextView resignFirstResponder];
+    [lusterClient resignFirstResponder];
+    [bypassClient resignFirstResponder];
+    [spotClient resignFirstResponder];
 }
 
 @end

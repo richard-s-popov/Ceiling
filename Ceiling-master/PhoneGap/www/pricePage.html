@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+
+
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        
+        <script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>
+        
+        
+        
+        <title>Натяжные потолки</title>
+    </head>
+    <body>
+        <div data-role="page" id="contactPage">
+            <div data-role="header" data-position="fixed" data-id="myheader">
+                <h1>Цены</h1>
+                <a href="#defaultpanel" data-role="button" data-inline="true" data-icon="bars">Меню</a>
+            </div>
+            
+            <!--контент экрана-->
+            <div data-role="content">
+                
+                <h5>Внесите данные компании</h5>
+                <div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+                    <div data-role="collapsible" class="collapse" id="my-collaspible">
+                        <h3>
+                            <a href="#" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="c">
+                                <span>Менеджер</span>
+                            </a>
+                        </h3>
+                        <p aria-hidden="true">
+                            <label for="name_manager">Имя менеджера:</label>
+                            <input type="text" name="name_manager" id="name_manager" value="">
+                            <label for="tel">Телефон менеджера:</label>
+                            <input type="tel" name="tel" id="phone_manager" value="">
+                            <label for="text-basic">E-mail менеджера:</label>
+                            <input type="email" name="email_manager" id="email_manager" value="">
+                        </p>
+                    </div>
+                    <div data-role="collapsible" class="collapse" id="my-collaspible">
+                        <h3>
+                            <a href="#" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="c">
+                                <span>Цех</span>
+                            </a>
+                        </h3>
+                        <p aria-hidden="true">
+                            <label for="phone_workshop">Телефон цеха:</label>
+                            <input type="tel" name="phone_workshop" id="phone_workshop" value="">
+                            <label for="email_workshop">E-mail цеха:</label>
+                            <input type="email" name="email_workshop" id="email_workshop" value="">
+                        </p>
+                    </div>
+                    
+                <h5>Внесите Ваши личные данные</h5> <!-- телефон почта -->
+                <div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+                    <div data-role="collapsible" class="collapse" id="my-collaspible">
+                        <h3>
+                            <a href="#" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="plus" data-iconpos="left" data-theme="c">
+                                <span>Ваши контакты</span>
+                            </a>
+                        </h3>
+                        <p aria-hidden="false">
+                            <label for="name_user2">Имя:</label>
+                            <input type="text" name="name_user" id="name_user" value="">
+                            <label for="tel">Телефон:</label>
+                            <input type="tel" name="tel" id="phone_user" value="">
+                            <label for="text-basic">E-mail:</label>
+                            <input type="email" name="email_user" id="email_user" value="">
+                        </p>
+                    </div>
+                </div><!-- конец настройки личных данных -->
+            </div>
+                
+                <!-- Записываем данные настроек в БД -->
+                <a href="#demo-links" id="save_btn" data-rel="close" data-role="button" data-theme="a" data-icon="ok" data-inline="true">Сохранить настройки</a>
+                
+            </div><!--конец контента экрана-->
+            
+            <div data-role="footer" data-position="fixed" id="footer" data-id="myfooter">
+                <a href="index.html" data-role="button" data-inline="true" data-icon="arrow-l" data-back="true" data-transition="slide" data-iconpos="left">назад</a>
+                <a href="3step.html"  data-role="button" data-inline="true" data-icon="arrow-r" data-transition="slide" data-iconpos="right" style="float:right;" >далее</a>
+            </div>
+            
+            <!-- defaultpanel  -->
+            <div data-role="panel" id="defaultpanel" data-theme="a">
+                <div class="panel-content">
+                    <h2>Меню</h2>
+                    <a href="index.html" data-role="button" data-theme="c" data-iconpos="right" data-icon="arrow-r" data-transition="slide" data-inline="false">На главную</a>
+                    <h3>Настройки</h3>
+                    <a href="contactPage.html" data-role="button" data-theme="c" data-iconpos="right" data-icon="arrow-r" data-transition="slide" data-inline="false">Контакты</a>
+                    <a href="helpPage.html" data-role="button" data-theme="c" data-iconpos="right" data-icon="arrow-r" data-transition="slide" data-inline="false">Помощь</a>
+                </div><!-- /content wrapper for padding -->
+            </div><!-- /defaultpanel -->
+            <script>
+                (function ($) {
+                 jQuery(document).ready(function($) {
+                    onDeviceReady();
+                    populateForm();
+                    });
+                 })(jQuery);
+                </script>
+            <script type="text/javascript" src="js/save_bd.js"></script>
+            <script type="text/javascript" src="cordova-2.7.0.js"></script>
+            <script type="text/javascript" src="js/index.js"></script>
+            <script type="text/javascript">
+                app.initialize();
+                </script>
+        </div>
+    </body>
+</html>

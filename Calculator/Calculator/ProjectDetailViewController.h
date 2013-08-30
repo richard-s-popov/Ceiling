@@ -11,7 +11,7 @@
 #import "ProjectModel.h"
 #import "ProjectServise.h"
 
-@interface ProjectDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate >
+@interface ProjectDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate>
 
 @property ( nonatomic) IBOutlet UITextField *nameClient;
 @property (weak, nonatomic) IBOutlet UITextField *adressClient;
@@ -25,5 +25,6 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *settingsScroller;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end

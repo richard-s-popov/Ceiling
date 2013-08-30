@@ -41,7 +41,7 @@
     self.menu = [NSArray arrayWithObjects:@"Главная", @"Настройки", @"Чертеж", @"Калькулятор", @"E-Mail", @"Проект", nil];
     
     
-    [self.slidingViewController setAnchorRightRevealAmount:200.0f];
+    [self.slidingViewController setAnchorRightRevealAmount:250.0f];
     self.slidingViewController.underLeftWidthLayout = ECFullWidth;
 }
 

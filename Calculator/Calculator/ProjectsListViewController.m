@@ -99,6 +99,20 @@
 
     //кнопка редактирования
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+    //СОЗДАНИЕ TOOLBAR 
+    self.navigationController.toolbarHidden = NO;
+    self.navigationController.toolbar.tintColor = [UIColor blackColor];
+//    
+//    UIBarButtonItem *button1 = [[UIBarButtonItem alloc] initWithTitle:@"DATE" style:UIBarButtonItemStyleDone target:self action:@selector(dateToolbardoneButtonAction)];
+//    UIBarButtonItem *button2=[[UIBarButtonItem alloc]initWithTitle:@"TIME" style:UIBarButtonItemStyleDone target:self action:@selector(timeToolbarbuttonAction)];
+//    
+//    NSArray *items = [NSArray arrayWithObjects:button1, button2, nil];
+//    
+//    self.toolbarItems = items;
+    
+    
     //кнопка меню
     UIBarButtonItem *menuButton =[[UIBarButtonItem alloc]
                                   initWithTitle:@"меню" style:UIBarButtonItemStyleBordered
@@ -106,6 +120,7 @@
                                   action:@selector(menuBtn)];
     self.navigationItem.leftBarButtonItem = menuButton;
 }
+
 
 - (void)addBtn {
 
@@ -156,17 +171,6 @@
         self.navigationItem.leftBarButtonItem = menuButton;
     }
 }
-
-
-//- (void)editing {
-//    [tbl setEditing:!self.tbl.editing animated:YES];
-//    if (tbl.editing) {
-//        NSLog(@"editing project list");
-//    }
-//    else {
-//        NSLog(@"done");
-//    }
-//}
 
 
 
@@ -258,9 +262,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 }
 
 
+
 //анимация затухания выделения ячейки при возвращении в таблицу
 - (void) viewDidAppear:(BOOL)animated {
-    
+
     NSIndexPath *selectedIndexPath = [self.tbl indexPathForSelectedRow];
     
     [super viewDidAppear:animated];

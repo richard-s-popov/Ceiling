@@ -23,6 +23,7 @@
 @synthesize lusterClient;
 @synthesize bypassClient;
 @synthesize spotClient;
+@synthesize scrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,7 +48,7 @@
     [super viewDidLoad];
     
     [settingsScroller setScrollEnabled:YES];
-    [settingsScroller setContentSize:CGSizeMake(320, 850)];
+    [settingsScroller setContentSize:CGSizeMake(320, 900)];
     
     [nameClient setDelegate:self];
     [adressClient setDelegate:self];
@@ -60,6 +61,16 @@
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    
+    //СОЗДАНИЕ BUTTONS В TOOLBAR
+//    UIBarButtonItem *button1 = [[UIBarButtonItem alloc] initWithTitle:@"DATE" style:UIBarButtonItemStyleDone target:self action:@selector(dateToolbardoneButtonAction)];
+//    UIBarButtonItem *button2=[[UIBarButtonItem alloc]initWithTitle:@"TIME" style:UIBarButtonItemStyleDone target:self action:@selector(timeToolbarbuttonAction)];
+//    
+//    NSArray *items = [NSArray arrayWithObjects:button1, button2, nil];
+//    
+//    self.toolbarItems = items;
+    
+        
     //скрываем клавиатуру по нажатию на фон
     UITapGestureRecognizer *tapOnScrolView = [[UITapGestureRecognizer alloc]
                                               initWithTarget:self
@@ -79,6 +90,7 @@
 
 
 //перехват метода viewDidLoad
+
 - (void) reloadData {
     //изменяем titile и lable динамически
     self.navigationItem.title = [NSString stringWithFormat:@"%@", detail.clientAdress];
@@ -88,6 +100,11 @@
     bypassClient.text = [NSString stringWithFormat:@"%@", detail.clientBypass];
     spotClient.text = [NSString stringWithFormat:@"%@", detail.clientSpot];
     explaneTextView.text = detail.clientExplane.text;
+    
+    NSUserDefaults *projects = [NSUserDefaults standardUserDefaults];
+    [projects setObject:detail.clientId forKey:@"lustProject"];
+    
+    [projects synchronize];
     
 }
 
@@ -102,12 +119,12 @@
 - (void) setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing: editing animated: animated];
     if (editing) {
-
+        [settingsScroller setContentSize:CGSizeMake(320, 1100)];
         editCount = 1;
     } else {
 
         editCount = 0;
-        
+        [settingsScroller setContentSize:CGSizeMake(320, 900)];
         NSString *clientId = detail.clientId;
         NSLog(@"edited clientId - %@",clientId);
         
@@ -163,6 +180,35 @@
     [lusterClient resignFirstResponder];
     [bypassClient resignFirstResponder];
     [spotClient resignFirstResponder];
+}
+
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    
+    scrollView.contentOffset = (CGPoint){
+        0, // ось x нас не интересует
+        CGRectGetMinY(explaneTextView.frame) - 50 // Скроллим скролл к верхней границе текстового поля - Вы можете настроить эту величину по своему усмотрению
+    };
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    scrollView.contentOffset = (CGPoint){0, 0}; // Возвращаем скролл в начало, так как редактирование текстового поля закончено
+}
+
+
+//ПОДНИМАЕМ SCROLLVIEW КОГДА ПОДНИМАЕТСЯ КЛАВИАТУРА
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+
+    scrollView.contentOffset = (CGPoint) {
+        0, CGRectGetMinY(textField.frame) - 20
+    };
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+
+    scrollView.contentOffset = (CGPoint) {
+        0,0
+    };
 }
 
 @end

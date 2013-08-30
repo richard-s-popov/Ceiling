@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0906194117C6AC7C00C36A79 /* textLableBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0906194017C6AC7C00C36A79 /* textLableBg.png */; };
+		090C9CBC17CD6418008A5E10 /* CostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090C9CBB17CD6418008A5E10 /* CostViewController.m */; };
 		09249A7417BD71BE00162B4F /* MaterialServise.m in Sources */ = {isa = PBXBuildFile; fileRef = 09249A7317BD71BE00162B4F /* MaterialServise.m */; };
 		09598140177F676E001D2122 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0959813F177F676E001D2122 /* UIKit.framework */; };
 		09598142177F676E001D2122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09598141177F676E001D2122 /* Foundation.framework */; };
@@ -48,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		0906194017C6AC7C00C36A79 /* textLableBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textLableBg.png; sourceTree = "<group>"; };
+		090C9CBA17CD6418008A5E10 /* CostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CostViewController.h; sourceTree = "<group>"; };
+		090C9CBB17CD6418008A5E10 /* CostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CostViewController.m; sourceTree = "<group>"; };
 		09249A7217BD71BE00162B4F /* MaterialServise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialServise.h; sourceTree = "<group>"; };
 		09249A7317BD71BE00162B4F /* MaterialServise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialServise.m; sourceTree = "<group>"; };
 		0959813C177F676E001D2122 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +229,8 @@
 				0982698017C53861007DB54D /* ProjectDetailViewController.m */,
 				0982698517C53A0A007DB54D /* ProjectServise.h */,
 				0982698617C53A0A007DB54D /* ProjectServise.m */,
+				090C9CBA17CD6418008A5E10 /* CostViewController.h */,
+				090C9CBB17CD6418008A5E10 /* CostViewController.m */,
 			);
 			name = Projects;
 			sourceTree = "<group>";
@@ -379,6 +384,7 @@
 				0982698117C53861007DB54D /* ProjectDetailViewController.m in Sources */,
 				0982698417C53982007DB54D /* ProjectModel.m in Sources */,
 				0982698717C53A0A007DB54D /* ProjectServise.m in Sources */,
+				090C9CBC17CD6418008A5E10 /* CostViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

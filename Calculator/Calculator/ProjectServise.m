@@ -9,7 +9,7 @@
 #import "ProjectServise.h"
 
 @implementation ProjectServise
-
+@synthesize countDetailProject;
 
 - (void)SaveProject:(NSMutableArray *)projectsArray {
     int n = 0;
@@ -131,8 +131,32 @@
     [projects setObject:newDetail.clientSpot forKey:[NSString stringWithFormat:@"clientSpot%@",newDetail.clientId]];
     [projects setObject:newDetail.clientId forKey:[NSString stringWithFormat:@"clientId%@",newDetail.clientId]];
     
+    countDetailProject = newDetail.clientId;
     [projects synchronize];
 }
 
+
+- (ProjectModel *)changeDetailProject {
+    
+    NSUserDefaults *projects = [NSUserDefaults standardUserDefaults];
+    countDetailProject = [projects objectForKey:@"lustProject"];
+    
+    ProjectModel *changedProject = [[ProjectModel alloc] init];
+
+    [changedProject setClientName:[projects objectForKey:[NSString stringWithFormat:@"clientName%@",countDetailProject]]];
+    [changedProject setClientAdress:[projects objectForKey:[NSString stringWithFormat:@"clientAdress%@",countDetailProject]]];
+    [changedProject setClientLuster:[projects objectForKey:[NSString stringWithFormat:@"clientLuster%@",countDetailProject]]];
+    [changedProject setClientBypass:[projects objectForKey:[NSString stringWithFormat:@"clientBypass%@",countDetailProject]]];
+    [changedProject setClientSpot:[projects objectForKey:[NSString stringWithFormat:@"clientSpot%@",countDetailProject]]];
+    
+    UITextView *explaneText = [[UITextView alloc] init];
+    explaneText.text = [projects objectForKey:[NSString stringWithFormat:@"clientExplane%@",countDetailProject]];
+    [changedProject setClientExplane:explaneText];
+    
+    [changedProject setClientId:[projects objectForKey:[NSString stringWithFormat:@"clientId%@",countDetailProject]]];
+
+
+    return changedProject;
+}
 
 @end

@@ -44,7 +44,7 @@
     //инициализируем объекты массива и материала
     self.innerArrayMaterial = [NSMutableArray array];
     MathModel *exemplarMaterial;
-    
+
     
     //цыкл для загрузки данных
     //извлечение счетчика колличества сохраненных объектов count
@@ -56,12 +56,11 @@
     //добавляем первый материал если счетчик колличества материалов равен 0
     //задаем нулевой объект
     if (intCount == 0) {
+        
         //заполняем нулевой объект данными
-        exemplarMaterial = [[MathModel alloc] init];
-        exemplarMaterial.nameMaterial = @"первый материал";
-        exemplarMaterial.widthMaterial = @"";
-        exemplarMaterial.priceMaterial = @"";
-        exemplarMaterial.idMaterial = @"0";
+        MaterialServise *contaner = [[MaterialServise alloc] init];
+        exemplarMaterial = [contaner ZeroMaterial];
+        
         //заполняем ячейку массива материалов по индексу
         [innerArrayMaterial addObject:exemplarMaterial];
     }
@@ -70,29 +69,15 @@
     //пересоздаем материалы в контроллере из памяти
     int n = 0;
     while (n!=intCount) {
-        //инициализируем новый объект материала для заполнения
-        exemplarMaterial = [[MathModel alloc] init];
-        NSUserDefaults *materials = [NSUserDefaults standardUserDefaults];
-        [exemplarMaterial setNameMaterial:[materials objectForKey:[NSString stringWithFormat:@"nameMaterialObject%d", n]]];
-        [exemplarMaterial setWidthMaterial:[materials objectForKey:[NSString stringWithFormat:@"widthMaterialObject%d", n]]];
-        [exemplarMaterial setPriceMaterial:[materials objectForKey:[NSString stringWithFormat:@"priceMaterialObject%d", n]]];
-        [exemplarMaterial setIdMaterial:[materials objectForKey:[NSString stringWithFormat:@"idMaterialObject%d", n]]];
         
-        [innerArrayMaterial addObject:exemplarMaterial];
+        //перезаполняем массив
+        [innerArrayMaterial addObject:[savedArray objectAtIndex:n]];
         n++;
     }  
     
     //чистим настройки в plist
-    n = 50;
-    while (n>=intCount) {
-        NSUserDefaults *materials = [NSUserDefaults standardUserDefaults];
-        //удаляем настройки из plist
-        [materials removeObjectForKey:[NSString stringWithFormat:@"nameMaterialObject%d", n]];
-        [materials removeObjectForKey:[NSString stringWithFormat:@"widthMaterialObject%d", n]];
-        [materials removeObjectForKey:[NSString stringWithFormat:@"priceMaterialObject%d", n]];
-        [materials removeObjectForKey:[NSString stringWithFormat:@"idMaterialObject%d", n]];     
-        n--;
-    }
+    MaterialServise *clear = [[MaterialServise alloc] init];
+    [clear ClearStorage];
     
     
     //подготовка к отправке данных в MaterialServise
@@ -111,15 +96,11 @@
 //нажатие на кнопку добавить
 - (void)addBtn {
     
-    //создаем экземпляр нового материала
-    MathModel *exemplarMaterial;
-    //заполняем экземпляр статичными данными
-    exemplarMaterial = [[MathModel alloc] init];
-    exemplarMaterial.nameMaterial = @"Новый материал";
-    exemplarMaterial.widthMaterial = @"";
-    exemplarMaterial.priceMaterial = @"";
-    //присваиваем id материалу по числу count
-    exemplarMaterial.idMaterial = [NSString stringWithFormat:@"%d", innerArrayMaterial.count];
+    //заполняем нулевой объект данными
+    MaterialServise *contaner = [[MaterialServise alloc] init];
+    MathModel *exemplarMaterial = [contaner ZeroMaterial];
+    
+    //заполняем ячейку массива материалов по индексу
     [innerArrayMaterial addObject:exemplarMaterial];
     
     
@@ -142,7 +123,7 @@
     [tbl setEditing:editing animated:animated];
     
     if (editing) {
-        NSLog(@"editing project list");
+        
         //добавляем кнопку добавления материала
         UIBarButtonItem *addButton =[[UIBarButtonItem alloc]
                                      initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
@@ -152,10 +133,10 @@
         self.navigationItem.leftItemsSupplementBackButton = NO;
     }
     else {
+        
         //добавляем кнопку добавления материала
         self.navigationItem.leftItemsSupplementBackButton = YES;
         self.navigationItem.leftBarButtonItem = NO;
-        NSLog(@"done");
     }
 }
 
@@ -239,20 +220,19 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     //изменяем данные в массиве
     MathModel *changedMaterial = [[MathModel alloc] init];
     changedMaterial = [innerArrayMaterial objectAtIndex:selectedIndexPath.row];
-    //извлекаем данные из памяти
-    NSUserDefaults *materials =[NSUserDefaults standardUserDefaults];
-    NSString *newName = [materials objectForKey:[NSString stringWithFormat:@"nameMaterialObject%d", selectedIndexPath.row]];
-    NSString *newWidth = [materials objectForKey:[NSString stringWithFormat:@"widthMaterialObject%d", selectedIndexPath.row]];
-    NSString *newPrice = [materials objectForKey:[NSString stringWithFormat:@"priceMaterialObject%d", selectedIndexPath.row]];
-    NSString *newId = [materials objectForKey:[NSString stringWithFormat:@"idMaterialObject%d", selectedIndexPath.row]];
-    
-    //проверяем изменились ли данные
-    if ((selectedIndexPath) && ((changedMaterial.nameMaterial != newName) || (changedMaterial.widthMaterial != newWidth) || (changedMaterial.priceMaterial != newPrice))) {
         
-        [changedMaterial setNameMaterial:newName];
-        [changedMaterial setWidthMaterial:newWidth];
-        [changedMaterial setPriceMaterial:newPrice];
-        [changedMaterial setIdMaterial:newId];
+    //извлекаем данные из памяти
+    MathModel *newData = [[MathModel alloc] init];
+    MaterialServise *contaner = [[MaterialServise alloc] init];
+    newData = [contaner ReadDetail];
+        
+    //проверяем изменились ли данные
+    if ((selectedIndexPath) && ((changedMaterial.nameMaterial != newData.nameMaterial) || (changedMaterial.widthMaterial != newData.widthMaterial) || (changedMaterial.priceMaterial != newData.priceMaterial))) {
+        
+        [changedMaterial setNameMaterial:newData.nameMaterial];
+        [changedMaterial setWidthMaterial:newData.widthMaterial];
+        [changedMaterial setPriceMaterial:newData.priceMaterial];
+        [changedMaterial setIdMaterial:newData.idMaterial];
         
         //записываем объект материала обратно в массив
         [innerArrayMaterial replaceObjectAtIndex:selectedIndexPath.row withObject:changedMaterial];

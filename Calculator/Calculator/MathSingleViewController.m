@@ -78,6 +78,11 @@
     nameMaterialInDetail.text = [NSString stringWithFormat:@"%@ %@", _detail.nameMaterial, _detail.widthMaterial];
     priceMaterialInDetail.text =[NSString stringWithFormat:@"%@ руб/м2", _detail.priceMaterial];
     
+    NSUserDefaults *materials = [NSUserDefaults standardUserDefaults];
+    [materials setObject:_detail.idMaterial forKey:@"lustMaterial"];
+    
+    [materials synchronize];
+    
     //вносим данные в поля
     editMaterialName.text = _detail.nameMaterial;
     editMaterialWidth.text = _detail.widthMaterial;
@@ -88,13 +93,15 @@
 //действие по нажатию на кнопку сохранинея
 - (IBAction)saveMaterialSingle:(id)sender {
     
-    NSUserDefaults *materials = [NSUserDefaults standardUserDefaults];
+    MathModel *exemplarMaterial = [[MathModel alloc] init];
     
-    [materials setObject:editMaterialName.text forKey:[NSString stringWithFormat:@"nameMaterialObject%@", _detail.idMaterial]];
-    [materials setObject:editMaterialWidth.text forKey:[NSString stringWithFormat:@"widthMaterialObject%@", _detail.idMaterial]];
-    [materials setObject:editMaterialPrice.text forKey:[NSString stringWithFormat:@"priceMaterialObject%@", _detail.idMaterial]];
+    exemplarMaterial.nameMaterial = editMaterialName.text;
+    exemplarMaterial.widthMaterial = editMaterialWidth.text;
+    exemplarMaterial.priceMaterial = editMaterialPrice.text;
+    exemplarMaterial.idMaterial = _detail.idMaterial;
     
-    [materials synchronize];
+    MaterialServise *contaner = [[MaterialServise alloc] init];
+    [contaner SaveDetail:exemplarMaterial];
 }
 
 

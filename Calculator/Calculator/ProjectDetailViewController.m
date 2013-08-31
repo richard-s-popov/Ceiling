@@ -83,10 +83,23 @@
     
 }
 
+//принимаем объект проекта из  ProjectListViewController
 - (void) setDetail:(ProjectModel *)projectSegue {
     detail = projectSegue;
 
 }
+
+//передаем данные по segue в CostViewController для расчета стоимости
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    //получаем объект проекта в котором находимся через ProjectService
+    ProjectServise *contaner = [[ProjectServise alloc] init];
+    ProjectModel *newData = [contaner changeDetailProject];
+    
+    //передаем данные в метод PutSettings класса CostViewController
+    [segue.destinationViewController PutSettings:newData];
+}
+
 
 
 //перехват метода viewDidLoad
@@ -172,6 +185,7 @@
     }
 }
 
+
 //метод скрытия клавиатуры по нажатию на фон
 - (void)dismissKeyboard {
     
@@ -212,4 +226,8 @@
     };
 }
 
+- (IBAction)Cost:(id)sender {
+    
+    [self performSegueWithIdentifier:@"Cost" sender:self];
+}
 @end

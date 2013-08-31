@@ -19,6 +19,8 @@
     
 }
 @property (weak, nonatomic) IBOutlet UILabel *lastCost;
+@property (weak, nonatomic) NSString *test;
+@property (weak, nonatomic) ProjectModel *detailProjectData;
 
-
+- (void)PutSettings:(ProjectModel *)putSettings;
 @end

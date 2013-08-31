@@ -13,6 +13,7 @@
 
 @interface ProjectServise : NSObject
 
+@property (weak,nonatomic) NSString *countDetailProject;
 
 + (void)ClearProject;
 - (void)SaveProject:(NSMutableArray *)projects;
@@ -21,5 +22,5 @@
 
 //СЕРВИС ДЛЯ DETAIL
 - (void)SaveDetail:(ProjectModel *)newDetail;
-
+- (ProjectModel *)changeDetailProject;
 @end

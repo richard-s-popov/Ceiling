@@ -4,7 +4,7 @@
 //
 //  Created by Александр Коровкин on 28.08.13.
 //  Copyright (c) 2013 Александр Коровкин. All rights reserved.
-//
+
 
 #import "CostViewController.h"
 
@@ -15,6 +15,8 @@
 
 @implementation CostViewController
 @synthesize lastCost;
+@synthesize test;
+@synthesize detailProjectData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,28 +27,23 @@
     return self;
 }
 
+//принимаем объект проекта из ProjectDetailViewController
+- (void)PutSettings:(ProjectModel *)putSettings {
+    
+    detailProjectData = putSettings;
+    
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    luster = [detailProjectData.clientLuster integerValue];
+    bypass = [detailProjectData.clientBypass integerValue];
+    spot = [detailProjectData.clientSpot integerValue];
     
-    //ИЗВЛЕКАЕМ СОХРАНЕННЫЕ ДАННЫЕ
-    
-    
-    ProjectModel *projectExemplar = [[ProjectModel alloc] init];
-    
-    NSUserDefaults *projects = [NSUserDefaults standardUserDefaults];
-    [projectExemplar setClientId:[projects objectForKey:@"lustProject"]];
-    [projectExemplar setClientLuster:[projects objectForKey:[NSString stringWithFormat:@"clientLuster%@",projectExemplar.clientId]]];
-    [projectExemplar setClientBypass:[projects objectForKey:[NSString stringWithFormat:@"clientBypass%@",projectExemplar.clientId]]];
-    [projectExemplar setClientSpot:[projects objectForKey:[NSString stringWithFormat:@"clientSpot%@",projectExemplar.clientId]]];
-
-    
-    //калькулятор
-    luster = [projectExemplar.clientLuster integerValue];
-    bypass = [projectExemplar.clientBypass integerValue];
-    spot = [projectExemplar.clientSpot integerValue];
-    
+    //получаем данные дополнительных настроек из AddSettingsServise 
     AddSettingsServise *saved = [[AddSettingsServise alloc] init];
     AddSettingsModel *contanerAddittionaly = [[AddSettingsModel alloc] init];
     contanerAddittionaly = saved.Read;

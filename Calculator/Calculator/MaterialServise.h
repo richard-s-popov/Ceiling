@@ -15,5 +15,12 @@
 
 - (void)SaveMaterial:(NSMutableArray *)model;
 + (NSMutableArray *)Read;
+- (MathModel *)ZeroMaterial;
+-(void)ClearStorage;
+
+
+//методы для detail
+-(void)SaveDetail:(MathModel *)savedMaterial;
+-(MathModel *)ReadDetail;
 
 @end

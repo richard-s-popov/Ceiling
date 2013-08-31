@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		091954321791E71A0087B140 /* MatSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 091954311791E71A0087B140 /* MatSettingsViewController.m */; };
+		09249A7417BD71BE00162B4F /* MaterialServise.m in Sources */ = {isa = PBXBuildFile; fileRef = 09249A7317BD71BE00162B4F /* MaterialServise.m */; };
 		09598140177F676E001D2122 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0959813F177F676E001D2122 /* UIKit.framework */; };
 		09598142177F676E001D2122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09598141177F676E001D2122 /* Foundation.framework */; };
 		09598144177F676E001D2122 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09598143177F676E001D2122 /* CoreGraphics.framework */; };
@@ -19,6 +19,11 @@
 		09598156177F676E001D2122 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09598155177F676E001D2122 /* Default-568h@2x.png */; };
 		09598159177F676E001D2122 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09598157177F676E001D2122 /* MainStoryboard.storyboard */; };
 		0959815C177F676E001D2122 /* CalcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0959815B177F676E001D2122 /* CalcViewController.m */; };
+		0982696E17C26BC0007DB54D /* Phone_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982696D17C26BC0007DB54D /* Phone_settings.png */; };
+		0982697117C27142007DB54D /* MaterialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982697017C27142007DB54D /* MaterialCell.m */; };
+		0982697517C3E9C6007DB54D /* emailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982697417C3E9C6007DB54D /* emailViewController.m */; };
+		0982697717C3EE98007DB54D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0982697617C3EE98007DB54D /* MessageUI.framework */; };
+		0982697917C4C5EE007DB54D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982697817C4C5EE007DB54D /* icon.png */; };
 		09879C8217835733005B5E40 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09879C8117835733005B5E40 /* SettingsViewController.m */; };
 		09C82BBD1789DD8B00A47057 /* SettingsOptionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */; };
 		09C82BC01789DFE300A47057 /* SettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBF1789DFE200A47057 /* SettingsService.m */; };
@@ -30,12 +35,15 @@
 		09D5DF6D178CEB32004FAA8C /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF6C178CEB32004FAA8C /* MenuViewController.m */; };
 		09D5DF70178CEB66004FAA8C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF6F178CEB66004FAA8C /* MainViewController.m */; };
 		09D5DF77178CEE16004FAA8C /* BuildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF76178CEE16004FAA8C /* BuildViewController.m */; };
+		09EB559C17BD1B7400E182CB /* MathSingleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB559B17BD1B7400E182CB /* MathSingleViewController.m */; };
+		09EB559F17BD1D3900E182CB /* MathModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB559E17BD1D3900E182CB /* MathModel.m */; };
+		09FA8C8017BCE00C000C1C89 /* MatDetaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FA8C7F17BCE00C000C1C89 /* MatDetaleViewController.m */; };
 		26BF92FE1788441600C90497 /* PlotRectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BF92FD1788441600C90497 /* PlotRectViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		091954301791E71A0087B140 /* MatSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatSettingsViewController.h; sourceTree = "<group>"; };
-		091954311791E71A0087B140 /* MatSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatSettingsViewController.m; sourceTree = "<group>"; };
+		09249A7217BD71BE00162B4F /* MaterialServise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialServise.h; sourceTree = "<group>"; };
+		09249A7317BD71BE00162B4F /* MaterialServise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialServise.m; sourceTree = "<group>"; };
 		0959813C177F676E001D2122 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0959813F177F676E001D2122 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09598141177F676E001D2122 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -52,6 +60,13 @@
 		09598158177F676E001D2122 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		0959815A177F676E001D2122 /* CalcViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalcViewController.h; sourceTree = "<group>"; };
 		0959815B177F676E001D2122 /* CalcViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalcViewController.m; sourceTree = "<group>"; };
+		0982696D17C26BC0007DB54D /* Phone_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phone_settings.png; sourceTree = "<group>"; };
+		0982696F17C27142007DB54D /* MaterialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialCell.h; sourceTree = "<group>"; };
+		0982697017C27142007DB54D /* MaterialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialCell.m; sourceTree = "<group>"; };
+		0982697317C3E9C6007DB54D /* emailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = emailViewController.h; sourceTree = "<group>"; };
+		0982697417C3E9C6007DB54D /* emailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = emailViewController.m; sourceTree = "<group>"; };
+		0982697617C3EE98007DB54D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		0982697817C4C5EE007DB54D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		09879C8017835733005B5E40 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		09879C8117835733005B5E40 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		09C82BBB1789DD8B00A47057 /* SettingsOptionsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsOptionsModel.h; sourceTree = "<group>"; };
@@ -73,6 +88,12 @@
 		09D5DF6F178CEB66004FAA8C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		09D5DF75178CEE16004FAA8C /* BuildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildViewController.h; sourceTree = "<group>"; };
 		09D5DF76178CEE16004FAA8C /* BuildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildViewController.m; sourceTree = "<group>"; };
+		09EB559A17BD1B7400E182CB /* MathSingleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathSingleViewController.h; sourceTree = "<group>"; };
+		09EB559B17BD1B7400E182CB /* MathSingleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathSingleViewController.m; sourceTree = "<group>"; };
+		09EB559D17BD1D3900E182CB /* MathModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathModel.h; sourceTree = "<group>"; };
+		09EB559E17BD1D3900E182CB /* MathModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathModel.m; sourceTree = "<group>"; };
+		09FA8C7E17BCE00C000C1C89 /* MatDetaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatDetaleViewController.h; sourceTree = "<group>"; };
+		09FA8C7F17BCE00C000C1C89 /* MatDetaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatDetaleViewController.m; sourceTree = "<group>"; };
 		26BF92FC1788441600C90497 /* PlotRectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotRectViewController.h; sourceTree = "<group>"; };
 		26BF92FD1788441600C90497 /* PlotRectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotRectViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0982697717C3EE98007DB54D /* MessageUI.framework in Frameworks */,
 				09598140177F676E001D2122 /* UIKit.framework in Frameworks */,
 				09598142177F676E001D2122 /* Foundation.framework in Frameworks */,
 				09598144177F676E001D2122 /* CoreGraphics.framework in Frameworks */,
@@ -94,6 +116,7 @@
 		09598133177F676E001D2122 = {
 			isa = PBXGroup;
 			children = (
+				0982697617C3EE98007DB54D /* MessageUI.framework */,
 				09598145177F676E001D2122 /* Calculator */,
 				0959813E177F676E001D2122 /* Frameworks */,
 				0959813D177F676E001D2122 /* Products */,
@@ -121,6 +144,7 @@
 		09598145177F676E001D2122 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				0982697217C3E9A2007DB54D /* e-mail */,
 				09C93E841791B39F00A4FBDC /* menuButton@2x.png */,
 				09D5DF61178CEAA5004FAA8C /* ECSlidingViewController */,
 				09C82BBA1789DD5000A47057 /* Model */,
@@ -139,8 +163,7 @@
 				09C93E861791B78100A4FBDC /* OptionsViewController.h */,
 				09C93E871791B78100A4FBDC /* OptionsViewController.m */,
 				09D5DF74178CEDC1004FAA8C /* Menu */,
-				091954301791E71A0087B140 /* MatSettingsViewController.h */,
-				091954311791E71A0087B140 /* MatSettingsViewController.m */,
+				09EB559917BD1B1300E182CB /* Materials Settings */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -148,15 +171,26 @@
 		09598146177F676E001D2122 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0982696D17C26BC0007DB54D /* Phone_settings.png */,
 				09598147177F676E001D2122 /* Calculator-Info.plist */,
 				09598148177F676E001D2122 /* InfoPlist.strings */,
 				0959814B177F676E001D2122 /* main.m */,
 				0959814D177F676E001D2122 /* Calculator-Prefix.pch */,
+				0982697817C4C5EE007DB54D /* icon.png */,
 				09598151177F676E001D2122 /* Default.png */,
 				09598153177F676E001D2122 /* Default@2x.png */,
 				09598155177F676E001D2122 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0982697217C3E9A2007DB54D /* e-mail */ = {
+			isa = PBXGroup;
+			children = (
+				0982697317C3E9C6007DB54D /* emailViewController.h */,
+				0982697417C3E9C6007DB54D /* emailViewController.m */,
+			);
+			name = "e-mail";
 			sourceTree = "<group>";
 		};
 		09C82BBA1789DD5000A47057 /* Model */ = {
@@ -192,6 +226,23 @@
 				09D5DF6F178CEB66004FAA8C /* MainViewController.m */,
 			);
 			name = Menu;
+			sourceTree = "<group>";
+		};
+		09EB559917BD1B1300E182CB /* Materials Settings */ = {
+			isa = PBXGroup;
+			children = (
+				09EB559D17BD1D3900E182CB /* MathModel.h */,
+				09EB559E17BD1D3900E182CB /* MathModel.m */,
+				09FA8C7E17BCE00C000C1C89 /* MatDetaleViewController.h */,
+				09FA8C7F17BCE00C000C1C89 /* MatDetaleViewController.m */,
+				09EB559A17BD1B7400E182CB /* MathSingleViewController.h */,
+				09EB559B17BD1B7400E182CB /* MathSingleViewController.m */,
+				09249A7217BD71BE00162B4F /* MaterialServise.h */,
+				09249A7317BD71BE00162B4F /* MaterialServise.m */,
+				0982696F17C27142007DB54D /* MaterialCell.h */,
+				0982697017C27142007DB54D /* MaterialCell.m */,
+			);
+			name = "Materials Settings";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +303,8 @@
 				09598156177F676E001D2122 /* Default-568h@2x.png in Resources */,
 				09598159177F676E001D2122 /* MainStoryboard.storyboard in Resources */,
 				09C93E851791B39F00A4FBDC /* menuButton@2x.png in Resources */,
+				0982696E17C26BC0007DB54D /* Phone_settings.png in Resources */,
+				0982697917C4C5EE007DB54D /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +329,12 @@
 				09D5DF70178CEB66004FAA8C /* MainViewController.m in Sources */,
 				09D5DF77178CEE16004FAA8C /* BuildViewController.m in Sources */,
 				09C93E881791B78100A4FBDC /* OptionsViewController.m in Sources */,
-				091954321791E71A0087B140 /* MatSettingsViewController.m in Sources */,
+				09FA8C8017BCE00C000C1C89 /* MatDetaleViewController.m in Sources */,
+				09EB559C17BD1B7400E182CB /* MathSingleViewController.m in Sources */,
+				09EB559F17BD1D3900E182CB /* MathModel.m in Sources */,
+				09249A7417BD71BE00162B4F /* MaterialServise.m in Sources */,
+				0982697117C27142007DB54D /* MaterialCell.m in Sources */,
+				0982697517C3E9C6007DB54D /* emailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,5 +30,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)Cost:(id)sender;
+- (IBAction)Email:(id)sender;
 
 @end

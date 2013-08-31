@@ -12,6 +12,5 @@
 @interface emailViewController : UIViewController <MFMailComposeViewControllerDelegate>
 
 
-- (IBAction)menuBtn:(id)sender;
 
 @end

@@ -10,6 +10,7 @@
 #import "ProjectsListViewController.h"
 #import "ProjectModel.h"
 #import "ProjectServise.h"
+#import "CostViewController.h"
 
 @interface ProjectDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate>
 
@@ -27,5 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *settingsScroller;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+- (IBAction)Cost:(id)sender;
 
 @end

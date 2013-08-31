@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ProjectModel.h"
+#import "AddSettingsModel.h"
+#import "AddSettingsServise.h"
+
 
 @interface CostViewController : UIViewController
 

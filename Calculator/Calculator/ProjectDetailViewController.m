@@ -119,30 +119,31 @@
 - (void) setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing: editing animated: animated];
     if (editing) {
+        
+        //УВЕЛИЧИВАЕТ SCROLLVIEW ДЛЯ УДОБСТВА РЕДАКТИРОВАНИЯ
         [settingsScroller setContentSize:CGSizeMake(320, 1100)];
         editCount = 1;
     } else {
 
         editCount = 0;
         [settingsScroller setContentSize:CGSizeMake(320, 900)];
-        NSString *clientId = detail.clientId;
-        NSLog(@"edited clientId - %@",clientId);
+//        NSString *clientId = detail.clientId;
         
-        //сохраняем данные по нажатию на Done
-        NSUserDefaults *projects = [NSUserDefaults standardUserDefaults];
-        [projects setObject:nameClient.text forKey:[NSString stringWithFormat:@"clientName%@",clientId]];
-        [projects setObject:adressClient.text forKey:[NSString stringWithFormat:@"clientAdress%@",clientId]];
-        [projects setObject:explaneTextView.text forKey:[NSString stringWithFormat:@"clientExplane%@", clientId]];
-        [projects setObject:lusterClient.text forKey:[NSString stringWithFormat:@"clientLuster%@",clientId]];
-        [projects setObject:bypassClient.text forKey:[NSString stringWithFormat:@"clientBypass%@",clientId]];
-        [projects setObject:spotClient.text forKey:[NSString stringWithFormat:@"clientSpot%@",clientId]];
+        //сохраняем данные по нажатию на Done в новый объект
+        ProjectModel *newData = [[ProjectModel alloc] init];
+        newData.clientName = nameClient.text;
+        newData.clientAdress = adressClient.text;
+        
+        newData.clientExplane = explaneTextView;
+        newData.clientLuster = lusterClient.text;
+        newData.clientBypass = bypassClient.text;
+        newData.clientSpot = spotClient.text;
+        newData.clientId = detail.clientId;
 
         
-        [projects setObject:clientId forKey:[NSString stringWithFormat:@"clientId%@",clientId]];
+        ProjectServise *containerProject = [[ProjectServise alloc] init];
+        [containerProject SaveDetail:newData];
         
-        
-        
-        [projects synchronize];
 
         [self dismissKeyboard];
     }

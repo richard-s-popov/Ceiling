@@ -91,13 +91,15 @@
 
 //передаем данные по segue в CostViewController для расчета стоимости
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    //получаем объект проекта в котором находимся через ProjectService
-    ProjectServise *contaner = [[ProjectServise alloc] init];
-    ProjectModel *newData = [contaner changeDetailProject];
-    
-    //передаем данные в метод PutSettings класса CostViewController
-    [segue.destinationViewController PutSettings:newData];
+        
+    if ([segue.identifier isEqual: @"Cost"]) {
+        //получаем объект проекта в котором находимся через ProjectService
+        ProjectServise *contaner = [[ProjectServise alloc] init];
+        ProjectModel *newData = [contaner changeDetailProject];
+        
+        //передаем данные в метод PutSettings класса CostViewController
+        [segue.destinationViewController PutSettings:newData];
+    }
 }
 
 
@@ -229,5 +231,9 @@
 - (IBAction)Cost:(id)sender {
     
     [self performSegueWithIdentifier:@"Cost" sender:self];
+}
+
+- (IBAction)Email:(id)sender {
+    [self performSegueWithIdentifier:@"Email" sender:self];
 }
 @end

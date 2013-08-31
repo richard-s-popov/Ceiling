@@ -13,9 +13,13 @@
 
 @interface ProjectServise : NSObject
 
+
++ (void)ClearProject;
 - (void)SaveProject:(NSMutableArray *)projects;
 + (NSMutableArray *)Read;
++ (ProjectModel *)ZeroProject;
 
-
+//СЕРВИС ДЛЯ DETAIL
+- (void)SaveDetail:(ProjectModel *)newDetail;
 
 @end

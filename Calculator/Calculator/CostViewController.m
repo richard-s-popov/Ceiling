@@ -8,6 +8,7 @@
 
 #import "CostViewController.h"
 
+
 @interface CostViewController ()
 
 @end
@@ -31,6 +32,7 @@
     
     //ИЗВЛЕКАЕМ СОХРАНЕННЫЕ ДАННЫЕ
     
+    
     ProjectModel *projectExemplar = [[ProjectModel alloc] init];
     
     NSUserDefaults *projects = [NSUserDefaults standardUserDefaults];
@@ -45,7 +47,15 @@
     bypass = [projectExemplar.clientBypass integerValue];
     spot = [projectExemplar.clientSpot integerValue];
     
-    int lastCostInt = (luster*350) + (bypass*150) + (spot*200);
+    AddSettingsServise *saved = [[AddSettingsServise alloc] init];
+    AddSettingsModel *contanerAddittionaly = [[AddSettingsModel alloc] init];
+    contanerAddittionaly = saved.Read;
+    
+    unsigned lusterPrice = [contanerAddittionaly.lusterPrice integerValue];
+    unsigned bypassPrice = [contanerAddittionaly.bypassPrice integerValue];
+    unsigned spotPrice = [contanerAddittionaly.spotPrice integerValue];
+    
+    int lastCostInt = (luster*lusterPrice) + (bypass*bypassPrice) + (spot*spotPrice);
     
     lastCost.text = [NSString stringWithFormat:@"%u", (unsigned)lastCostInt];
     

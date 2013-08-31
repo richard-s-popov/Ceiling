@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIView *viewProject;
 @property (nonatomic, strong) IBOutlet UITextView *explaneTextView;
 @property (nonatomic, strong) ProjectModel *detail;
+
 @property (weak, nonatomic) IBOutlet UITextField *lusterClient;
 @property (weak, nonatomic) IBOutlet UITextField *bypassClient;
 @property (weak, nonatomic) IBOutlet UITextField *spotClient;

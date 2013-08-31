@@ -71,4 +71,68 @@
     
     return resultProjects;
 }
+
+
++ (void)ClearProject {
+    
+    NSUserDefaults *projects = [NSUserDefaults standardUserDefaults];
+    NSNumber *projectCount = [projects objectForKey:@"porjectsCount"];
+    
+    int n = 50;
+    while (n >= [projectCount intValue]) {
+        
+        NSUserDefaults *projects = [NSUserDefaults standardUserDefaults];
+        //удаляем настройки из plist
+        [projects removeObjectForKey:[NSString stringWithFormat:@"clientName%d", n]];
+        [projects removeObjectForKey:[NSString stringWithFormat:@"clientAdress%d", n]];
+        [projects removeObjectForKey:[NSString stringWithFormat:@"clientLuster%d",n]];
+        [projects removeObjectForKey:[NSString stringWithFormat:@"clientBypass%d",n]];
+        [projects removeObjectForKey:[NSString stringWithFormat:@"clientSpot%d",n]];
+        [projects removeObjectForKey:[NSString stringWithFormat:@"clientExplane%d", n]];
+        [projects removeObjectForKey:[NSString stringWithFormat:@"clientId%d", n]];
+        
+        n--;
+    }
+}
+
+
++ (ProjectModel *)ZeroProject {
+
+    ProjectModel *exemplarProject = [[ProjectModel alloc] init];
+    
+    
+    exemplarProject.clientName = @"Имя клиента";
+    exemplarProject.clientAdress = @"Адресс клиента";
+    exemplarProject.clientLuster = @"0";
+    exemplarProject.clientBypass = @"0";
+    exemplarProject.clientSpot = @"0";
+    
+    UITextView *explaneText = [[UITextView alloc] init];
+    explaneText.text = @"Описание проекта";
+    exemplarProject.clientExplane = explaneText;
+    exemplarProject.clientId = @"0";
+    
+    return exemplarProject;
+}
+
+
+//          ОБРАБОТКА DETAIL
+
+
+- (void)SaveDetail:(ProjectModel *)newDetail {
+
+    NSUserDefaults *projects = [NSUserDefaults standardUserDefaults];
+    
+    [projects setObject:newDetail.clientName forKey:[NSString stringWithFormat:@"clientName%@",newDetail.clientId]];
+    [projects setObject:newDetail.clientAdress forKey:[NSString stringWithFormat:@"clientAdress%@",newDetail.clientId]];
+    [projects setObject:newDetail.clientExplane.text forKey:[NSString stringWithFormat:@"clientExplane%@", newDetail.clientId]];
+    [projects setObject:newDetail.clientLuster forKey:[NSString stringWithFormat:@"clientLuster%@",newDetail.clientId]];
+    [projects setObject:newDetail.clientBypass forKey:[NSString stringWithFormat:@"clientBypass%@",newDetail.clientId]];
+    [projects setObject:newDetail.clientSpot forKey:[NSString stringWithFormat:@"clientSpot%@",newDetail.clientId]];
+    [projects setObject:newDetail.clientId forKey:[NSString stringWithFormat:@"clientId%@",newDetail.clientId]];
+    
+    [projects synchronize];
+}
+
+
 @end

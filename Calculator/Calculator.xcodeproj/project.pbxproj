@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0906194117C6AC7C00C36A79 /* textLableBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0906194017C6AC7C00C36A79 /* textLableBg.png */; };
 		090C9CBC17CD6418008A5E10 /* CostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090C9CBB17CD6418008A5E10 /* CostViewController.m */; };
+		0910CDB517D144A50032060C /* AddSettingsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0910CDB417D144A50032060C /* AddSettingsModel.m */; };
+		0910CDB817D145D10032060C /* AddSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0910CDB717D145D10032060C /* AddSettingsViewController.m */; };
+		0910CDBB17D145EF0032060C /* AddSettingsServise.m in Sources */ = {isa = PBXBuildFile; fileRef = 0910CDBA17D145EF0032060C /* AddSettingsServise.m */; };
 		09249A7417BD71BE00162B4F /* MaterialServise.m in Sources */ = {isa = PBXBuildFile; fileRef = 09249A7317BD71BE00162B4F /* MaterialServise.m */; };
 		09598140177F676E001D2122 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0959813F177F676E001D2122 /* UIKit.framework */; };
 		09598142177F676E001D2122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09598141177F676E001D2122 /* Foundation.framework */; };
@@ -51,6 +54,12 @@
 		0906194017C6AC7C00C36A79 /* textLableBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textLableBg.png; sourceTree = "<group>"; };
 		090C9CBA17CD6418008A5E10 /* CostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CostViewController.h; sourceTree = "<group>"; };
 		090C9CBB17CD6418008A5E10 /* CostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CostViewController.m; sourceTree = "<group>"; };
+		0910CDB317D144A50032060C /* AddSettingsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSettingsModel.h; sourceTree = "<group>"; };
+		0910CDB417D144A50032060C /* AddSettingsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSettingsModel.m; sourceTree = "<group>"; };
+		0910CDB617D145D10032060C /* AddSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSettingsViewController.h; sourceTree = "<group>"; };
+		0910CDB717D145D10032060C /* AddSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSettingsViewController.m; sourceTree = "<group>"; };
+		0910CDB917D145EF0032060C /* AddSettingsServise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSettingsServise.h; sourceTree = "<group>"; };
+		0910CDBA17D145EF0032060C /* AddSettingsServise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSettingsServise.m; sourceTree = "<group>"; };
 		09249A7217BD71BE00162B4F /* MaterialServise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialServise.h; sourceTree = "<group>"; };
 		09249A7317BD71BE00162B4F /* MaterialServise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialServise.m; sourceTree = "<group>"; };
 		0959813C177F676E001D2122 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +139,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0910CDB217D144260032060C /* Additionally Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0910CDB617D145D10032060C /* AddSettingsViewController.h */,
+				0910CDB717D145D10032060C /* AddSettingsViewController.m */,
+				0910CDB917D145EF0032060C /* AddSettingsServise.h */,
+				0910CDBA17D145EF0032060C /* AddSettingsServise.m */,
+			);
+			name = "Additionally Settings";
+			sourceTree = "<group>";
+		};
 		09598133177F676E001D2122 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +192,7 @@
 				09598157177F676E001D2122 /* MainStoryboard.storyboard */,
 				09598146177F676E001D2122 /* Supporting Files */,
 				0982697B17C53285007DB54D /* Projects */,
+				0910CDB217D144260032060C /* Additionally Settings */,
 				0982697A17C530A5007DB54D /* Settings */,
 				09D5DF74178CEDC1004FAA8C /* Menu */,
 				09EB559917BD1B1300E182CB /* Materials Settings */,
@@ -244,6 +265,8 @@
 				09EB559E17BD1D3900E182CB /* MathModel.m */,
 				0982698217C53982007DB54D /* ProjectModel.h */,
 				0982698317C53982007DB54D /* ProjectModel.m */,
+				0910CDB317D144A50032060C /* AddSettingsModel.h */,
+				0910CDB417D144A50032060C /* AddSettingsModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -385,6 +408,9 @@
 				0982698417C53982007DB54D /* ProjectModel.m in Sources */,
 				0982698717C53A0A007DB54D /* ProjectServise.m in Sources */,
 				090C9CBC17CD6418008A5E10 /* CostViewController.m in Sources */,
+				0910CDB517D144A50032060C /* AddSettingsModel.m in Sources */,
+				0910CDB817D145D10032060C /* AddSettingsViewController.m in Sources */,
+				0910CDBB17D145EF0032060C /* AddSettingsServise.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

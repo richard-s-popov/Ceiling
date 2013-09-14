@@ -10,8 +10,8 @@
 
 @interface AddSettingsModel : NSObject
 
-@property NSString *lusterPrice;
-@property NSString *bypassPrice;
-@property NSString *spotPrice;
+@property NSNumber *lusterPrice;
+@property NSNumber *bypassPrice;
+@property NSNumber *spotPrice;
 
 @end

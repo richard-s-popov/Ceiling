@@ -65,14 +65,14 @@
     contacts = settingsService.Read;
     
     // Проверяем, настроен ли почтовый клиент на отправку почту
-    if (([MFMailComposeViewController canSendMail]) & (contacts.managerEmail != nil) & (![contacts.managerEmail isEqual:@""]) ) {
+    if (([MFMailComposeViewController canSendMail]) & (contacts.managerMail != nil) & (![contacts.managerMail isEqual:@""]) ) {
         
         // Создаем контроллер
         MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
         // Делегатом будем мы
         mailController.mailComposeDelegate = self;
         // Задаем адрес на который отправлять почту
-        [mailController setToRecipients:@[contacts.managerEmail]];
+        [mailController setToRecipients:@[contacts.managerMail]];
         // Тема письма
         [mailController setSubject:@"Приложение"];
         // Текст письма

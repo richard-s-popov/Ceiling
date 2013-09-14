@@ -37,10 +37,16 @@
     
     contaner = saved.Read;
     
-    lusterTextField.text = contaner.lusterPrice;
-    bypassTextField.text = contaner.bypassPrice;
-    spotTextField.text = contaner.spotPrice;
+    lusterTextField.text = [contaner.lusterPrice stringValue];
+    bypassTextField.text = [contaner.bypassPrice stringValue];
+    spotTextField.text = [contaner.spotPrice stringValue];
     
+    //кнопка редактирования
+    UIBarButtonItem *saveButton =[[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemSave
+                                  target:self
+                                  action:@selector(saveBtn)];
+    self.navigationItem.rightBarButtonItem = saveButton;
     
 }
 
@@ -50,17 +56,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)SaveSettings:(id)sender {
+- (void)saveBtn {
     
-    AddSettingsModel *exampleAddittionaly = [[AddSettingsModel alloc] init];
+    AddSettingsModel *addPrice = [[AddSettingsModel alloc] init];
     
-    exampleAddittionaly.lusterPrice = lusterTextField.text;
-    exampleAddittionaly.bypassPrice = bypassTextField.text;
-    exampleAddittionaly.spotPrice = spotTextField.text;
+    addPrice.lusterPrice = [NSNumber numberWithInt:[lusterTextField.text intValue]];
+    addPrice.bypassPrice = [NSNumber numberWithInt:[bypassTextField.text intValue]];
+    addPrice.spotPrice = [NSNumber numberWithInt:[spotTextField.text intValue]];
     
     //ПЕРЕДАЕМ ДАННЫЕ В SERVICE
     AddSettingsServise *save = [[AddSettingsServise alloc] init];
-    [save Save:exampleAddittionaly];
+    [save Save:addPrice];
     
 }
 @end

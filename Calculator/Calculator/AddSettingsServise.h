@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "AddSettingsModel.h"
 #import "AddSettingsViewController.h"
+#import "AddPrice.h"
+#import "CalcAppDelegate.h"
 
 @interface AddSettingsServise : NSObject
 
 @property (strong, nonatomic) AddSettingsModel *exampleAdditional;
+@property (strong, nonatomic) NSMutableArray *priceArray;
 
 - (void)Save:(AddSettingsModel *)model;
 

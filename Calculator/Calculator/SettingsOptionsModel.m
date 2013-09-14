@@ -14,14 +14,14 @@
 //переменные контактов
 @synthesize userName;
 @synthesize userPhone;
-@synthesize userEmail;
+@synthesize userMail;
 
 @synthesize managerName;
 @synthesize managerPhone;
-@synthesize managerEmail;
+@synthesize managerMail;
 
 @synthesize manufactoryPhone;
-@synthesize manufactoryEmail;
+@synthesize manufactoryMail;
 
 
 @end

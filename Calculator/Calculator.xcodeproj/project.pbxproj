@@ -25,6 +25,7 @@
 		09598159177F676E001D2122 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09598157177F676E001D2122 /* MainStoryboard.storyboard */; };
 		0959815C177F676E001D2122 /* CalcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0959815B177F676E001D2122 /* CalcViewController.m */; };
 		0978AA8217E382C300D77B82 /* Contacts.m in Sources */ = {isa = PBXBuildFile; fileRef = 0978AA8117E382C300D77B82 /* Contacts.m */; };
+		0978AA8517E4DC8800D77B82 /* AddPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 0978AA8417E4DC8800D77B82 /* AddPrice.m */; };
 		0982696E17C26BC0007DB54D /* Phone_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982696D17C26BC0007DB54D /* Phone_settings.png */; };
 		0982697117C27142007DB54D /* MaterialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982697017C27142007DB54D /* MaterialCell.m */; };
 		0982697517C3E9C6007DB54D /* emailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982697417C3E9C6007DB54D /* emailViewController.m */; };
@@ -83,6 +84,8 @@
 		0959815B177F676E001D2122 /* CalcViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalcViewController.m; sourceTree = "<group>"; };
 		0978AA8017E382C200D77B82 /* Contacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contacts.h; sourceTree = "<group>"; };
 		0978AA8117E382C300D77B82 /* Contacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contacts.m; sourceTree = "<group>"; };
+		0978AA8317E4DC8800D77B82 /* AddPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPrice.h; sourceTree = "<group>"; };
+		0978AA8417E4DC8800D77B82 /* AddPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPrice.m; sourceTree = "<group>"; };
 		0982696D17C26BC0007DB54D /* Phone_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phone_settings.png; sourceTree = "<group>"; };
 		0982696F17C27142007DB54D /* MaterialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialCell.h; sourceTree = "<group>"; };
 		0982697017C27142007DB54D /* MaterialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialCell.m; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 			children = (
 				09E307BF17DCE35F006E5CE5 /* CoreData.framework */,
 				09E307C117DCE6F5006E5CE5 /* Projects.xcdatamodeld */,
+				0978AA8317E4DC8800D77B82 /* AddPrice.h */,
+				0978AA8417E4DC8800D77B82 /* AddPrice.m */,
 				0978AA8017E382C200D77B82 /* Contacts.h */,
 				0978AA8117E382C300D77B82 /* Contacts.m */,
 				0982697617C3EE98007DB54D /* MessageUI.framework */,
@@ -425,6 +430,7 @@
 				0910CDBB17D145EF0032060C /* AddSettingsServise.m in Sources */,
 				09E307C317DCE6F5006E5CE5 /* Projects.xcdatamodeld in Sources */,
 				0978AA8217E382C300D77B82 /* Contacts.m in Sources */,
+				0978AA8517E4DC8800D77B82 /* AddPrice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

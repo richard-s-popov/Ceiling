@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="AddPrice" representedClassName="AddPrice" syncable="YES">
+        <attribute name="bypassPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lusterPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="spotPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="Contacts" representedClassName="Contacts" syncable="YES">
         <attribute name="managerMail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="managerName" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,5 +17,6 @@
     </entity>
     <elements>
         <element name="Contacts" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="AddPrice" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

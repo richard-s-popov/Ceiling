@@ -17,6 +17,4 @@
 
 @property (weak, nonatomic) AddSettingsModel *savedAddittionaly;
 
-- (IBAction)SaveSettings:(id)sender;
-
 @end

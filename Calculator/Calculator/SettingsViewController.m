@@ -8,7 +8,6 @@
 
 #import "SettingsViewController.h"
 #import "ECSlidingViewController.h"
-#import "Contacts.h"
 #import "CalcAppDelegate.h"
 
 
@@ -30,7 +29,7 @@ enum {
 
 
 @implementation SettingsViewController
-
+//@synthesize contacts;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -60,8 +59,10 @@ enum {
     
     [super viewDidLoad];
     
-    CalcAppDelegate *calcAppDelegate = [[UIApplication sharedApplication] delegate];
-    _managedObjectContext = [calcAppDelegate managedObjectContext];
+//    CalcAppDelegate *calcAppDelegate = [[UIApplication sharedApplication] delegate];
+//    _managedObjectContext = [calcAppDelegate managedObjectContext];
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Contacts" inManagedObjectContext:_managedObjectContext];
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
     
     //запускаем скроллер
@@ -82,11 +83,10 @@ enum {
     
     
     //создаем новый объект Contacts для помещения в него сохраненных настроек из класса SettingsServise (метода Read)
-    Contacts *contacts = [NSEntityDescription insertNewObjectForEntityForName:@"Contacts" inManagedObjectContext:_managedObjectContext];
     SettingsService * settingsService = [[SettingsService alloc]init];
     
     //присваеваем объекту settingsModal то что возвращает функция Read в классе SettingsServise (то есть сохраненные настройки)
-    contacts = settingsService.Read;
+     SettingsOptionsModel *contacts = settingsService.Read;
     
     //загружаем данные в поля
     userNameField.text = [contacts userName];
@@ -120,9 +120,10 @@ enum {
 
 
 -(void)saveBtn {
-
+        
     //создаем новый объект модели SettingsOptionsModel для передачи его в класс SettingsServise
-    Contacts *contacts = [NSEntityDescription insertNewObjectForEntityForName:@"Contacts" inManagedObjectContext:_managedObjectContext];
+//    contacts = [NSEntityDescription insertNewObjectForEntityForName:@"Contacts" inManagedObjectContext:_managedObjectContext];
+    SettingsOptionsModel *contacts = [[SettingsOptionsModel alloc]init];
     
     [contacts setUserName:userNameField.text];
     [contacts setUserPhone:userPhoneField.text];
@@ -135,17 +136,16 @@ enum {
     [contacts setManufactoryPhone:manufactoryPhoneField.text];
     [contacts setManufactoryMail:manufactoryEmailField.text];
     
+    NSLog(@"name: %@", contacts.userName);
+    
+//    NSError *error = nil;
+//    if (![_managedObjectContext save:&error]) {
+//    }
     //передаем созданый объект settingsOptions в класс SettingsServise в функцию Save как параметр
     SettingsService * settingsServise = [[SettingsService alloc]init];
     [settingsServise Save:contacts];
     
 }
-
-
-- (IBAction)saveSettings:(id)sender {
-    
-}
-
 
 
 //поднимаем View для видимости поля ввода

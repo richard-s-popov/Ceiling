@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SettingsService.h"
+#import "Contacts.h"
+#import "SettingsOptionsModel.h"
+
 
 @interface SettingsViewController : UIViewController <UITextFieldDelegate, UIScrollViewDelegate> {
 
@@ -26,11 +29,9 @@
     __weak IBOutlet UIScrollView *settingsScroller;
     
 }
-
+//@property (nonatomic, strong) Contacts *contacts;
 @property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-
-- (IBAction)saveSettings:(id)sender;
 
 @end

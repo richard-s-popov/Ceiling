@@ -14,16 +14,16 @@
 //создание переменных контакты пользователя
 @property (nonatomic, weak) NSString * userName;
 @property (nonatomic, weak) NSString * userPhone;
-@property (nonatomic, weak) NSString * userEmail;
+@property (nonatomic, weak) NSString * userMail;
 
 //создание переменных контакты менеджера
 @property (nonatomic, weak) NSString * managerName;
 @property (nonatomic, weak) NSString * managerPhone;
-@property (nonatomic, weak) NSString * managerEmail;
+@property (nonatomic, weak) NSString * managerMail;
 
 //создание переменных контакты цеха
 @property (nonatomic, weak) NSString * manufactoryPhone;
-@property (nonatomic, weak) NSString * manufactoryEmail;
+@property (nonatomic, weak) NSString * manufactoryMail;
 
 
 @end

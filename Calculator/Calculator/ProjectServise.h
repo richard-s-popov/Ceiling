@@ -11,9 +11,17 @@
 #import "ProjectsListViewController.h"
 #import "ProjectModel.h"
 
+#import "CalcAppDelegate.h"
+
+
+
 @interface ProjectServise : NSObject
 
 @property (weak,nonatomic) NSString *countDetailProject;
+
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 + (void)ClearProject;
 - (void)SaveProject:(NSMutableArray *)projects;

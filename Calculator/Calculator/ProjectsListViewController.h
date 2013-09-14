@@ -25,4 +25,5 @@
 @property (nonatomic, strong) NSNumber *projectsCount;
 @property (nonatomic, strong) UITextView *explaneText;
 
+
 @end

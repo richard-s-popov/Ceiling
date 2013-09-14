@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SettingsOptionsModel.h"
 #import "SettingsService.h"
 
 @interface SettingsViewController : UIViewController <UITextFieldDelegate, UIScrollViewDelegate> {
@@ -28,6 +27,9 @@
     
 }
 
+@property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 - (IBAction)saveSettings:(id)sender;
 

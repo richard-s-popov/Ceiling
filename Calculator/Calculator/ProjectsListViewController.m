@@ -20,6 +20,7 @@
 @synthesize projectsCount;
 @synthesize explaneText;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -77,16 +78,9 @@
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     
-    //СОЗДАНИЕ TOOLBAR 
+    //СОЗДАНИЕ TOOLBAR
     self.navigationController.toolbarHidden = NO;
     self.navigationController.toolbar.tintColor = [UIColor blackColor];
-//    
-//    UIBarButtonItem *button1 = [[UIBarButtonItem alloc] initWithTitle:@"DATE" style:UIBarButtonItemStyleDone target:self action:@selector(dateToolbardoneButtonAction)];
-//    UIBarButtonItem *button2=[[UIBarButtonItem alloc]initWithTitle:@"TIME" style:UIBarButtonItemStyleDone target:self action:@selector(timeToolbarbuttonAction)];
-//    
-//    NSArray *items = [NSArray arrayWithObjects:button1, button2, nil];
-//    
-//    self.toolbarItems = items;
     
     
     //кнопка меню
@@ -109,6 +103,7 @@
     [newArrayProjects SaveProject:clientsList];
     //получаем сохраненные данные из ProjectService
     savedProjects = [ProjectServise Read];
+    
         
     [tbl reloadData];
     
@@ -221,6 +216,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
@@ -274,5 +270,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     [self.slidingViewController anchorTopViewTo:ECRight];
 
 }
+
 
 @end

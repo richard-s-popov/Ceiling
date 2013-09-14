@@ -61,16 +61,7 @@
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    
-    //СОЗДАНИЕ BUTTONS В TOOLBAR
-//    UIBarButtonItem *button1 = [[UIBarButtonItem alloc] initWithTitle:@"DATE" style:UIBarButtonItemStyleDone target:self action:@selector(dateToolbardoneButtonAction)];
-//    UIBarButtonItem *button2=[[UIBarButtonItem alloc]initWithTitle:@"TIME" style:UIBarButtonItemStyleDone target:self action:@selector(timeToolbarbuttonAction)];
-//    
-//    NSArray *items = [NSArray arrayWithObjects:button1, button2, nil];
-//    
-//    self.toolbarItems = items;
-    
-        
+
     //скрываем клавиатуру по нажатию на фон
     UITapGestureRecognizer *tapOnScrolView = [[UITapGestureRecognizer alloc]
                                               initWithTarget:self

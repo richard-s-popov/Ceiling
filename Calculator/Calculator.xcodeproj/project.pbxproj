@@ -24,6 +24,7 @@
 		09598156177F676E001D2122 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09598155177F676E001D2122 /* Default-568h@2x.png */; };
 		09598159177F676E001D2122 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09598157177F676E001D2122 /* MainStoryboard.storyboard */; };
 		0959815C177F676E001D2122 /* CalcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0959815B177F676E001D2122 /* CalcViewController.m */; };
+		0978AA8217E382C300D77B82 /* Contacts.m in Sources */ = {isa = PBXBuildFile; fileRef = 0978AA8117E382C300D77B82 /* Contacts.m */; };
 		0982696E17C26BC0007DB54D /* Phone_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982696D17C26BC0007DB54D /* Phone_settings.png */; };
 		0982697117C27142007DB54D /* MaterialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982697017C27142007DB54D /* MaterialCell.m */; };
 		0982697517C3E9C6007DB54D /* emailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982697417C3E9C6007DB54D /* emailViewController.m */; };
@@ -44,6 +45,8 @@
 		09D5DF6D178CEB32004FAA8C /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF6C178CEB32004FAA8C /* MenuViewController.m */; };
 		09D5DF70178CEB66004FAA8C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF6F178CEB66004FAA8C /* MainViewController.m */; };
 		09D5DF77178CEE16004FAA8C /* BuildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF76178CEE16004FAA8C /* BuildViewController.m */; };
+		09E307C017DCE35F006E5CE5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E307BF17DCE35F006E5CE5 /* CoreData.framework */; };
+		09E307C317DCE6F5006E5CE5 /* Projects.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09E307C117DCE6F5006E5CE5 /* Projects.xcdatamodeld */; };
 		09EB559C17BD1B7400E182CB /* MathSingleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB559B17BD1B7400E182CB /* MathSingleViewController.m */; };
 		09EB559F17BD1D3900E182CB /* MathModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB559E17BD1D3900E182CB /* MathModel.m */; };
 		09FA8C8017BCE00C000C1C89 /* MatDetaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FA8C7F17BCE00C000C1C89 /* MatDetaleViewController.m */; };
@@ -78,6 +81,8 @@
 		09598158177F676E001D2122 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		0959815A177F676E001D2122 /* CalcViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalcViewController.h; sourceTree = "<group>"; };
 		0959815B177F676E001D2122 /* CalcViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalcViewController.m; sourceTree = "<group>"; };
+		0978AA8017E382C200D77B82 /* Contacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contacts.h; sourceTree = "<group>"; };
+		0978AA8117E382C300D77B82 /* Contacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contacts.m; sourceTree = "<group>"; };
 		0982696D17C26BC0007DB54D /* Phone_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phone_settings.png; sourceTree = "<group>"; };
 		0982696F17C27142007DB54D /* MaterialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialCell.h; sourceTree = "<group>"; };
 		0982697017C27142007DB54D /* MaterialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialCell.m; sourceTree = "<group>"; };
@@ -92,7 +97,7 @@
 		0982698217C53982007DB54D /* ProjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectModel.h; sourceTree = "<group>"; };
 		0982698317C53982007DB54D /* ProjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectModel.m; sourceTree = "<group>"; };
 		0982698517C53A0A007DB54D /* ProjectServise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectServise.h; sourceTree = "<group>"; };
-		0982698617C53A0A007DB54D /* ProjectServise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectServise.m; sourceTree = "<group>"; };
+		0982698617C53A0A007DB54D /* ProjectServise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectServise.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		09879C8017835733005B5E40 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		09879C8117835733005B5E40 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		09C82BBB1789DD8B00A47057 /* SettingsOptionsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsOptionsModel.h; sourceTree = "<group>"; };
@@ -114,6 +119,8 @@
 		09D5DF6F178CEB66004FAA8C /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		09D5DF75178CEE16004FAA8C /* BuildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildViewController.h; sourceTree = "<group>"; };
 		09D5DF76178CEE16004FAA8C /* BuildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildViewController.m; sourceTree = "<group>"; };
+		09E307BF17DCE35F006E5CE5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		09E307C217DCE6F5006E5CE5 /* Projects.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Projects.xcdatamodel; sourceTree = "<group>"; };
 		09EB559A17BD1B7400E182CB /* MathSingleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathSingleViewController.h; sourceTree = "<group>"; };
 		09EB559B17BD1B7400E182CB /* MathSingleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathSingleViewController.m; sourceTree = "<group>"; };
 		09EB559D17BD1D3900E182CB /* MathModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathModel.h; sourceTree = "<group>"; };
@@ -129,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09E307C017DCE35F006E5CE5 /* CoreData.framework in Frameworks */,
 				0982697717C3EE98007DB54D /* MessageUI.framework in Frameworks */,
 				09598140177F676E001D2122 /* UIKit.framework in Frameworks */,
 				09598142177F676E001D2122 /* Foundation.framework in Frameworks */,
@@ -153,6 +161,10 @@
 		09598133177F676E001D2122 = {
 			isa = PBXGroup;
 			children = (
+				09E307BF17DCE35F006E5CE5 /* CoreData.framework */,
+				09E307C117DCE6F5006E5CE5 /* Projects.xcdatamodeld */,
+				0978AA8017E382C200D77B82 /* Contacts.h */,
+				0978AA8117E382C300D77B82 /* Contacts.m */,
 				0982697617C3EE98007DB54D /* MessageUI.framework */,
 				09598145177F676E001D2122 /* Calculator */,
 				0959813E177F676E001D2122 /* Frameworks */,
@@ -411,6 +423,8 @@
 				0910CDB517D144A50032060C /* AddSettingsModel.m in Sources */,
 				0910CDB817D145D10032060C /* AddSettingsViewController.m in Sources */,
 				0910CDBB17D145EF0032060C /* AddSettingsServise.m in Sources */,
+				09E307C317DCE6F5006E5CE5 /* Projects.xcdatamodeld in Sources */,
+				0978AA8217E382C300D77B82 /* Contacts.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +550,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		09E307C117DCE6F5006E5CE5 /* Projects.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				09E307C217DCE6F5006E5CE5 /* Projects.xcdatamodel */,
+			);
+			currentVersion = 09E307C217DCE6F5006E5CE5 /* Projects.xcdatamodel */;
+			name = Projects.xcdatamodeld;
+			path = Calculator/Projects.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 09598134177F676E001D2122 /* Project object */;
 }

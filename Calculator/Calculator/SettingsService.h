@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SettingsOptionsModel.h"
 #import "SettingsViewController.h"
+#import "Contacts.h"
+#import "CalcAppDelegate.h"
 
 @interface SettingsService : NSObject
 
-- (void)Save:(SettingsOptionsModel *)model;
+- (void)Save:(Contacts *)model;
 
-- (SettingsOptionsModel *)Read;
+- (Contacts *)Read;
 
 @end

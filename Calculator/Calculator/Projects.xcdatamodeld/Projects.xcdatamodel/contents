@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Contacts" representedClassName="Contacts" syncable="YES">
+        <attribute name="managerMail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="managerName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="managerPhone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="manufactoryMail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="manufactoryPhone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userMail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userPhone" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Contacts" positionX="160" positionY="192" width="128" height="165"/>
+    </elements>
+</model>

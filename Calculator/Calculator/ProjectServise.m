@@ -9,7 +9,13 @@
 #import "ProjectServise.h"
 
 @implementation ProjectServise
+
 @synthesize countDetailProject;
+
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
 
 - (void)SaveProject:(NSMutableArray *)projectsArray {
     int n = 0;
@@ -36,7 +42,6 @@
     }
     
     [projects synchronize];
-    
 }
 
 

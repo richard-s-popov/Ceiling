@@ -7,14 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AddSettingsModel.h"
-#import "AddSettingsServise.h"
+#import "AddPrice.h"
+#import "CalcAppDelegate.h"
 
 @interface AddSettingsViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UITextField *lusterTextField;
 @property (weak, nonatomic) IBOutlet UITextField *bypassTextField;
 @property (weak, nonatomic) IBOutlet UITextField *spotTextField;
 
-@property (weak, nonatomic) AddSettingsModel *savedAddittionaly;
+@property (nonatomic, strong) AddPrice *addPrice;
+@property (nonatomic, strong) NSArray *fetchArray;
+@property (nonatomic, strong) NSManagedObjectID *managedObjectId;
+
+@property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
 @end

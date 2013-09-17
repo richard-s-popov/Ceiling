@@ -16,8 +16,10 @@
 @synthesize lusterTextField;
 @synthesize bypassTextField;
 @synthesize spotTextField;
-@synthesize savedAddittionaly;
-
+@synthesize managedObjectContext;
+@synthesize addPrice;
+@synthesize fetchArray;
+@synthesize managedObjectId;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,18 +30,37 @@
     return self;
 }
 
+-(NSManagedObjectContext *)managedObjectContext {
+    return [(CalcAppDelegate *)[[UIApplication sharedApplication]delegate] managedObjectContext];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    AddSettingsServise *saved = [[AddSettingsServise alloc] init];
-    AddSettingsModel *contaner = [[AddSettingsModel alloc] init];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"AddPrice"];
+    NSError *error = nil;
     
-    contaner = saved.Read;
+    fetchArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    lusterTextField.text = [contaner.lusterPrice stringValue];
-    bypassTextField.text = [contaner.bypassPrice stringValue];
-    spotTextField.text = [contaner.spotPrice stringValue];
+    if (fetchArray.count == 0) {
+        addPrice = [NSEntityDescription insertNewObjectForEntityForName:@"AddPrice" inManagedObjectContext:self.managedObjectContext];
+        
+        if (![self.managedObjectContext save:&error]) {
+        }
+    }
+    
+    addPrice = [fetchArray objectAtIndex:0];
+    if (addPrice != nil) {
+        lusterTextField.text = [addPrice.lusterPrice stringValue];
+        bypassTextField.text = [addPrice.bypassPrice stringValue];
+        spotTextField.text = [addPrice.spotPrice stringValue];
+    }
+    else {
+        lusterTextField.text = @"";
+        bypassTextField.text = @"";
+        spotTextField.text = @"";
+    }
     
     //кнопка редактирования
     UIBarButtonItem *saveButton =[[UIBarButtonItem alloc]
@@ -58,15 +79,15 @@
 
 - (void)saveBtn {
     
-    AddSettingsModel *addPrice = [[AddSettingsModel alloc] init];
-    
+    addPrice = [fetchArray objectAtIndex:0];
     addPrice.lusterPrice = [NSNumber numberWithInt:[lusterTextField.text intValue]];
     addPrice.bypassPrice = [NSNumber numberWithInt:[bypassTextField.text intValue]];
     addPrice.spotPrice = [NSNumber numberWithInt:[spotTextField.text intValue]];
     
-    //ПЕРЕДАЕМ ДАННЫЕ В SERVICE
-    AddSettingsServise *save = [[AddSettingsServise alloc] init];
-    [save Save:addPrice];
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+    }
+
     
 }
 @end

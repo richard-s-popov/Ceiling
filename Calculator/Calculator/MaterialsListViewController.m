@@ -163,9 +163,14 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     [super viewDidAppear:animated];
     
     //необходимо для условия
-    NSString *newName = [[list objectAtIndex:tbl.indexPathForSelectedRow.row] matName];
-    NSNumber *newWidth = [[list objectAtIndex:tbl.indexPathForSelectedRow.row] matWidth];
-    NSNumber *newPrice = [[list objectAtIndex:tbl.indexPathForSelectedRow.row] matPrice];
+    NSString *newName;
+    NSNumber *newWidth;
+    NSNumber *newPrice;
+    if ([list count]!=0) {
+        newName = [[list objectAtIndex:tbl.indexPathForSelectedRow.row] matName];
+        newWidth = [[list objectAtIndex:tbl.indexPathForSelectedRow.row] matWidth];
+        newPrice = [[list objectAtIndex:tbl.indexPathForSelectedRow.row] matPrice];
+    }
     
     //условие для реализации перезагрузки ячейки таблицы при изменении
     if ((lustName != nil) && ((lustName != newName) || (![lustWidth isEqual:newWidth]) || (![lustPrice isEqual:newPrice]))) {

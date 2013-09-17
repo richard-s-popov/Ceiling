@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ProjectModel.h"
-#import "AddSettingsModel.h"
-#import "AddSettingsServise.h"
+#import "CalcAppDelegate.h"
+#import "AddPrice.h"
 
 
 @interface CostViewController : UIViewController
@@ -21,6 +21,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lastCost;
 @property (weak, nonatomic) NSString *test;
 @property (weak, nonatomic) ProjectModel *detailProjectData;
+
+@property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) AddPrice *addPrice;
 
 - (void)PutSettings:(ProjectModel *)putSettings;
 @end

@@ -9,10 +9,7 @@
 /* Begin PBXBuildFile section */
 		0906194117C6AC7C00C36A79 /* textLableBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0906194017C6AC7C00C36A79 /* textLableBg.png */; };
 		090C9CBC17CD6418008A5E10 /* CostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090C9CBB17CD6418008A5E10 /* CostViewController.m */; };
-		0910CDB517D144A50032060C /* AddSettingsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0910CDB417D144A50032060C /* AddSettingsModel.m */; };
 		0910CDB817D145D10032060C /* AddSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0910CDB717D145D10032060C /* AddSettingsViewController.m */; };
-		0910CDBB17D145EF0032060C /* AddSettingsServise.m in Sources */ = {isa = PBXBuildFile; fileRef = 0910CDBA17D145EF0032060C /* AddSettingsServise.m */; };
-		09249A7417BD71BE00162B4F /* MaterialServise.m in Sources */ = {isa = PBXBuildFile; fileRef = 09249A7317BD71BE00162B4F /* MaterialServise.m */; };
 		094D320E17E6456300D685EF /* MaterialsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 094D320D17E6456300D685EF /* MaterialsListViewController.m */; };
 		094D321117E645A400D685EF /* MaterialsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 094D321017E645A400D685EF /* MaterialsDetailViewController.m */; };
 		094D321A17E838E500D685EF /* Materials.m in Sources */ = {isa = PBXBuildFile; fileRef = 094D321917E838E400D685EF /* Materials.m */; };
@@ -51,9 +48,6 @@
 		09D5DF77178CEE16004FAA8C /* BuildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF76178CEE16004FAA8C /* BuildViewController.m */; };
 		09E307C017DCE35F006E5CE5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E307BF17DCE35F006E5CE5 /* CoreData.framework */; };
 		09E307C317DCE6F5006E5CE5 /* Projects.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09E307C117DCE6F5006E5CE5 /* Projects.xcdatamodeld */; };
-		09EB559C17BD1B7400E182CB /* MathSingleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB559B17BD1B7400E182CB /* MathSingleViewController.m */; };
-		09EB559F17BD1D3900E182CB /* MathModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB559E17BD1D3900E182CB /* MathModel.m */; };
-		09FA8C8017BCE00C000C1C89 /* MatDetaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FA8C7F17BCE00C000C1C89 /* MatDetaleViewController.m */; };
 		26BF92FE1788441600C90497 /* PlotRectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BF92FD1788441600C90497 /* PlotRectViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -61,14 +55,8 @@
 		0906194017C6AC7C00C36A79 /* textLableBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textLableBg.png; sourceTree = "<group>"; };
 		090C9CBA17CD6418008A5E10 /* CostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CostViewController.h; sourceTree = "<group>"; };
 		090C9CBB17CD6418008A5E10 /* CostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CostViewController.m; sourceTree = "<group>"; };
-		0910CDB317D144A50032060C /* AddSettingsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSettingsModel.h; sourceTree = "<group>"; };
-		0910CDB417D144A50032060C /* AddSettingsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSettingsModel.m; sourceTree = "<group>"; };
 		0910CDB617D145D10032060C /* AddSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSettingsViewController.h; sourceTree = "<group>"; };
 		0910CDB717D145D10032060C /* AddSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSettingsViewController.m; sourceTree = "<group>"; };
-		0910CDB917D145EF0032060C /* AddSettingsServise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSettingsServise.h; sourceTree = "<group>"; };
-		0910CDBA17D145EF0032060C /* AddSettingsServise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSettingsServise.m; sourceTree = "<group>"; };
-		09249A7217BD71BE00162B4F /* MaterialServise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialServise.h; sourceTree = "<group>"; };
-		09249A7317BD71BE00162B4F /* MaterialServise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialServise.m; sourceTree = "<group>"; };
 		094D320C17E6456300D685EF /* MaterialsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialsListViewController.h; sourceTree = "<group>"; };
 		094D320D17E6456300D685EF /* MaterialsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialsListViewController.m; sourceTree = "<group>"; };
 		094D320F17E645A400D685EF /* MaterialsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialsDetailViewController.h; sourceTree = "<group>"; };
@@ -133,12 +121,6 @@
 		09D5DF76178CEE16004FAA8C /* BuildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildViewController.m; sourceTree = "<group>"; };
 		09E307BF17DCE35F006E5CE5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		09E307C217DCE6F5006E5CE5 /* Projects.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Projects.xcdatamodel; sourceTree = "<group>"; };
-		09EB559A17BD1B7400E182CB /* MathSingleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathSingleViewController.h; sourceTree = "<group>"; };
-		09EB559B17BD1B7400E182CB /* MathSingleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathSingleViewController.m; sourceTree = "<group>"; };
-		09EB559D17BD1D3900E182CB /* MathModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathModel.h; sourceTree = "<group>"; };
-		09EB559E17BD1D3900E182CB /* MathModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathModel.m; sourceTree = "<group>"; };
-		09FA8C7E17BCE00C000C1C89 /* MatDetaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatDetaleViewController.h; sourceTree = "<group>"; };
-		09FA8C7F17BCE00C000C1C89 /* MatDetaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatDetaleViewController.m; sourceTree = "<group>"; };
 		26BF92FC1788441600C90497 /* PlotRectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotRectViewController.h; sourceTree = "<group>"; };
 		26BF92FD1788441600C90497 /* PlotRectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotRectViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,8 +146,6 @@
 			children = (
 				0910CDB617D145D10032060C /* AddSettingsViewController.h */,
 				0910CDB717D145D10032060C /* AddSettingsViewController.m */,
-				0910CDB917D145EF0032060C /* AddSettingsServise.h */,
-				0910CDBA17D145EF0032060C /* AddSettingsServise.m */,
 			);
 			name = "Additionally Settings";
 			sourceTree = "<group>";
@@ -177,14 +157,15 @@
 				094D320D17E6456300D685EF /* MaterialsListViewController.m */,
 				094D320F17E645A400D685EF /* MaterialsDetailViewController.h */,
 				094D321017E645A400D685EF /* MaterialsDetailViewController.m */,
+				0982696F17C27142007DB54D /* MaterialCell.h */,
+				0982697017C27142007DB54D /* MaterialCell.m */,
 			);
 			name = Materials;
 			sourceTree = "<group>";
 		};
-		09598133177F676E001D2122 = {
+		094D321B17E8BDCE00D685EF /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				09E307BF17DCE35F006E5CE5 /* CoreData.framework */,
 				09E307C117DCE6F5006E5CE5 /* Projects.xcdatamodeld */,
 				094D321817E838E400D685EF /* Materials.h */,
 				094D321917E838E400D685EF /* Materials.m */,
@@ -192,7 +173,25 @@
 				0978AA8417E4DC8800D77B82 /* AddPrice.m */,
 				0978AA8017E382C200D77B82 /* Contacts.h */,
 				0978AA8117E382C300D77B82 /* Contacts.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		094D321C17E8BE1500D685EF /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				0959815A177F676E001D2122 /* CalcViewController.h */,
+				0959815B177F676E001D2122 /* CalcViewController.m */,
+			);
+			name = Calculator;
+			sourceTree = "<group>";
+		};
+		09598133177F676E001D2122 = {
+			isa = PBXGroup;
+			children = (
+				09E307BF17DCE35F006E5CE5 /* CoreData.framework */,
 				0982697617C3EE98007DB54D /* MessageUI.framework */,
+				094D321B17E8BDCE00D685EF /* Core Data */,
 				09598145177F676E001D2122 /* Calculator */,
 				0959813E177F676E001D2122 /* Frameworks */,
 				0959813D177F676E001D2122 /* Products */,
@@ -221,21 +220,19 @@
 			isa = PBXGroup;
 			children = (
 				094D320B17E6452000D685EF /* Materials */,
+				0910CDB217D144260032060C /* Additionally Settings */,
+				0982697A17C530A5007DB54D /* Settings */,
 				09D5DF61178CEAA5004FAA8C /* ECSlidingViewController */,
 				09C82BBA1789DD5000A47057 /* Model */,
 				0959814E177F676E001D2122 /* CalcAppDelegate.h */,
 				0959814F177F676E001D2122 /* CalcAppDelegate.m */,
-				0959815A177F676E001D2122 /* CalcViewController.h */,
-				0959815B177F676E001D2122 /* CalcViewController.m */,
 				26BF92FC1788441600C90497 /* PlotRectViewController.h */,
 				26BF92FD1788441600C90497 /* PlotRectViewController.m */,
 				09598157177F676E001D2122 /* MainStoryboard.storyboard */,
 				09598146177F676E001D2122 /* Supporting Files */,
 				0982697B17C53285007DB54D /* Projects */,
-				0910CDB217D144260032060C /* Additionally Settings */,
-				0982697A17C530A5007DB54D /* Settings */,
+				094D321C17E8BE1500D685EF /* Calculator */,
 				09D5DF74178CEDC1004FAA8C /* Menu */,
-				09EB559917BD1B1300E182CB /* Materials Settings */,
 				0982697217C3E9A2007DB54D /* e-mail */,
 			);
 			path = Calculator;
@@ -301,12 +298,8 @@
 			children = (
 				09C82BBB1789DD8B00A47057 /* SettingsOptionsModel.h */,
 				09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */,
-				09EB559D17BD1D3900E182CB /* MathModel.h */,
-				09EB559E17BD1D3900E182CB /* MathModel.m */,
 				0982698217C53982007DB54D /* ProjectModel.h */,
 				0982698317C53982007DB54D /* ProjectModel.m */,
-				0910CDB317D144A50032060C /* AddSettingsModel.h */,
-				0910CDB417D144A50032060C /* AddSettingsModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -335,21 +328,6 @@
 				09D5DF6F178CEB66004FAA8C /* MainViewController.m */,
 			);
 			name = Menu;
-			sourceTree = "<group>";
-		};
-		09EB559917BD1B1300E182CB /* Materials Settings */ = {
-			isa = PBXGroup;
-			children = (
-				09FA8C7E17BCE00C000C1C89 /* MatDetaleViewController.h */,
-				09FA8C7F17BCE00C000C1C89 /* MatDetaleViewController.m */,
-				09EB559A17BD1B7400E182CB /* MathSingleViewController.h */,
-				09EB559B17BD1B7400E182CB /* MathSingleViewController.m */,
-				09249A7217BD71BE00162B4F /* MaterialServise.h */,
-				09249A7317BD71BE00162B4F /* MaterialServise.m */,
-				0982696F17C27142007DB54D /* MaterialCell.h */,
-				0982697017C27142007DB54D /* MaterialCell.m */,
-			);
-			name = "Materials Settings";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,10 +415,6 @@
 				09D5DF70178CEB66004FAA8C /* MainViewController.m in Sources */,
 				09D5DF77178CEE16004FAA8C /* BuildViewController.m in Sources */,
 				09C93E881791B78100A4FBDC /* OptionsViewController.m in Sources */,
-				09FA8C8017BCE00C000C1C89 /* MatDetaleViewController.m in Sources */,
-				09EB559C17BD1B7400E182CB /* MathSingleViewController.m in Sources */,
-				09EB559F17BD1D3900E182CB /* MathModel.m in Sources */,
-				09249A7417BD71BE00162B4F /* MaterialServise.m in Sources */,
 				0982697117C27142007DB54D /* MaterialCell.m in Sources */,
 				0982697517C3E9C6007DB54D /* emailViewController.m in Sources */,
 				0982697E17C532EF007DB54D /* ProjectsListViewController.m in Sources */,
@@ -448,9 +422,7 @@
 				0982698417C53982007DB54D /* ProjectModel.m in Sources */,
 				0982698717C53A0A007DB54D /* ProjectServise.m in Sources */,
 				090C9CBC17CD6418008A5E10 /* CostViewController.m in Sources */,
-				0910CDB517D144A50032060C /* AddSettingsModel.m in Sources */,
 				0910CDB817D145D10032060C /* AddSettingsViewController.m in Sources */,
-				0910CDBB17D145EF0032060C /* AddSettingsServise.m in Sources */,
 				09E307C317DCE6F5006E5CE5 /* Projects.xcdatamodeld in Sources */,
 				0978AA8217E382C300D77B82 /* Contacts.m in Sources */,
 				0978AA8517E4DC8800D77B82 /* AddPrice.m in Sources */,

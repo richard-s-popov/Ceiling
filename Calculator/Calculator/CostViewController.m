@@ -17,6 +17,8 @@
 @synthesize lastCost;
 @synthesize test;
 @synthesize detailProjectData;
+@synthesize managedObjectContext;
+@synthesize addPrice;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +36,9 @@
     
 }
 
+-(NSManagedObjectContext *)managedObjectContext {
+    return [(CalcAppDelegate *)[[UIApplication sharedApplication]delegate]managedObjectContext];
+}
 
 - (void)viewDidLoad
 {
@@ -43,14 +48,15 @@
     bypass = [detailProjectData.clientBypass integerValue];
     spot = [detailProjectData.clientSpot integerValue];
     
-    //получаем данные дополнительных настроек из AddSettingsServise 
-    AddSettingsServise *saved = [[AddSettingsServise alloc] init];
-    AddSettingsModel *contanerAddittionaly = [[AddSettingsModel alloc] init];
-    contanerAddittionaly = saved.Read;
+    //получаем данные по AddPrice из Core Data
+    NSFetchRequest *fetchRequestAddPrice = [NSFetchRequest fetchRequestWithEntityName:@"AddPrice"];
+    NSError *error = nil;
+    NSArray *addPriceArray = [self.managedObjectContext executeFetchRequest:fetchRequestAddPrice error:&error];
+    addPrice = [addPriceArray objectAtIndex:0];
     
-    unsigned lusterPrice = [contanerAddittionaly.lusterPrice integerValue];
-    unsigned bypassPrice = [contanerAddittionaly.bypassPrice integerValue];
-    unsigned spotPrice = [contanerAddittionaly.spotPrice integerValue];
+    unsigned lusterPrice = [addPrice.lusterPrice integerValue];
+    unsigned bypassPrice = [addPrice.bypassPrice integerValue];
+    unsigned spotPrice = [addPrice.spotPrice integerValue];
     
     int lastCostInt = (luster*lusterPrice) + (bypass*bypassPrice) + (spot*spotPrice);
     

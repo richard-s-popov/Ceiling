@@ -13,6 +13,9 @@
 		0910CDB817D145D10032060C /* AddSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0910CDB717D145D10032060C /* AddSettingsViewController.m */; };
 		0910CDBB17D145EF0032060C /* AddSettingsServise.m in Sources */ = {isa = PBXBuildFile; fileRef = 0910CDBA17D145EF0032060C /* AddSettingsServise.m */; };
 		09249A7417BD71BE00162B4F /* MaterialServise.m in Sources */ = {isa = PBXBuildFile; fileRef = 09249A7317BD71BE00162B4F /* MaterialServise.m */; };
+		094D320E17E6456300D685EF /* MaterialsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 094D320D17E6456300D685EF /* MaterialsListViewController.m */; };
+		094D321117E645A400D685EF /* MaterialsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 094D321017E645A400D685EF /* MaterialsDetailViewController.m */; };
+		094D321A17E838E500D685EF /* Materials.m in Sources */ = {isa = PBXBuildFile; fileRef = 094D321917E838E400D685EF /* Materials.m */; };
 		09598140177F676E001D2122 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0959813F177F676E001D2122 /* UIKit.framework */; };
 		09598142177F676E001D2122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09598141177F676E001D2122 /* Foundation.framework */; };
 		09598144177F676E001D2122 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09598143177F676E001D2122 /* CoreGraphics.framework */; };
@@ -66,6 +69,12 @@
 		0910CDBA17D145EF0032060C /* AddSettingsServise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSettingsServise.m; sourceTree = "<group>"; };
 		09249A7217BD71BE00162B4F /* MaterialServise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialServise.h; sourceTree = "<group>"; };
 		09249A7317BD71BE00162B4F /* MaterialServise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialServise.m; sourceTree = "<group>"; };
+		094D320C17E6456300D685EF /* MaterialsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialsListViewController.h; sourceTree = "<group>"; };
+		094D320D17E6456300D685EF /* MaterialsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialsListViewController.m; sourceTree = "<group>"; };
+		094D320F17E645A400D685EF /* MaterialsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialsDetailViewController.h; sourceTree = "<group>"; };
+		094D321017E645A400D685EF /* MaterialsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialsDetailViewController.m; sourceTree = "<group>"; };
+		094D321817E838E400D685EF /* Materials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Materials.h; sourceTree = "<group>"; };
+		094D321917E838E400D685EF /* Materials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Materials.m; sourceTree = "<group>"; };
 		0959813C177F676E001D2122 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0959813F177F676E001D2122 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09598141177F676E001D2122 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -161,11 +170,24 @@
 			name = "Additionally Settings";
 			sourceTree = "<group>";
 		};
+		094D320B17E6452000D685EF /* Materials */ = {
+			isa = PBXGroup;
+			children = (
+				094D320C17E6456300D685EF /* MaterialsListViewController.h */,
+				094D320D17E6456300D685EF /* MaterialsListViewController.m */,
+				094D320F17E645A400D685EF /* MaterialsDetailViewController.h */,
+				094D321017E645A400D685EF /* MaterialsDetailViewController.m */,
+			);
+			name = Materials;
+			sourceTree = "<group>";
+		};
 		09598133177F676E001D2122 = {
 			isa = PBXGroup;
 			children = (
 				09E307BF17DCE35F006E5CE5 /* CoreData.framework */,
 				09E307C117DCE6F5006E5CE5 /* Projects.xcdatamodeld */,
+				094D321817E838E400D685EF /* Materials.h */,
+				094D321917E838E400D685EF /* Materials.m */,
 				0978AA8317E4DC8800D77B82 /* AddPrice.h */,
 				0978AA8417E4DC8800D77B82 /* AddPrice.m */,
 				0978AA8017E382C200D77B82 /* Contacts.h */,
@@ -198,6 +220,7 @@
 		09598145177F676E001D2122 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				094D320B17E6452000D685EF /* Materials */,
 				09D5DF61178CEAA5004FAA8C /* ECSlidingViewController */,
 				09C82BBA1789DD5000A47057 /* Model */,
 				0959814E177F676E001D2122 /* CalcAppDelegate.h */,
@@ -431,6 +454,9 @@
 				09E307C317DCE6F5006E5CE5 /* Projects.xcdatamodeld in Sources */,
 				0978AA8217E382C300D77B82 /* Contacts.m in Sources */,
 				0978AA8517E4DC8800D77B82 /* AddPrice.m in Sources */,
+				094D320E17E6456300D685EF /* MaterialsListViewController.m in Sources */,
+				094D321117E645A400D685EF /* MaterialsDetailViewController.m in Sources */,
+				094D321A17E838E500D685EF /* Materials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

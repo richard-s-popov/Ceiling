@@ -30,19 +30,6 @@
     
     if (![_managedObjectContext save:&error]) {
     }
-    
-//    exampleAdditional = [[AddSettingsModel alloc] init];
-//    exampleAdditional = model;
-//    
-//    NSUserDefaults *addittionaly = [NSUserDefaults standardUserDefaults];
-//    
-//    [addittionaly setObject:[exampleAdditional lusterPrice] forKey:@"lusterPrice"];
-//    [addittionaly setObject:[exampleAdditional bypassPrice] forKey:@"bypassPrice"];
-//    [addittionaly setObject:[exampleAdditional spotPrice] forKey:@"spotPrice"];
-//    
-//    
-//    NSLog(@"luster = %@",[addittionaly objectForKey:@"lusterPrice"]);
-//    [addittionaly synchronize];
 }
 
 - (AddSettingsModel *)Read {
@@ -63,15 +50,7 @@
     newPrice.bypassPrice = lastPrice.bypassPrice;
     newPrice.spotPrice = lastPrice.spotPrice;
     
-    NSLog(@"newLuster: %@", newPrice.lusterPrice);
-    
-//    exampleAdditional = [[AddSettingsModel alloc] init];
-//
-//    NSUserDefaults *addittionaly = [NSUserDefaults standardUserDefaults];
-//    [exampleAdditional setLusterPrice:[addittionaly objectForKey:@"lusterPrice"]];
-//    [exampleAdditional setBypassPrice:[addittionaly objectForKey:@"bypassPrice"]];
-//    [exampleAdditional setSpotPrice:[addittionaly objectForKey:@"spotPrice"]];
-    
+
     return newPrice;
 }
 

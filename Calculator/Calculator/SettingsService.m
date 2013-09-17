@@ -53,7 +53,7 @@
     [defaults synchronize];
 }
 
-- (Contacts *)Read {
+- (SettingsOptionsModel *)Read {
     
     //core data method
     

@@ -34,21 +34,28 @@
     return [(CalcAppDelegate *)[[UIApplication sharedApplication]delegate] managedObjectContext];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
+- (void)fetchPull {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"AddPrice"];
     NSError *error = nil;
     
     fetchArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self fetchPull];
     
     if (fetchArray.count == 0) {
         addPrice = [NSEntityDescription insertNewObjectForEntityForName:@"AddPrice" inManagedObjectContext:self.managedObjectContext];
-        
+        NSError *error = nil;
         if (![self.managedObjectContext save:&error]) {
         }
+        
+        [self fetchPull];
     }
+    
     
     addPrice = [fetchArray objectAtIndex:0];
     if (addPrice != nil) {

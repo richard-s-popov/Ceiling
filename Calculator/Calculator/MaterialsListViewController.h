@@ -25,6 +25,5 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tbl;
 @property (nonatomic, strong) NSArray *list;
-@property (nonatomic, strong) NSMutableArray *mutableList;
 
 @end

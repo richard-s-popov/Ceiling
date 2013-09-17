@@ -10,6 +10,7 @@
 #import "ProjectModel.h"
 #import "CalcAppDelegate.h"
 #import "AddPrice.h"
+#import "Projects.h"
 
 
 @interface CostViewController : UIViewController
@@ -24,6 +25,7 @@
 
 @property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) AddPrice *addPrice;
+@property (nonatomic, strong) Projects *project;
 
 - (void)PutSettings:(ProjectModel *)putSettings;
 @end

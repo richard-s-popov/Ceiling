@@ -17,8 +17,10 @@
 @synthesize lastCost;
 @synthesize test;
 @synthesize detailProjectData;
+
 @synthesize managedObjectContext;
 @synthesize addPrice;
+@synthesize project;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +34,7 @@
 //принимаем объект проекта из ProjectDetailViewController
 - (void)PutSettings:(ProjectModel *)putSettings {
     
-    detailProjectData = putSettings;
+//    detailProjectData = putSettings;
     
 }
 
@@ -44,15 +46,22 @@
 {
     [super viewDidLoad];
     
-    luster = [detailProjectData.clientLuster integerValue];
-    bypass = [detailProjectData.clientBypass integerValue];
-    spot = [detailProjectData.clientSpot integerValue];
+    luster = [project.projectLuster integerValue];
+    bypass = [project.projectBypass integerValue];
+    spot = [project.projectSpot integerValue];
     
     //получаем данные по AddPrice из Core Data
     NSFetchRequest *fetchRequestAddPrice = [NSFetchRequest fetchRequestWithEntityName:@"AddPrice"];
     NSError *error = nil;
     NSArray *addPriceArray = [self.managedObjectContext executeFetchRequest:fetchRequestAddPrice error:&error];
-    addPrice = [addPriceArray objectAtIndex:0];
+    
+    if (addPriceArray.count != 0) {
+        addPrice = [addPriceArray objectAtIndex:0];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Внимание" message:@"Пожалуста, отредактируйте цены в дополнительных настройках" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
     
     unsigned lusterPrice = [addPrice.lusterPrice integerValue];
     unsigned bypassPrice = [addPrice.bypassPrice integerValue];

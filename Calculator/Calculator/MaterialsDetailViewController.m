@@ -22,14 +22,12 @@
 
 @synthesize material;
 @synthesize managedObjectContext;
-@synthesize managedObjectId;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    NSLog(@"material name: %@", material.matName);
     matName.text = material.matName;
     matPrice.text = [material.matPrice stringValue];
     

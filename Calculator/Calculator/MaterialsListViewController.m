@@ -15,7 +15,6 @@
 @implementation MaterialsListViewController
 @synthesize tbl;
 @synthesize list;
-@synthesize mutableList;
 @synthesize managedObjectContext;
 @synthesize created;
 
@@ -31,14 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Materials"];
-    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"matName" ascending:YES];
-    [fetchRequest setSortDescriptors:@[sortByName]];
-    
-    NSError *error = nil;
-    list = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    [self pullArrayFromCoreData];
 
-    
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [tbl reloadData];}
 
@@ -86,9 +79,7 @@
     
     [self.managedObjectContext save:nil];
     
-    list = [list arrayByAddingObject:newMaterial];
-    NSLog(@"count: %d", list.count);
-    
+    list = [list arrayByAddingObject:newMaterial];    
     
     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:list.count -1 inSection:0];
     [tbl insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -120,7 +111,13 @@
     return cell;
 }
 
-
+- (void)pullArrayFromCoreData {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Materials"];
+    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"matName" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortByName]];
+    
+    list = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+}
 
 //описание метода редактирования
 - (void)tableView:(UITableView *)tableView
@@ -133,10 +130,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         [self.managedObjectContext deleteObject:[list objectAtIndex:indexPath.row]];
         [self.managedObjectContext save:nil];
         
-        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Materials"];
-        fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"created" ascending:YES]];
-        
-        list = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+        [self pullArrayFromCoreData];
         
         [tbl deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                    withRowAnimation:UITableViewRowAnimationFade];

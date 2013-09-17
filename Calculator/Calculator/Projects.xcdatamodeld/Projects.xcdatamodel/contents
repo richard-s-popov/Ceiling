@@ -5,16 +5,6 @@
         <attribute name="lusterPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="spotPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Contacts" representedClassName="Contacts" syncable="YES">
-        <attribute name="managerMail" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="managerName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="managerPhone" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="manufactoryMail" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="manufactoryPhone" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userMail" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userPhone" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <entity name="Materials" representedClassName="Materials" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="matId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -22,9 +12,17 @@
         <attribute name="matPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="matWidth" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
+    <entity name="Projects" representedClassName="Projects" syncable="YES">
+        <attribute name="projectAdress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectBypass" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="projectExplane" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectLuster" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectSpot" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <elements>
         <element name="AddPrice" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="Contacts" positionX="160" positionY="192" width="128" height="165"/>
         <element name="Materials" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Projects" positionX="160" positionY="192" width="128" height="135"/>
     </elements>
 </model>

@@ -101,19 +101,19 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2Nh-Xr-xXy">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="2Nh-Xr-xXy">
                                 <rect key="frame" x="203" y="68" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="ALA-Fr-Ccs">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="ALA-Fr-Ccs">
                                 <rect key="frame" x="203" y="113" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="v6o-fB-NQa">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="v6o-fB-NQa">
                                 <rect key="frame" x="203" y="158" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -902,19 +902,19 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="ele-y5-tSZ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="ele-y5-tSZ">
                                 <rect key="frame" x="20" y="82" width="175" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="8W4-4G-LSk">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="8W4-4G-LSk">
                                 <rect key="frame" x="20" y="145" width="175" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="h9l-gL-TbV">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="h9l-gL-TbV">
                                 <rect key="frame" x="20" y="204" width="175" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1136,6 +1136,130 @@
         <image name="Default-568h@2x.png" width="640" height="1136"/>
         <image name="textLableBg.png" width="608" height="58"/>
     </resources>
+    <classes>
+        <class className="AddSettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bypassTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lusterTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="spotTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BuildViewController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BuildViewController.h"/>
+        </class>
+        <class className="CalcViewController" superclassName="SettingsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalcViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clear:"/>
+                <relationship kind="action" name="clearAll:"/>
+                <relationship kind="action" name="digit:"/>
+                <relationship kind="action" name="dotDivider:"/>
+                <relationship kind="action" name="inverseSign:"/>
+                <relationship kind="action" name="menuBtn:"/>
+                <relationship kind="action" name="operation:"/>
+                <relationship kind="outlet" name="displayLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CostViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CostViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="lastCost" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="InitViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitViewController.h"/>
+        </class>
+        <class className="MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="menuBtn:"/>
+            </relationships>
+        </class>
+        <class className="MaterialCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MaterialCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nameCell" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceCell" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="widthCell" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MaterialsDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MaterialsDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="saveBtn:"/>
+                <relationship kind="outlet" name="editMaterialName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="editMaterialPrice" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="editMaterialWidth" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="matName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="matPrice" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MaterialsListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MaterialsListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tbl" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MenuViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+        </class>
+        <class className="OptionsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="optMenuBtn:"/>
+            </relationships>
+        </class>
+        <class className="PlotRectViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlotRectViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="menuBtn:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="ProjectDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProjectDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="Cost:"/>
+                <relationship kind="action" name="Email:"/>
+                <relationship kind="outlet" name="adressClient" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="bypassClient" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="explaneTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="lusterClient" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameClient" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="settingsScroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="spotClient" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="viewProject" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="ProjectsListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProjectsListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tbl" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="managerEmailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="managerNameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="managerPhoneField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="manufactoryEmailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="manufactoryPhoneField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="settingsScroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="userEmailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userNameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userPhoneField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="emailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/emailViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

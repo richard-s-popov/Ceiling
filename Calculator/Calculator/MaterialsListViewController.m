@@ -32,7 +32,9 @@
     [super viewDidLoad];
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Materials"];
-    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"created" ascending:YES]];
+//    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"created" ascending:YES]];
+    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"matName" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortByName]];
     
     NSError *error = nil;
     list = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
@@ -79,8 +81,8 @@
     
     newMaterial.created = [NSDate date];
     newMaterial.matName = [NSString stringWithFormat:@"Новый материал %d", list.count+1];
-    newMaterial.matWidth = [NSNumber numberWithInt:100];
-    newMaterial.matPrice = [NSNumber numberWithInt:200];
+    newMaterial.matWidth = [NSNumber numberWithInt:0];
+    newMaterial.matPrice = [NSNumber numberWithInt:0];
     newMaterial.matId = [NSNumber numberWithInteger:list.count];
     
     [self.managedObjectContext save:nil];

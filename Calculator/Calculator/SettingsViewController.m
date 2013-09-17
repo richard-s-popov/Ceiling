@@ -145,6 +145,8 @@ enum {
     SettingsService * settingsServise = [[SettingsService alloc]init];
     [settingsServise Save:contacts];
     
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 

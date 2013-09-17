@@ -88,6 +88,6 @@
     if (![self.managedObjectContext save:&error]) {
     }
 
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

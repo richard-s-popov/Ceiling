@@ -10,9 +10,6 @@
 #import "ECSlidingViewController.h"
 #import "MenuViewController.h"
 
-#import "ProjectModel.h"
-#import "ProjectServise.h"
-
 #import "CalcAppDelegate.h"
 #import "Projects.h"
 #import "ProjectDetailViewController.h"

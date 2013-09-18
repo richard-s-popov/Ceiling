@@ -16,7 +16,6 @@
 @implementation CostViewController
 @synthesize lastCost;
 @synthesize test;
-@synthesize detailProjectData;
 
 @synthesize managedObjectContext;
 @synthesize addPrice;
@@ -29,13 +28,6 @@
         // Custom initialization
     }
     return self;
-}
-
-//принимаем объект проекта из ProjectDetailViewController
-- (void)PutSettings:(ProjectModel *)putSettings {
-    
-//    detailProjectData = putSettings;
-    
 }
 
 -(NSManagedObjectContext *)managedObjectContext {

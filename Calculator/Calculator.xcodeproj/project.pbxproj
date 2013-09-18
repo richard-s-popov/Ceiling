@@ -33,8 +33,6 @@
 		0982697917C4C5EE007DB54D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982697817C4C5EE007DB54D /* icon.png */; };
 		0982697E17C532EF007DB54D /* ProjectsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982697D17C532EF007DB54D /* ProjectsListViewController.m */; };
 		0982698117C53861007DB54D /* ProjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982698017C53861007DB54D /* ProjectDetailViewController.m */; };
-		0982698417C53982007DB54D /* ProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982698317C53982007DB54D /* ProjectModel.m */; };
-		0982698717C53A0A007DB54D /* ProjectServise.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982698617C53A0A007DB54D /* ProjectServise.m */; };
 		09879C8217835733005B5E40 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09879C8117835733005B5E40 /* SettingsViewController.m */; };
 		09C82BBD1789DD8B00A47057 /* SettingsOptionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */; };
 		09C82BC01789DFE300A47057 /* SettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBF1789DFE200A47057 /* SettingsService.m */; };
@@ -94,10 +92,6 @@
 		0982697D17C532EF007DB54D /* ProjectsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsListViewController.m; sourceTree = "<group>"; };
 		0982697F17C53861007DB54D /* ProjectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailViewController.h; sourceTree = "<group>"; };
 		0982698017C53861007DB54D /* ProjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailViewController.m; sourceTree = "<group>"; };
-		0982698217C53982007DB54D /* ProjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectModel.h; sourceTree = "<group>"; };
-		0982698317C53982007DB54D /* ProjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectModel.m; sourceTree = "<group>"; };
-		0982698517C53A0A007DB54D /* ProjectServise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectServise.h; sourceTree = "<group>"; };
-		0982698617C53A0A007DB54D /* ProjectServise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectServise.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		09879C8017835733005B5E40 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		09879C8117835733005B5E40 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		09C82BBB1789DD8B00A47057 /* SettingsOptionsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsOptionsModel.h; sourceTree = "<group>"; };
@@ -191,7 +185,9 @@
 			children = (
 				09E307BF17DCE35F006E5CE5 /* CoreData.framework */,
 				0982697617C3EE98007DB54D /* MessageUI.framework */,
+				09D5DF61178CEAA5004FAA8C /* ECSlidingViewController */,
 				094D321B17E8BDCE00D685EF /* Core Data */,
+				09C82BBA1789DD5000A47057 /* Model */,
 				09598145177F676E001D2122 /* Calculator */,
 				0959813E177F676E001D2122 /* Frameworks */,
 				0959813D177F676E001D2122 /* Products */,
@@ -222,15 +218,13 @@
 				094D320B17E6452000D685EF /* Materials */,
 				0910CDB217D144260032060C /* Additionally Settings */,
 				0982697A17C530A5007DB54D /* Settings */,
-				09D5DF61178CEAA5004FAA8C /* ECSlidingViewController */,
-				09C82BBA1789DD5000A47057 /* Model */,
+				0982697B17C53285007DB54D /* Projects */,
 				0959814E177F676E001D2122 /* CalcAppDelegate.h */,
 				0959814F177F676E001D2122 /* CalcAppDelegate.m */,
 				26BF92FC1788441600C90497 /* PlotRectViewController.h */,
 				26BF92FD1788441600C90497 /* PlotRectViewController.m */,
 				09598157177F676E001D2122 /* MainStoryboard.storyboard */,
 				09598146177F676E001D2122 /* Supporting Files */,
-				0982697B17C53285007DB54D /* Projects */,
 				094D321C17E8BE1500D685EF /* Calculator */,
 				09D5DF74178CEDC1004FAA8C /* Menu */,
 				0982697217C3E9A2007DB54D /* e-mail */,
@@ -285,8 +279,6 @@
 				0982697D17C532EF007DB54D /* ProjectsListViewController.m */,
 				0982697F17C53861007DB54D /* ProjectDetailViewController.h */,
 				0982698017C53861007DB54D /* ProjectDetailViewController.m */,
-				0982698517C53A0A007DB54D /* ProjectServise.h */,
-				0982698617C53A0A007DB54D /* ProjectServise.m */,
 				090C9CBA17CD6418008A5E10 /* CostViewController.h */,
 				090C9CBB17CD6418008A5E10 /* CostViewController.m */,
 			);
@@ -298,10 +290,9 @@
 			children = (
 				09C82BBB1789DD8B00A47057 /* SettingsOptionsModel.h */,
 				09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */,
-				0982698217C53982007DB54D /* ProjectModel.h */,
-				0982698317C53982007DB54D /* ProjectModel.m */,
 			);
 			name = Model;
+			path = Calculator;
 			sourceTree = "<group>";
 		};
 		09D5DF61178CEAA5004FAA8C /* ECSlidingViewController */ = {
@@ -312,7 +303,8 @@
 				09D5DF64178CEAA5004FAA8C /* UIImage+ImageWithUIView.h */,
 				09D5DF65178CEAA5004FAA8C /* UIImage+ImageWithUIView.m */,
 			);
-			path = ECSlidingViewController;
+			name = ECSlidingViewController;
+			path = Calculator/ECSlidingViewController;
 			sourceTree = "<group>";
 		};
 		09D5DF74178CEDC1004FAA8C /* Menu */ = {
@@ -419,8 +411,6 @@
 				0982697517C3E9C6007DB54D /* emailViewController.m in Sources */,
 				0982697E17C532EF007DB54D /* ProjectsListViewController.m in Sources */,
 				0982698117C53861007DB54D /* ProjectDetailViewController.m in Sources */,
-				0982698417C53982007DB54D /* ProjectModel.m in Sources */,
-				0982698717C53A0A007DB54D /* ProjectServise.m in Sources */,
 				090C9CBC17CD6418008A5E10 /* CostViewController.m in Sources */,
 				0910CDB817D145D10032060C /* AddSettingsViewController.m in Sources */,
 				09E307C317DCE6F5006E5CE5 /* Projects.xcdatamodeld in Sources */,

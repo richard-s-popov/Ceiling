@@ -30,6 +30,17 @@
     return self;
 }
 
+// скрываем клавиатуру по нажатию кнопки
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    //пользовательские поля
+    [lusterTextField resignFirstResponder];
+    [bypassTextField resignFirstResponder];
+    [spotTextField resignFirstResponder];
+    
+    return YES;
+}
+
 -(NSManagedObjectContext *)managedObjectContext {
     return [(CalcAppDelegate *)[[UIApplication sharedApplication]delegate] managedObjectContext];
 }
@@ -46,6 +57,10 @@
     [super viewDidLoad];
     
     [self fetchPull];
+    
+    lusterTextField.delegate = self;
+    bypassTextField.delegate = self;
+    spotTextField.delegate = self;
     
     if (fetchArray.count == 0) {
         addPrice = [NSEntityDescription insertNewObjectForEntityForName:@"AddPrice" inManagedObjectContext:self.managedObjectContext];
@@ -68,6 +83,14 @@
         bypassTextField.text = @"";
         spotTextField.text = @"";
     }
+    
+    //скрываем клавиатуру по нажатию на фон
+    UITapGestureRecognizer *tapOnScrolView = [[UITapGestureRecognizer alloc]
+                                              initWithTarget:self
+                                              action:@selector(dismissKeyboard)
+                                              ];
+    
+    [self.view addGestureRecognizer:tapOnScrolView];
     
     //кнопка редактирования
     UIBarButtonItem *saveButton =[[UIBarButtonItem alloc]
@@ -97,4 +120,14 @@
 
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+//метод скрытия клавиатуры по нажитию на background
+- (void)dismissKeyboard {
+    
+    [lusterTextField resignFirstResponder];
+    [bypassTextField resignFirstResponder];
+    [spotTextField resignFirstResponder];
+    
+}
+
 @end

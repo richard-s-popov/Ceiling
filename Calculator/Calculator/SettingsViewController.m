@@ -57,13 +57,7 @@ enum {
 - (void)viewDidLoad
 {
     
-    [super viewDidLoad];
-    
-//    CalcAppDelegate *calcAppDelegate = [[UIApplication sharedApplication] delegate];
-//    _managedObjectContext = [calcAppDelegate managedObjectContext];
-//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Contacts" inManagedObjectContext:_managedObjectContext];
-//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
+    [super viewDidLoad];    
     
     //запускаем скроллер
     [settingsScroller setScrollEnabled:YES];
@@ -121,9 +115,7 @@ enum {
 
 -(void)saveBtn {
         
-    //создаем новый объект модели SettingsOptionsModel для передачи его в класс SettingsServise
-//    contacts = [NSEntityDescription insertNewObjectForEntityForName:@"Contacts" inManagedObjectContext:_managedObjectContext];
-    SettingsOptionsModel *contacts = [[SettingsOptionsModel alloc]init];
+     SettingsOptionsModel *contacts = [[SettingsOptionsModel alloc]init];
     
     [contacts setUserName:userNameField.text];
     [contacts setUserPhone:userPhoneField.text];
@@ -138,9 +130,6 @@ enum {
     
     NSLog(@"name: %@", contacts.userName);
     
-//    NSError *error = nil;
-//    if (![_managedObjectContext save:&error]) {
-//    }
     //передаем созданый объект settingsOptions в класс SettingsServise в функцию Save как параметр
     SettingsService * settingsServise = [[SettingsService alloc]init];
     [settingsServise Save:contacts];

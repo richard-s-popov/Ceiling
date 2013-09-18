@@ -10,7 +10,7 @@
 #import "AddPrice.h"
 #import "CalcAppDelegate.h"
 
-@interface AddSettingsViewController : UIViewController
+@interface AddSettingsViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *lusterTextField;
 @property (weak, nonatomic) IBOutlet UITextField *bypassTextField;

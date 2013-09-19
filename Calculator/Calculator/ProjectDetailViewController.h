@@ -9,10 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "ProjectsListViewController.h"
 #import "CostViewController.h"
+#import "CalcAppDelegate.h"
 
 #import "Projects.h"
 
-@interface ProjectDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate>
+@interface ProjectDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate> {
+
+
+    IBOutlet UIBarButtonItem *shareBtn;
+    IBOutlet UIBarButtonItem *costBtn;
+}
 
 
 @property (nonatomic) int editCount;

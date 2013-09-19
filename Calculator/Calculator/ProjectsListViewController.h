@@ -13,11 +13,13 @@
 #import "CalcAppDelegate.h"
 #import "Projects.h"
 #import "ProjectDetailViewController.h"
+#import "ProjectCell.h"
 
 @interface ProjectsListViewController : UIViewController <UITableViewDelegate , UITableViewDataSource> {
 
     NSString *lustName;
     NSString *lustAdress;
+
 }
 
 @property (nonatomic) NSArray *savedProjects;

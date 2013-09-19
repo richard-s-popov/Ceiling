@@ -39,6 +39,8 @@
 {
     [super viewDidLoad];
     
+    [matName setFont:[UIFont fontWithName:@"PTSansNarrow" size:10]];
+    
     editMaterialName.delegate = self;
     editMaterialWidth.delegate = self;
     editMaterialPrice.delegate = self;
@@ -50,6 +52,9 @@
     editMaterialPrice.text = [material.matPrice stringValue];
     editMaterialWidth.text = [material.matWidth stringValue];
     
+     UIBarButtonItem *addButton =[[UIBarButtonItem alloc] initWithTitle:@"Сохранить" style:UIBarButtonItemStyleBordered target:self action:@selector(saveBtn)];
+    [addButton setTitleTextAttributes:redText forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = addButton;
     //скрываем клавиатуру по нажатию на фон
     UITapGestureRecognizer *tapOnScrolView = [[UITapGestureRecognizer alloc]
                                               initWithTarget:self
@@ -66,7 +71,8 @@
     return [(CalcAppDelegate*)[[UIApplication sharedApplication]delegate] managedObjectContext];
 }
 
-- (IBAction)saveBtn:(id)sender {
+- (void)saveBtn {
+    
     
     material.matName = editMaterialName.text;
     material.matWidth = [NSNumber numberWithInt:[editMaterialWidth.text intValue]];

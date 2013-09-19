@@ -29,11 +29,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+        
     [self pullArrayFromCoreData];
 
+    //редактируем и добавляем Edit Button
+    UIImage *rightButtonImage = [[UIImage imageNamed:@"rightBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
+    self.editButtonItem.title = @"Изменить";
+    [self.editButtonItem setBackgroundImage:rightButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self.editButtonItem setTitleTextAttributes:blackText forState:UIControlStateNormal];
+    
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [tbl reloadData];}
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
+    [tbl reloadData];
+}
 
 
 //создаем helper для managedObjectContext
@@ -48,16 +59,19 @@
     [tbl setEditing:editing animated:animated];
     
     if (editing) {
+        self.editButtonItem.title = NSLocalizedString(@"Сохранить", @"Сохранить");
+        [self.editButtonItem setTitleTextAttributes:redText forState:UIControlStateNormal];
         
         //добавляем кнопку добавления материала
-        UIBarButtonItem *addButton =[[UIBarButtonItem alloc]
-                                     initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                     target:self
-                                     action:@selector(addBtn)];
+        UIImage *addButtonImage = [[UIImage imageNamed:@"addBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+        UIBarButtonItem *addButton =[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:self action:@selector(addBtn)];
+        [addButton setBackgroundImage:addButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         self.navigationItem.leftBarButtonItem = addButton;
         self.navigationItem.leftItemsSupplementBackButton = NO;
     }
     else {
+        self.editButtonItem.title = NSLocalizedString(@"Изменить", @"Изменить");
+        [self.editButtonItem setTitleTextAttributes:blackText forState:UIControlStateNormal];
         
         //добавляем кнопку добавления материала
         self.navigationItem.leftItemsSupplementBackButton = YES;
@@ -81,7 +95,7 @@
     
     list = [list arrayByAddingObject:newMaterial];    
     
-    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:list.count -1 inSection:0];
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [tbl insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
@@ -100,6 +114,9 @@
     if (cell == nil) {
         cell = [[MaterialCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellId];
     }
+    [cell.priceCell setFont:[UIFont fontWithName:@"FuturisCyrillic" size:19]];
+    [cell.nameCell setFont:[UIFont fontWithName:@"FuturisCyrillic" size:19]];
+    [cell.widthCell setFont:[UIFont fontWithName:@"FuturisCyrillic" size:15]];
     
     //создаем объект ячейки из массива данных
     Materials *material = [list objectAtIndex:indexPath.row];

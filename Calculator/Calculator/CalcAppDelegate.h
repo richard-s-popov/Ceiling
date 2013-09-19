@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#define blackText [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],UITextAttributeTextColor,[UIFont fontWithName:@"FuturisCyrillic" size:15],UITextAttributeFont,[UIColor clearColor], UITextAttributeTextShadowColor,nil]
+
+#define redText [NSDictionary dictionaryWithObjectsAndKeys:[UIColor redColor],UITextAttributeTextColor,[UIFont fontWithName:@"FuturisCyrillic" size:15],UITextAttributeFont,[UIColor clearColor], UITextAttributeTextShadowColor,nil]
 
 @interface CalcAppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -25,5 +25,4 @@
 @property (nonatomic, strong) Materials *material;
 @property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
-- (IBAction)saveBtn:(id)sender;
 @end

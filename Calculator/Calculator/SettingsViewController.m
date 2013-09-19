@@ -103,11 +103,11 @@ enum {
     
     [self.view addGestureRecognizer:tapOnScrolView];
     
-    //кнопка редактирования
-    UIBarButtonItem *saveButton =[[UIBarButtonItem alloc]
-                                  initWithBarButtonSystemItem:UIBarButtonSystemItemSave
-                                  target:self
-                                  action:@selector(saveBtn)];
+    //кнопка сохранения
+    UIBarButtonItem *saveButton =[[UIBarButtonItem alloc] initWithTitle:@"Сохранить" style:UIBarButtonItemStyleBordered target:self action:@selector(saveBtn)];
+    [saveButton setTitleTextAttributes:redText forState:UIControlStateNormal];
+    UIImage *rightButtonImage = [[UIImage imageNamed:@"rightBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
+    [saveButton setBackgroundImage:rightButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     self.navigationItem.rightBarButtonItem = saveButton;
     
 }

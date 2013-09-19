@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalcAppDelegate.h"
 
 @interface OptionsViewController : UIViewController
 

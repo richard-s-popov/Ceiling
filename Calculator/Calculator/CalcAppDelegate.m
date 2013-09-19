@@ -16,7 +16,52 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+    UIImage *navBackgroundImage = [UIImage imageNamed:@"navBar4.png"];
+    UIImage *imageNavBarShadow = [UIImage imageNamed:@"navBarShadow.png"];
+    [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setShadowImage:imageNavBarShadow];
+    
+    UIImage *toolBarShadow = [UIImage imageNamed:@"toolBarShadow.png"];
+    [[UIToolbar appearance] setBackgroundImage:navBackgroundImage forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
+    [[UIToolbar appearance] setShadowImage:toolBarShadow forToolbarPosition:UIToolbarPositionBottom];
+    //настраиваем цвет title в приложении
+    NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                               [UIColor blackColor],UITextAttributeTextColor,
+                                               [UIColor clearColor], UITextAttributeTextShadowColor,
+                                               [UIFont fontWithName:@"PTSans-Narrow" size:25],UITextAttributeFont,
+                                               [NSValue valueWithUIOffset:UIOffsetMake(-1, 0)], UITextAttributeTextShadowOffset, nil];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
+    
+    
+    UIImage *backButtonImage = [[UIImage imageNamed:@"backBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                          [UIColor blackColor], UITextAttributeTextColor,
+                                                          [UIFont fontWithName:@"FuturisCyrillic" size:15],UITextAttributeFont,
+                                                          [UIColor clearColor], UITextAttributeTextShadowColor,
+                                                          nil]
+                                                forState:UIControlStateNormal];
+    
+    
+    UIImage *barButtonImage = [[UIImage imageNamed:@"barBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12, 0, 12)];
+    [[UIBarButtonItem appearance] setBackgroundImage:barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"FuturisCyrillic" size:17]];
+    
+    
+    //возвращает список шрифтов в лог
+//    for (NSString *familyName in [UIFont familyNames]) {
+//        
+//        for (NSString *fontName in [UIFont fontNamesForFamilyName:familyName]) {
+//            
+//            NSLog(@"%@", fontName);
+//            
+//        }
+//        
+//    }
+    
     return YES;
 }
 							

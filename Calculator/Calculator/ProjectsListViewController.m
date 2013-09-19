@@ -14,6 +14,7 @@
 @end
 
 @implementation ProjectsListViewController
+
 @synthesize clientsList;
 @synthesize savedProjects;
 @synthesize projectsCount;
@@ -49,15 +50,22 @@
 {
     [super viewDidLoad];
     
+    
+//    CustomNavigationBar
+    
     //стек Core Data
     [self pullArrayFromCoreData];
     
     //кнопка редактирования
+    //редактируем и добавляем Edit Button
+    UIImage *rightButtonImage = [[UIImage imageNamed:@"rightBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    //СОЗДАНИЕ TOOLBAR
-    self.navigationController.toolbarHidden = NO;
-    self.navigationController.toolbar.tintColor = [UIColor blackColor];
+    self.editButtonItem.title = @"Изменить";
+    [self.editButtonItem setTitleTextAttributes:blackText forState:UIControlStateNormal]; //blakText - макрос CalcAppDelegate
+    [self.editButtonItem setBackgroundImage:rightButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
     
     //кнопка меню
     UIBarButtonItem *menuButton =[[UIBarButtonItem alloc]
@@ -65,6 +73,7 @@
                                   target:self
                                   action:@selector(menuBtn)];
     self.navigationItem.leftBarButtonItem = menuButton;
+    
 }
 
 - (void)addBtn {
@@ -82,7 +91,7 @@
     
     projectsArray = [projectsArray arrayByAddingObject:addProject];
     
-    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:projectsArray.count-1 inSection:0];
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [tbl insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
@@ -92,15 +101,20 @@
     [tbl setEditing:editing animated:animated];
     
     if (editing) {
-        NSLog(@"editing project list");
+
+        self.editButtonItem.title = NSLocalizedString(@"Сохранить", @"Сохранить");
+        [self.editButtonItem setTitleTextAttributes:redText forState:UIControlStateNormal];
         //добавляем кнопку добавить
-        UIBarButtonItem *addButton =[[UIBarButtonItem alloc]
-                                     initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                     target:self
-                                     action:@selector(addBtn)];
+        UIImage *addButtonImage = [[UIImage imageNamed:@"addBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+        UIBarButtonItem *addButton =[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:self action:@selector(addBtn)];
+//        [addButton setTitleTextAttributes:blackText forState:UIControlStateNormal];
+        [addButton setBackgroundImage:addButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         self.navigationItem.leftBarButtonItem = addButton;
     }
     else {
+        
+        self.editButtonItem.title = NSLocalizedString(@"Изменить", @"Изменить");
+        [self.editButtonItem setTitleTextAttributes:blackText forState:UIControlStateNormal];
         //добвляем кнопку меню
         UIBarButtonItem *menuButton =[[UIBarButtonItem alloc]
                                       initWithTitle:@"меню" style:UIBarButtonItemStyleBordered
@@ -155,11 +169,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     static NSString *CellIdentifier = @"CellProject";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    ProjectCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    [cell.labelName setFont:[UIFont fontWithName:@"FuturisCyrillic" size:19]];
+    [cell.labelAdress setFont:[UIFont fontWithName:@"FuturisCyrillic" size:15]];
     
     Projects *project = [projectsArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = project.projectName;
-    cell.detailTextLabel.text  =project.projectAdress;
+    cell.labelName.text = project.projectName;
+    cell.labelAdress.text  = project.projectAdress;
     
     return cell;
 }

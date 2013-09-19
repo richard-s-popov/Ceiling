@@ -68,15 +68,28 @@
     
     editCount = 0;
     
+    //кнопка редактирования
+    //редактируем и добавляем Edit Button
+    UIImage *rightButtonImage = [[UIImage imageNamed:@"rightBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.editButtonItem.title = @"Изменить";
+    [self.editButtonItem setTitleTextAttributes:blackText forState:UIControlStateNormal];
+    [self.editButtonItem setBackgroundImage:rightButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
+    
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-
-    //скрываем клавиатуру по нажатию на фон
-    UITapGestureRecognizer *tapOnScrolView = [[UITapGestureRecognizer alloc]
-                                              initWithTarget:self
-                                              action:@selector(dismissKeyboard)
-                                              ];
+    UIImage *toolbarButtonImage = [[UIImage imageNamed:@"toolbarBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12,0,12)];
+    UIImage *shareButtonImage = [[UIImage imageNamed:@"shareBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    [costBtn setBackgroundImage:toolbarButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [shareBtn setBackgroundImage:shareButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    shareBtn.title = @"";
     
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
+    //скрываем клавиатуру по нажатию на фон
+    UITapGestureRecognizer *tapOnScrolView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tapOnScrolView];
     
     [self reloadData];
@@ -85,7 +98,7 @@
 
 - (void) reloadData {
     
-    self.navigationItem.title = project.projectAdress;
+//    self.navigationItem.title = project.projectAdress;
     nameClient.text = project.projectName;
     adressClient.text = project.projectAdress;
     lusterClient.text = [project.projectLuster stringValue];
@@ -107,6 +120,8 @@
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
     }
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //передаем данные по segue в CostViewController для расчета стоимости
@@ -142,11 +157,14 @@
     [super setEditing: editing animated: animated];
     if (editing) {
         
+        self.editButtonItem.title = NSLocalizedString(@"Сохранить", @"Сохранить");
+        [self.editButtonItem setTitleTextAttributes:redText forState:UIControlStateNormal];
         //УВЕЛИЧИВАЕТ SCROLLVIEW ДЛЯ УДОБСТВА РЕДАКТИРОВАНИЯ
         [scrollView setContentSize:CGSizeMake(320, 1100)];
         editCount = 1;
     } else {
-        
+        self.editButtonItem.title = NSLocalizedString(@"Изменить", @"Изменить");
+        [self.editButtonItem setTitleTextAttributes:blackText forState:UIControlStateNormal]; // textBlack - это макрос определенный в CalcAppDelegate.h
         editCount = 0;
         [scrollView setContentSize:CGSizeMake(320, 900)];
         

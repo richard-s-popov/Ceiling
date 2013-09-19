@@ -384,7 +384,7 @@
         <!--Build View Controller-->
         <scene sceneID="hKd-Sx-GyJ">
             <objects>
-                <navigationController storyboardIdentifier="Проект" definesPresentationContext="YES" toolbarHidden="NO" id="g1D-Fj-Fp7" customClass="BuildViewController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Проекты" definesPresentationContext="YES" toolbarHidden="NO" id="g1D-Fj-Fp7" customClass="BuildViewController" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="jwg-Q6-zGN">

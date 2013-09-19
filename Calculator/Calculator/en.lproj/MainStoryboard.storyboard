@@ -347,7 +347,7 @@
             </objects>
             <point key="canvasLocation" x="449" y="2612"/>
         </scene>
-        <!--Cost View Controller-->
+        <!--Cost View Controller - Стоимость-->
         <scene sceneID="EP8-ec-d82">
             <objects>
                 <viewController storyboardIdentifier="Cost" id="pVq-l1-Bjo" customClass="CostViewController" sceneMemberID="viewController">
@@ -372,7 +372,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fn5-aM-QP1"/>
+                    <navigationItem key="navigationItem" title="Стоимость" id="fn5-aM-QP1"/>
                     <connections>
                         <outlet property="lastCost" destination="h72-Sn-k92" id="j51-XP-ti6"/>
                     </connections>
@@ -860,6 +860,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
+                                            <outlet property="labelPriceCell" destination="A2R-yg-qgd" id="GCq-bF-ann"/>
                                             <outlet property="nameCell" destination="3GW-k6-DsM" id="sua-0Z-Qcp"/>
                                             <outlet property="priceCell" destination="0fD-90-qvI" id="0KP-BM-dIL"/>
                                             <outlet property="widthCell" destination="dUZ-JY-rR7" id="fmp-24-SHb"/>
@@ -893,21 +894,21 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="материал" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M0x-cn-io9">
-                                <rect key="frame" x="228" y="63" width="67" height="21"/>
+                                <rect key="frame" x="203" y="63" width="92" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ширина" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gDX-9i-BiK">
-                                <rect key="frame" x="233" y="108" width="62" height="21"/>
+                                <rect key="frame" x="203" y="108" width="92" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="цена" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="men-A2-dkw">
-                                <rect key="frame" x="263" y="156" width="32" height="18"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="цена" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="men-A2-dkw">
+                                <rect key="frame" x="203" y="156" width="92" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -969,12 +970,12 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uef-nZ-dt4">
-                                <rect key="frame" x="20" y="78" width="280" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uef-nZ-dt4">
+                                <rect key="frame" x="0.0" y="74" width="320" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Настройки контактов">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Настройки контактов" backgroundImage="buttonBg.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -984,12 +985,12 @@
                                     <segue destination="5Ip-4Z-EbB" kind="push" id="xgX-RD-cDN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xnI-mE-gGk">
-                                <rect key="frame" x="20" y="187" width="280" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xnI-mE-gGk">
+                                <rect key="frame" x="0.0" y="172" width="320" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Дополнительные настройки">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Дополнительные настройки" backgroundImage="buttonBg.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -999,12 +1000,12 @@
                                     <segue destination="eQk-3S-jeL" kind="push" id="vOs-ps-5Iy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9mt-KR-lat">
-                                <rect key="frame" x="20" y="136" width="280" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9mt-KR-lat">
+                                <rect key="frame" x="0.0" y="123" width="320" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Настройка материалов">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Настройка материалов" backgroundImage="buttonBg.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -1139,141 +1140,9 @@
     </scenes>
     <resources>
         <image name="Default-568h@2x.png" width="640" height="1136"/>
+        <image name="buttonBg.png" width="320" height="54"/>
         <image name="textLableBg.png" width="608" height="58"/>
     </resources>
-    <classes>
-        <class className="AddSettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bypassTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lusterTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="spotTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BuildViewController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BuildViewController.h"/>
-        </class>
-        <class className="CalcViewController" superclassName="SettingsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalcViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clear:"/>
-                <relationship kind="action" name="clearAll:"/>
-                <relationship kind="action" name="digit:"/>
-                <relationship kind="action" name="dotDivider:"/>
-                <relationship kind="action" name="inverseSign:"/>
-                <relationship kind="action" name="menuBtn:"/>
-                <relationship kind="action" name="operation:"/>
-                <relationship kind="outlet" name="displayLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CostViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CostViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="lastCost" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ECSlidingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
-        </class>
-        <class className="InitViewController" superclassName="ECSlidingViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitViewController.h"/>
-        </class>
-        <class className="MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="menuBtn:"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
-            </relationships>
-        </class>
-        <class className="MaterialCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MaterialCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="nameCell" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="priceCell" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="widthCell" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MaterialsDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MaterialsDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="editMaterialName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="editMaterialPrice" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="editMaterialWidth" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="matName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="matPrice" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MaterialsListViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MaterialsListViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tbl" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="MenuViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-        </class>
-        <class className="OptionsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="optMenuBtn:"/>
-            </relationships>
-        </class>
-        <class className="PlotRectViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlotRectViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="menuBtn:"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="ProjectCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProjectCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="labelAdress" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelName" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ProjectDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProjectDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="Cost:"/>
-                <relationship kind="action" name="Email:"/>
-                <relationship kind="outlet" name="adressClient" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="bypassClient" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="costBtn" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="explaneTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="lusterClient" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="nameClient" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="settingsScroller" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="shareBtn" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="spotClient" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="viewProject" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="ProjectsListViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProjectsListViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tbl" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="SettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="managerEmailField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="managerNameField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="managerPhoneField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="manufactoryEmailField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="manufactoryPhoneField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="settingsScroller" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="userEmailField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="userNameField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="userPhoneField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="emailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/emailViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

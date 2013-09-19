@@ -116,7 +116,9 @@
     }
     [cell.priceCell setFont:[UIFont fontWithName:@"FuturisCyrillic" size:19]];
     [cell.nameCell setFont:[UIFont fontWithName:@"FuturisCyrillic" size:19]];
-    [cell.widthCell setFont:[UIFont fontWithName:@"FuturisCyrillic" size:15]];
+    [cell.widthCell setFont:[UIFont fontWithName:@"FuturisCyrillic" size:14]];
+    [cell.labelPriceCell setFont:[UIFont fontWithName:@"FuturisCyrillic" size:12]];
+    
     
     //создаем объект ячейки из массива данных
     Materials *material = [list objectAtIndex:indexPath.row];

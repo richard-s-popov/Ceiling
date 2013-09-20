@@ -84,15 +84,14 @@
     addProject.projectAdress = @"Адресс";
     addProject.projectExplane = @"Описание";
     
-    //сохраняем новый объект кантекста в персистент
-    NSError *error = nil;
-    if (![self.managedObjectsContent save:&error]) {
-    }
-    
     projectsArray = [projectsArray arrayByAddingObject:addProject];
     
     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [tbl insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    //сохраняем новый объект кантекста в персистент
+    NSError *error = nil;
+    if (![self.managedObjectsContent save:&error]) {
+    }
 }
 
 

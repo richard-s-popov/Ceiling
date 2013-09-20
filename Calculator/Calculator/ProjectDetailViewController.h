@@ -8,26 +8,35 @@
 
 #import <UIKit/UIKit.h>
 #import "ProjectsListViewController.h"
-#import "ProjectModel.h"
-#import "ProjectServise.h"
 #import "CostViewController.h"
+#import "CalcAppDelegate.h"
 
-@interface ProjectDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate>
+#import "Projects.h"
 
-@property ( nonatomic) IBOutlet UITextField *nameClient;
-@property (weak, nonatomic) IBOutlet UITextField *adressClient;
+@interface ProjectDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate> {
+
+
+    IBOutlet UIBarButtonItem *shareBtn;
+    IBOutlet UIBarButtonItem *costBtn;
+}
+
+
 @property (nonatomic) int editCount;
 @property (strong, nonatomic) IBOutlet UIView *viewProject;
 @property (nonatomic, strong) IBOutlet UITextView *explaneTextView;
-@property (nonatomic, strong) ProjectModel *detail;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *settingsScroller;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+
+@property ( nonatomic) IBOutlet UITextField *nameClient;
+@property (weak, nonatomic) IBOutlet UITextField *adressClient;
 @property (weak, nonatomic) IBOutlet UITextField *lusterClient;
 @property (weak, nonatomic) IBOutlet UITextField *bypassClient;
 @property (weak, nonatomic) IBOutlet UITextField *spotClient;
 
-@property (weak, nonatomic) IBOutlet UIScrollView *settingsScroller;
-
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) Projects *project;
+@property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
 - (IBAction)Cost:(id)sender;
 - (IBAction)Email:(id)sender;

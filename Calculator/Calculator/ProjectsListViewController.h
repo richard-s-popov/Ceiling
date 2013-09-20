@@ -9,20 +9,27 @@
 #import <UIKit/UIKit.h>
 #import "ECSlidingViewController.h"
 #import "MenuViewController.h"
-#import "ProjectModel.h"
+
+#import "CalcAppDelegate.h"
+#import "Projects.h"
 #import "ProjectDetailViewController.h"
-#import "ProjectServise.h"
+#import "ProjectCell.h"
 
 @interface ProjectsListViewController : UIViewController <UITableViewDelegate , UITableViewDataSource> {
 
-    NSMutableArray *clientsList;
+    NSString *lustName;
+    NSString *lustAdress;
+
 }
 
 @property (nonatomic) NSArray *savedProjects;
-
 @property (nonatomic, retain) NSMutableArray *clientsList;
-@property (strong, nonatomic) IBOutlet UITableView *tbl;
 @property (nonatomic, strong) NSNumber *projectsCount;
 @property (nonatomic, strong) UITextView *explaneText;
+
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectsContent;
+@property (strong, nonatomic) IBOutlet UITableView *tbl;
+@property (strong, nonatomic) NSArray *projectsArray;
 
 @end

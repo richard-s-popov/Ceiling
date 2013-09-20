@@ -16,7 +16,10 @@
 @implementation CostViewController
 @synthesize lastCost;
 @synthesize test;
-@synthesize detailProjectData;
+
+@synthesize managedObjectContext;
+@synthesize addPrice;
+@synthesize project;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,30 +30,34 @@
     return self;
 }
 
-//принимаем объект проекта из ProjectDetailViewController
-- (void)PutSettings:(ProjectModel *)putSettings {
-    
-    detailProjectData = putSettings;
-    
+-(NSManagedObjectContext *)managedObjectContext {
+    return [(CalcAppDelegate *)[[UIApplication sharedApplication]delegate]managedObjectContext];
 }
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    luster = [detailProjectData.clientLuster integerValue];
-    bypass = [detailProjectData.clientBypass integerValue];
-    spot = [detailProjectData.clientSpot integerValue];
+    luster = [project.projectLuster integerValue];
+    bypass = [project.projectBypass integerValue];
+    spot = [project.projectSpot integerValue];
     
-    //получаем данные дополнительных настроек из AddSettingsServise 
-    AddSettingsServise *saved = [[AddSettingsServise alloc] init];
-    AddSettingsModel *contanerAddittionaly = [[AddSettingsModel alloc] init];
-    contanerAddittionaly = saved.Read;
+    //получаем данные по AddPrice из Core Data
+    NSFetchRequest *fetchRequestAddPrice = [NSFetchRequest fetchRequestWithEntityName:@"AddPrice"];
+    NSError *error = nil;
+    NSArray *addPriceArray = [self.managedObjectContext executeFetchRequest:fetchRequestAddPrice error:&error];
     
-    unsigned lusterPrice = [contanerAddittionaly.lusterPrice integerValue];
-    unsigned bypassPrice = [contanerAddittionaly.bypassPrice integerValue];
-    unsigned spotPrice = [contanerAddittionaly.spotPrice integerValue];
+    if (addPriceArray.count != 0) {
+        addPrice = [addPriceArray objectAtIndex:0];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Внимание" message:@"Пожалуста, отредактируйте цены в дополнительных настройках" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+    
+    unsigned lusterPrice = [addPrice.lusterPrice integerValue];
+    unsigned bypassPrice = [addPrice.bypassPrice integerValue];
+    unsigned spotPrice = [addPrice.spotPrice integerValue];
     
     int lastCostInt = (luster*lusterPrice) + (bypass*bypassPrice) + (spot*spotPrice);
     

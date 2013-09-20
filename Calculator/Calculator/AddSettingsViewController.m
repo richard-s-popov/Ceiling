@@ -16,8 +16,10 @@
 @synthesize lusterTextField;
 @synthesize bypassTextField;
 @synthesize spotTextField;
-@synthesize savedAddittionaly;
-
+@synthesize managedObjectContext;
+@synthesize addPrice;
+@synthesize fetchArray;
+@synthesize managedObjectId;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,19 +30,74 @@
     return self;
 }
 
+// скрываем клавиатуру по нажатию кнопки
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    //пользовательские поля
+    [lusterTextField resignFirstResponder];
+    [bypassTextField resignFirstResponder];
+    [spotTextField resignFirstResponder];
+    
+    return YES;
+}
+
+-(NSManagedObjectContext *)managedObjectContext {
+    return [(CalcAppDelegate *)[[UIApplication sharedApplication]delegate] managedObjectContext];
+}
+
+- (void)fetchPull {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"AddPrice"];
+    NSError *error = nil;
+    
+    fetchArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    AddSettingsServise *saved = [[AddSettingsServise alloc] init];
-    AddSettingsModel *contaner = [[AddSettingsModel alloc] init];
+    [self fetchPull];
     
-    contaner = saved.Read;
+    lusterTextField.delegate = self;
+    bypassTextField.delegate = self;
+    spotTextField.delegate = self;
     
-    lusterTextField.text = contaner.lusterPrice;
-    bypassTextField.text = contaner.bypassPrice;
-    spotTextField.text = contaner.spotPrice;
+    if (fetchArray.count == 0) {
+        addPrice = [NSEntityDescription insertNewObjectForEntityForName:@"AddPrice" inManagedObjectContext:self.managedObjectContext];
+        NSError *error = nil;
+        if (![self.managedObjectContext save:&error]) {
+        }
+        
+        [self fetchPull];
+    }
     
+    
+    addPrice = [fetchArray objectAtIndex:0];
+    if (addPrice != nil) {
+        lusterTextField.text = [addPrice.lusterPrice stringValue];
+        bypassTextField.text = [addPrice.bypassPrice stringValue];
+        spotTextField.text = [addPrice.spotPrice stringValue];
+    }
+    else {
+        lusterTextField.text = @"";
+        bypassTextField.text = @"";
+        spotTextField.text = @"";
+    }
+    
+    //скрываем клавиатуру по нажатию на фон
+    UITapGestureRecognizer *tapOnScrolView = [[UITapGestureRecognizer alloc]
+                                              initWithTarget:self
+                                              action:@selector(dismissKeyboard)
+                                              ];
+    
+    [self.view addGestureRecognizer:tapOnScrolView];
+    
+    //кнопка сохранения
+    UIBarButtonItem *saveButton =[[UIBarButtonItem alloc] initWithTitle:@"Сохранить" style:UIBarButtonItemStyleBordered target:self action:@selector(saveBtn)];
+    [saveButton setTitleTextAttributes:redText forState:UIControlStateNormal];
+    UIImage *rightButtonImage = [[UIImage imageNamed:@"rightBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
+    [saveButton setBackgroundImage:rightButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    self.navigationItem.rightBarButtonItem = saveButton;
     
 }
 
@@ -50,17 +107,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)SaveSettings:(id)sender {
+- (void)saveBtn {
     
-    AddSettingsModel *exampleAddittionaly = [[AddSettingsModel alloc] init];
+    addPrice = [fetchArray objectAtIndex:0];
+    addPrice.lusterPrice = [NSNumber numberWithInt:[lusterTextField.text intValue]];
+    addPrice.bypassPrice = [NSNumber numberWithInt:[bypassTextField.text intValue]];
+    addPrice.spotPrice = [NSNumber numberWithInt:[spotTextField.text intValue]];
     
-    exampleAddittionaly.lusterPrice = lusterTextField.text;
-    exampleAddittionaly.bypassPrice = bypassTextField.text;
-    exampleAddittionaly.spotPrice = spotTextField.text;
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+    }
+
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+//метод скрытия клавиатуры по нажитию на background
+- (void)dismissKeyboard {
     
-    //ПЕРЕДАЕМ ДАННЫЕ В SERVICE
-    AddSettingsServise *save = [[AddSettingsServise alloc] init];
-    [save Save:exampleAddittionaly];
+    [lusterTextField resignFirstResponder];
+    [bypassTextField resignFirstResponder];
+    [spotTextField resignFirstResponder];
     
 }
+
 @end

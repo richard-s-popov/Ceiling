@@ -1,14 +1,17 @@
 //
-//  MaterialCell.m
+//  ProjectCell.m
 //  Calculator
 //
-//  Created by Александр Коровкин on 19.08.13.
+//  Created by Александр Коровкин on 18.09.13.
 //  Copyright (c) 2013 Александр Коровкин. All rights reserved.
 //
 
-#import "MaterialCell.h"
+#import "ProjectCell.h"
 
-@implementation MaterialCell
+@implementation ProjectCell
+@synthesize labelName;
+@synthesize labelAdress;
+
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -16,6 +19,7 @@
     if (self) {
         // Initialization code
     }
+    
     return self;
 }
 

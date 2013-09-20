@@ -14,11 +14,15 @@
 @end
 
 @implementation ProjectsListViewController
+
 @synthesize clientsList;
 @synthesize savedProjects;
-@synthesize tbl;
 @synthesize projectsCount;
 @synthesize explaneText;
+
+@synthesize managedObjectsContent;
+@synthesize projectsArray;
+@synthesize tbl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,65 +33,39 @@
     return self;
 }
 
+-(NSManagedObjectContext *)managedObjectsContent {
+    return [(CalcAppDelegate *)[[UIApplication sharedApplication]delegate] managedObjectContext];
+}
+
+- (void)pullArrayFromCoreData {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Projects"];
+    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"projectName" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortByName]];
+    
+    NSError *error = nil;
+    projectsArray = [self.managedObjectsContent executeFetchRequest:fetchRequest error:&error];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     
-    //получаем сохраненные данные из ProjectService
-    savedProjects = [ProjectServise Read];
+//    CustomNavigationBar
     
-    NSUserDefaults *projects = [NSUserDefaults standardUserDefaults];
-    projectsCount = [projects objectForKey:@"porjectsCount"];
+    //стек Core Data
+    [self pullArrayFromCoreData];
     
-    
-    self.clientsList = [[NSMutableArray alloc] init];
-    ProjectModel *projectExemplar;
-    
-    
-    //создание нулевого эллемента
-    int n = 0;
-    if ( n == [projectsCount intValue]) {
-        
-        projectExemplar = [[ProjectModel alloc] init];
-        projectExemplar = [ProjectServise ZeroProject];
-        [clientsList addObject:projectExemplar];
-    }
-    
-    //заполнение массива данными
-    while ( n != [projectsCount intValue]) {
-        
-        projectExemplar = [[ProjectModel alloc] init];
-        projectExemplar = [savedProjects objectAtIndex:n];
-        [clientsList addObject:projectExemplar];
-        n++;
-    }
-    
-    //чистим настройки в plist
-    [ProjectServise ClearProject];
-    
-    //отдаем данные в ProjectService
-    ProjectServise *newArrayProjects = [[ProjectServise alloc] init];
-    [newArrayProjects SaveProject:clientsList];
-    //получаем сохраненные данные из ProjectService
-    savedProjects = [ProjectServise Read];
-    
-
     //кнопка редактирования
+    //редактируем и добавляем Edit Button
+    UIImage *rightButtonImage = [[UIImage imageNamed:@"rightBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    
-    //СОЗДАНИЕ TOOLBAR 
-    self.navigationController.toolbarHidden = NO;
-    self.navigationController.toolbar.tintColor = [UIColor blackColor];
-//    
-//    UIBarButtonItem *button1 = [[UIBarButtonItem alloc] initWithTitle:@"DATE" style:UIBarButtonItemStyleDone target:self action:@selector(dateToolbardoneButtonAction)];
-//    UIBarButtonItem *button2=[[UIBarButtonItem alloc]initWithTitle:@"TIME" style:UIBarButtonItemStyleDone target:self action:@selector(timeToolbarbuttonAction)];
-//    
-//    NSArray *items = [NSArray arrayWithObjects:button1, button2, nil];
-//    
-//    self.toolbarItems = items;
-    
+    self.editButtonItem.title = @"Изменить";
+    [self.editButtonItem setTitleTextAttributes:blackText forState:UIControlStateNormal]; //blakText - макрос CalcAppDelegate
+    [self.editButtonItem setBackgroundImage:rightButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
     
     //кнопка меню
     UIBarButtonItem *menuButton =[[UIBarButtonItem alloc]
@@ -95,23 +73,25 @@
                                   target:self
                                   action:@selector(menuBtn)];
     self.navigationItem.leftBarButtonItem = menuButton;
+    
 }
 
-
 - (void)addBtn {
+
+    Projects *addProject = [NSEntityDescription insertNewObjectForEntityForName:@"Projects" inManagedObjectContext:self.managedObjectsContent];
+
+    addProject.projectName = [NSString stringWithFormat:@"Новый клиент %d", projectsArray.count+1];
+    addProject.projectAdress = @"Адресс";
+    addProject.projectExplane = @"Описание";
     
-    ProjectModel *projectExemplar = [[ProjectModel alloc] init];
-    projectExemplar = [ProjectServise ZeroProject];
-    [clientsList addObject:projectExemplar];
-        
-    //отдаем данные в ProjectService
-    ProjectServise *newArrayProjects = [[ProjectServise alloc] init];
-    [newArrayProjects SaveProject:clientsList];
-    //получаем сохраненные данные из ProjectService
-    savedProjects = [ProjectServise Read];
-        
-    [tbl reloadData];
+    projectsArray = [projectsArray arrayByAddingObject:addProject];
     
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [tbl insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    //сохраняем новый объект кантекста в персистент
+    NSError *error = nil;
+    if (![self.managedObjectsContent save:&error]) {
+    }
 }
 
 
@@ -120,15 +100,20 @@
     [tbl setEditing:editing animated:animated];
     
     if (editing) {
-        NSLog(@"editing project list");
+
+        self.editButtonItem.title = NSLocalizedString(@"Сохранить", @"Сохранить");
+        [self.editButtonItem setTitleTextAttributes:redText forState:UIControlStateNormal];
         //добавляем кнопку добавить
-        UIBarButtonItem *addButton =[[UIBarButtonItem alloc]
-                                     initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                     target:self
-                                     action:@selector(addBtn)];
+        UIImage *addButtonImage = [[UIImage imageNamed:@"addBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+        UIBarButtonItem *addButton =[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:self action:@selector(addBtn)];
+//        [addButton setTitleTextAttributes:blackText forState:UIControlStateNormal];
+        [addButton setBackgroundImage:addButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         self.navigationItem.leftBarButtonItem = addButton;
     }
     else {
+        
+        self.editButtonItem.title = NSLocalizedString(@"Изменить", @"Изменить");
+        [self.editButtonItem setTitleTextAttributes:blackText forState:UIControlStateNormal];
         //добвляем кнопку меню
         UIBarButtonItem *menuButton =[[UIBarButtonItem alloc]
                                       initWithTitle:@"меню" style:UIBarButtonItemStyleBordered
@@ -148,15 +133,14 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //удаляем ячейку с материалом непосредственно из массива
-        [clientsList removeObjectAtIndex:indexPath.row];
         
+        [self.managedObjectsContent deleteObject:[projectsArray objectAtIndex:indexPath.row]];
+        NSError *error = nil;
+        if (![self.managedObjectsContent save:&error]) {
+        }
         
-        //отдаем данные в ProjectService
-        ProjectServise *newArrayProjects = [[ProjectServise alloc] init];
-        [newArrayProjects SaveProject:clientsList];
-        //получаем сохраненные данные из ProjectService
-        savedProjects = [ProjectServise Read];
-        
+        [self pullArrayFromCoreData];
+
         [tbl deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                    withRowAnimation:UITableViewRowAnimationFade];
     }
@@ -166,37 +150,31 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return savedProjects.count;
+    return projectsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     static NSString *CellIdentifier = @"CellProject";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    ProjectCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    [cell.labelName setFont:[UIFont fontWithName:@"FuturisCyrillic" size:19]];
+    [cell.labelAdress setFont:[UIFont fontWithName:@"FuturisCyrillic" size:15]];
     
-    ProjectModel *projectModel = [[ProjectModel alloc] init];
-    projectModel = [savedProjects objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = projectModel.clientName;
-    cell.detailTextLabel.text = projectModel.clientAdress;
-
-    
-    // Configure the cell...
+    Projects *project = [projectsArray objectAtIndex:indexPath.row];
+    cell.labelName.text = project.projectName;
+    cell.labelAdress.text  = project.projectAdress;
     
     return cell;
 }
@@ -207,61 +185,32 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     NSIndexPath *indexPath = [self.tbl indexPathForSelectedRow];
     
-    if (indexPath) {
-        ProjectModel *projectExemplar = [savedProjects objectAtIndex:indexPath.row];
-        [segue.destinationViewController setDetail:projectExemplar];
+    if ([segue.identifier isEqualToString:@"projectDetail"]) {
+        ProjectDetailViewController *detailProject = segue.destinationViewController;
+        detailProject.project = [projectsArray objectAtIndex:indexPath.row];
+        
+        lustName = [[projectsArray objectAtIndex:indexPath.row] projectName];
+        lustAdress = [[projectsArray objectAtIndex:indexPath.row] projectAdress];
     }
 }
 
 
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
-
-
-
 //анимация затухания выделения ячейки при возвращении в таблицу
 - (void) viewDidAppear:(BOOL)animated {
-
-    NSIndexPath *selectedIndexPath = [self.tbl indexPathForSelectedRow];
     
     [super viewDidAppear:animated];
     
-    //изменяем данные в массиве
-    ProjectModel *changedProject = [[ProjectModel alloc] init];
-    changedProject = [clientsList objectAtIndex:selectedIndexPath.row];
+    //необходимо для условия
+    NSString *newName;
+    NSString *newAdress;
+    if ([projectsArray count]!=0) {
+        newName = [[projectsArray objectAtIndex:tbl.indexPathForSelectedRow.row] projectName];
+        newAdress = [[projectsArray objectAtIndex:tbl.indexPathForSelectedRow.row] projectAdress];
+    }
     
-    NSLog(@"explane = %@", changedProject.clientExplane.text);
-    
-    //извлекаем данные из памяти
-    savedProjects = [ProjectServise Read];
-    ProjectModel *newDetail = [savedProjects objectAtIndex:selectedIndexPath.row];
-    NSLog(@"new explane = %@", newDetail.clientExplane.text);
-
-
-    //проверяем изменились ли данные
-    if ((selectedIndexPath) && ((changedProject.clientName != newDetail.clientName) || (changedProject.clientAdress != newDetail.clientAdress) || (changedProject.clientExplane.text.length != newDetail.clientExplane.text.length))) {
-    
-        
-        //записываем объект материала обратно в массив
-        [clientsList replaceObjectAtIndex:selectedIndexPath.row withObject:newDetail];
-                
-        //отдаем данные в ProjectService
-        ProjectServise *newArrayProjects = [[ProjectServise alloc] init];
-        [newArrayProjects SaveProject:clientsList];
-        
-        //получаем сохраненные данные из ProjectService
-        savedProjects = [ProjectServise Read];
-        
+    //условие для реализации перезагрузки ячейки таблицы при изменении
+    if ((lustName != nil) && ((lustName != newName) || (![lustAdress isEqual:newAdress]))) {
+        NSIndexPath *selectedIndexPath = [self.tbl indexPathForSelectedRow];
         [self.tbl reloadRowsAtIndexPaths:[NSArray arrayWithObject:selectedIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
     }
     
@@ -274,5 +223,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     [self.slidingViewController anchorTopViewTo:ECRight];
 
 }
+
 
 @end

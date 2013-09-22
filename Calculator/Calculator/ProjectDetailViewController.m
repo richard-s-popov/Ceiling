@@ -120,8 +120,6 @@
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
     }
-    
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //передаем данные по segue в CostViewController для расчета стоимости

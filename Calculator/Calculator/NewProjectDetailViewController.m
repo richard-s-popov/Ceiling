@@ -92,6 +92,17 @@
 }
 
 
+//передаем данные по segue в CostViewController для расчета стоимости
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqual: @"NewCost"]) {
+        
+        CostViewController *costViewController = segue.destinationViewController;
+        costViewController.project = project;
+    }
+}
+
+
 #pragma mark - dismiss keyboard
 //dismiss keyboard
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {

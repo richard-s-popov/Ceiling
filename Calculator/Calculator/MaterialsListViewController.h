@@ -12,7 +12,7 @@
 #import "MaterialCell.h"
 #import "MaterialsDetailViewController.h"
 
-@interface MaterialsListViewController : UIViewController <UITableViewDelegate , UITableViewDataSource> {
+@interface MaterialsListViewController : UITableViewController <UITableViewDelegate , UITableViewDataSource> {
 
     NSString *lustName;
     NSNumber *lustWidth;

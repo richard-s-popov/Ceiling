@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NewProjectListViewController.h"
 #import "CalcAppDelegate.h"
+#import "CostViewController.h"
 #import "Projects.h"
 
 @interface NewProjectDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate>

@@ -12,7 +12,13 @@
 #import "Projects.h"
 #import "NewProjectDetailViewController.h"
 
-@interface NewProjectListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface NewProjectListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource> {
+    NSIndexPath *indexPathSegue;
+    int indexPathRow;
+    
+    NSString *lastName;
+    NSString *lastAdress;
+}
 
 @property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSArray *projectArray;

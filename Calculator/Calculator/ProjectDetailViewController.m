@@ -129,13 +129,6 @@
         
         CostViewController *costViewController = segue.destinationViewController;
         costViewController.project = project;
-    //щдв сщву
-//        //получаем объект проекта в котором находимся через ProjectService
-//        ProjectServise *contaner = [[ProjectServise alloc] init];
-//        ProjectModel *newData = [contaner changeDetailProject];
-//        
-//        //передаем данные в метод PutSettings класса CostViewController
-//        [segue.destinationViewController PutSettings:newData];
     }
 }
 

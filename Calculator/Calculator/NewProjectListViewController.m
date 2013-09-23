@@ -109,13 +109,13 @@
 }
 
 
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
+//- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+//{
+//}
+//- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return YES;
+//}
 
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -176,19 +176,6 @@
 }
 */
 
-#pragma mark - ViewDidAppear
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-//    NSIndexPath *selectedIndexPath = [self.tbl indexPathForSelectedRow];
-//    [self.tbl reloadRowsAtIndexPaths:[NSArray arrayWithObject:selectedIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
-//
-    [self.tbl deselectRowAtIndexPath:[self.tbl indexPathForSelectedRow] animated:YES];
-    [tbl reloadData];
-}
-
-
-
 
 #pragma mark - Navigation
 
@@ -200,9 +187,41 @@
     if ([segue.identifier isEqualToString:@"ToDetailProject"]) {
         NewProjectDetailViewController *detailProject = segue.destinationViewController;
         detailProject.project = [projectArray objectAtIndex:indexPath.row];
+        
+        lastName = [[projectArray objectAtIndex:indexPath.row] projectName];
+        lastAdress = [[projectArray objectAtIndex:indexPath.row] projectAdress];
+        
+        indexPathSegue = indexPath;
+        indexPathRow = indexPathSegue.row;
     }
 }
 
+
+#pragma mark - ViewDidAppear
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    //необходимо для условия
+    NSString *newName;
+    NSString *newAdress;
+    
+    if ([projectArray count]!=0) {
+        newName = [[projectArray objectAtIndex:indexPathRow] projectName];
+        newAdress = [[projectArray objectAtIndex:indexPathRow] projectAdress];
+    }
+    
+    NSLog(@"lastName: %@", lastName);
+    NSLog(@"index path: %d", indexPathRow);
+    
+    //условие для реализации перезагрузки ячейки таблицы при изменении
+    if ((lastName != nil) && ((![lastName isEqual:newName]) || (![lastAdress isEqual:newAdress]))) {
+
+        [self.tbl reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPathSegue] withRowAnimation:UITableViewRowAnimationLeft];
+    }
+    
+    [self.tbl deselectRowAtIndexPath:[self.tbl indexPathForSelectedRow] animated:YES];
+
+}
 
 
 - (void)didReceiveMemoryWarning

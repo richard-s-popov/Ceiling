@@ -101,7 +101,7 @@
             <objects>
                 <viewController id="eQk-3S-jeL" customClass="AddSettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cPR-8C-Udo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="2Nh-Xr-xXy">
@@ -166,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYd-j0-mxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1402" y="1789"/>
+            <point key="canvasLocation" x="2802" y="1129"/>
         </scene>
         <!--Projects List View Controller - Проекты-->
         <scene sceneID="a9U-wO-299">
@@ -829,9 +829,6 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="5Ip-4Z-EbB" kind="push" id="xgX-RD-cDN"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xnI-mE-gGk">
                                 <rect key="frame" x="0.0" y="198" width="320" height="54"/>
@@ -844,9 +841,6 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="eQk-3S-jeL" kind="push" id="vOs-ps-5Iy"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9mt-KR-lat">
                                 <rect key="frame" x="0.0" y="136" width="320" height="54"/>
@@ -973,6 +967,26 @@
                                 </state>
                                 <connections>
                                     <segue destination="RMJ-y8-Af1" kind="push" id="d7p-oY-Cg1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="L1r-0H-M7v">
+                                <rect key="frame" x="77" y="132" width="167" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Контакты">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5Ip-4Z-EbB" kind="push" id="ONL-yo-Dsm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9ap-V7-HPX">
+                                <rect key="frame" x="77" y="170" width="167" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Дополнительные">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="eQk-3S-jeL" kind="push" id="hyy-qO-Wqx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1181,11 +1195,11 @@
             <objects>
                 <viewController id="5Ip-4Z-EbB" customClass="SettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zca-G4-WhJ" customClass="UIControl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="6nC-0U-nX1">
-                                <rect key="frame" x="0.0" y="148" width="320" height="565"/>
+                                <rect key="frame" x="0.0" y="99" width="320" height="565"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" tag="501" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ваше имя" minimumFontSize="17" id="DTY-KO-XWN">
@@ -1281,7 +1295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lxg-G3-JYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="531" y="1129"/>
+            <point key="canvasLocation" x="3270" y="1129"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="qR6-Gu-7H9">
@@ -1344,6 +1358,9 @@
     <resources>
         <image name="Default-568h.png" width="640" height="1136"/>
         <image name="navBar4.png" width="320" height="44"/>
+        <image name="navBar4.png" width="320" height="44"/>
+        <image name="navBar4.png" width="320" height="44"/>
+        <image name="textLableBg.png" width="608" height="58"/>
         <image name="textLableBg.png" width="608" height="58"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

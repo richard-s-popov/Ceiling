@@ -17,6 +17,9 @@
     NSString *lustName;
     NSNumber *lustWidth;
     NSNumber *lustPrice;
+    NSIndexPath *indexPathSegue;
+    int indexPathRow;
+    BOOL _cellSwiped;
 }
 
 @property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;

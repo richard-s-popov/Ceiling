@@ -18,6 +18,7 @@
     
     NSString *lastName;
     NSString *lastAdress;
+    BOOL *_cellSwiped;
 }
 
 @property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;

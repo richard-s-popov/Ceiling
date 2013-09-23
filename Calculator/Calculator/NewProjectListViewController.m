@@ -50,11 +50,8 @@
     
     //кнопки меню бара
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//    self.editButtonItem.title = @"Изменить";
+    self.editButtonItem.title = @"Изменить";
     
-    //кнопка добавления клиента
-    UIBarButtonItem *addButton =[[UIBarButtonItem alloc] initWithTitle:@"Добавить" style:UIBarButtonItemStyleBordered target:self action:@selector(addBtn)];
-    self.navigationItem.leftBarButtonItem = addButton;
 }
 
 
@@ -79,27 +76,30 @@
 }
 
 
-//-(void)setEditing:(BOOL)editing animated:(BOOL)animated {
-//    //необходимые методы для отслеживания состояния кнопки editing
-//    [super setEditing:!self.tbl.editing animated:animated];
-//    [tbl setEditing:editing animated:animated]; //при этом методе глючит свайп для удаления
-//    
-//    if (editing) {
-//        NSLog(@"editing - yes");
-//        
-//        self.editButtonItem.title = NSLocalizedString(@"Сохранить", @"Сохранить");
-//        
-//        //добавляем кнопку добавить
-//        UIBarButtonItem *addButton =[[UIBarButtonItem alloc] initWithTitle:@"Добавить" style:UIBarButtonItemStyleBordered target:self action:@selector(addBtn)];
-//        self.navigationItem.leftBarButtonItem = addButton;
-//    }
-//    else {
-//        NSLog(@"editing - no");
-//        
-//        self.editButtonItem.title = NSLocalizedString(@"Изменить", @"Изменить");
-//        self.navigationItem.leftBarButtonItem = nil;
-//    }
-//}
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    //важное условие для swipe
+    if (!_cellSwiped) {
+        [super setEditing:editing animated:animated];
+    } else if (!editing) {
+        _cellSwiped = NO;
+    }
+    
+    if (editing) {
+        NSLog(@"editing - yes");
+        
+        self.editButtonItem.title = NSLocalizedString(@"Сохранить", @"Сохранить");
+        
+        //добавляем кнопку добавить
+        UIBarButtonItem *addButton =[[UIBarButtonItem alloc] initWithTitle:@"Добавить" style:UIBarButtonItemStyleBordered target:self action:@selector(addBtn)];
+        self.navigationItem.leftBarButtonItem = addButton;
+    }
+    else {
+        NSLog(@"editing - no");
+        
+        self.editButtonItem.title = NSLocalizedString(@"Изменить", @"Изменить");
+        self.navigationItem.leftBarButtonItem = nil;
+    }
+}
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -127,9 +127,7 @@
         }
         
         [self pullArrayFromCoreData];
-        [tbl beginUpdates];
         [tbl deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        [tbl endUpdates];
     }
 }
 

@@ -89,6 +89,8 @@
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
     }
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

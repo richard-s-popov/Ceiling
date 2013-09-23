@@ -27,6 +27,22 @@
     return self;
 }
 
+
+//создаем helper для managedObjectContext
+- (NSManagedObjectContext *)managedObjectContext {
+    return [(CalcAppDelegate*)[[UIApplication sharedApplication]delegate] managedObjectContext];
+}
+
+
+- (void)pullArrayFromCoreData {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Materials"];
+    NSSortDescriptor *sortByDate = [[NSSortDescriptor alloc] initWithKey:@"created" ascending:NO];
+    [fetchRequest setSortDescriptors:@[sortByDate]];
+    
+    list = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
         
@@ -34,8 +50,8 @@
 
     //редактируем и добавляем Edit Button
     UIImage *rightButtonImage = [[UIImage imageNamed:@"rightBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
-    self.editButtonItem.title = @"Изменить";
     [self.editButtonItem setBackgroundImage:rightButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    self.editButtonItem.title = NSLocalizedString(@"Изменить", @"Изменить");
     [self.editButtonItem setTitleTextAttributes:blackText forState:UIControlStateNormal];
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -47,18 +63,18 @@
 }
 
 
-//создаем helper для managedObjectContext
-- (NSManagedObjectContext *)managedObjectContext {
-    return [(CalcAppDelegate*)[[UIApplication sharedApplication]delegate] managedObjectContext];
-}
-
-
+#pragma mark - editing mode for cell
 //кнопка edit
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated {
-    [super setEditing:!self.tbl.editing animated:animated];
-    [tbl setEditing:editing animated:animated];
+    //важное условие для swipe
+    if (!_cellSwiped) {
+        [super setEditing:editing animated:animated];
+    } else if (!editing) {
+        _cellSwiped = NO;
+    }
     
     if (editing) {
+
         self.editButtonItem.title = NSLocalizedString(@"Сохранить", @"Сохранить");
         [self.editButtonItem setTitleTextAttributes:redText forState:UIControlStateNormal];
         
@@ -70,6 +86,7 @@
         self.navigationItem.leftItemsSupplementBackButton = NO;
     }
     else {
+
         self.editButtonItem.title = NSLocalizedString(@"Изменить", @"Изменить");
         [self.editButtonItem setTitleTextAttributes:blackText forState:UIControlStateNormal];
         
@@ -77,6 +94,23 @@
         self.navigationItem.leftItemsSupplementBackButton = YES;
         self.navigationItem.leftBarButtonItem = NO;
     }
+}
+
+
+//описание метода редактирования
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //удаляем материал из контекста
+        [self.managedObjectContext deleteObject:[list objectAtIndex:indexPath.row]];
+        [self.managedObjectContext save:nil];
+        
+        [self pullArrayFromCoreData];
+        
+        [tbl deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                   withRowAnimation:UITableViewRowAnimationFade];
+    }
+    
 }
 
 
@@ -91,14 +125,20 @@
     newMaterial.matPrice = [NSNumber numberWithInt:0];
     newMaterial.matId = [NSNumber numberWithInteger:list.count];
     
-    [self.managedObjectContext save:nil];
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+    }
     
-    list = [list arrayByAddingObject:newMaterial];    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
-    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [tbl insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self pullArrayFromCoreData];
+    
+    [tbl insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
+
+
+#pragma mark - table method
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -130,32 +170,6 @@
     return cell;
 }
 
-- (void)pullArrayFromCoreData {
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Materials"];
-    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"matName" ascending:YES];
-    [fetchRequest setSortDescriptors:@[sortByName]];
-    
-    list = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-}
-
-//описание метода редактирования
-- (void)tableView:(UITableView *)tableView
-commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //удаляем материал из контекста
-        [self.managedObjectContext deleteObject:[list objectAtIndex:indexPath.row]];
-        [self.managedObjectContext save:nil];
-        
-        [self pullArrayFromCoreData];
-        
-        [tbl deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                   withRowAnimation:UITableViewRowAnimationFade];
-    }
-}
-
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
@@ -167,6 +181,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         lustName = [[list objectAtIndex:tbl.indexPathForSelectedRow.row] matName];
         lustWidth = [[list objectAtIndex:tbl.indexPathForSelectedRow.row] matWidth];
         lustPrice = [[list objectAtIndex:tbl.indexPathForSelectedRow.row] matPrice];
+        
+        indexPathSegue = tbl.indexPathForSelectedRow;
+        indexPathRow = indexPathSegue.row;
     }
 }
 
@@ -181,15 +198,15 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     NSNumber *newWidth;
     NSNumber *newPrice;
     if ([list count]!=0) {
-        newName = [[list objectAtIndex:tbl.indexPathForSelectedRow.row] matName];
-        newWidth = [[list objectAtIndex:tbl.indexPathForSelectedRow.row] matWidth];
-        newPrice = [[list objectAtIndex:tbl.indexPathForSelectedRow.row] matPrice];
+        newName = [[list objectAtIndex:indexPathRow] matName];
+        newWidth = [[list objectAtIndex:indexPathRow] matWidth];
+        newPrice = [[list objectAtIndex:indexPathRow] matPrice];
     }
     
     //условие для реализации перезагрузки ячейки таблицы при изменении
     if ((lustName != nil) && ((lustName != newName) || (![lustWidth isEqual:newWidth]) || (![lustPrice isEqual:newPrice]))) {
-        NSIndexPath *selectedIndexPath = [self.tbl indexPathForSelectedRow];
-        [self.tbl reloadRowsAtIndexPaths:[NSArray arrayWithObject:selectedIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+
+        [self.tbl reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPathSegue] withRowAnimation:UITableViewRowAnimationLeft];
     }
     
     [self.tbl deselectRowAtIndexPath:[self.tbl indexPathForSelectedRow] animated:YES];

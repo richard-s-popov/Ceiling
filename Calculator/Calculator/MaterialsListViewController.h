@@ -12,11 +12,14 @@
 #import "MaterialCell.h"
 #import "MaterialsDetailViewController.h"
 
-@interface MaterialsListViewController : UIViewController <UITableViewDelegate , UITableViewDataSource> {
+@interface MaterialsListViewController : UITableViewController <UITableViewDelegate , UITableViewDataSource> {
 
     NSString *lustName;
     NSNumber *lustWidth;
     NSNumber *lustPrice;
+    NSIndexPath *indexPathSegue;
+    int indexPathRow;
+    BOOL _cellSwiped;
 }
 
 @property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;

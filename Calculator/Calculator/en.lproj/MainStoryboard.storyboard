@@ -1383,11 +1383,11 @@
             </objects>
             <point key="canvasLocation" x="3088" y="-999"/>
         </scene>
-        <!--Navigation Controller - Проекты-->
+        <!--Navigation Controller-->
         <scene sceneID="qR6-Gu-7H9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hGq-q8-PzX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Проекты" id="utm-ya-ndT"/>
+                    <tabBarItem key="tabBarItem" title="" image="questionmark.png" id="utm-ya-ndT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a5f-rC-mMq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1422,11 +1422,11 @@
             </objects>
             <point key="canvasLocation" x="957" y="204"/>
         </scene>
-        <!--Navigation Controller - Настройки-->
+        <!--Navigation Controller-->
         <scene sceneID="wHR-dp-Nn7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cPC-kh-c9H" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Настройки" id="tte-U9-8NQ"/>
+                    <tabBarItem key="tabBarItem" title="" image="questionmark.png" id="tte-U9-8NQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4PF-JO-idI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1441,11 +1441,11 @@
             </objects>
             <point key="canvasLocation" x="1617" y="455"/>
         </scene>
-        <!--Navigation Controller - Помощь-->
+        <!--Navigation Controller-->
         <scene sceneID="XII-sO-EvH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GB2-CP-Oar" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Помощь" id="QwE-4Q-TrG"/>
+                    <tabBarItem key="tabBarItem" title="" image="questionmark.png" id="QwE-4Q-TrG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cbV-yO-LSf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1464,9 +1464,7 @@
     <resources>
         <image name="Default-568h.png" width="640" height="1136"/>
         <image name="navBar4.png" width="320" height="44"/>
-        <image name="navBar4.png" width="320" height="44"/>
-        <image name="navBar4.png" width="320" height="44"/>
-        <image name="textLableBg.png" width="608" height="58"/>
+        <image name="questionmark.png" width="39" height="39"/>
         <image name="textLableBg.png" width="608" height="58"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

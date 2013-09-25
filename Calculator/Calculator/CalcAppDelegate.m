@@ -22,9 +22,11 @@
     [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:imageNavBarShadow];
     
-    UIImage *toolBarShadow = [UIImage imageNamed:@"toolBarShadow.png"];
-    [[UIToolbar appearance] setBackgroundImage:navBackgroundImage forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
-    [[UIToolbar appearance] setShadowImage:toolBarShadow forToolbarPosition:UIToolbarPositionBottom];
+    UIImage *tabBarBackground = [UIImage imageNamed:@"tbBackground.png"];
+    UIImage *tbSelected = [UIImage imageNamed:@"tbSelected.png"];
+    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+    [[UITabBar appearance] setSelectedImageTintColor:[UIColor grayColor]];
+    
     //настраиваем цвет title в приложении
     NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                                [UIColor blackColor],UITextAttributeTextColor,

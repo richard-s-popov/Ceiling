@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0903F7AD17EE9927009383D7 /* imageMenu0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0903F7AC17EE9927009383D7 /* imageMenu0.png */; };
 		0906194117C6AC7C00C36A79 /* textLableBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0906194017C6AC7C00C36A79 /* textLableBg.png */; };
+		0906E28617F194D30084D6FD /* hello.png in Resources */ = {isa = PBXBuildFile; fileRef = 0906E28517F194D30084D6FD /* hello.png */; };
 		090BDD6B17EB32BB00B767A5 /* PTN57F.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094D324117EB1F7900D685EF /* PTN57F.ttf */; };
 		090BDD6C17EB349400B767A5 /* Futuris Cyrillic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 090BDD6917EB2B6F00B767A5 /* Futuris Cyrillic.ttf */; };
 		090BDD6E17EB7EAA00B767A5 /* buttonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 090BDD6D17EB7EAA00B767A5 /* buttonBg.png */; };
@@ -86,6 +87,8 @@
 /* Begin PBXFileReference section */
 		0903F7AC17EE9927009383D7 /* imageMenu0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageMenu0.png; sourceTree = "<group>"; };
 		0906194017C6AC7C00C36A79 /* textLableBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textLableBg.png; sourceTree = "<group>"; };
+		0906E28517F194D30084D6FD /* hello.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hello.png; sourceTree = "<group>"; };
+		0906E28A17F33D2A0084D6FD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		090BDD6917EB2B6F00B767A5 /* Futuris Cyrillic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futuris Cyrillic.ttf"; sourceTree = "<group>"; };
 		090BDD6A17EB2FDE00B767A5 /* Elgethy Upper Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Elgethy Upper Condensed.ttf"; sourceTree = "<group>"; };
 		090BDD6D17EB7EAA00B767A5 /* buttonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBg.png; sourceTree = "<group>"; };
@@ -209,6 +212,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0906E27817F18AFE0084D6FD /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Slider;
+			sourceTree = "<group>";
+		};
 		0910CDB217D144260032060C /* Additionally Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +291,7 @@
 		0959813E177F676E001D2122 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0906E28A17F33D2A0084D6FD /* XCTest.framework */,
 				0959813F177F676E001D2122 /* UIKit.framework */,
 				09598141177F676E001D2122 /* Foundation.framework */,
 				09598143177F676E001D2122 /* CoreGraphics.framework */,
@@ -291,6 +302,7 @@
 		09598145177F676E001D2122 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				0906E27817F18AFE0084D6FD /* Slider */,
 				096FD47117EF5EBB0059F2C4 /* NewProject */,
 				094D320B17E6452000D685EF /* Materials */,
 				0910CDB217D144260032060C /* Additionally Settings */,
@@ -321,6 +333,7 @@
 				094D323917EAF2B500D685EF /* toolBarShadow.png */,
 				0903F7AC17EE9927009383D7 /* imageMenu0.png */,
 				094D323317EA3E4C00D685EF /* barBtn.png */,
+				0906E28517F194D30084D6FD /* hello.png */,
 				094D323717EAD61300D685EF /* addBtn.png */,
 				090BDD6F17EB8C2500B767A5 /* addBtn@2x.png */,
 				090BDD9117EBA47700B767A5 /* imageMenu2.png */,
@@ -527,6 +540,7 @@
 				090BDD7817EB8E4000B767A5 /* backBtn@2x.png in Resources */,
 				090BDD7A17EB8FC800B767A5 /* rightBtn@2x.png in Resources */,
 				090BDD7C17EB907400B767A5 /* barBtn@2x.png in Resources */,
+				0906E28617F194D30084D6FD /* hello.png in Resources */,
 				090BDD7E17EB91F700B767A5 /* toolbarBtn@2x.png in Resources */,
 				090BDD8017EB931B00B767A5 /* shareBtn@2x.png in Resources */,
 				090BDD8A17EB9F6B00B767A5 /* imageMenu0@2x.png in Resources */,
@@ -659,6 +673,10 @@
 		09598160177F676E001D2122 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Calculator/Calculator-Prefix.pch";
 				INFOPLIST_FILE = "Calculator/Calculator-Info.plist";
@@ -671,6 +689,10 @@
 		09598161177F676E001D2122 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Calculator/Calculator-Prefix.pch";
 				INFOPLIST_FILE = "Calculator/Calculator-Info.plist";

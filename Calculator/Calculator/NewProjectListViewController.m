@@ -48,6 +48,7 @@
     [super viewDidLoad];
     [self pullArrayFromCoreData];
     
+    
     //кнопки меню бара
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.editButtonItem.title = @"Изменить";

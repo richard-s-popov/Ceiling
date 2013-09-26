@@ -11,7 +11,6 @@
 #import "CalcAppDelegate.h"
 #import "Projects.h"
 #import "NewProjectDetailViewController.h"
-#import "AKTabBarController.h"
 
 @interface NewProjectListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource> {
     NSIndexPath *indexPathSegue;

@@ -960,7 +960,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rhv-ca-1MI">
-                                <rect key="frame" x="77" y="90" width="167" height="34"/>
+                                <rect key="frame" x="20" y="90" width="280" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Настройка материалов">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -970,7 +970,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="L1r-0H-M7v">
-                                <rect key="frame" x="77" y="132" width="167" height="30"/>
+                                <rect key="frame" x="20" y="132" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Контакты">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -980,7 +980,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9ap-V7-HPX">
-                                <rect key="frame" x="77" y="170" width="167" height="30"/>
+                                <rect key="frame" x="20" y="170" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Дополнительные">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1387,7 +1387,7 @@
         <scene sceneID="qR6-Gu-7H9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hGq-q8-PzX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="questionmark.png" id="utm-ya-ndT"/>
+                    <tabBarItem key="tabBarItem" title="" systemItem="contacts" id="utm-ya-ndT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a5f-rC-mMq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1426,7 +1426,7 @@
         <scene sceneID="wHR-dp-Nn7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cPC-kh-c9H" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="questionmark.png" id="tte-U9-8NQ"/>
+                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="tte-U9-8NQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4PF-JO-idI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1445,7 +1445,7 @@
         <scene sceneID="XII-sO-EvH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GB2-CP-Oar" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="questionmark.png" id="QwE-4Q-TrG"/>
+                    <tabBarItem key="tabBarItem" title="" systemItem="bookmarks" id="QwE-4Q-TrG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cbV-yO-LSf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1464,7 +1464,9 @@
     <resources>
         <image name="Default-568h.png" width="640" height="1136"/>
         <image name="navBar4.png" width="320" height="44"/>
-        <image name="questionmark.png" width="39" height="39"/>
+        <image name="navBar4.png" width="320" height="44"/>
+        <image name="navBar4.png" width="320" height="44"/>
+        <image name="textLableBg.png" width="608" height="58"/>
         <image name="textLableBg.png" width="608" height="58"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

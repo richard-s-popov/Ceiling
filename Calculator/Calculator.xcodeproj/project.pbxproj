@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0903F7AD17EE9927009383D7 /* imageMenu0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0903F7AC17EE9927009383D7 /* imageMenu0.png */; };
 		0906194117C6AC7C00C36A79 /* textLableBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0906194017C6AC7C00C36A79 /* textLableBg.png */; };
-		0906E28617F194D30084D6FD /* hello.png in Resources */ = {isa = PBXBuildFile; fileRef = 0906E28517F194D30084D6FD /* hello.png */; };
 		090BDD6B17EB32BB00B767A5 /* PTN57F.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094D324117EB1F7900D685EF /* PTN57F.ttf */; };
 		090BDD6C17EB349400B767A5 /* Futuris Cyrillic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 090BDD6917EB2B6F00B767A5 /* Futuris Cyrillic.ttf */; };
 		090BDD6E17EB7EAA00B767A5 /* buttonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 090BDD6D17EB7EAA00B767A5 /* buttonBg.png */; };
@@ -93,7 +92,6 @@
 /* Begin PBXFileReference section */
 		0903F7AC17EE9927009383D7 /* imageMenu0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageMenu0.png; sourceTree = "<group>"; };
 		0906194017C6AC7C00C36A79 /* textLableBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textLableBg.png; sourceTree = "<group>"; };
-		0906E28517F194D30084D6FD /* hello.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hello.png; sourceTree = "<group>"; };
 		0906E28A17F33D2A0084D6FD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		090BDD6917EB2B6F00B767A5 /* Futuris Cyrillic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futuris Cyrillic.ttf"; sourceTree = "<group>"; };
 		090BDD6A17EB2FDE00B767A5 /* Elgethy Upper Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Elgethy Upper Condensed.ttf"; sourceTree = "<group>"; };
@@ -354,7 +352,6 @@
 				0903F7AC17EE9927009383D7 /* imageMenu0.png */,
 				09CA819B17F3B8B800A3BAE6 /* questionmark.png */,
 				094D323317EA3E4C00D685EF /* barBtn.png */,
-				0906E28517F194D30084D6FD /* hello.png */,
 				094BA1D817F3875700BD1904 /* tbSelected.png */,
 				094D323717EAD61300D685EF /* addBtn.png */,
 				090BDD6F17EB8C2500B767A5 /* addBtn@2x.png */,
@@ -569,7 +566,6 @@
 				094BA1D317F37A7700BD1904 /* tbBackground.png in Resources */,
 				090BDD7A17EB8FC800B767A5 /* rightBtn@2x.png in Resources */,
 				090BDD7C17EB907400B767A5 /* barBtn@2x.png in Resources */,
-				0906E28617F194D30084D6FD /* hello.png in Resources */,
 				090BDD8017EB931B00B767A5 /* shareBtn@2x.png in Resources */,
 				090BDD8A17EB9F6B00B767A5 /* imageMenu0@2x.png in Resources */,
 				090BDD8E17EBA28300B767A5 /* imageMenu1.png in Resources */,

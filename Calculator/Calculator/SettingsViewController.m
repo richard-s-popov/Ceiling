@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "ECSlidingViewController.h"
+#import "CalcAppDelegate.h"
 
 
 //константы: теги полей (нужны для определения полей)
@@ -28,7 +29,10 @@ enum {
 
 
 @implementation SettingsViewController
-
+//@synthesize contacts;
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 // скрываем клавиатуру по нажатию кнопки
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -53,7 +57,7 @@ enum {
 - (void)viewDidLoad
 {
     
-    [super viewDidLoad];
+    [super viewDidLoad];    
     
     //запускаем скроллер
     [settingsScroller setScrollEnabled:YES];
@@ -72,24 +76,23 @@ enum {
     manufactoryEmailField.delegate = self;
     
     
-    //создаем новый объект SettingsOptionsModel для помещения в него сохраненных настроек из класса SettingsServise (метода Read)
-    SettingsOptionsModel * settingsModal = [SettingsOptionsModel new];
-    SettingsService * settingsService = [SettingsService new];
+    //создаем новый объект Contacts для помещения в него сохраненных настроек из класса SettingsServise (метода Read)
+    SettingsService * settingsService = [[SettingsService alloc]init];
     
     //присваеваем объекту settingsModal то что возвращает функция Read в классе SettingsServise (то есть сохраненные настройки)
-    settingsModal = settingsService.Read;
+     SettingsOptionsModel *contacts = settingsService.Read;
     
     //загружаем данные в поля
-    userNameField.text = [settingsModal userName];
-    userPhoneField.text = [settingsModal userPhone];
-    userEmailField.text = [settingsModal userEmail];
+    userNameField.text = [contacts userName];
+    userPhoneField.text = [contacts userPhone];
+    userEmailField.text = [contacts userMail];
     
-    managerNameField.text = [settingsModal managerName];
-    managerPhoneField.text = [settingsModal managerPhone];
-    managerEmailField.text = [settingsModal managerEmail];
+    managerNameField.text = [contacts managerName];
+    managerPhoneField.text = [contacts managerPhone];
+    managerEmailField.text = [contacts managerMail];
     
-    manufactoryPhoneField.text = [settingsModal manufactoryPhone];
-    manufactoryEmailField.text = [settingsModal manufactoryEmail];
+    manufactoryPhoneField.text = [contacts manufactoryPhone];
+    manufactoryEmailField.text = [contacts manufactoryMail];
 
     
     //скрываем клавиатуру по нажатию на фон
@@ -100,28 +103,38 @@ enum {
     
     [self.view addGestureRecognizer:tapOnScrolView];
     
+    //кнопка сохранения
+    UIBarButtonItem *saveButton =[[UIBarButtonItem alloc] initWithTitle:@"Сохранить" style:UIBarButtonItemStyleBordered target:self action:@selector(saveBtn)];
+    [saveButton setTitleTextAttributes:redText forState:UIControlStateNormal];
+    UIImage *rightButtonImage = [[UIImage imageNamed:@"rightBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
+    [saveButton setBackgroundImage:rightButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    self.navigationItem.rightBarButtonItem = saveButton;
+    
 }
 
 
-- (IBAction)saveSettings:(id)sender {
+-(void)saveBtn {
+        
+     SettingsOptionsModel *contacts = [[SettingsOptionsModel alloc]init];
     
-    //создаем новый объект модели SettingsOptionsModel для передачи его в класс SettingsServise
-    SettingsOptionsModel * settingsOptions = [SettingsOptionsModel new];
+    [contacts setUserName:userNameField.text];
+    [contacts setUserPhone:userPhoneField.text];
+    [contacts setUserMail:userEmailField.text];
     
-    [settingsOptions setUserName:userNameField.text];
-    [settingsOptions setUserPhone:userPhoneField.text];
-    [settingsOptions setUserEmail:userEmailField.text];
+    [contacts setManagerName:managerNameField.text];
+    [contacts setManagerPhone:managerPhoneField.text];
+    [contacts setManagerMail:managerEmailField.text];
     
-    [settingsOptions setManagerName:managerNameField.text];
-    [settingsOptions setManagerPhone:managerPhoneField.text];
-    [settingsOptions setManagerEmail:managerEmailField.text];
+    [contacts setManufactoryPhone:manufactoryPhoneField.text];
+    [contacts setManufactoryMail:manufactoryEmailField.text];
     
-    [settingsOptions setManufactoryPhone:manufactoryPhoneField.text];
-    [settingsOptions setManufactoryEmail:manufactoryEmailField.text];
+    NSLog(@"name: %@", contacts.userName);
     
     //передаем созданый объект settingsOptions в класс SettingsServise в функцию Save как параметр
-    SettingsService * settingsServise = [SettingsService new];
-    [settingsServise Save:settingsOptions];
+    SettingsService * settingsServise = [[SettingsService alloc]init];
+    [settingsServise Save:contacts];
+    
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 

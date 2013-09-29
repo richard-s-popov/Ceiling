@@ -9,7 +9,6 @@
 #import "MaterialCell.h"
 
 @implementation MaterialCell
-@synthesize priceCell;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

@@ -38,10 +38,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.menu = [NSArray arrayWithObjects:@"Главная", @"Настройки", @"Чертеж", @"Калькулятор", @"E-Mail", nil];
+    self.menu = [NSArray arrayWithObjects:@"Главная", @"Чертеж", @"Проекты", @"Настройки", nil];
     
     
-    [self.slidingViewController setAnchorRightRevealAmount:200.0f];
+    [self.slidingViewController setAnchorRightRevealAmount:250.0f];
     self.slidingViewController.underLeftWidthLayout = ECFullWidth;
 }
 
@@ -74,6 +74,10 @@
     }
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.menu objectAtIndex:indexPath.row]];
+    [cell.textLabel setFont:[UIFont fontWithName:@"PTSans-Narrow" size:25]];
+    
+    UIImage *mainMenu = [UIImage imageNamed:[NSString stringWithFormat:@"imageMenu%d.png",indexPath.row]];
+    cell.imageView.image = mainMenu;
     
     return cell;
 }

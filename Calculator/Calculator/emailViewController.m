@@ -7,8 +7,6 @@
 //
 
 #import "emailViewController.h"
-#import "ECSlidingViewController.h"
-#import "MenuViewController.h"
 #import "SettingsOptionsModel.h"
 #import "SettingsService.h"
 
@@ -31,19 +29,6 @@
 {
     [super viewDidLoad];
     
-    //добавляем меню
-    
-    self.view.layer.shadowOpacity = 0.75f;
-    self.view.layer.shadowRadius = 10.0f;
-    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
-    
-    
-    if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
-        self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
-    }
-    
-    
-    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
     
     
     // Создади кноку типа UIButtonTypeRoundedRect
@@ -70,13 +55,6 @@
 }
 
 
-- (IBAction)menuBtn:(id)sender {
-    
-    [self.slidingViewController anchorTopViewTo:ECRight];
-    
-}
-
-
 - (void)onButtonPressed
 {
     //подключаем сохраненные данные настроек
@@ -87,14 +65,14 @@
     contacts = settingsService.Read;
     
     // Проверяем, настроен ли почтовый клиент на отправку почту
-    if (([MFMailComposeViewController canSendMail]) & (contacts.managerEmail != nil) & (![contacts.managerEmail isEqual:@""]) ) {
+    if (([MFMailComposeViewController canSendMail]) & (contacts.managerMail != nil) & (![contacts.managerMail isEqual:@""]) ) {
         
         // Создаем контроллер
         MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
         // Делегатом будем мы
         mailController.mailComposeDelegate = self;
         // Задаем адрес на который отправлять почту
-        [mailController setToRecipients:@[contacts.managerEmail]];
+        [mailController setToRecipients:@[contacts.managerMail]];
         // Тема письма
         [mailController setSubject:@"Приложение"];
         // Текст письма

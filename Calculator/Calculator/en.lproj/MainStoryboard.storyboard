@@ -1025,7 +1025,7 @@
         <scene sceneID="QFH-0z-Swj">
             <objects>
                 <viewController id="2Xe-Y0-mz5" customClass="PlotDataViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aj4-fx-KHs">
+                    <view key="view" contentMode="scaleToFill" id="aj4-fx-KHs" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -1033,7 +1033,7 @@
                                 <rect key="frame" x="20" y="69" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="angleCount:" destination="2Xe-Y0-mz5" eventType="editingDidEnd" id="2Ga-dq-hRy"/>
                                 </connections>
@@ -1046,15 +1046,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7io-EB-QD3">
-                                <rect key="frame" x="0.0" y="107" width="320" height="344"/>
+                                <rect key="frame" x="0.0" y="107" width="191" height="344"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlotCell" id="IKL-hU-OpY" customClass="PlotCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="PlotCell" id="IKL-hU-OpY" customClass="PlotCell">
+                                        <rect key="frame" x="0.0" y="22" width="191" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IKL-hU-OpY" id="gLu-2A-FWo">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="191" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7zn-8O-J2e">
@@ -1063,18 +1063,26 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="rLk-zt-qN3">
-                                                    <rect key="frame" x="208" y="7" width="97" height="30"/>
+                                                <textField hidden="YES" opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" id="rLk-zt-qN3">
+                                                    <rect key="frame" x="92" y="7" width="79" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     <connections>
                                                         <action selector="sideWidthField:" destination="2Xe-Y0-mz5" eventType="editingDidEnd" id="Mfz-D4-qrU"/>
                                                     </connections>
                                                 </textField>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VE2-cI-Q6a">
+                                                    <rect key="frame" x="92" y="11" width="90" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="detailWidthLabel" destination="VE2-cI-Q6a" id="l4Q-ay-Rup"/>
                                             <outlet property="sideName" destination="7zn-8O-J2e" id="07u-Iu-zbr"/>
                                             <outlet property="sideWidth" destination="rLk-zt-qN3" id="2nO-dg-tMh"/>
                                         </connections>
@@ -1082,10 +1090,24 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="2Xe-Y0-mz5" id="TSN-A7-0hp"/>
+                                    <outlet property="delegate" destination="2Xe-Y0-mz5" id="TqM-5y-P5Z"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JVz-MU-8JE">
+                                <rect key="frame" x="233" y="135" width="51" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Готово">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneSides:" destination="2Xe-Y0-mz5" eventType="touchUpInside" id="FUy-kU-CEH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="closeKeyboard:" destination="2Xe-Y0-mz5" eventType="touchDown" id="Tb2-9m-5yr"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Данные чертежа" id="Csh-em-Oux"/>
                     <connections>
@@ -1095,7 +1117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZ6-bJ-gI7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2061" y="1419"/>
+            <point key="canvasLocation" x="2078" y="1419"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XII-sO-EvH">

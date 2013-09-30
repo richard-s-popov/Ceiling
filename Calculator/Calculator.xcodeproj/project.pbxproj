@@ -73,6 +73,7 @@
 		0982697E17C532EF007DB54D /* ProjectsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982697D17C532EF007DB54D /* ProjectsListViewController.m */; };
 		0982698117C53861007DB54D /* ProjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982698017C53861007DB54D /* ProjectDetailViewController.m */; };
 		09879C8217835733005B5E40 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09879C8117835733005B5E40 /* SettingsViewController.m */; };
+		0994A0AF17F990F800A5BEE9 /* Plot.m in Sources */ = {isa = PBXBuildFile; fileRef = 0994A0AE17F990F800A5BEE9 /* Plot.m */; };
 		09C82BBD1789DD8B00A47057 /* SettingsOptionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */; };
 		09C82BC01789DFE300A47057 /* SettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBF1789DFE200A47057 /* SettingsService.m */; };
 		09C93E851791B39F00A4FBDC /* menuButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C93E841791B39F00A4FBDC /* menuButton@2x.png */; };
@@ -186,6 +187,8 @@
 		0982698017C53861007DB54D /* ProjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailViewController.m; sourceTree = "<group>"; };
 		09879C8017835733005B5E40 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		09879C8117835733005B5E40 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		0994A0AD17F990F800A5BEE9 /* Plot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plot.h; sourceTree = "<group>"; };
+		0994A0AE17F990F800A5BEE9 /* Plot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plot.m; sourceTree = "<group>"; };
 		09C82BBB1789DD8B00A47057 /* SettingsOptionsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsOptionsModel.h; sourceTree = "<group>"; };
 		09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsOptionsModel.m; sourceTree = "<group>"; };
 		09C82BBE1789DFE200A47057 /* SettingsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsService.h; sourceTree = "<group>"; };
@@ -268,6 +271,8 @@
 				096FD47E17EFAC730059F2C4 /* Projects.h */,
 				096FD47F17EFAC730059F2C4 /* Projects.m */,
 				09E307C117DCE6F5006E5CE5 /* Projects.xcdatamodeld */,
+				0994A0AD17F990F800A5BEE9 /* Plot.h */,
+				0994A0AE17F990F800A5BEE9 /* Plot.m */,
 				094D321817E838E400D685EF /* Materials.h */,
 				094D321917E838E400D685EF /* Materials.m */,
 				0978AA8317E4DC8800D77B82 /* AddPrice.h */,
@@ -617,6 +622,7 @@
 				09C82BBD1789DD8B00A47057 /* SettingsOptionsModel.m in Sources */,
 				09C82BC01789DFE300A47057 /* SettingsService.m in Sources */,
 				09D5DF66178CEAA5004FAA8C /* ECSlidingViewController.m in Sources */,
+				0994A0AF17F990F800A5BEE9 /* Plot.m in Sources */,
 				09D5DF67178CEAA5004FAA8C /* UIImage+ImageWithUIView.m in Sources */,
 				09D5DF6A178CEAED004FAA8C /* InitViewController.m in Sources */,
 				09D5DF6D178CEB32004FAA8C /* MenuViewController.m in Sources */,

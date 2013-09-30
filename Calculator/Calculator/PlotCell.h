@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *sideName;
 @property (nonatomic, strong) IBOutlet UITextField *sideWidth;
+@property (weak, nonatomic) IBOutlet UILabel *detailWidthLabel;
 
 @end

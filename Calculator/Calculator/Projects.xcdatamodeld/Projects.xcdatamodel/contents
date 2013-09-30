@@ -12,6 +12,9 @@
         <attribute name="matPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="matWidth" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
+    <entity name="Plot" representedClassName="Plot" syncable="YES">
+        <attribute name="sideWidth" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="Projects" representedClassName="Projects" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="projectAdress" optional="YES" attributeType="String" syncable="YES"/>
@@ -25,5 +28,6 @@
         <element name="AddPrice" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Materials" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Projects" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Plot" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

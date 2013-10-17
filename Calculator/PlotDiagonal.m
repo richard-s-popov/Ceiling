@@ -1,20 +1,19 @@
 //
-//  Plot.m
+//  PlotDiagonal.m
 //  Calculator
 //
 //  Created by Александр Коровкин on 17.10.13.
 //  Copyright (c) 2013 Александр Коровкин. All rights reserved.
 //
 
-#import "Plot.h"
 #import "PlotDiagonal.h"
-#import "PlotSide.h"
+#import "Plot.h"
 
 
-@implementation Plot
+@implementation PlotDiagonal
 
-@dynamic plotName;
-@dynamic plotSide;
-@dynamic plotDiagonal;
+@dynamic diagonalName;
+@dynamic diagonalWidth;
+@dynamic diagonalPlot;
 
 @end

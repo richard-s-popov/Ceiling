@@ -231,9 +231,6 @@
 }
 
 
-- (IBAction)saveDiagonal:(id)sender {
-}
-
 - (IBAction)generateAngle:(id)sender {
     countOfAngle = [angleCountOutlet.text intValue];
     int count = countOfAngle;
@@ -268,6 +265,25 @@
     [tableOfSides reloadData];
     [angleCountOutlet resignFirstResponder];
     
+}
+
+- (IBAction)saveDiagonal:(id)sender {
+    
+    [self PullDiagonalFromCoreData];
+    [self PullPlotFromCoreData];
+    PlotDiagonal *diagonal = [NSEntityDescription insertNewObjectForEntityForName:@"PlotDiagonal" inManagedObjectContext:self.managedObjectContext];
+    diagonal.diagonalName = diagonalName.text;
+    diagonal.diagonalWidth = [NSNumber numberWithInt:[diagonalWidth.text intValue]];
+    Plot *existPlot = [plotList lastObject];
+    [existPlot addPlotDiagonalObject:diagonal];
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+    }
+    
+    diagonalName.text = @"";
+    diagonalWidth.text = @"";
+    [diagonalName becomeFirstResponder];
 }
 
 - (IBAction)sideWidthField:(id)sender {

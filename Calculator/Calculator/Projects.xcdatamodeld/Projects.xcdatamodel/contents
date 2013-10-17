@@ -19,7 +19,7 @@
     </entity>
     <entity name="PlotDiagonal" representedClassName="PlotDiagonal" syncable="YES">
         <attribute name="diagonalName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="diagonalWidth" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="diagonalWidth" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="diagonalPlot" maxCount="1" deletionRule="Nullify" destinationEntity="Plot" inverseName="plotDiagonal" inverseEntity="Plot" syncable="YES"/>
     </entity>
     <entity name="PlotSide" representedClassName="PlotSide" syncable="YES">

@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *diagonalName;
 @property (weak, nonatomic) IBOutlet UITextField *diagonalWidth;
 - (IBAction)saveDiagonal:(id)sender;
+- (IBAction)endDiagonal:(id)sender;
 
 
 

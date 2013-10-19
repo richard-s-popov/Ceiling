@@ -286,6 +286,31 @@
     [diagonalName becomeFirstResponder];
 }
 
+- (IBAction)endDiagonal:(id)sender {
+    [self PullDiagonalFromCoreData];
+    [self PullPlotFromCoreData];
+    
+    if ((![diagonalName.text isEqual:@""]) && (diagonalName.text != nil)) {
+        
+        PlotDiagonal *diagonal = [NSEntityDescription insertNewObjectForEntityForName:@"PlotDiagonal" inManagedObjectContext:self.managedObjectContext];
+        diagonal.diagonalName = diagonalName.text;
+        diagonal.diagonalWidth = [NSNumber numberWithInt:[diagonalWidth.text intValue]];
+        Plot *existPlot = [plotList lastObject];
+        [existPlot addPlotDiagonalObject:diagonal];
+        
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+        }
+        
+        NSLog(@"Name not nil");
+    }
+    
+    
+    diagonalName.text = @"";
+    diagonalWidth.text = @"";
+    [diagonalName resignFirstResponder];
+}
+
 - (IBAction)sideWidthField:(id)sender {
     NSLog(@"DONE");
 }

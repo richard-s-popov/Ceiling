@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="AddPrice" representedClassName="AddPrice" syncable="YES">
         <attribute name="bypassPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="lusterPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -12,6 +12,21 @@
         <attribute name="matPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="matWidth" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
+    <entity name="Plot" representedClassName="Plot" syncable="YES">
+        <attribute name="plotName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="plotDiagonal" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlotDiagonal" inverseName="diagonalPlot" inverseEntity="PlotDiagonal" syncable="YES"/>
+        <relationship name="plotSide" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlotSide" inverseName="sidePlot" inverseEntity="PlotSide" syncable="YES"/>
+    </entity>
+    <entity name="PlotDiagonal" representedClassName="PlotDiagonal" syncable="YES">
+        <attribute name="diagonalName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="diagonalWidth" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="diagonalPlot" maxCount="1" deletionRule="Nullify" destinationEntity="Plot" inverseName="plotDiagonal" inverseEntity="Plot" syncable="YES"/>
+    </entity>
+    <entity name="PlotSide" representedClassName="PlotSide" syncable="YES">
+        <attribute name="sideName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sideWidth" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="sidePlot" maxCount="1" deletionRule="Nullify" destinationEntity="Plot" inverseName="plotSide" inverseEntity="Plot" syncable="YES"/>
+    </entity>
     <entity name="Projects" representedClassName="Projects" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="projectAdress" optional="YES" attributeType="String" syncable="YES"/>
@@ -22,8 +37,11 @@
         <attribute name="projectSpot" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AddPrice" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Materials" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Projects" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="AddPrice" positionX="-450" positionY="45" width="128" height="90"/>
+        <element name="Materials" positionX="-452" positionY="-108" width="128" height="120"/>
+        <element name="Plot" positionX="-245" positionY="-234" width="128" height="88"/>
+        <element name="PlotDiagonal" positionX="-18" positionY="-180" width="128" height="88"/>
+        <element name="PlotSide" positionX="-20" positionY="-297" width="128" height="88"/>
+        <element name="Projects" positionX="-452" positionY="-288" width="128" height="148"/>
     </elements>
 </model>

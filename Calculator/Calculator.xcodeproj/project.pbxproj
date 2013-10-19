@@ -59,6 +59,9 @@
 		09598156177F676E001D2122 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09598155177F676E001D2122 /* Default-568h@2x.png */; };
 		09598159177F676E001D2122 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09598157177F676E001D2122 /* MainStoryboard.storyboard */; };
 		0959815C177F676E001D2122 /* CalcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0959815B177F676E001D2122 /* CalcViewController.m */; };
+		0965781018101BDD0053597C /* Plot.m in Sources */ = {isa = PBXBuildFile; fileRef = 0965780F18101BDD0053597C /* Plot.m */; };
+		0965781318101BDE0053597C /* PlotSide.m in Sources */ = {isa = PBXBuildFile; fileRef = 0965781218101BDE0053597C /* PlotSide.m */; };
+		09657819181024B30053597C /* PlotDiagonal.m in Sources */ = {isa = PBXBuildFile; fileRef = 09657818181024B30053597C /* PlotDiagonal.m */; };
 		096F7DD517F751AE0014908B /* PlotDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 096F7DD417F751AE0014908B /* PlotDataViewController.m */; };
 		096F7DD817F75E820014908B /* PlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 096F7DD717F75E820014908B /* PlotCell.m */; };
 		096FD47A17EF5FDC0059F2C4 /* NewProjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 096FD47917EF5FDC0059F2C4 /* NewProjectListViewController.m */; };
@@ -161,6 +164,12 @@
 		09598158177F676E001D2122 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		0959815A177F676E001D2122 /* CalcViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalcViewController.h; sourceTree = "<group>"; };
 		0959815B177F676E001D2122 /* CalcViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalcViewController.m; sourceTree = "<group>"; };
+		0965780E18101BDD0053597C /* Plot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plot.h; sourceTree = "<group>"; };
+		0965780F18101BDD0053597C /* Plot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plot.m; sourceTree = "<group>"; };
+		0965781118101BDE0053597C /* PlotSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotSide.h; sourceTree = "<group>"; };
+		0965781218101BDE0053597C /* PlotSide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotSide.m; sourceTree = "<group>"; };
+		09657817181024B30053597C /* PlotDiagonal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotDiagonal.h; sourceTree = "<group>"; };
+		09657818181024B30053597C /* PlotDiagonal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotDiagonal.m; sourceTree = "<group>"; };
 		096F7DD317F751AE0014908B /* PlotDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotDataViewController.h; sourceTree = "<group>"; };
 		096F7DD417F751AE0014908B /* PlotDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotDataViewController.m; sourceTree = "<group>"; };
 		096F7DD617F75E820014908B /* PlotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotCell.h; sourceTree = "<group>"; };
@@ -267,7 +276,13 @@
 			children = (
 				096FD47E17EFAC730059F2C4 /* Projects.h */,
 				096FD47F17EFAC730059F2C4 /* Projects.m */,
+				0965780E18101BDD0053597C /* Plot.h */,
+				0965780F18101BDD0053597C /* Plot.m */,
+				0965781118101BDE0053597C /* PlotSide.h */,
+				0965781218101BDE0053597C /* PlotSide.m */,
 				09E307C117DCE6F5006E5CE5 /* Projects.xcdatamodeld */,
+				09657817181024B30053597C /* PlotDiagonal.h */,
+				09657818181024B30053597C /* PlotDiagonal.m */,
 				094D321817E838E400D685EF /* Materials.h */,
 				094D321917E838E400D685EF /* Materials.m */,
 				0978AA8317E4DC8800D77B82 /* AddPrice.h */,
@@ -612,6 +627,7 @@
 				09598150177F676E001D2122 /* CalcAppDelegate.m in Sources */,
 				0959815C177F676E001D2122 /* CalcViewController.m in Sources */,
 				09879C8217835733005B5E40 /* SettingsViewController.m in Sources */,
+				09657819181024B30053597C /* PlotDiagonal.m in Sources */,
 				096F7DD817F75E820014908B /* PlotCell.m in Sources */,
 				26BF92FE1788441600C90497 /* PlotRectViewController.m in Sources */,
 				09C82BBD1789DD8B00A47057 /* SettingsOptionsModel.m in Sources */,
@@ -637,8 +653,10 @@
 				096FD47A17EF5FDC0059F2C4 /* NewProjectListViewController.m in Sources */,
 				0978AA8517E4DC8800D77B82 /* AddPrice.m in Sources */,
 				094D320E17E6456300D685EF /* MaterialsListViewController.m in Sources */,
+				0965781018101BDD0053597C /* Plot.m in Sources */,
 				094D321117E645A400D685EF /* MaterialsDetailViewController.m in Sources */,
 				094D321A17E838E500D685EF /* Materials.m in Sources */,
+				0965781318101BDE0053597C /* PlotSide.m in Sources */,
 				094D322217E9865000D685EF /* ProjectCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

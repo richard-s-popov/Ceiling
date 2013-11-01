@@ -19,6 +19,7 @@
 
 @property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
+@property (nonatomic, strong) NSMutableArray *mutableArraySides;
 @property (strong, nonatomic) IBOutlet UIView *PlotView;
 @property (weak, nonatomic) IBOutlet UITableView *tableOfSides;
 @property (weak ,nonatomic) PlotDiagonal *diagonal;

@@ -20,6 +20,9 @@
 @property (nonatomic, strong) Plot *plot;
 @property (nonatomic, strong) PlotDiagonal *diagonal;
 @property (nonatomic, strong) DiagonalTmp *diagonalTmp;
+@property (nonatomic, strong) NSMutableArray *mutableArray;
+@property (nonatomic) NSUInteger index;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableOfDiagonal;
 
 @end

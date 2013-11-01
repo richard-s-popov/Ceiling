@@ -130,61 +130,63 @@
     UITableViewCell *cell;
     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    newSide = [NSEntityDescription insertNewObjectForEntityForName:@"PlotSide" inManagedObjectContext:self.managedObjectContext];
+//    newSide = [NSEntityDescription insertNewObjectForEntityForName:@"PlotSide" inManagedObjectContext:self.managedObjectContext];
+//    
+//    //условия для определения букв угла
+//    //условия для case
+//    int angleCicle;
+//    if (indexPath.row+1<26) {angleCicle = 0;} //A-Z
+//    else if (indexPath.row+1 == 26){angleCicle = 26;}                                   //условие для угла ZA1
+//    else if ((indexPath.row+1>26) && (indexPath.row+1<52)) {angleCicle = 1;}            //A1-Z1
+//    else if (indexPath.row+1 == 52){angleCicle = 52;}                                   //условие для угла Z1A2
+//    else if ((indexPath.row+1>=51) && (indexPath.row+1<76)){angleCicle = 2;}            //A2-Z2
+//    else if (indexPath.row+1 == 76) {angleCicle = 76;}                                  //условние для угла Z2A3
+//    else if ((indexPath.row+1>=76) && (indexPath.row+1<102)){angleCicle = 3;}           //A3-Z3
+//    else {angleCicle = 4;}                                                              //условие для чесдурел
+//    
+//    //даем имя стороне
+//    switch (angleCicle) {
+//        case 0:
+//            newSide.angleFirst = [NSString stringWithFormat:@"%@", alphabet[indexPath.row]];
+//            newSide.angleSecond = [NSString stringWithFormat:@"%@", alphabet[indexPath.row+1]];
+//            //                cell.textLabel.text = [NSString stringWithFormat:@"%@%@", newSide.angleFirst, newSide.angleSecond];
+//            break;
+//        case 1:
+//            newSide.angleFirst = [NSString stringWithFormat:@"%@1", alphabet[indexPath.row-26]];
+//            newSide.angleSecond = [NSString stringWithFormat:@"%@1", alphabet[indexPath.row-25]];
+//            break;
+//        case 2:
+//            newSide.angleFirst = [NSString stringWithFormat:@"%@2", alphabet[indexPath.row-52]];
+//            newSide.angleSecond = [NSString stringWithFormat:@"%@2", alphabet[indexPath.row-51]];
+//            break;
+//        case 3:
+//            newSide.angleFirst = [NSString stringWithFormat:@"%@3", alphabet[indexPath.row-76]];
+//            newSide.angleSecond = [NSString stringWithFormat:@"%@3", alphabet[indexPath.row-75]];
+//            break;
+//        case 4:
+//            newSide.angleFirst = @"перебор углов";
+//            newSide.angleFirst = @"углов";
+//            break;
+//        case 26:
+//            newSide.angleFirst = @"Z";
+//            newSide.angleSecond = @"A1";
+//            break;
+//        case 52:
+//            newSide.angleFirst = @"Z1";
+//            newSide.angleSecond = @"A2";
+//            break;
+//        case 76:
+//            newSide.angleFirst = @"Z2";
+//            newSide.angleSecond = @"A3";
+//            break;
+//        default:
+//            break;
+//    }
+//    
+//    [mutableArraySides addObject:newSide];
+//    [newPlot addPlotSideObject:newSide];
     
-    //условия для определения букв угла
-    //условия для case
-    int angleCicle;
-    if (indexPath.row+1<26) {angleCicle = 0;} //A-Z
-    else if (indexPath.row+1 == 26){angleCicle = 26;}                                   //условие для угла ZA1
-    else if ((indexPath.row+1>26) && (indexPath.row+1<52)) {angleCicle = 1;}            //A1-Z1
-    else if (indexPath.row+1 == 52){angleCicle = 52;}                                   //условие для угла Z1A2
-    else if ((indexPath.row+1>=51) && (indexPath.row+1<76)){angleCicle = 2;}            //A2-Z2
-    else if (indexPath.row+1 == 76) {angleCicle = 76;}                                  //условние для угла Z2A3
-    else if ((indexPath.row+1>=76) && (indexPath.row+1<102)){angleCicle = 3;}           //A3-Z3
-    else {angleCicle = 4;}                                                              //условие для чесдурел
-    
-    //даем имя стороне
-    switch (angleCicle) {
-        case 0:
-            newSide.angleFirst = [NSString stringWithFormat:@"%@", alphabet[indexPath.row]];
-            newSide.angleSecond = [NSString stringWithFormat:@"%@", alphabet[indexPath.row+1]];
-            //                cell.textLabel.text = [NSString stringWithFormat:@"%@%@", newSide.angleFirst, newSide.angleSecond];
-            break;
-        case 1:
-            newSide.angleFirst = [NSString stringWithFormat:@"%@1", alphabet[indexPath.row-26]];
-            newSide.angleSecond = [NSString stringWithFormat:@"%@1", alphabet[indexPath.row-25]];
-            break;
-        case 2:
-            newSide.angleFirst = [NSString stringWithFormat:@"%@2", alphabet[indexPath.row-52]];
-            newSide.angleSecond = [NSString stringWithFormat:@"%@2", alphabet[indexPath.row-51]];
-            break;
-        case 3:
-            newSide.angleFirst = [NSString stringWithFormat:@"%@3", alphabet[indexPath.row-76]];
-            newSide.angleSecond = [NSString stringWithFormat:@"%@3", alphabet[indexPath.row-75]];
-            break;
-        case 4:
-            newSide.angleFirst = @"перебор углов";
-            newSide.angleFirst = @"углов";
-            break;
-        case 26:
-            newSide.angleFirst = @"Z";
-            newSide.angleSecond = @"A1";
-            break;
-        case 52:
-            newSide.angleFirst = @"Z1";
-            newSide.angleSecond = @"A2";
-            break;
-        case 76:
-            newSide.angleFirst = @"Z2";
-            newSide.angleSecond = @"A3";
-            break;
-        default:
-            break;
-    }
-    
-    [mutableArraySides addObject:newSide];
-    [newPlot addPlotSideObject:newSide];
+    newSide = [mutableArraySides objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@%@", newSide.angleFirst, newSide.angleSecond];
     cell.detailTextLabel.text = @"не назначено";
@@ -210,6 +212,72 @@
     [self PullPlotFromCoreData];
     newPlot = [NSEntityDescription insertNewObjectForEntityForName:@"Plot" inManagedObjectContext:self.managedObjectContext];
     newPlot.plotName = [NSString stringWithFormat:@"PlotOf%dSides", countOfSides];
+    
+    int countTmp = 0;
+    while (countTmp != countOfSides) {
+        newSide = [NSEntityDescription insertNewObjectForEntityForName:@"PlotSide" inManagedObjectContext:self.managedObjectContext];
+        
+        //условия для определения букв угла
+        //условия для case
+        int angleCicle;
+        if (countTmp+1<26) {angleCicle = 0;}                                            //A-Z
+        else if (countTmp+1 == 26){angleCicle = 26;}                                    //условие для угла ZA1
+        else if ((countTmp+1>26) && (countTmp+1<52)) {angleCicle = 1;}                  //A1-Z1
+        else if (countTmp+1 == 52){angleCicle = 52;}                                    //условие для угла Z1A2
+        else if ((countTmp+1>=51) && (countTmp+1<76)){angleCicle = 2;}                  //A2-Z2
+        else if (countTmp+1 == 76) {angleCicle = 76;}                                   //условние для угла Z2A3
+        else if ((countTmp+1>=76) && (countTmp+1<102)){angleCicle = 3;}                 //A3-Z3
+        else {angleCicle = 4;}                                                          //условие для чесдурел
+        
+        //даем имя стороне
+        switch (angleCicle) {
+            case 0:
+                newSide.angleFirst = [NSString stringWithFormat:@"%@", alphabet[countTmp]];
+                newSide.angleSecond = [NSString stringWithFormat:@"%@", alphabet[countTmp+1]];
+                //                cell.textLabel.text = [NSString stringWithFormat:@"%@%@", newSide.angleFirst, newSide.angleSecond];
+                break;
+            case 1:
+                newSide.angleFirst = [NSString stringWithFormat:@"%@1", alphabet[countTmp-26]];
+                newSide.angleSecond = [NSString stringWithFormat:@"%@1", alphabet[countTmp-25]];
+                break;
+            case 2:
+                newSide.angleFirst = [NSString stringWithFormat:@"%@2", alphabet[countTmp-52]];
+                newSide.angleSecond = [NSString stringWithFormat:@"%@2", alphabet[countTmp-51]];
+                break;
+            case 3:
+                newSide.angleFirst = [NSString stringWithFormat:@"%@3", alphabet[countTmp-76]];
+                newSide.angleSecond = [NSString stringWithFormat:@"%@3", alphabet[countTmp-75]];
+                break;
+            case 4:
+                newSide.angleFirst = @"перебор углов";
+                newSide.angleFirst = @"углов";
+                break;
+            case 26:
+                newSide.angleFirst = @"Z";
+                newSide.angleSecond = @"A1";
+                break;
+            case 52:
+                newSide.angleFirst = @"Z1";
+                newSide.angleSecond = @"A2";
+                break;
+            case 76:
+                newSide.angleFirst = @"Z2";
+                newSide.angleSecond = @"A3";
+                break;
+            default:
+                break;
+        }
+        
+        if (countTmp == countOfSides-1) {
+            newSide.angleSecond = @"A";
+        }
+        
+        [mutableArraySides addObject:newSide];
+        [newPlot addPlotSideObject:newSide];
+        
+        countTmp++;
+    }
+    
 
     [angleCountField resignFirstResponder];
     [tableOfSides reloadData];

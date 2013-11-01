@@ -29,7 +29,6 @@
 		090C9CBC17CD6418008A5E10 /* CostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090C9CBB17CD6418008A5E10 /* CostViewController.m */; };
 		0910CDB817D145D10032060C /* AddSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0910CDB717D145D10032060C /* AddSettingsViewController.m */; };
 		091D7ABD1823E49100838925 /* DiagonalTmp.m in Sources */ = {isa = PBXBuildFile; fileRef = 091D7ABC1823E49100838925 /* DiagonalTmp.m */; };
-		091EBF62181C2CF2001C03D1 /* NewPlotDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 091EBF61181C2CF2001C03D1 /* NewPlotDetailViewController.m */; };
 		0942DE4C1815004A0088602F /* NewPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0942DE4B1815004A0088602F /* NewPlotViewController.m */; };
 		094BA1CB17F376FA00BD1904 /* toolBarShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 094BA1CA17F376FA00BD1904 /* toolBarShadow.png */; };
 		094BA1CD17F3770000BD1904 /* toolBarShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 094BA1CC17F3770000BD1904 /* toolBarShadow@2x.png */; };
@@ -127,8 +126,6 @@
 		0910CDB717D145D10032060C /* AddSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSettingsViewController.m; sourceTree = "<group>"; };
 		091D7ABB1823E49100838925 /* DiagonalTmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiagonalTmp.h; sourceTree = "<group>"; };
 		091D7ABC1823E49100838925 /* DiagonalTmp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiagonalTmp.m; sourceTree = "<group>"; };
-		091EBF60181C2CF2001C03D1 /* NewPlotDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlotDetailViewController.h; sourceTree = "<group>"; };
-		091EBF61181C2CF2001C03D1 /* NewPlotDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPlotDetailViewController.m; sourceTree = "<group>"; };
 		0942DE4A1815004A0088602F /* NewPlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlotViewController.h; sourceTree = "<group>"; };
 		0942DE4B1815004A0088602F /* NewPlotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPlotViewController.m; sourceTree = "<group>"; };
 		094BA1CA17F376FA00BD1904 /* toolBarShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolBarShadow.png; sourceTree = "<group>"; };
@@ -275,8 +272,6 @@
 			children = (
 				0942DE4A1815004A0088602F /* NewPlotViewController.h */,
 				0942DE4B1815004A0088602F /* NewPlotViewController.m */,
-				091EBF60181C2CF2001C03D1 /* NewPlotDetailViewController.h */,
-				091EBF61181C2CF2001C03D1 /* NewPlotDetailViewController.m */,
 				098284331822E3B200BE7A9E /* PlotDiagonalViewController.h */,
 				098284341822E3B200BE7A9E /* PlotDiagonalViewController.m */,
 				091D7ABB1823E49100838925 /* DiagonalTmp.h */,
@@ -676,7 +671,6 @@
 				09CA819A17F3AF0E00A3BAE6 /* SliderViewController.m in Sources */,
 				0982697E17C532EF007DB54D /* ProjectsListViewController.m in Sources */,
 				0982698117C53861007DB54D /* ProjectDetailViewController.m in Sources */,
-				091EBF62181C2CF2001C03D1 /* NewPlotDetailViewController.m in Sources */,
 				090C9CBC17CD6418008A5E10 /* CostViewController.m in Sources */,
 				0910CDB817D145D10032060C /* AddSettingsViewController.m in Sources */,
 				09E307C317DCE6F5006E5CE5 /* Projects.xcdatamodeld in Sources */,

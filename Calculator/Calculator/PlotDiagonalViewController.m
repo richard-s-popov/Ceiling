@@ -88,7 +88,7 @@
             diagonalTmp.angleFirst = [NSString stringWithFormat:@"%@", side.angleFirst];
             diagonalTmp.angleSecond = [NSString stringWithFormat:@"%@", sideSecond.angleFirst ];
             
-            [listDiagonal addObject:diagonalTmp];            
+            [listDiagonal addObject:diagonalTmp];
             sidesCount++;
         }
         
@@ -112,40 +112,6 @@
             sidesCount++;
         }
     }
-    
-    //
-    
-//    while (sidesCount != mutableArray.count) {
-//    
-//        //извлекаем объект сторону из отсортированного массива
-//        PlotSide *sideFirst = [mutableArray objectAtIndex:0];
-//    
-//        NSLog(@"sideFirst - %@%@", sideFirst.angleFirst, sideFirst.angleSecond);
-//    
-//        //создаем все возможные диагонали для первого угла этой стороны
-//        //так как диагоналей от одного угла меньше чем  колличество сторон
-//        int diagonalCount = 0;
-//        while (diagonalCount < (mutableArray.count-3)) {
-//    
-//            PlotSide *sideSecond = [mutableArray objectAtIndex:diagonalCount+2];
-//    
-//            NSLog(@"seideSecond - %@%@", sideSecond.angleFirst, sideSecond.angleSecond);
-//    
-//            diagonal = [NSEntityDescription insertNewObjectForEntityForName:@"PlotDiagonal" inManagedObjectContext:self.managedObjectContext];
-//            diagonal.diagonalName = [NSString stringWithFormat:@"%@%@", sideFirst.angleFirst, sideSecond.angleFirst];
-//    
-//            [newPlot addPlotDiagonalObject:diagonal];
-//    
-//            NSLog(@"diagonal - %@", diagonal.diagonalName);
-//    
-//            diagonalCount++;
-//        }
-//    
-//    [mutableArray removeObjectAtIndex:0];
-//    [mutableArray addObject:sideFirst];
-//        
-//    sidesCount++;
-//    }
 
     NSLog(@"%lu", (unsigned long)index);
 }

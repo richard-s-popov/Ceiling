@@ -139,42 +139,42 @@
     
     
     //даем имя углу
-    switch (angleCicle) {
-        case 0:
-            cell.sideName.text = [NSString stringWithFormat:@"%@%@", alphabet[indexPath.row], alphabet[indexPath.row+1]];
-            plot.sideName = cell.sideName.text;
-            break;
-        case 1:
-            cell.sideName.text = [NSString stringWithFormat:@"%@1%@1", alphabet[indexPath.row-26], alphabet[indexPath.row-25]];
-            plot.sideName = cell.sideName.text;
-            break;
-        case 2:
-            cell.sideName.text = [NSString stringWithFormat:@"%@2%@2", alphabet[indexPath.row-52], alphabet[indexPath.row-51]];
-            plot.sideName = cell.sideName.text;
-            break;
-        case 3:
-            cell.sideName.text = [NSString stringWithFormat:@"%@3%@3", alphabet[indexPath.row-76], alphabet[indexPath.row-75]];
-            plot.sideName = cell.sideName.text;
-            break;
-        case 4:
-            cell.sideName.text = @"чесдурел?";
-            plot.sideName = cell.sideName.text;
-            break;
-        case 26:
-            cell.sideName.text = @"ZA1";
-            plot.sideName = cell.sideName.text;
-            break;
-        case 52:
-            cell.sideName.text = @"Z1A2";
-            plot.sideName = cell.sideName.text;
-            break;
-        case 76:
-            cell.sideName.text = @"Z2A3";
-            plot.sideName = cell.sideName.text;
-            break;
-        default:
-            break;
-    }
+//    switch (angleCicle) {
+//        case 0:
+//            cell.sideName.text = [NSString stringWithFormat:@"%@%@", alphabet[indexPath.row], alphabet[indexPath.row+1]];
+//            plot.sideName = cell.sideName.text;
+//            break;
+//        case 1:
+//            cell.sideName.text = [NSString stringWithFormat:@"%@1%@1", alphabet[indexPath.row-26], alphabet[indexPath.row-25]];
+//            plot.sideName = cell.sideName.text;
+//            break;
+//        case 2:
+//            cell.sideName.text = [NSString stringWithFormat:@"%@2%@2", alphabet[indexPath.row-52], alphabet[indexPath.row-51]];
+//            plot.sideName = cell.sideName.text;
+//            break;
+//        case 3:
+//            cell.sideName.text = [NSString stringWithFormat:@"%@3%@3", alphabet[indexPath.row-76], alphabet[indexPath.row-75]];
+//            plot.sideName = cell.sideName.text;
+//            break;
+//        case 4:
+//            cell.sideName.text = @"чесдурел?";
+//            plot.sideName = cell.sideName.text;
+//            break;
+//        case 26:
+//            cell.sideName.text = @"ZA1";
+//            plot.sideName = cell.sideName.text;
+//            break;
+//        case 52:
+//            cell.sideName.text = @"Z1A2";
+//            plot.sideName = cell.sideName.text;
+//            break;
+//        case 76:
+//            cell.sideName.text = @"Z2A3";
+//            plot.sideName = cell.sideName.text;
+//            break;
+//        default:
+//            break;
+//    }
     
 //    cell.sideWidth.text = [NSString stringWithFormat:@"%@",plot.sideWidth];
     cell.detailWidthLabel.text = [NSString stringWithFormat:@"%@",plot.sideWidth];

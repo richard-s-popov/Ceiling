@@ -78,7 +78,7 @@
     
     int sideIndex = index;
     //условие для других углов
-    if (index > 0) {
+    if ((index > 0) && (index != mutableArray.count-1)) {
         
         sidesCount = 0;
         while (sidesCount < index-1) {
@@ -113,6 +113,22 @@
         }
     }
 
+    //условие для последней диагонали
+    if (index == mutableArray.count-1) {
+        
+        sidesCount = 1;
+        while (sidesCount < index-1) {
+            PlotSide *sideSecond = [mutableArray objectAtIndex:sidesCount];
+            
+            diagonalTmp = [[DiagonalTmp alloc] init];
+            diagonalTmp.angleFirst = [NSString stringWithFormat:@"%@", side.angleFirst];
+            diagonalTmp.angleSecond = [NSString stringWithFormat:@"%@", sideSecond.angleFirst ];
+            
+            [listDiagonal addObject:diagonalTmp];
+            sidesCount++;
+        }
+    }
+    
     NSLog(@"%lu", (unsigned long)index);
 }
 

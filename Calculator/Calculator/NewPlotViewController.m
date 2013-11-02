@@ -19,6 +19,7 @@
     PlotSide *newSide;
     NSArray *alphabet;
     NSObject *object;
+    UIButton *button;
 }
 
 @end
@@ -83,14 +84,23 @@
                 componentsSeparatedByString:@" "];
     
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(200, 7, 100, 30);
+    button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake(120, 7, 80, 30);
     button.titleLabel.text = @"Готово";
     button.titleLabel.textColor = [UIColor blackColor];
     [button setTitle:@"Готово" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(generatesSides) forControlEvents:UIControlEventTouchUpInside];
     button.tag = 1;
     [tableOfSides addSubview:button];
+    
+    UIButton *saveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    saveButton.frame = CGRectMake(220, 7, 80, 30);
+    saveButton.titleLabel.text = @"save";
+    saveButton.titleLabel.textColor = [UIColor blackColor];
+    [saveButton setTitle:@"save" forState:UIControlStateNormal];
+    [saveButton addTarget:self action:@selector(saveAll) forControlEvents:UIControlEventTouchUpInside];
+    saveButton.tag = 3;
+    [tableOfSides addSubview:saveButton];
     
     angleCountField = [[UITextField alloc] initWithFrame:CGRectMake(15, 7, 100, 30)];
     angleCountField.borderStyle = UITextBorderStyleRoundedRect;
@@ -129,62 +139,6 @@
     
     UITableViewCell *cell;
     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-//    newSide = [NSEntityDescription insertNewObjectForEntityForName:@"PlotSide" inManagedObjectContext:self.managedObjectContext];
-//    
-//    //условия для определения букв угла
-//    //условия для case
-//    int angleCicle;
-//    if (indexPath.row+1<26) {angleCicle = 0;} //A-Z
-//    else if (indexPath.row+1 == 26){angleCicle = 26;}                                   //условие для угла ZA1
-//    else if ((indexPath.row+1>26) && (indexPath.row+1<52)) {angleCicle = 1;}            //A1-Z1
-//    else if (indexPath.row+1 == 52){angleCicle = 52;}                                   //условие для угла Z1A2
-//    else if ((indexPath.row+1>=51) && (indexPath.row+1<76)){angleCicle = 2;}            //A2-Z2
-//    else if (indexPath.row+1 == 76) {angleCicle = 76;}                                  //условние для угла Z2A3
-//    else if ((indexPath.row+1>=76) && (indexPath.row+1<102)){angleCicle = 3;}           //A3-Z3
-//    else {angleCicle = 4;}                                                              //условие для чесдурел
-//    
-//    //даем имя стороне
-//    switch (angleCicle) {
-//        case 0:
-//            newSide.angleFirst = [NSString stringWithFormat:@"%@", alphabet[indexPath.row]];
-//            newSide.angleSecond = [NSString stringWithFormat:@"%@", alphabet[indexPath.row+1]];
-//            //                cell.textLabel.text = [NSString stringWithFormat:@"%@%@", newSide.angleFirst, newSide.angleSecond];
-//            break;
-//        case 1:
-//            newSide.angleFirst = [NSString stringWithFormat:@"%@1", alphabet[indexPath.row-26]];
-//            newSide.angleSecond = [NSString stringWithFormat:@"%@1", alphabet[indexPath.row-25]];
-//            break;
-//        case 2:
-//            newSide.angleFirst = [NSString stringWithFormat:@"%@2", alphabet[indexPath.row-52]];
-//            newSide.angleSecond = [NSString stringWithFormat:@"%@2", alphabet[indexPath.row-51]];
-//            break;
-//        case 3:
-//            newSide.angleFirst = [NSString stringWithFormat:@"%@3", alphabet[indexPath.row-76]];
-//            newSide.angleSecond = [NSString stringWithFormat:@"%@3", alphabet[indexPath.row-75]];
-//            break;
-//        case 4:
-//            newSide.angleFirst = @"перебор углов";
-//            newSide.angleFirst = @"углов";
-//            break;
-//        case 26:
-//            newSide.angleFirst = @"Z";
-//            newSide.angleSecond = @"A1";
-//            break;
-//        case 52:
-//            newSide.angleFirst = @"Z1";
-//            newSide.angleSecond = @"A2";
-//            break;
-//        case 76:
-//            newSide.angleFirst = @"Z2";
-//            newSide.angleSecond = @"A3";
-//            break;
-//        default:
-//            break;
-//    }
-//    
-//    [mutableArraySides addObject:newSide];
-//    [newPlot addPlotSideObject:newSide];
     
     newSide = [mutableArraySides objectAtIndex:indexPath.row];
     
@@ -280,6 +234,8 @@
     
 
     [angleCountField resignFirstResponder];
+    angleCountField.enabled = NO;
+    button.enabled = NO;
     [tableOfSides reloadData];
 }
 
@@ -289,6 +245,7 @@
     if ([segue.identifier isEqualToString:@"sidesDiagonalsSegue"]) {
         PlotDiagonalViewController *detailPlot = segue.destinationViewController;
         detailPlot.side = [mutableArraySides objectAtIndex:tableOfSides.indexPathForSelectedRow.row];
+
         
         NSLog(@"side - %@%@", detailPlot.side.angleFirst, detailPlot.side.angleSecond);
         
@@ -305,6 +262,15 @@
 //        indexPathSegue = tbl.indexPathForSelectedRow;
 //        indexPathRow = indexPathSegue.row;
     }
+}
+
+-(void) saveAll {
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Сохранено" message:@"Введенные данные сохранены" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
 }
 
 

@@ -29,6 +29,8 @@
 		090C9CBC17CD6418008A5E10 /* CostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090C9CBB17CD6418008A5E10 /* CostViewController.m */; };
 		0910CDB817D145D10032060C /* AddSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0910CDB717D145D10032060C /* AddSettingsViewController.m */; };
 		091D7ABD1823E49100838925 /* DiagonalTmp.m in Sources */ = {isa = PBXBuildFile; fileRef = 091D7ABC1823E49100838925 /* DiagonalTmp.m */; };
+		091D7ABF18250E7900838925 /* donedown.png in Resources */ = {isa = PBXBuildFile; fileRef = 091D7ABE18250E7900838925 /* donedown.png */; };
+		091D7AC118250EC000838925 /* doneup.png in Resources */ = {isa = PBXBuildFile; fileRef = 091D7AC018250EC000838925 /* doneup.png */; };
 		0942DE4C1815004A0088602F /* NewPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0942DE4B1815004A0088602F /* NewPlotViewController.m */; };
 		094BA1CB17F376FA00BD1904 /* toolBarShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 094BA1CA17F376FA00BD1904 /* toolBarShadow.png */; };
 		094BA1CD17F3770000BD1904 /* toolBarShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 094BA1CC17F3770000BD1904 /* toolBarShadow@2x.png */; };
@@ -126,6 +128,8 @@
 		0910CDB717D145D10032060C /* AddSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSettingsViewController.m; sourceTree = "<group>"; };
 		091D7ABB1823E49100838925 /* DiagonalTmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiagonalTmp.h; sourceTree = "<group>"; };
 		091D7ABC1823E49100838925 /* DiagonalTmp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiagonalTmp.m; sourceTree = "<group>"; };
+		091D7ABE18250E7900838925 /* donedown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = donedown.png; path = ../../../../donedown.png; sourceTree = "<group>"; };
+		091D7AC018250EC000838925 /* doneup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = doneup.png; path = ../../../../doneup.png; sourceTree = "<group>"; };
 		0942DE4A1815004A0088602F /* NewPlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlotViewController.h; sourceTree = "<group>"; };
 		0942DE4B1815004A0088602F /* NewPlotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPlotViewController.m; sourceTree = "<group>"; };
 		094BA1CA17F376FA00BD1904 /* toolBarShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolBarShadow.png; sourceTree = "<group>"; };
@@ -384,12 +388,14 @@
 			isa = PBXGroup;
 			children = (
 				0982696D17C26BC0007DB54D /* Phone_settings.png */,
+				091D7ABE18250E7900838925 /* donedown.png */,
 				09598147177F676E001D2122 /* Calculator-Info.plist */,
 				09598148177F676E001D2122 /* InfoPlist.strings */,
 				094D323B17EAF48700D685EF /* toolbarBtn.png */,
 				0959814B177F676E001D2122 /* main.m */,
 				090BDD8717EB9DA800B767A5 /* imageMenu0.png */,
 				094D323917EAF2B500D685EF /* toolBarShadow.png */,
+				091D7AC018250EC000838925 /* doneup.png */,
 				094BA1D017F3784100BD1904 /* tbShadow@2x.png */,
 				09CA819D17F3BCA000A3BAE6 /* tbBackground2.png */,
 				094BA1CE17F3783B00BD1904 /* tbShadow.png */,
@@ -613,6 +619,7 @@
 				094D323617EACBE000D685EF /* rightBtn.png in Resources */,
 				094BA1CD17F3770000BD1904 /* toolBarShadow@2x.png in Resources */,
 				094BA1D517F3833000BD1904 /* tbBackground@2x.png in Resources */,
+				091D7AC118250EC000838925 /* doneup.png in Resources */,
 				094D323817EAD61300D685EF /* addBtn.png in Resources */,
 				0903F7AD17EE9927009383D7 /* imageMenu0.png in Resources */,
 				09CA819C17F3B8B800A3BAE6 /* questionmark.png in Resources */,
@@ -636,6 +643,7 @@
 				090BDD9717EBAE1F00B767A5 /* imageMenu3.png in Resources */,
 				090BDD9817EBAE1F00B767A5 /* imageMenu3@2x.png in Resources */,
 				094BA1CB17F376FA00BD1904 /* toolBarShadow.png in Resources */,
+				091D7ABF18250E7900838925 /* donedown.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

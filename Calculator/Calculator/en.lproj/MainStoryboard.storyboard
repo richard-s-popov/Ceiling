@@ -1232,7 +1232,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PlotList" textLabel="IDJ-Ri-4io" detailTextLabel="ul6-hu-o9u" rowHeight="65" style="IBUITableViewCellStyleValue1" id="c24-wN-lWE">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PlotList" textLabel="IDJ-Ri-4io" detailTextLabel="ul6-hu-o9u" rowHeight="65" style="IBUITableViewCellStyleValue1" id="c24-wN-lWE">
                                         <rect key="frame" x="0.0" y="177" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c24-wN-lWE" id="sWF-M0-JOp">
@@ -1337,13 +1337,13 @@
         <scene sceneID="a5b-p5-Hnp">
             <objects>
                 <tableViewController id="yOo-63-PhB" customClass="PlotDiagonalViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Wjz-4t-XDj">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Wjz-4t-XDj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="diagonalCell" textLabel="30O-Z3-dxU" detailTextLabel="PV6-KM-SxF" style="IBUITableViewCellStyleValue1" id="auY-aC-75k">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="diagonalCell" textLabel="30O-Z3-dxU" detailTextLabel="PV6-KM-SxF" style="IBUITableViewCellStyleValue1" id="auY-aC-75k">
+                                <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="auY-aC-75k" id="WN0-k9-GCV">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>

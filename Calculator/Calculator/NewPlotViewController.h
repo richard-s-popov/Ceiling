@@ -23,5 +23,7 @@
 @property (strong, nonatomic) IBOutlet UIView *PlotView;
 @property (weak, nonatomic) IBOutlet UITableView *tableOfSides;
 @property (weak ,nonatomic) PlotDiagonal *diagonal;
+@property (strong, nonatomic) IBOutlet UIView *sidesView;
+@property (weak, nonatomic) IBOutlet UIView *sidesConteinerView;
 
 @end

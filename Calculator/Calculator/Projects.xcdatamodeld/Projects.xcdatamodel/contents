@@ -18,14 +18,17 @@
         <relationship name="plotSide" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlotSide" inverseName="sidePlot" inverseEntity="PlotSide" syncable="YES"/>
     </entity>
     <entity name="PlotDiagonal" representedClassName="PlotDiagonal" syncable="YES">
-        <attribute name="diagonalName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="angleFirst" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="angleSecond" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="diagonalWidth" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="diagonalPlot" maxCount="1" deletionRule="Nullify" destinationEntity="Plot" inverseName="plotDiagonal" inverseEntity="Plot" syncable="YES"/>
+        <relationship name="diagonalSide" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlotSide" inverseName="sideDiagonal" inverseEntity="PlotSide" syncable="YES"/>
     </entity>
     <entity name="PlotSide" representedClassName="PlotSide" syncable="YES">
         <attribute name="angleFirst" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="angleSecond" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sideWidth" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="sideDiagonal" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlotDiagonal" inverseName="diagonalSide" inverseEntity="PlotDiagonal" syncable="YES"/>
         <relationship name="sidePlot" maxCount="1" deletionRule="Nullify" destinationEntity="Plot" inverseName="plotSide" inverseEntity="Plot" syncable="YES"/>
     </entity>
     <entity name="Projects" representedClassName="Projects" syncable="YES">
@@ -38,11 +41,11 @@
         <attribute name="projectSpot" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AddPrice" positionX="-450" positionY="45" width="128" height="90"/>
-        <element name="Materials" positionX="-452" positionY="-108" width="128" height="120"/>
-        <element name="Plot" positionX="-245" positionY="-234" width="128" height="88"/>
-        <element name="PlotDiagonal" positionX="-18" positionY="-180" width="128" height="88"/>
-        <element name="PlotSide" positionX="-20" positionY="-297" width="128" height="103"/>
-        <element name="Projects" positionX="-452" positionY="-288" width="128" height="148"/>
+        <element name="AddPrice" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Materials" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Plot" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="PlotDiagonal" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="PlotSide" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Projects" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

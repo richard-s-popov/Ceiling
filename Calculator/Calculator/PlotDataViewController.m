@@ -272,7 +272,7 @@
     [self PullDiagonalFromCoreData];
     [self PullPlotFromCoreData];
     PlotDiagonal *diagonal = [NSEntityDescription insertNewObjectForEntityForName:@"PlotDiagonal" inManagedObjectContext:self.managedObjectContext];
-    diagonal.diagonalName = diagonalName.text;
+//    diagonal.diagonalName = diagonalName.text;
     diagonal.diagonalWidth = [NSNumber numberWithInt:[diagonalWidth.text intValue]];
     Plot *existPlot = [plotList lastObject];
     [existPlot addPlotDiagonalObject:diagonal];
@@ -293,7 +293,7 @@
     if ((![diagonalName.text isEqual:@""]) && (diagonalName.text != nil)) {
         
         PlotDiagonal *diagonal = [NSEntityDescription insertNewObjectForEntityForName:@"PlotDiagonal" inManagedObjectContext:self.managedObjectContext];
-        diagonal.diagonalName = diagonalName.text;
+//        diagonal.diagonalName = diagonalName.text;
         diagonal.diagonalWidth = [NSNumber numberWithInt:[diagonalWidth.text intValue]];
         Plot *existPlot = [plotList lastObject];
         [existPlot addPlotDiagonalObject:diagonal];

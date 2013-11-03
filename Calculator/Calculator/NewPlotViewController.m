@@ -20,6 +20,7 @@
     NSArray *alphabet;
     NSObject *object;
     UIButton *button;
+    UIButton *saveButton;
 }
 
 @end
@@ -30,6 +31,8 @@
 @synthesize PlotView;
 @synthesize diagonal;
 @synthesize mutableArraySides;
+@synthesize sidesView;
+@synthesize sidesConteinerView;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -91,21 +94,22 @@
     [button setTitle:@"Готово" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(generatesSides) forControlEvents:UIControlEventTouchUpInside];
     button.tag = 1;
-    [tableOfSides addSubview:button];
+    [sidesConteinerView addSubview:button];
     
-    UIButton *saveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    saveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     saveButton.frame = CGRectMake(220, 7, 80, 30);
     saveButton.titleLabel.text = @"save";
     saveButton.titleLabel.textColor = [UIColor blackColor];
     [saveButton setTitle:@"save" forState:UIControlStateNormal];
     [saveButton addTarget:self action:@selector(saveAll) forControlEvents:UIControlEventTouchUpInside];
     saveButton.tag = 3;
-    [tableOfSides addSubview:saveButton];
+    [sidesConteinerView addSubview:saveButton];
     
     angleCountField = [[UITextField alloc] initWithFrame:CGRectMake(15, 7, 100, 30)];
     angleCountField.borderStyle = UITextBorderStyleRoundedRect;
     angleCountField.placeholder = @"к-во углов";
-    [tableOfSides addSubview:angleCountField];
+    angleCountField.keyboardType = UIKeyboardTypeNumberPad;
+    [sidesConteinerView addSubview:angleCountField];
     
     
 }

@@ -13,7 +13,7 @@
 #import "PlotDiagonal.h"
 #import "CalcAppDelegate.h"
 
-@interface PlotDiagonalViewController : UITableViewController <UITextFieldDelegate>
+@interface PlotDiagonalViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) PlotSide *side;
@@ -22,6 +22,7 @@
 @property (nonatomic, strong) DiagonalTmp *diagonalTmp;
 @property (nonatomic, strong) NSMutableArray *mutableArray;
 @property (nonatomic) NSUInteger index;
+@property (weak, nonatomic) IBOutlet UIView *diagonalConteinerView;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableOfDiagonal;
 

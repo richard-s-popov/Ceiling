@@ -17,6 +17,8 @@
     NSNumber *lustSide;
     NSNumber *lustDiagonal;
     NSMutableArray *textFieldArray;
+    BOOL isSide;
+    UILabel *startLable;
 }
 
 @end
@@ -30,17 +32,17 @@
 @synthesize diagonalTmp;
 @synthesize mutableArray;
 @synthesize index;
+@synthesize diagonalConteinerView;
 
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
     return self;
 }
-
 
 -(NSManagedObjectContext*)managedObjectContext {
     return [(CalcAppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
@@ -57,11 +59,32 @@
     listDiagonal = [[NSMutableArray alloc] init];
     textFieldArray = [[NSMutableArray alloc] init];
     
-
-    //создаем массив из сторон этого чертежа
-    //сортируем этот массив по первому углу
-    //    NSArray *sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"angleFirst" ascending:YES]];
-    //    newArraySides = [[newPlot.plotSide allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+    //создание надписи start
+    startLable = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 280, 50)];
+    [startLable setFont:[UIFont fontWithName:@"FuturisCyrillic" size:14]];
+    startLable.text = @"Нажимая на диагонали вводите их длинну";
+    [diagonalConteinerView addSubview:startLable];
+    
+    //создание текстового поля для ввода диагоналей
+    diagonalTextField = [[UITextField alloc] initWithFrame:CGRectMake(170, 7, 100, 30)];
+    diagonalTextField.delegate = self;
+    diagonalTextField.borderStyle = UITextBorderStyleRoundedRect;
+    diagonalTextField.placeholder = @"";
+    diagonalTextField.enabled = NO;
+    diagonalTextField.tag = 2;
+    diagonalTextField.keyboardType = UIKeyboardTypeNumberPad;
+    
+    //добвляем кнопки для NumPad
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc]initWithTitle:@"Отмена" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc]initWithTitle:@"Сохранить" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                           nil];
+    [numberToolbar sizeToFit];
+    
+    diagonalTextField.inputAccessoryView = numberToolbar;
 
     //создаем все диагонали
     int sidesCount = 0;
@@ -75,7 +98,6 @@
             PlotSide *sideSecond = [mutableArray objectAtIndex:sidesCount+2];
             NSLog(@"sideSecond - %@%@", sideSecond.angleFirst, sideSecond.angleSecond);
             
-//            diagonal.diagonalName = [NSString stringWithFormat:@"%@%@", side.angleFirst, sideSecond.angleSecond];
             diagonalTmp = [[DiagonalTmp alloc] init];
             diagonalTmp.angleFirst = [NSString stringWithFormat:@"%@", side.angleFirst];
             diagonalTmp.angleSecond = [NSString stringWithFormat:@"%@", sideSecond.angleFirst ];
@@ -84,11 +106,6 @@
             
             //создаем массив диагоналей
             [listDiagonal addObject:diagonalTmp];
-            
-            //создаем массив текстовых полей для диагоналей
-            [self addDiagonalTextField];
-            diagonalTextField.tag = sidesCount+2;
-            [textFieldArray addObject:diagonalTextField];
             
             sidesCount++;
         }
@@ -109,37 +126,20 @@
             //создаем массив диагоналей
             [listDiagonal addObject:diagonalTmp];
             
-            //создаем массив текстовых полей для диагоналей
-            [self addDiagonalTextField];
-            diagonalTextField.tag = sidesCount+2;
-            [textFieldArray addObject:diagonalTextField];
-            
             sidesCount++;
         }
         
         sidesCount = 0;
         while (sidesCount != mutableArray.count-sideIndex-2) {
-            
-            NSLog(@"sideFirst - %@%@", side.angleFirst, side.angleSecond);
-            
+                        
             PlotSide *sideSecond = [mutableArray objectAtIndex:sideIndex+sidesCount+2];
-            NSLog(@"sideSecond - %@%@", sideSecond.angleFirst, sideSecond.angleSecond);
             
-            //            diagonal.diagonalName = [NSString stringWithFormat:@"%@%@", side.angleFirst, sideSecond.angleSecond];
             diagonalTmp = [[DiagonalTmp alloc] init];
             diagonalTmp.angleFirst = [NSString stringWithFormat:@"%@", side.angleFirst];
             diagonalTmp.angleSecond = [NSString stringWithFormat:@"%@", sideSecond.angleFirst ];
             
-            NSLog(@"diagonal - %@%@", diagonalTmp.angleFirst, diagonalTmp.angleSecond);
-            
-            
             //создаем массив диагоналей
             [listDiagonal addObject:diagonalTmp];
-            
-            //создаем массив текстовых полей для диагоналей
-            [self addDiagonalTextField];
-            diagonalTextField.tag = sidesCount+2;
-            [textFieldArray addObject:diagonalTextField];
             
             sidesCount++;
         }
@@ -160,8 +160,8 @@
             [listDiagonal addObject:diagonalTmp];
             
             //создаем массив текстовых полей для диагоналей
-            [self addDiagonalTextField];
-            [textFieldArray addObject:diagonalTextField];
+//            [self addDiagonalTextField];
+//            [textFieldArray addObject:diagonalTextField];
             
             sidesCount++;
         }
@@ -194,28 +194,6 @@
         }
         countTmp++;
     }
-}
-
-
--(void)addDiagonalTextField {
-    diagonalTextField = [[UITextField alloc] initWithFrame:CGRectMake(170, 7, 100, 30)];
-    diagonalTextField.delegate = self;
-    diagonalTextField.borderStyle = UITextBorderStyleRoundedRect;
-    diagonalTextField.placeholder = @"";
-    diagonalTextField.enabled = NO;
-    diagonalTextField.keyboardType = UIKeyboardTypeNumberPad;
-    
-    //добвляем кнопки для NumPad
-    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
-    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
-    numberToolbar.items = [NSArray arrayWithObjects:
-                           [[UIBarButtonItem alloc]initWithTitle:@"Отмена" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
-                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                           [[UIBarButtonItem alloc]initWithTitle:@"Сохранить" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
-                           nil];
-    [numberToolbar sizeToFit];
-    
-    diagonalTextField.inputAccessoryView = numberToolbar;
 }
 
 
@@ -262,29 +240,8 @@
             if (indexPath.row == 0) {
                 cell.textLabel.text = [NSString stringWithFormat:@"%@%@", side.angleFirst, side.angleSecond];
                 cell.detailTextLabel.text = [side.sideWidth stringValue];
-                
-                myTextField = [[UITextField alloc] initWithFrame:CGRectMake(170, 7, 100, 30)];
-                myTextField.delegate = self;
-                myTextField.borderStyle = UITextBorderStyleRoundedRect;
-                myTextField.placeholder = @"";
-                myTextField.tag = 1;
-                myTextField.enabled = NO;
-                [myTextField addTarget:self action:@selector(saveSide) forControlEvents:UIControlEventEditingDidEnd];
-                [cell.contentView addSubview:myTextField];
-                
-                //добвляем кнопки для NumPad
-                UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
-                numberToolbar.barStyle = UIBarStyleBlack;
-                numberToolbar.items = [NSArray arrayWithObjects:
-                                       [[UIBarButtonItem alloc]initWithTitle:@"Отмена"  style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
-                                       [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                                       [[UIBarButtonItem alloc]initWithTitle:@"Сохранить" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
-                                       nil];
-                [numberToolbar sizeToFit];
-                
-                myTextField.inputAccessoryView = numberToolbar;
-
             }
+
             break;
         case 1:
             
@@ -292,9 +249,6 @@
             
             cell.textLabel.text = [NSString stringWithFormat:@"%@%@", diagonalTmp.angleFirst, diagonalTmp.angleSecond];
             cell.detailTextLabel.text = [diagonalTmp.diagonalWidth stringValue];
-            
-            diagonalTextField = [textFieldArray objectAtIndex:indexPath.row];
-            [cell.contentView addSubview:diagonalTextField];
             
             break;
     }
@@ -308,108 +262,82 @@
 {
     NSString *sectionName = [[NSString alloc] init];
     if (section == 0) {
-        sectionName = @"Введите значение стороны";
+        sectionName = @"Стороны:";
     }
     else {
-        sectionName = @"Введите значения диагоналей";
+        sectionName = @"Диагонали:";
     }
     
     return sectionName;
 }
 
--(void) saveSide {
 
-    lustSide = [NSNumber numberWithInt:[myTextField.text intValue]];
-    PlotSide *tmpSide = side;
-    tmpSide.sideWidth = lustSide;
-}
-
-
+//сохранение диагоналей и стороны
 -(void) saveDiagonal {
-    diagonalTmp = [listDiagonal objectAtIndex:index];
-    lustDiagonal = [NSNumber numberWithInt:[diagonalTextField.text intValue]];
     
-    PlotDiagonal *tmpDiagonal = [NSEntityDescription insertNewObjectForEntityForName:@"PlotDiagonal" inManagedObjectContext:self.managedObjectContext];
-    tmpDiagonal.diagonalWidth = lustDiagonal;
-    tmpDiagonal.angleFirst = diagonalTmp.angleFirst;
-    tmpDiagonal.angleSecond = diagonalTmp.angleSecond;
+    //сохранение стороны
+    if (isSide == YES) {
+        side.sideWidth = [NSNumber numberWithInt:[diagonalTextField.text intValue]];
+        [diagonalTextField removeFromSuperview];
+        startLable.text = @"Нажимая на диагонали вводите их длинну";
+    }
+    //сохранение диагонали
+    else {
+        diagonalTmp = [listDiagonal objectAtIndex:index];
+        lustDiagonal = [NSNumber numberWithInt:[diagonalTextField.text intValue]];
+    
+        PlotDiagonal *tmpDiagonal = [NSEntityDescription insertNewObjectForEntityForName:@"PlotDiagonal" inManagedObjectContext:self.managedObjectContext];
+        tmpDiagonal.diagonalWidth = lustDiagonal;
+        tmpDiagonal.angleFirst = diagonalTmp.angleFirst;
+        tmpDiagonal.angleSecond = diagonalTmp.angleSecond;
         
-    [plot addPlotDiagonalObject:tmpDiagonal];
-    [side addSideDiagonalObject:tmpDiagonal];
-    
-    [self populateDiagonalWidth];
+        [plot addPlotDiagonalObject:tmpDiagonal];
+        [side addSideDiagonalObject:tmpDiagonal];
+        
+        [self populateDiagonalWidth];
+        [diagonalTextField removeFromSuperview];
+        startLable.text = @"Нажимая на диагонали вводите их длинну";
+    }
 }
-
-
-
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if ((indexPath.row == 0) && (indexPath.section == 0)) {
         
-        NSIndexPath *newIndex = [NSIndexPath indexPathForRow:0 inSection:0];
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:newIndex];
+        //условный индекс для определения редактирования стороны
+        index = 1000;
+        isSide = YES;
         
-        myTextField = (UITextField *)[cell viewWithTag:indexPath.row+1];
-        myTextField.enabled = YES;
-        myTextField.keyboardType = UIKeyboardTypeNumberPad;
-        myTextField.returnKeyType = UIReturnKeyNext;
-        [myTextField becomeFirstResponder];
-        
-        
-        
-    }
-    else {
-        
-//        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-        index = indexPath.row;
-        diagonalTextField = [textFieldArray objectAtIndex:index];
         diagonalTextField.enabled = YES;
-        
+        diagonalTextField.text = @"";
+        [diagonalConteinerView addSubview:diagonalTextField];
+        startLable.text = @"введите длинну в см";
         [diagonalTextField becomeFirstResponder];
         
     }
-    
-//    [tableOfDiagonal deselectRowAtIndexPath:[tableOfDiagonal indexPathForSelectedRow] animated:YES];
-//    [myTextField resignFirstResponder];
-}
-
-
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ((indexPath.row == 0) && (indexPath.section == 0)) {
+    if (indexPath.section == 1) {
         
-        NSIndexPath *newIndex = [NSIndexPath indexPathForRow:0 inSection:0];
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:newIndex];
-        
-        myTextField = (UITextField *)[cell viewWithTag:indexPath.row+1];
-        myTextField.enabled = NO;
-        myTextField.keyboardType = UIKeyboardTypeNumberPad;
-        myTextField.returnKeyType = UIReturnKeyNext;
-        [myTextField resignFirstResponder];
-        
-    }
-    else {
-        
+        isSide = NO;
         index = indexPath.row;
-        diagonalTextField = [textFieldArray objectAtIndex:index];
-        diagonalTextField.enabled = NO;
-
-        [diagonalTextField resignFirstResponder];
+        diagonalTextField.enabled = YES;
+        diagonalTextField.text = @"";
+        startLable.text = @"введите длинну в см";
+        [diagonalConteinerView addSubview:diagonalTextField];
+        [diagonalTextField becomeFirstResponder];
+        
     }
+
 }
 
 
 -(void)cancelNumberPad{
-    [myTextField resignFirstResponder];
     [diagonalTextField resignFirstResponder];
 }
 
 -(void)doneWithNumberPad{
     
     [self saveDiagonal];
-    
-    [myTextField resignFirstResponder];
     [diagonalTextField resignFirstResponder];
 }
 
@@ -417,62 +345,10 @@
 // скрываем клавиатуру по нажатию кнопки
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    NSLog(@"return");
     //вызов метода скрытия клавиатуры
     [textField resignFirstResponder];
     return YES;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end

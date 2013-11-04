@@ -60,6 +60,10 @@
     [[UILabel appearance] setFont:[UIFont fontWithName:@"FuturisCyrillic" size:17]];
     
     
+    //toolbar
+    [[UIToolbar appearance] setBackgroundImage:navBackgroundImage forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    
+    
     //возвращает список шрифтов в лог
 //    for (NSString *familyName in [UIFont familyNames]) {
 //        

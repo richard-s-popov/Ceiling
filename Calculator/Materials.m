@@ -2,19 +2,21 @@
 //  Materials.m
 //  Calculator
 //
-//  Created by Александр Коровкин on 17.09.13.
+//  Created by Александр Коровкин on 04.11.13.
 //  Copyright (c) 2013 Александр Коровкин. All rights reserved.
 //
 
 #import "Materials.h"
+#import "Plot.h"
 
 
 @implementation Materials
 
-@dynamic matName;
-@dynamic matWidth;
-@dynamic matPrice;
 @dynamic created;
 @dynamic matId;
+@dynamic matName;
+@dynamic matPrice;
+@dynamic matWidth;
+@dynamic materialPlot;
 
 @end

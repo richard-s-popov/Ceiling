@@ -2,19 +2,21 @@
 //  PlotDiagonal.h
 //  Calculator
 //
-//  Created by Александр Коровкин on 17.10.13.
+//  Created by Александр Коровкин on 04.11.13.
 //  Copyright (c) 2013 Александр Коровкин. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Plot;
+@class Plot, PlotSide;
 
 @interface PlotDiagonal : NSManagedObject
 
-@property (nonatomic, retain) NSString * diagonalName;
+@property (nonatomic, retain) NSString * angleFirst;
+@property (nonatomic, retain) NSString * angleSecond;
 @property (nonatomic, retain) NSNumber * diagonalWidth;
 @property (nonatomic, retain) Plot *diagonalPlot;
+@property (nonatomic, retain) PlotSide *diagonalSide;
 
 @end

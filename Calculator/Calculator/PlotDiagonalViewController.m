@@ -19,6 +19,7 @@
     NSMutableArray *textFieldArray;
     BOOL isSide;
     UILabel *startLable;
+    NSIndexPath *diagonalIndexPath;
 }
 
 @end
@@ -280,10 +281,12 @@
         side.sideWidth = [NSNumber numberWithInt:[diagonalTextField.text intValue]];
         [diagonalTextField removeFromSuperview];
         startLable.text = @"Нажимая на диагонали вводите их длинну";
+        [self.tableOfDiagonal reloadRowsAtIndexPaths:[NSArray arrayWithObject:diagonalIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        [self.tableOfDiagonal selectRowAtIndexPath:diagonalIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
     }
     //сохранение диагонали
     else {
-        diagonalTmp = [listDiagonal objectAtIndex:index];
+        diagonalTmp = [listDiagonal objectAtIndex:diagonalIndexPath.row];
         lustDiagonal = [NSNumber numberWithInt:[diagonalTextField.text intValue]];
     
         PlotDiagonal *tmpDiagonal = [NSEntityDescription insertNewObjectForEntityForName:@"PlotDiagonal" inManagedObjectContext:self.managedObjectContext];
@@ -297,6 +300,9 @@
         [self populateDiagonalWidth];
         [diagonalTextField removeFromSuperview];
         startLable.text = @"Нажимая на диагонали вводите их длинну";
+        
+        [self.tableOfDiagonal reloadRowsAtIndexPaths:[NSArray arrayWithObject:diagonalIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        [self.tableOfDiagonal selectRowAtIndexPath:diagonalIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
     }
 }
 
@@ -305,9 +311,9 @@
     
     if ((indexPath.row == 0) && (indexPath.section == 0)) {
         
-        //условный индекс для определения редактирования стороны
-        index = 1000;
+        //для определения редактирования стороны
         isSide = YES;
+        diagonalIndexPath = indexPath;
         
         diagonalTextField.enabled = YES;
         diagonalTextField.text = @"";
@@ -319,7 +325,7 @@
     if (indexPath.section == 1) {
         
         isSide = NO;
-        index = indexPath.row;
+        diagonalIndexPath = indexPath;
         diagonalTextField.enabled = YES;
         diagonalTextField.text = @"";
         startLable.text = @"введите длинну в см";

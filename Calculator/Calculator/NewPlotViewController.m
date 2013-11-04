@@ -21,6 +21,7 @@
     NSObject *object;
     UIButton *button;
     UIButton *saveButton;
+    NSIndexPath *indexPathForSelectedRow;
 }
 
 @end
@@ -147,7 +148,7 @@
     newSide = [mutableArraySides objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@%@", newSide.angleFirst, newSide.angleSecond];
-    cell.detailTextLabel.text = @"не назначено";
+    cell.detailTextLabel.text = [newSide.sideWidth stringValue];
     
     return cell;
 }
@@ -257,6 +258,7 @@
         detailPlot.mutableArray = mutableArraySides;
         detailPlot.index = tableOfSides.indexPathForSelectedRow.row;
         
+        indexPathForSelectedRow = tableOfSides.indexPathForSelectedRow;
         
         //необходимо для условия для перезагрузки ячейки таблицы при изменении
 //        lustName = [[list objectAtIndex:tbl.indexPathForSelectedRow.row] matName];
@@ -275,6 +277,22 @@
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Сохранено" message:@"Введенные данные сохранены" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
+}
+
+
+//анимация затухания выделения ячейки при возвращении в таблицу
+- (void) viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+    
+    //условие для реализации перезагрузки ячейки таблицы при изменении
+    if (indexPathForSelectedRow) {
+        [self.tableOfSides reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPathForSelectedRow] withRowAnimation:UITableViewRowAnimationLeft];
+        [self.tableOfSides deselectRowAtIndexPath:[self.tableOfSides indexPathForSelectedRow] animated:YES];
+    }
+    
+    
 }
 
 

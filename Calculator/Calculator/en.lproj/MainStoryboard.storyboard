@@ -896,7 +896,7 @@
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGD-IW-qlV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="UPq-x0-tkX">
+                <swipeGestureRecognizer direction="left" id="UPq-x0-tkX">
                     <connections>
                         <segue destination="w7G-fB-6SI" kind="push" id="VkD-2U-wvp"/>
                     </connections>
@@ -930,7 +930,7 @@
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6eW-8h-W32" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="32I-iQ-kHL">
+                <swipeGestureRecognizer direction="left" id="32I-iQ-kHL">
                     <connections>
                         <segue destination="J3r-ub-gOy" kind="push" id="QAh-NJ-TRJ"/>
                     </connections>

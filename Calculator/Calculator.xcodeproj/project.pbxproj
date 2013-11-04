@@ -31,9 +31,11 @@
 		091D7ABD1823E49100838925 /* DiagonalTmp.m in Sources */ = {isa = PBXBuildFile; fileRef = 091D7ABC1823E49100838925 /* DiagonalTmp.m */; };
 		091D7ABF18250E7900838925 /* donedown.png in Resources */ = {isa = PBXBuildFile; fileRef = 091D7ABE18250E7900838925 /* donedown.png */; };
 		091D7AC118250EC000838925 /* doneup.png in Resources */ = {isa = PBXBuildFile; fileRef = 091D7AC018250EC000838925 /* doneup.png */; };
-		091D7AC418254B8600838925 /* Plot.m in Sources */ = {isa = PBXBuildFile; fileRef = 091D7AC318254B8600838925 /* Plot.m */; };
-		091D7ACA18254B8700838925 /* PlotSide.m in Sources */ = {isa = PBXBuildFile; fileRef = 091D7AC918254B8700838925 /* PlotSide.m */; };
-		091D7ACD182573CE00838925 /* PlotDiagonal.m in Sources */ = {isa = PBXBuildFile; fileRef = 091D7ACC182573CE00838925 /* PlotDiagonal.m */; };
+		0939C0AA1826D435000249CA /* Plot.m in Sources */ = {isa = PBXBuildFile; fileRef = 0939C0A91826D435000249CA /* Plot.m */; };
+		0939C0AD1826D436000249CA /* Projects.m in Sources */ = {isa = PBXBuildFile; fileRef = 0939C0AC1826D436000249CA /* Projects.m */; };
+		0939C0B01826D436000249CA /* Materials.m in Sources */ = {isa = PBXBuildFile; fileRef = 0939C0AF1826D436000249CA /* Materials.m */; };
+		0939C0B31826D436000249CA /* PlotDiagonal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0939C0B21826D436000249CA /* PlotDiagonal.m */; };
+		0939C0B61826D436000249CA /* PlotSide.m in Sources */ = {isa = PBXBuildFile; fileRef = 0939C0B51826D436000249CA /* PlotSide.m */; };
 		0942DE4C1815004A0088602F /* NewPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0942DE4B1815004A0088602F /* NewPlotViewController.m */; };
 		094BA1CB17F376FA00BD1904 /* toolBarShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 094BA1CA17F376FA00BD1904 /* toolBarShadow.png */; };
 		094BA1CD17F3770000BD1904 /* toolBarShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 094BA1CC17F3770000BD1904 /* toolBarShadow@2x.png */; };
@@ -44,7 +46,6 @@
 		094BA1D917F3875700BD1904 /* tbSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 094BA1D817F3875700BD1904 /* tbSelected.png */; };
 		094D320E17E6456300D685EF /* MaterialsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 094D320D17E6456300D685EF /* MaterialsListViewController.m */; };
 		094D321117E645A400D685EF /* MaterialsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 094D321017E645A400D685EF /* MaterialsDetailViewController.m */; };
-		094D321A17E838E500D685EF /* Materials.m in Sources */ = {isa = PBXBuildFile; fileRef = 094D321917E838E400D685EF /* Materials.m */; };
 		094D322217E9865000D685EF /* ProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 094D322117E9865000D685EF /* ProjectCell.m */; };
 		094D322417E9DA5000D685EF /* icon57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 094D322317E9DA5000D685EF /* icon57x57.png */; };
 		094D322617E9E0DA00D685EF /* icon114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 094D322517E9E0D900D685EF /* icon114x114.png */; };
@@ -70,7 +71,6 @@
 		096F7DD817F75E820014908B /* PlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 096F7DD717F75E820014908B /* PlotCell.m */; };
 		096FD47A17EF5FDC0059F2C4 /* NewProjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 096FD47917EF5FDC0059F2C4 /* NewProjectListViewController.m */; };
 		096FD47D17EF614F0059F2C4 /* NewProjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 096FD47C17EF614F0059F2C4 /* NewProjectDetailViewController.m */; };
-		096FD48017EFAC730059F2C4 /* Projects.m in Sources */ = {isa = PBXBuildFile; fileRef = 096FD47F17EFAC730059F2C4 /* Projects.m */; };
 		0978AA8517E4DC8800D77B82 /* AddPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 0978AA8417E4DC8800D77B82 /* AddPrice.m */; };
 		0982696E17C26BC0007DB54D /* Phone_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982696D17C26BC0007DB54D /* Phone_settings.png */; };
 		0982697117C27142007DB54D /* MaterialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982697017C27142007DB54D /* MaterialCell.m */; };
@@ -130,12 +130,16 @@
 		091D7ABC1823E49100838925 /* DiagonalTmp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiagonalTmp.m; sourceTree = "<group>"; };
 		091D7ABE18250E7900838925 /* donedown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = donedown.png; path = ../../../../donedown.png; sourceTree = "<group>"; };
 		091D7AC018250EC000838925 /* doneup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = doneup.png; path = ../../../../doneup.png; sourceTree = "<group>"; };
-		091D7AC218254B8600838925 /* Plot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plot.h; sourceTree = "<group>"; };
-		091D7AC318254B8600838925 /* Plot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plot.m; sourceTree = "<group>"; };
-		091D7AC818254B8700838925 /* PlotSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotSide.h; sourceTree = "<group>"; };
-		091D7AC918254B8700838925 /* PlotSide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotSide.m; sourceTree = "<group>"; };
-		091D7ACB182573CE00838925 /* PlotDiagonal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotDiagonal.h; sourceTree = "<group>"; };
-		091D7ACC182573CE00838925 /* PlotDiagonal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotDiagonal.m; sourceTree = "<group>"; };
+		0939C0A81826D435000249CA /* Plot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plot.h; sourceTree = "<group>"; };
+		0939C0A91826D435000249CA /* Plot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plot.m; sourceTree = "<group>"; };
+		0939C0AB1826D436000249CA /* Projects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projects.h; sourceTree = "<group>"; };
+		0939C0AC1826D436000249CA /* Projects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projects.m; sourceTree = "<group>"; };
+		0939C0AE1826D436000249CA /* Materials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Materials.h; sourceTree = "<group>"; };
+		0939C0AF1826D436000249CA /* Materials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Materials.m; sourceTree = "<group>"; };
+		0939C0B11826D436000249CA /* PlotDiagonal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotDiagonal.h; sourceTree = "<group>"; };
+		0939C0B21826D436000249CA /* PlotDiagonal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotDiagonal.m; sourceTree = "<group>"; };
+		0939C0B41826D436000249CA /* PlotSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotSide.h; sourceTree = "<group>"; };
+		0939C0B51826D436000249CA /* PlotSide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotSide.m; sourceTree = "<group>"; };
 		0942DE4A1815004A0088602F /* NewPlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlotViewController.h; sourceTree = "<group>"; };
 		0942DE4B1815004A0088602F /* NewPlotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPlotViewController.m; sourceTree = "<group>"; };
 		094BA1CA17F376FA00BD1904 /* toolBarShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolBarShadow.png; sourceTree = "<group>"; };
@@ -149,8 +153,6 @@
 		094D320D17E6456300D685EF /* MaterialsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialsListViewController.m; sourceTree = "<group>"; };
 		094D320F17E645A400D685EF /* MaterialsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialsDetailViewController.h; sourceTree = "<group>"; };
 		094D321017E645A400D685EF /* MaterialsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialsDetailViewController.m; sourceTree = "<group>"; };
-		094D321817E838E400D685EF /* Materials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Materials.h; sourceTree = "<group>"; };
-		094D321917E838E400D685EF /* Materials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Materials.m; sourceTree = "<group>"; };
 		094D322017E9864F00D685EF /* ProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectCell.h; sourceTree = "<group>"; };
 		094D322117E9865000D685EF /* ProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectCell.m; sourceTree = "<group>"; };
 		094D322317E9DA5000D685EF /* icon57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57x57.png; sourceTree = "<group>"; };
@@ -189,8 +191,6 @@
 		096FD47917EF5FDC0059F2C4 /* NewProjectListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectListViewController.m; sourceTree = "<group>"; };
 		096FD47B17EF614F0059F2C4 /* NewProjectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProjectDetailViewController.h; sourceTree = "<group>"; };
 		096FD47C17EF614F0059F2C4 /* NewProjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectDetailViewController.m; sourceTree = "<group>"; };
-		096FD47E17EFAC730059F2C4 /* Projects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projects.h; sourceTree = "<group>"; };
-		096FD47F17EFAC730059F2C4 /* Projects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projects.m; sourceTree = "<group>"; };
 		0978AA8317E4DC8800D77B82 /* AddPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPrice.h; sourceTree = "<group>"; };
 		0978AA8417E4DC8800D77B82 /* AddPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPrice.m; sourceTree = "<group>"; };
 		0982696D17C26BC0007DB54D /* Phone_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phone_settings.png; sourceTree = "<group>"; };
@@ -300,17 +300,17 @@
 		094D321B17E8BDCE00D685EF /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				091D7AC218254B8600838925 /* Plot.h */,
-				091D7AC318254B8600838925 /* Plot.m */,
-				091D7AC818254B8700838925 /* PlotSide.h */,
-				091D7AC918254B8700838925 /* PlotSide.m */,
-				091D7ACB182573CE00838925 /* PlotDiagonal.h */,
-				091D7ACC182573CE00838925 /* PlotDiagonal.m */,
 				09E307C117DCE6F5006E5CE5 /* Projects.xcdatamodeld */,
-				096FD47E17EFAC730059F2C4 /* Projects.h */,
-				096FD47F17EFAC730059F2C4 /* Projects.m */,
-				094D321817E838E400D685EF /* Materials.h */,
-				094D321917E838E400D685EF /* Materials.m */,
+				0939C0A81826D435000249CA /* Plot.h */,
+				0939C0AB1826D436000249CA /* Projects.h */,
+				0939C0B11826D436000249CA /* PlotDiagonal.h */,
+				0939C0B21826D436000249CA /* PlotDiagonal.m */,
+				0939C0B41826D436000249CA /* PlotSide.h */,
+				0939C0B51826D436000249CA /* PlotSide.m */,
+				0939C0AE1826D436000249CA /* Materials.h */,
+				0939C0AF1826D436000249CA /* Materials.m */,
+				0939C0AC1826D436000249CA /* Projects.m */,
+				0939C0A91826D435000249CA /* Plot.m */,
 				0978AA8317E4DC8800D77B82 /* AddPrice.h */,
 				0978AA8417E4DC8800D77B82 /* AddPrice.m */,
 			);
@@ -663,15 +663,17 @@
 				091D7ABD1823E49100838925 /* DiagonalTmp.m in Sources */,
 				26BF92FE1788441600C90497 /* PlotRectViewController.m in Sources */,
 				09C82BBD1789DD8B00A47057 /* SettingsOptionsModel.m in Sources */,
-				091D7ACD182573CE00838925 /* PlotDiagonal.m in Sources */,
-				091D7AC418254B8600838925 /* Plot.m in Sources */,
+				0939C0B31826D436000249CA /* PlotDiagonal.m in Sources */,
+				0939C0AD1826D436000249CA /* Projects.m in Sources */,
+				0939C0AA1826D435000249CA /* Plot.m in Sources */,
+				0939C0B01826D436000249CA /* Materials.m in Sources */,
 				09C82BC01789DFE300A47057 /* SettingsService.m in Sources */,
 				09D5DF66178CEAA5004FAA8C /* ECSlidingViewController.m in Sources */,
 				09D5DF67178CEAA5004FAA8C /* UIImage+ImageWithUIView.m in Sources */,
 				09D5DF6A178CEAED004FAA8C /* InitViewController.m in Sources */,
+				0939C0B61826D436000249CA /* PlotSide.m in Sources */,
 				09D5DF6D178CEB32004FAA8C /* MenuViewController.m in Sources */,
 				09D5DF70178CEB66004FAA8C /* MainViewController.m in Sources */,
-				091D7ACA18254B8700838925 /* PlotSide.m in Sources */,
 				09D5DF77178CEE16004FAA8C /* BuildViewController.m in Sources */,
 				09C93E881791B78100A4FBDC /* OptionsViewController.m in Sources */,
 				096F7DD517F751AE0014908B /* PlotDataViewController.m in Sources */,
@@ -684,13 +686,11 @@
 				090C9CBC17CD6418008A5E10 /* CostViewController.m in Sources */,
 				0910CDB817D145D10032060C /* AddSettingsViewController.m in Sources */,
 				09E307C317DCE6F5006E5CE5 /* Projects.xcdatamodeld in Sources */,
-				096FD48017EFAC730059F2C4 /* Projects.m in Sources */,
 				096FD47A17EF5FDC0059F2C4 /* NewProjectListViewController.m in Sources */,
 				0978AA8517E4DC8800D77B82 /* AddPrice.m in Sources */,
 				094D320E17E6456300D685EF /* MaterialsListViewController.m in Sources */,
 				094D321117E645A400D685EF /* MaterialsDetailViewController.m in Sources */,
 				098284351822E3B200BE7A9E /* PlotDiagonalViewController.m in Sources */,
-				094D321A17E838E500D685EF /* Materials.m in Sources */,
 				094D322217E9865000D685EF /* ProjectCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,7 +2,7 @@
 //  PlotDiagonal.m
 //  Calculator
 //
-//  Created by Александр Коровкин on 03.11.13.
+//  Created by Александр Коровкин on 04.11.13.
 //  Copyright (c) 2013 Александр Коровкин. All rights reserved.
 //
 
@@ -13,9 +13,9 @@
 
 @implementation PlotDiagonal
 
-@dynamic diagonalWidth;
 @dynamic angleFirst;
 @dynamic angleSecond;
+@dynamic diagonalWidth;
 @dynamic diagonalPlot;
 @dynamic diagonalSide;
 

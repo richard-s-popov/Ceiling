@@ -92,6 +92,8 @@
 		09E307C017DCE35F006E5CE5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E307BF17DCE35F006E5CE5 /* CoreData.framework */; };
 		09E307C317DCE6F5006E5CE5 /* Projects.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09E307C117DCE6F5006E5CE5 /* Projects.xcdatamodeld */; };
 		26BF92FE1788441600C90497 /* PlotRectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BF92FD1788441600C90497 /* PlotRectViewController.m */; };
+		26E76C191812CABC0027A6F4 /* CalculationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E76C181812CABC0027A6F4 /* CalculationService.m */; };
+		26E76C1C1812E6340027A6F4 /* PlotVisualController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E76C1B1812E6340027A6F4 /* PlotVisualController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -222,6 +224,10 @@
 		09E307C217DCE6F5006E5CE5 /* Projects.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Projects.xcdatamodel; sourceTree = "<group>"; };
 		26BF92FC1788441600C90497 /* PlotRectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotRectViewController.h; sourceTree = "<group>"; };
 		26BF92FD1788441600C90497 /* PlotRectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotRectViewController.m; sourceTree = "<group>"; };
+		26E76C171812CABC0027A6F4 /* CalculationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculationService.h; sourceTree = "<group>"; };
+		26E76C181812CABC0027A6F4 /* CalculationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculationService.m; sourceTree = "<group>"; };
+		26E76C1A1812E6340027A6F4 /* PlotVisualController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotVisualController.h; sourceTree = "<group>"; };
+		26E76C1B1812E6340027A6F4 /* PlotVisualController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotVisualController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,6 +344,7 @@
 		09598145177F676E001D2122 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				26E76C0F1812C6A80027A6F4 /* Services */,
 				096F7DCF17F751220014908B /* Plot */,
 				0906E27817F18AFE0084D6FD /* Slider */,
 				096FD47117EF5EBB0059F2C4 /* NewProject */,
@@ -422,6 +429,8 @@
 				096F7DD417F751AE0014908B /* PlotDataViewController.m */,
 				096F7DD617F75E820014908B /* PlotCell.h */,
 				096F7DD717F75E820014908B /* PlotCell.m */,
+				26E76C1A1812E6340027A6F4 /* PlotVisualController.h */,
+				26E76C1B1812E6340027A6F4 /* PlotVisualController.m */,
 			);
 			name = Plot;
 			sourceTree = "<group>";
@@ -509,6 +518,15 @@
 				09D5DF6F178CEB66004FAA8C /* MainViewController.m */,
 			);
 			name = Menu;
+			sourceTree = "<group>";
+		};
+		26E76C0F1812C6A80027A6F4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				26E76C171812CABC0027A6F4 /* CalculationService.h */,
+				26E76C181812CABC0027A6F4 /* CalculationService.m */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -642,7 +660,9 @@
 				096F7DD517F751AE0014908B /* PlotDataViewController.m in Sources */,
 				0982697117C27142007DB54D /* MaterialCell.m in Sources */,
 				0982697517C3E9C6007DB54D /* emailViewController.m in Sources */,
+				26E76C191812CABC0027A6F4 /* CalculationService.m in Sources */,
 				096FD47D17EF614F0059F2C4 /* NewProjectDetailViewController.m in Sources */,
+				26E76C1C1812E6340027A6F4 /* PlotVisualController.m in Sources */,
 				09CA819A17F3AF0E00A3BAE6 /* SliderViewController.m in Sources */,
 				0982697E17C532EF007DB54D /* ProjectsListViewController.m in Sources */,
 				0982698117C53861007DB54D /* ProjectDetailViewController.m in Sources */,

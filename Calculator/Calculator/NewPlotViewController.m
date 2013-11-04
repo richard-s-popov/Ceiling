@@ -251,9 +251,6 @@
         PlotDiagonalViewController *detailPlot = segue.destinationViewController;
         detailPlot.side = [mutableArraySides objectAtIndex:tableOfSides.indexPathForSelectedRow.row];
 
-        
-        NSLog(@"side - %@%@", detailPlot.side.angleFirst, detailPlot.side.angleSecond);
-        
         detailPlot.plot = newPlot;
         detailPlot.mutableArray = mutableArraySides;
         detailPlot.index = tableOfSides.indexPathForSelectedRow.row;

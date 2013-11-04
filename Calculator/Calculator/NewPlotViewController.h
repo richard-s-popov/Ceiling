@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "CalcAppDelegate.h"
-#import "PlotCell.h"
 #import "Plot.h"
 #import "PlotSide.h"
 #import "PlotDiagonal.h"

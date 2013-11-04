@@ -23,6 +23,9 @@
 @synthesize spotClient;
 @synthesize explaneClient;
 
+@synthesize PlotTableView;
+@synthesize plot;
+
 @synthesize scrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -73,6 +76,8 @@
     bypassClient.text = [project.projectBypass stringValue];
     spotClient.text = [project.projectSpot stringValue];
     explaneClient.text = project.projectExplane;
+    
+    
 }
 
 
@@ -124,10 +129,53 @@
 }
 
 
+#pragma mark - plot tableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    int count = 0;
+    if (project.projectPlot.count == 0) {
+        count = 1;
+    }
+    else {
+        count = project.projectPlot.count;
+    }
+    return count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
+    cell.textLabel.text = @"text";
+    cell.detailTextLabel.text = @"detail";
+    return cell;
+}
+
+
+- (IBAction)addPlot:(id)sender {
+    
+    plot = [NSEntityDescription insertNewObjectForEntityForName:@"Plot" inManagedObjectContext:self.managedObjectContext];
+    
+    [project addProjectPlotObject:plot];
+    [PlotTableView reloadData];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 @end

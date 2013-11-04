@@ -11,8 +11,9 @@
 #import "CalcAppDelegate.h"
 #import "CostViewController.h"
 #import "Projects.h"
+#import "Plot.h"
 
-@interface NewProjectDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate>
+@interface NewProjectDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 
 @property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
@@ -25,6 +26,11 @@
 @property (strong, nonatomic) IBOutlet UITextField *bypassClient;
 @property (strong, nonatomic) IBOutlet UITextField *spotClient;
 @property (strong, nonatomic) IBOutlet UITextView *explaneClient;
+
+@property (weak, nonatomic) IBOutlet UITableView *PlotTableView;
+@property (nonatomic, strong) Plot *plot;
+
+- (IBAction)addPlot:(id)sender;
 
 
 @end

@@ -679,42 +679,38 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="F9b-l2-zzs">
-                                        <rect key="frame" x="20" y="136" width="280" height="159"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Люстра" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zfh-GP-VUZ">
-                                        <rect key="frame" x="37" y="316" width="62" height="21"/>
+                                        <rect key="frame" x="37" y="340" width="62" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Обвод" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sh8-Oh-hef">
-                                        <rect key="frame" x="47" y="359" width="52" height="21"/>
+                                        <rect key="frame" x="47" y="383" width="52" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Светильник" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Cb-wz-ysn">
-                                        <rect key="frame" x="3" y="401" width="96" height="21"/>
+                                        <rect key="frame" x="3" y="425" width="96" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="InI-hM-MDn">
-                                        <rect key="frame" x="112" y="307" width="188" height="30"/>
+                                        <rect key="frame" x="112" y="331" width="188" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="9y2-na-7aj">
-                                        <rect key="frame" x="112" y="350" width="188" height="30"/>
+                                        <rect key="frame" x="112" y="374" width="188" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="ny5-Za-axf">
-                                        <rect key="frame" x="112" y="392" width="188" height="30"/>
+                                        <rect key="frame" x="112" y="416" width="188" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -728,7 +724,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="b2E-en-Pwl">
-                                        <rect key="frame" x="20" y="454" width="102" height="34"/>
+                                        <rect key="frame" x="20" y="478" width="102" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="eMail"/>
                                         <connections>
@@ -736,13 +732,38 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VyH-Rp-Jzr">
-                                        <rect key="frame" x="221" y="456" width="79" height="32"/>
+                                        <rect key="frame" x="221" y="480" width="79" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Cost">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <segue destination="pVq-l1-Bjo" kind="push" identifier="NewCost" id="8o5-aA-z6i"/>
+                                        </connections>
+                                    </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ybF-OX-DwY">
+                                        <rect key="frame" x="0.0" y="171" width="320" height="152"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zEM-Lk-D7w">
+                                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zEM-Lk-D7w" id="9Wl-ch-dHC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cxb-dh-Cdp">
+                                        <rect key="frame" x="148" y="136" width="152" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="добавить чертеж">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addPlot:" destination="gvs-l1-TvH" eventType="touchUpInside" id="fQo-VG-Tf0"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -752,6 +773,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="byw-rf-GC9"/>
                     <connections>
+                        <outlet property="PlotTableView" destination="ybF-OX-DwY" id="9DN-gs-BTy"/>
                         <outlet property="adressClient" destination="ez3-Yg-fkS" id="0yj-1v-rTf"/>
                         <outlet property="bypassClient" destination="9y2-na-7aj" id="ZfW-Ec-kR0"/>
                         <outlet property="explaneClient" destination="ecl-NB-jMR" id="BGk-X2-ehJ"/>
@@ -993,8 +1015,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="hGq-q8-PzX" kind="relationship" relationship="viewControllers" id="p2W-V7-X4K"/>
-                        <segue destination="cPC-kh-c9H" kind="relationship" relationship="viewControllers" id="tX5-Rh-Uxo"/>
                         <segue destination="ts4-y7-jrp" kind="relationship" relationship="viewControllers" id="K2q-7R-g3P"/>
+                        <segue destination="cPC-kh-c9H" kind="relationship" relationship="viewControllers" id="tX5-Rh-Uxo"/>
                         <segue destination="GB2-CP-Oar" kind="relationship" relationship="viewControllers" id="4Wk-20-Kgb"/>
                     </connections>
                 </tabBarController>

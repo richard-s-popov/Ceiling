@@ -26,6 +26,10 @@
 @synthesize project;
 @synthesize plot;
 @synthesize lastCostInt;
+@synthesize material;
+
+@synthesize materialsArray;
+@synthesize pickerView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,9 +54,17 @@
     [self populateFields];
     
     
+    //получаем массив материалов
+    NSFetchRequest *fetchRequestMaterial = [NSFetchRequest fetchRequestWithEntityName:@"Materials"];
+    NSError *error = nil;
+    NSArray *tmpMaterialsArray = [self.managedObjectContext executeFetchRequest:fetchRequestMaterial error:&error];
+    //сортаруем материалы по названию
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"matName" ascending:YES];
+    NSArray *tmpMatArray = [NSArray arrayWithObject:sortDescriptor];
+    materialsArray = [tmpMaterialsArray sortedArrayUsingDescriptors:tmpMatArray];
+    
     //получаем данные по AddPrice из Core Data
     NSFetchRequest *fetchRequestAddPrice = [NSFetchRequest fetchRequestWithEntityName:@"AddPrice"];
-    NSError *error = nil;
     NSArray *addPriceArray = [self.managedObjectContext executeFetchRequest:fetchRequestAddPrice error:&error];
     
     if (addPriceArray.count != 0) {
@@ -69,18 +81,7 @@
     
     [self calculateAll];
     
-    //добвляем кнопки для NumPad
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [button setTitle:@"Отмена" forState:UIControlStateNormal];
-//    button.titleLabel.font = [UIFont fontWithName:@"FuturisCyrillic" size:14.0f];
-//    [button.layer setCornerRadius:4.0f];
-//    [button.layer setMasksToBounds:YES];
-//    [button.layer setBorderWidth:1.0f];
-//    [button.layer setBorderColor: [[UIColor grayColor] CGColor]];
-//    button.frame=CGRectMake(0.0, 100.0, 70.0, 30.0);
-//    [button addTarget:self action:@selector(cancelNumberPad)  forControlEvents:UIControlEventTouchUpInside];
-    
-    
+    //добавляем кнопку готово в тулбар
     UIButton *saveButtonToolbar = [UIButton buttonWithType:UIButtonTypeCustom];
     [saveButtonToolbar setTitle:@"Готово" forState:UIControlStateNormal];
     saveButtonToolbar.titleLabel.font = [UIFont fontWithName:@"FuturisCyrillic" size:14.0f];
@@ -105,7 +106,45 @@
     bypassField.inputAccessoryView = numberToolbar;
     spotField.inputAccessoryView = numberToolbar;
     
-	// Do any additional setup after loading the view.
+    //подтягиваем площадь и периметр
+    int square = 10;
+    int perimetr = 14;
+    squareLabel.text = [NSString stringWithFormat:@"%d м.кв.", square];
+    perimetrLabel.text = [NSString stringWithFormat:@"%d м.", perimetr];
+}
+
+
+#pragma mark -
+#pragma mark PickerView DataSource
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component
+{
+    return [materialsArray count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView
+             titleForRow:(NSInteger)row
+            forComponent:(NSInteger)component
+{
+    NSString *nameOfMaterial = [NSString stringWithFormat:@"%@ - %@",[[materialsArray objectAtIndex:row] matName], [[materialsArray objectAtIndex:row] matWidth]];
+    return nameOfMaterial;
+}
+
+
+#pragma mark -
+#pragma mark PickerView Delegate
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
+      inComponent:(NSInteger)component
+{
+    material = [materialsArray objectAtIndex:row];
+    plot.plotMaterial = material;
+    [self calculateAll];
 }
 
 
@@ -121,9 +160,17 @@
     unsigned bypassCount = [plot.bypassCount integerValue];
     unsigned spotCount = [plot.spotCount integerValue];
     
+    //считаем дополнительные параметры
     lastCostInt = (lusterCount*lusterPrice) + (bypassCount*bypassPrice) + (spotCount*spotPrice);
-    plot.plotPrice = [NSNumber numberWithInt:lastCostInt];
+    //считаем стоимость полотна
+    int squarePrice = [squareLabel.text intValue]*[material.matPrice intValue];
+    //считаем кантик
+    int cantikPrice = [perimetrLabel.text intValue]*80;
     
+    //считаем итого
+    int price = lastCostInt + squarePrice + cantikPrice;
+    
+    plot.plotPrice = [NSNumber numberWithInt:price];
     lastCost.text = [NSString stringWithFormat:@"%@ руб.", plot.plotPrice];
 }
 
@@ -143,6 +190,10 @@
     [spotField resignFirstResponder];
     
     [self calculateAll];
+}
+
+- (IBAction)pickMaterial:(id)sender {
+    [sender resignFirstResponder];
 }
 
 

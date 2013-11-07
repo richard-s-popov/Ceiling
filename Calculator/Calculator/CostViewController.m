@@ -9,7 +9,11 @@
 #import "CostViewController.h"
 
 
-@interface CostViewController ()
+@interface CostViewController () {
+    unsigned lusterPrice;
+    unsigned bypassPrice;
+    unsigned spotPrice;
+}
 
 @end
 
@@ -20,6 +24,8 @@
 @synthesize managedObjectContext;
 @synthesize addPrice;
 @synthesize project;
+@synthesize plot;
+@synthesize lastCostInt;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,10 +43,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    lusterField.delegate = self;
+    bypassField.delegate = self;
+    spotField.delegate = self;
     
-    luster = [project.projectLuster integerValue];
-    bypass = [project.projectBypass integerValue];
-    spot = [project.projectSpot integerValue];
+    [self populateFields];
+    
     
     //получаем данные по AddPrice из Core Data
     NSFetchRequest *fetchRequestAddPrice = [NSFetchRequest fetchRequestWithEntityName:@"AddPrice"];
@@ -55,15 +63,34 @@
         [alert show];
     }
     
-    unsigned lusterPrice = [addPrice.lusterPrice integerValue];
-    unsigned bypassPrice = [addPrice.bypassPrice integerValue];
-    unsigned spotPrice = [addPrice.spotPrice integerValue];
+    lusterPrice = [addPrice.lusterPrice integerValue];
+    bypassPrice = [addPrice.bypassPrice integerValue];
+    spotPrice = [addPrice.spotPrice integerValue];
     
-    int lastCostInt = (luster*lusterPrice) + (bypass*bypassPrice) + (spot*spotPrice);
+    [self calculateAll];
     
-    lastCost.text = [NSString stringWithFormat:@"%u", (unsigned)lastCostInt];
+    
     
 	// Do any additional setup after loading the view.
+}
+
+
+-(void)populateFields {
+    lusterField.text = [plot.lusterCount stringValue];
+    bypassField.text = [plot.bypassCount stringValue];
+    spotField.text = [plot.spotCount stringValue];
+}
+
+
+-(void)calculateAll {
+    unsigned lusterCount = [plot.lusterCount integerValue];
+    unsigned bypassCount = [plot.bypassCount integerValue];
+    unsigned spotCount = [plot.spotCount integerValue];
+    
+    lastCostInt = (lusterCount*lusterPrice) + (bypassCount*bypassPrice) + (spotCount*spotPrice);
+    plot.plotPrice = [NSNumber numberWithInt:lastCostInt];
+    
+    lastCost.text = [NSString stringWithFormat:@"%@ руб.", plot.plotPrice];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,5 +98,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)calculateTextField:(id)sender {
+    plot.lusterCount = [NSNumber numberWithInt:[lusterField.text intValue]];
+    plot.bypassCount = [NSNumber numberWithInt:[bypassField.text intValue]];
+    plot.spotCount = [NSNumber numberWithInt:[spotField.text intValue]];
+    
+    [self calculateAll];
+}
+
+
+-(void)viewWillDisappear:(BOOL)animated {
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+    }
+}
+
+
+// скрываем клавиатуру по нажатию кнопки
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    //вызов метода скрытия клавиатуры
+    [textField resignFirstResponder];
+    return YES;
+}
+
 
 @end

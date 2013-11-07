@@ -10,8 +10,13 @@
 #import "NewProjectListViewController.h"
 #import "CalcAppDelegate.h"
 #import "CostViewController.h"
+
 #import "Projects.h"
 #import "Plot.h"
+#import "NewPlotViewController.h"
+#import "ProjectPlotCell.h"
+
+#import "PlotModel.h"
 
 @interface NewProjectDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 

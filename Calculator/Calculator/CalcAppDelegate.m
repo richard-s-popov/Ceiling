@@ -22,17 +22,19 @@
     [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:imageNavBarShadow];
     
-    UIImage *tabBarBackground = [[UIImage imageNamed:@"tbBackground2.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-//    UIImage *tbSelected = [UIImage imageNamed:@"tbSelected.png"];
+    UIImage *tabBarBackground = [UIImage imageNamed:@"tbBackground_new.png"];
+    UIImage *imageTabBarShadow = [UIImage imageNamed:@"tabBarShadow2.png"];
+    //    UIImage *tbSelected = [UIImage imageNamed:@"tbSelected.png"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+    [[UITabBar appearance] setShadowImage:imageTabBarShadow];
     
     NSDictionary *tabBarTitle = [NSDictionary dictionaryWithObjectsAndKeys:
-                                               [UIColor blackColor],UITextAttributeTextColor,
-                                               [UIColor clearColor], UITextAttributeTextShadowColor,
-                                               [UIFont fontWithName:@"PTSans-Narrow" size:10],UITextAttributeFont,
-                                               [NSValue valueWithUIOffset:UIOffsetMake(-1, 0)], UITextAttributeTextShadowOffset, nil];
+                                 [UIColor blackColor],UITextAttributeTextColor,
+                                 [UIColor clearColor], UITextAttributeTextShadowColor,
+                                 [UIFont fontWithName:@"PTSans-Narrow" size:10],UITextAttributeFont,
+                                 [NSValue valueWithUIOffset:UIOffsetMake(-1, 0)], UITextAttributeTextShadowOffset, nil];
     [[UITabBarItem appearance] setTitleTextAttributes:tabBarTitle forState:UIControlStateNormal];
-//    [[UITabBar appearance] setSelectedImageTintColor:[UIColor grayColor]];
+    //    [[UITabBar appearance] setSelectedImageTintColor:[UIColor grayColor]];
     
     //настраиваем цвет title в приложении
     NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -44,8 +46,9 @@
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
     
     
-    UIImage *backButtonImage = [[UIImage imageNamed:@"backBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    //    UIImage *backButtonImage = [[UIImage imageNamed:@"backBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
+    //    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                           [UIColor blackColor], UITextAttributeTextColor,
                                                           [UIFont fontWithName:@"FuturisCyrillic" size:15],UITextAttributeFont,
@@ -61,7 +64,7 @@
     
     
     //toolbar
-    [[UIToolbar appearance] setBackgroundImage:navBackgroundImage forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+//    [[UIToolbar appearance] setBackgroundImage:navBackgroundImage forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     
     
     //возвращает список шрифтов в лог

@@ -50,8 +50,14 @@
     
     
     //кнопки меню бара
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.editButtonItem.title = @"Изменить";
+//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//    self.editButtonItem.title = @"Изменить";
+    
+    //добавляем кнопку добавить
+    UIImage *rightButtonImage = [[UIImage imageNamed:@"rightBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
+    UIBarButtonItem *addButton =[[UIBarButtonItem alloc] initWithTitle:@"Добавить" style:UIBarButtonItemStyleBordered target:self action:@selector(addBtn)];
+    [addButton setBackgroundImage:rightButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    self.navigationItem.rightBarButtonItem = addButton;
     
 }
 
@@ -77,30 +83,27 @@
 }
 
 
--(void)setEditing:(BOOL)editing animated:(BOOL)animated {
-    //важное условие для swipe
-    if (!_cellSwiped) {
-        [super setEditing:editing animated:animated];
-    } else if (!editing) {
-        _cellSwiped = NO;
-    }
-    
-    if (editing) {
-        NSLog(@"editing - yes");
-        
-        self.editButtonItem.title = NSLocalizedString(@"Сохранить", @"Сохранить");
-        
-        //добавляем кнопку добавить
-        UIBarButtonItem *addButton =[[UIBarButtonItem alloc] initWithTitle:@"Добавить" style:UIBarButtonItemStyleBordered target:self action:@selector(addBtn)];
-        self.navigationItem.leftBarButtonItem = addButton;
-    }
-    else {
-        NSLog(@"editing - no");
-        
-        self.editButtonItem.title = NSLocalizedString(@"Изменить", @"Изменить");
-        self.navigationItem.leftBarButtonItem = nil;
-    }
-}
+//-(void)setEditing:(BOOL)editing animated:(BOOL)animated {
+//    //важное условие для swipe
+//    if (!_cellSwiped) {
+//        [super setEditing:editing animated:animated];
+//    } else if (!editing) {
+//        _cellSwiped = NO;
+//    }
+//    
+//    if (editing) {
+//        self.editButtonItem.title = NSLocalizedString(@"Сохранить", @"Сохранить");
+//        
+//        //добавляем кнопку добавить
+//        UIBarButtonItem *addButton =[[UIBarButtonItem alloc] initWithTitle:@"Добавить" style:UIBarButtonItemStyleBordered target:self action:@selector(addBtn)];
+//        self.navigationItem.leftBarButtonItem = addButton;
+//    }
+//    else {
+//        
+//        self.editButtonItem.title = NSLocalizedString(@"Изменить", @"Изменить");
+//        self.navigationItem.leftBarButtonItem = nil;
+//    }
+//}
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

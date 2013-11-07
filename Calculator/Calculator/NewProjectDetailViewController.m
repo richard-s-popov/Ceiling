@@ -12,6 +12,7 @@
     NSMutableArray *mutableArray;
     NSArray *plotArray;
     UITextField *namePlot;
+    int numberOfButton;
 }
 
 @end
@@ -279,14 +280,30 @@
 
 //метод для удаления чертежа
 -(void)deletePlotAction:(UIButton*)deletePlotButton {
-    
-    [project removeProjectPlotObject:[plotArray objectAtIndex:[deletePlotButton tag]-1]];
-    
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
+    numberOfButton = [deletePlotButton tag]-1;
+    [self alertOKCancelAction];
+}
+
+//метод подтверждения удаления чертежа
+- (void)alertOKCancelAction {
+    // open a alert with an OK and cancel button
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Удаление чертежа" message:@"Вы уверены, что хотите удалить этот чертеж?" delegate:self cancelButtonTitle:@"Удалить" otherButtonTitles:@"Отмена", nil];
+    [alert show];
+}
+
+
+- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    // the user clicked one of the OK/Cancel buttons
+    if (buttonIndex == 0)
+    {
+        [project removeProjectPlotObject:[plotArray objectAtIndex:numberOfButton]];
+        
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+        }
+        
+        [self reloadPlotTable];
     }
-    
-    [self reloadPlotTable];
 }
 
 

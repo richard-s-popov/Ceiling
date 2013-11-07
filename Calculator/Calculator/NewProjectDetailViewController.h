@@ -18,7 +18,7 @@
 
 #import "PlotModel.h"
 
-@interface NewProjectDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface NewProjectDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
 
 
 @property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;

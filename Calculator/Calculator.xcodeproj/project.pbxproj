@@ -369,10 +369,10 @@
 		09598145177F676E001D2122 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				096FD47117EF5EBB0059F2C4 /* NewProject */,
 				26E76C0F1812C6A80027A6F4 /* Services */,
 				0942DE491814FFD90088602F /* newPlot */,
 				0906E27817F18AFE0084D6FD /* Slider */,
-				096FD47117EF5EBB0059F2C4 /* NewProject */,
 				094D320B17E6452000D685EF /* Materials */,
 				0982697A17C530A5007DB54D /* Settings */,
 				0910CDB217D144260032060C /* Additionally Settings */,

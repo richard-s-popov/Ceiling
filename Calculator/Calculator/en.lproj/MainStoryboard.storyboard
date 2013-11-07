@@ -75,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYd-j0-mxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3328" y="1129"/>
+            <point key="canvasLocation" x="3186" y="1325"/>
         </scene>
         <!--Cost View Controller - Стоимость-->
         <scene sceneID="EP8-ec-d82">
@@ -160,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZG-qd-tXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3328" y="-304"/>
+            <point key="canvasLocation" x="3692" y="-876"/>
         </scene>
         <!--Plot Rect View Controller - Чертеж-->
         <scene sceneID="5nj-I0-Y8h">
@@ -447,7 +447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kDa-Gj-BOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3695" y="-304"/>
+            <point key="canvasLocation" x="4059" y="-876"/>
         </scene>
         <!--Materials Detail View Controller-->
         <scene sceneID="r4e-KA-Mh1">
@@ -524,7 +524,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYo-1K-ZNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3251" y="444"/>
+            <point key="canvasLocation" x="4059" y="480"/>
         </scene>
         <!--New Project List View Controller - Клиенты-->
         <scene sceneID="Rkn-fv-KOz">
@@ -575,7 +575,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4EW-Oj-w0f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2143" y="-231"/>
+            <point key="canvasLocation" x="2295" y="-543"/>
         </scene>
         <!--View Controller - Настройки-->
         <scene sceneID="Gyl-vz-ZG5">
@@ -615,13 +615,6 @@
                                     <segue destination="eQk-3S-jeL" kind="push" id="hyy-qO-Wqx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2mi-nu-LSg">
-                                <rect key="frame" x="20" y="208" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Тест чертежа">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -629,7 +622,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4p-Ry-4ie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2034" y="823"/>
+            <point key="canvasLocation" x="2392" y="1135"/>
         </scene>
         <!--Materials List View Controller - Материалы-->
         <scene sceneID="bdK-TS-gJf">
@@ -698,7 +691,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SkO-zf-VS4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2834" y="444"/>
+            <point key="canvasLocation" x="3186" y="692"/>
         </scene>
         <!--New Project Detail View Controller-->
         <scene sceneID="v6Z-9Q-kLS">
@@ -737,14 +730,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ecl-NB-jMR">
-                                        <rect key="frame" x="20" y="520" width="280" height="127"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="b2E-en-Pwl">
                                         <rect key="frame" x="20" y="478" width="102" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -810,14 +795,13 @@
                     <connections>
                         <outlet property="PlotTableView" destination="ybF-OX-DwY" id="9DN-gs-BTy"/>
                         <outlet property="adressClient" destination="ez3-Yg-fkS" id="0yj-1v-rTf"/>
-                        <outlet property="explaneClient" destination="ecl-NB-jMR" id="BGk-X2-ehJ"/>
                         <outlet property="nameClient" destination="pxe-tL-oYf" id="JRS-OB-NmR"/>
                         <outlet property="scrollView" destination="vQp-kb-7SE" id="m6A-ay-2NY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nD8-i6-sMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2602" y="-231"/>
+            <point key="canvasLocation" x="2754" y="-543"/>
         </scene>
         <!--Settings View Controller - Контакты-->
         <scene sceneID="7Nc-wv-U9g">
@@ -917,7 +901,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lxg-G3-JYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3731" y="829"/>
+            <point key="canvasLocation" x="4059" y="1135"/>
         </scene>
         <!--View Controller - Настройте Самсон-Мастре-->
         <scene sceneID="3vv-Qr-qL4">
@@ -956,7 +940,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2143" y="-999"/>
+            <point key="canvasLocation" x="2287" y="-1291"/>
         </scene>
         <!--View Controller - Cоздайте новый проект-->
         <scene sceneID="xPr-C7-DDv">
@@ -990,7 +974,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2646" y="-999"/>
+            <point key="canvasLocation" x="2790" y="-1291"/>
         </scene>
         <!--View Controller - Создайте чертеж-->
         <scene sceneID="8Jy-7Z-1PV">
@@ -1014,7 +998,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIG-Ri-7sE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3088" y="-999"/>
+            <point key="canvasLocation" x="3232" y="-1291"/>
         </scene>
         <!--Navigation Controller - Проекты-->
         <scene sceneID="qR6-Gu-7H9">
@@ -1033,7 +1017,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XED-fg-tTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1617" y="-231"/>
+            <point key="canvasLocation" x="1769" y="-543"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eAV-zo-kNn">
@@ -1053,7 +1037,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQn-xj-bjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="957" y="204"/>
+            <point key="canvasLocation" x="741" y="140"/>
         </scene>
         <!--Navigation Controller - Настройки-->
         <scene sceneID="wHR-dp-Nn7">
@@ -1072,14 +1056,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="75J-Hb-7qx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1617" y="823"/>
+            <point key="canvasLocation" x="1975" y="1135"/>
         </scene>
         <!--New Plot View Controller - Ввод сторон-->
         <scene sceneID="Len-7Y-aPt">
             <objects>
                 <viewController storyboardIdentifier="PlotSidesStoryboardId" id="tv2-aW-OD2" customClass="NewPlotViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="MTx-co-cwU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <containerView key="tableHeaderView" contentMode="scaleToFill" id="VXo-D5-0Bf">
@@ -1138,18 +1122,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xR2-ZC-CKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2143" y="2429"/>
+            <point key="canvasLocation" x="4059" y="-247"/>
         </scene>
         <!--Plot Diagonal View Controller - Ввод диагоналей-->
         <scene sceneID="A5k-w4-bNM">
             <objects>
                 <viewController id="he5-1f-p2v" customClass="PlotDiagonalViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pmG-xc-9JZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="62" sectionHeaderHeight="10" sectionFooterHeight="10" id="GVo-qp-TU7">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <containerView key="tableHeaderView" contentMode="scaleToFill" id="UzK-sD-eYN">
@@ -1202,18 +1186,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCX-SE-vZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3104" y="2236"/>
+            <point key="canvasLocation" x="4756" y="-247"/>
         </scene>
         <!--Plot Visual Controller-->
         <scene sceneID="RLS-3z-NxZ">
             <objects>
                 <viewController id="Wz3-PS-9u2" customClass="PlotVisualController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CmS-yt-a57">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="7p6-em-ceF">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -1251,7 +1235,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3104" y="2905"/>
+            <point key="canvasLocation" x="4756" y="393"/>
         </scene>
         <!--Navigation Controller - Помощь-->
         <scene sceneID="XII-sO-EvH">
@@ -1270,7 +1254,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gD-2c-Mf0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1617" y="-999"/>
+            <point key="canvasLocation" x="1761" y="-1291"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mXG-3P-4po">
@@ -1289,7 +1273,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SxL-NZ-hJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1617" y="1939"/>
+            <point key="canvasLocation" x="3277" y="-33"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="VxI-M3-WTH">
@@ -1304,7 +1288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ScI-9i-NKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2143" y="2285"/>
+            <point key="canvasLocation" x="4791" y="-468"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QZp-Nb-EIG">
@@ -1319,7 +1303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aB5-mM-tGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3104" y="2067"/>
+            <point key="canvasLocation" x="5472" y="-468"/>
         </scene>
     </scenes>
     <resources>
@@ -1333,6 +1317,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="XS5-vI-rni"/>
+        <segue reference="lT3-7Y-0Jm"/>
     </inferredMetricsTieBreakers>
 </document>

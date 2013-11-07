@@ -12,6 +12,7 @@
 #import "PlotSide.h"
 #import "PlotDiagonal.h"
 #import "PlotDiagonalViewController.h"
+#import "PlotVisualController.h"
 
 @interface NewPlotViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate> {
 }

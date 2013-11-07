@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bQN-Xz-x2b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bQN-Xz-x2b">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Add Settings View Controller-->
@@ -75,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYd-j0-mxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2834" y="1149"/>
+            <point key="canvasLocation" x="3328" y="1129"/>
         </scene>
         <!--Cost View Controller - Стоимость-->
         <scene sceneID="EP8-ec-d82">
@@ -109,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZG-qd-tXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3731" y="44"/>
+            <point key="canvasLocation" x="3475" y="96"/>
         </scene>
         <!--Plot Rect View Controller - Чертеж-->
         <scene sceneID="5nj-I0-Y8h">
@@ -163,7 +163,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="whP-5I-uRz">
-                                <rect key="frame" x="10" y="146.5" width="69" height="68.5"/>
+                                <rect key="frame" x="10" y="146" width="69" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="AC">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,7 +173,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OFV-0u-eBo">
-                                <rect key="frame" x="87" y="146.5" width="69" height="68.5"/>
+                                <rect key="frame" x="87" y="146" width="69" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="C">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -183,7 +183,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="urW-TI-o34">
-                                <rect key="frame" x="164" y="146.5" width="69" height="68.5"/>
+                                <rect key="frame" x="164" y="146" width="69" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+/-">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -193,7 +193,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YeJ-zf-eHI">
-                                <rect key="frame" x="241" y="146.5" width="69" height="68.5"/>
+                                <rect key="frame" x="241" y="146" width="69" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="/">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -203,7 +203,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cgD-36-L7s">
-                                <rect key="frame" x="10" y="221.5" width="69" height="64"/>
+                                <rect key="frame" x="10" y="222" width="69" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -213,7 +213,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RaL-uR-E62">
-                                <rect key="frame" x="87" y="221.5" width="69" height="65.5"/>
+                                <rect key="frame" x="87" y="222" width="69" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="2">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -223,7 +223,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0AR-9t-qeG">
-                                <rect key="frame" x="164" y="221.5" width="69" height="67.5"/>
+                                <rect key="frame" x="164" y="222" width="69" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="3">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -233,7 +233,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZDb-JG-0Ld">
-                                <rect key="frame" x="241" y="221.5" width="69" height="65.5"/>
+                                <rect key="frame" x="241" y="222" width="69" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="*">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -243,7 +243,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wX1-ed-Jg1">
-                                <rect key="frame" x="10" y="295" width="69" height="66.5"/>
+                                <rect key="frame" x="10" y="295" width="69" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="4">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -253,7 +253,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PtC-fS-oyG">
-                                <rect key="frame" x="87" y="295" width="69" height="66.5"/>
+                                <rect key="frame" x="87" y="295" width="69" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="5">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -263,7 +263,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Np7-yo-WmM">
-                                <rect key="frame" x="164" y="297.5" width="69" height="64"/>
+                                <rect key="frame" x="164" y="297" width="69" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="6">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -273,7 +273,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hKo-zK-74V">
-                                <rect key="frame" x="241" y="295" width="69" height="68.5"/>
+                                <rect key="frame" x="241" y="295" width="69" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="-">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -283,7 +283,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xyf-X1-mFr">
-                                <rect key="frame" x="10" y="370" width="69" height="66.5"/>
+                                <rect key="frame" x="10" y="370" width="69" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="7">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -293,7 +293,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Koz-HK-pTX">
-                                <rect key="frame" x="87" y="370" width="69" height="66.5"/>
+                                <rect key="frame" x="87" y="370" width="69" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="8">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -303,7 +303,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="c3j-38-FBD">
-                                <rect key="frame" x="164" y="370" width="69" height="66.5"/>
+                                <rect key="frame" x="164" y="370" width="69" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="9">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -563,6 +563,13 @@
                                 <connections>
                                     <segue destination="eQk-3S-jeL" kind="push" id="hyy-qO-Wqx"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2mi-nu-LSg">
+                                <rect key="frame" x="20" y="208" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Тест чертежа">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1093,7 +1100,13 @@
                             <outlet property="delegate" destination="tv2-aW-OD2" id="z62-HE-GdE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Ввод сторон" id="SLL-iu-Hnj"/>
+                    <navigationItem key="navigationItem" title="Ввод сторон" id="SLL-iu-Hnj">
+                        <barButtonItem key="rightBarButtonItem" title="Построить" id="igG-Uo-1iS">
+                            <connections>
+                                <segue destination="Wz3-PS-9u2" kind="push" identifier="plotPlotId" id="xy5-VE-EZn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="sidesConteinerView" destination="VXo-D5-0Bf" id="bg9-TP-JKb"/>
                         <outlet property="tableOfSides" destination="MTx-co-cwU" id="ajb-kn-d3j"/>
@@ -1101,7 +1114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xR2-ZC-CKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2113" y="1939"/>
+            <point key="canvasLocation" x="2143" y="2429"/>
         </scene>
         <!--Plot Diagonal View Controller - Ввод диагоналей-->
         <scene sceneID="A5k-w4-bNM">
@@ -1165,7 +1178,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCX-SE-vZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2583" y="1934"/>
+            <point key="canvasLocation" x="2983" y="2429"/>
+        </scene>
+        <!--Plot Visual Controller-->
+        <scene sceneID="RLS-3z-NxZ">
+            <objects>
+                <viewController id="Wz3-PS-9u2" customClass="PlotVisualController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CmS-yt-a57">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="7p6-em-ceF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="gPc-ks-nC9" appends="YES" id="Obl-0b-T8a"/>
+                                    <outletCollection property="gestureRecognizers" destination="zHE-n9-rjO" appends="YES" id="Z71-Rl-QYS"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rDo-cs-NAa">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="pUC-kR-2cM">
+                            <stepper key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="3" id="4Pc-F8-nrv">
+                                <rect key="frame" x="210" y="7" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="changeScale:" destination="Wz3-PS-9u2" eventType="valueChanged" id="PjO-h3-UmF"/>
+                                </connections>
+                            </stepper>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="7p6-em-ceF" id="Wtv-86-Mnt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vRv-5u-ojZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="gPc-ks-nC9">
+                    <connections>
+                        <action selector="scaleImage:" destination="Wz3-PS-9u2" id="5ea-0j-1XW"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="zHE-n9-rjO">
+                    <connections>
+                        <action selector="dragImage:" destination="Wz3-PS-9u2" id="lH4-fX-ROR"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2597" y="1681"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XII-sO-EvH">
@@ -1218,7 +1280,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ScI-9i-NKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2113" y="1801"/>
+            <point key="canvasLocation" x="2597" y="2457"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QZp-Nb-EIG">
@@ -1233,7 +1295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aB5-mM-tGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2583" y="1801"/>
+            <point key="canvasLocation" x="3487" y="2457"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

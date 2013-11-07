@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CalcAppDelegate.h"
+#import "Projects.h"
 #import "Plot.h"
 #import "PlotSide.h"
 #import "PlotDiagonal.h"
@@ -23,6 +24,8 @@
 @property (strong, nonatomic) IBOutlet UIView *PlotView;
 @property (weak, nonatomic) IBOutlet UITableView *tableOfSides;
 @property (weak ,nonatomic) PlotDiagonal *diagonal;
+@property (nonatomic, strong) Plot *plotFromProject;
+@property (nonatomic, strong) Projects *project;
 @property (strong, nonatomic) IBOutlet UIView *sidesView;
 @property (weak, nonatomic) IBOutlet UIView *sidesConteinerView;
 

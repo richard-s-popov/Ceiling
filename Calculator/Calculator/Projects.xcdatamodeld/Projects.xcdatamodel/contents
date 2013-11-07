@@ -14,7 +14,11 @@
         <relationship name="materialPlot" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plot" inverseName="plotMaterial" inverseEntity="Plot" syncable="YES"/>
     </entity>
     <entity name="Plot" representedClassName="Plot" syncable="YES">
+        <attribute name="bypassCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lusterCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="plotName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plotPrice" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="spotCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="plotDiagonal" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlotDiagonal" inverseName="diagonalPlot" inverseEntity="PlotDiagonal" syncable="YES"/>
         <relationship name="plotMaterial" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Materials" inverseName="materialPlot" inverseEntity="Materials" syncable="YES"/>
         <relationship name="plotProject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Projects" inverseName="projectPlot" inverseEntity="Projects" syncable="YES"/>
@@ -30,6 +34,7 @@
     <entity name="PlotSide" representedClassName="PlotSide" syncable="YES">
         <attribute name="angleFirst" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="angleSecond" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sidePosition" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="sideWidth" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="sideDiagonal" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlotDiagonal" inverseName="diagonalSide" inverseEntity="PlotDiagonal" syncable="YES"/>
         <relationship name="sidePlot" maxCount="1" deletionRule="Nullify" destinationEntity="Plot" inverseName="plotSide" inverseEntity="Plot" syncable="YES"/>
@@ -37,11 +42,7 @@
     <entity name="Projects" representedClassName="Projects" syncable="YES">
         <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="projectAdress" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="projectBypass" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="projectExplane" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="projectLuster" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="projectSpot" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="projectPlot" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Plot" inverseName="plotProject" inverseEntity="Plot" syncable="YES"/>
     </entity>
     <elements>

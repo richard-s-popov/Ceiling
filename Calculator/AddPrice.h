@@ -2,7 +2,7 @@
 //  AddPrice.h
 //  Calculator
 //
-//  Created by Александр Коровкин on 15.09.13.
+//  Created by Александр Коровкин on 07.11.13.
 //  Copyright (c) 2013 Александр Коровкин. All rights reserved.
 //
 
@@ -12,8 +12,8 @@
 
 @interface AddPrice : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * lusterPrice;
 @property (nonatomic, retain) NSNumber * bypassPrice;
+@property (nonatomic, retain) NSNumber * lusterPrice;
 @property (nonatomic, retain) NSNumber * spotPrice;
 
 @end

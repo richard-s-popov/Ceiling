@@ -13,6 +13,7 @@
 #import "PlotDiagonal.h"
 #import "CalcAppDelegate.h"
 
+
 @interface PlotDiagonalViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;

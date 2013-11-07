@@ -2,7 +2,7 @@
 //  Plot.h
 //  Calculator
 //
-//  Created by Александр Коровкин on 04.11.13.
+//  Created by Александр Коровкин on 07.11.13.
 //  Copyright (c) 2013 Александр Коровкин. All rights reserved.
 //
 
@@ -14,10 +14,14 @@
 @interface Plot : NSManagedObject
 
 @property (nonatomic, retain) NSString * plotName;
+@property (nonatomic, retain) NSNumber * bypassCount;
+@property (nonatomic, retain) NSNumber * lusterCount;
+@property (nonatomic, retain) NSNumber * plotPrice;
+@property (nonatomic, retain) NSNumber * spotCount;
 @property (nonatomic, retain) NSSet *plotDiagonal;
-@property (nonatomic, retain) NSSet *plotSide;
-@property (nonatomic, retain) Projects *plotProject;
 @property (nonatomic, retain) Materials *plotMaterial;
+@property (nonatomic, retain) Projects *plotProject;
+@property (nonatomic, retain) NSSet *plotSide;
 @end
 
 @interface Plot (CoreDataGeneratedAccessors)

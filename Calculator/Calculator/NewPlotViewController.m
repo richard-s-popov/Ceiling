@@ -265,6 +265,10 @@
 //        indexPathSegue = tbl.indexPathForSelectedRow;
 //        indexPathRow = indexPathSegue.row;
     }
+    if ([segue.identifier isEqualToString:@"plotPlotId"]) {
+        PlotVisualController *visualPlot = segue.destinationViewController;
+        visualPlot.plot = newPlot;        
+    }
 }
 
 -(void) saveAll {

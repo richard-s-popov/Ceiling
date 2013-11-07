@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Plot.h"
+#import "PlotDiagonal.h"
+#import "CalculationService.h"
+#import "CoordModel.h"
 
 @interface PlotVisualController : UIViewController
 
-
+@property (nonatomic, strong) Plot *plot;
 
 @end

@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Plot.h"
+#import "PlotDiagonal.h"
+#import "PlotSide.h"
+#include <math.h>
+#include "CoordModel.h"
 
 @interface CalculationService : NSObject
+
+-(NSMutableArray*)getCoords:(Plot *)plot;
 
 @end

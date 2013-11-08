@@ -104,10 +104,10 @@
     UIImage *viewButtomBackground = [[UIImage imageNamed:@"project_viewPlot.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     UIButton *viewPlotButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     viewPlotButton.frame = CGRectMake(0, 0, 220, 50);
-    [viewPlotButton setTitle:@"Сохранить" forState:UIControlStateNormal];
+    [viewPlotButton setTitle:@"Построить" forState:UIControlStateNormal];
     [viewPlotButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
     [viewPlotButton setBackgroundImage:viewButtomBackground forState:UIControlStateNormal];
-    [viewPlotButton addTarget:self action:@selector(saveAll) forControlEvents:UIControlEventTouchUpInside];
+    [viewPlotButton addTarget:self action:@selector(buildPlot) forControlEvents:UIControlEventTouchUpInside];
     [sidesConteinerView addSubview:viewPlotButton];
     
     //кнопка удалить
@@ -300,13 +300,12 @@
     }
 }
 
--(void) saveAll {
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
-    }
+-(void) buildPlot {
+    PlotVisualController *visualPlot = [self.storyboard instantiateViewControllerWithIdentifier:@"plotViewStoryboardId"];
+    visualPlot.plot = newPlot;
+
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Сохранено" message:@"Введенные данные сохранены" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [alert show];
+    [self.navigationController pushViewController:visualPlot animated:YES];
 }
 
 
@@ -332,4 +331,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)saveAll:(id)sender {
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Сохранено" message:@"Введенные данные сохранены" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
+}
 @end

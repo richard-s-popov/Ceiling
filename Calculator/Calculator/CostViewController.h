@@ -14,7 +14,7 @@
 #import "Materials.h"
 
 
-@interface CostViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface CostViewController : UIViewController <UIScrollViewDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
 {
     unsigned luster, bypass, spot;
@@ -26,6 +26,7 @@
     
     __weak IBOutlet UILabel *squareLabel;
     __weak IBOutlet UILabel *perimetrLabel;
+    __weak IBOutlet UIScrollView *scrollView;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *lastCost;

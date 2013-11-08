@@ -63,9 +63,11 @@
     
     //поле для названия чертежа
     //создание текстового поля для ввода диагоналей
-    namePlot = [[UITextField alloc] initWithFrame:CGRectMake(20, 133, 100, 30)];
+    UIImage *additionalButtomBackground = [[UIImage imageNamed:@"project_additionalPlot2.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    namePlot = [[UITextField alloc] initWithFrame:CGRectMake(0, 123, 160, 40)];
     namePlot.delegate = self;
-    namePlot.borderStyle = UITextBorderStyleRoundedRect;
+    namePlot.borderStyle = UITextBorderStyleBezel;
+    namePlot.background = additionalButtomBackground;
     namePlot.placeholder = @"Название";
     namePlot.autocapitalizationType = UITextAutocapitalizationTypeWords;
     namePlot.tag = 2;
@@ -159,6 +161,10 @@
     if ([segue.identifier isEqual: @"projectPlotSegue"]) {
         NewPlotViewController *newPlotViewController = segue.destinationViewController;
         newPlotViewController.plotFromProject = [plotArray objectAtIndex:PlotTableView.indexPathForSelectedRow.row];
+    }
+    if ([segue.identifier isEqual:@"NewMailSegue"]) {
+        emailViewController *emailViewController = segue.destinationViewController;
+        emailViewController.project = project;
     }
 }
 
@@ -311,6 +317,9 @@
     [scrollView addSubview:namePlot];
     [namePlot becomeFirstResponder];
     namePlot.text = @"";
+}
+
+- (IBAction)pushToEmail:(id)sender {
 }
 
 //метод для button newPlot

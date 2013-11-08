@@ -47,6 +47,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //запускаем скроллер
+    [scrollView setScrollEnabled:YES];
+    [scrollView setContentSize:CGSizeMake(320, 500)];
+    
     lusterField.delegate = self;
     bypassField.delegate = self;
     spotField.delegate = self;

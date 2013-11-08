@@ -18,6 +18,8 @@
 
 #import "PlotModel.h"
 
+#import "emailViewController.h"
+
 @interface NewProjectDetailViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
 
 
@@ -36,6 +38,6 @@
 @property (nonatomic, strong) Plot *plot;
 
 - (IBAction)addPlot:(id)sender;
-
+- (IBAction)pushToEmail:(id)sender;
 
 @end

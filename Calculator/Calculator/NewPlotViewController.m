@@ -104,10 +104,10 @@
     UIImage *viewButtomBackground = [[UIImage imageNamed:@"project_viewPlot.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     UIButton *viewPlotButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     viewPlotButton.frame = CGRectMake(0, 0, 220, 50);
-    [viewPlotButton setTitle:@"Сохранить" forState:UIControlStateNormal];
+    [viewPlotButton setTitle:@"Построить" forState:UIControlStateNormal];
     [viewPlotButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
     [viewPlotButton setBackgroundImage:viewButtomBackground forState:UIControlStateNormal];
-    [viewPlotButton addTarget:self action:@selector(saveAll) forControlEvents:UIControlEventTouchUpInside];
+    [viewPlotButton addTarget:self action:@selector(buildPlot) forControlEvents:UIControlEventTouchUpInside];
     [sidesConteinerView addSubview:viewPlotButton];
     
     //кнопка удалить
@@ -226,7 +226,6 @@
                 case 0:
                     newSide.angleFirst = [NSString stringWithFormat:@"%@", alphabet[countTmp]];
                     newSide.angleSecond = [NSString stringWithFormat:@"%@", alphabet[countTmp+1]];
-                    //                cell.textLabel.text = [NSString stringWithFormat:@"%@%@", newSide.angleFirst, newSide.angleSecond];
                     break;
                 case 1:
                     newSide.angleFirst = [NSString stringWithFormat:@"%@1", alphabet[countTmp-26]];
@@ -300,13 +299,66 @@
     }
 }
 
--(void) saveAll {
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
+-(void) buildPlot {
+    
+    //проверка на заполнение сторон и диагоналей
+    int count = 0;
+    int diagonalCount = 0;
+    BOOL emptySide = NO;
+    BOOL emptyDiagonal = NO;
+    
+    while (count != mutableArraySides.count) {
+        
+        PlotSide *someSide = [mutableArraySides objectAtIndex:count];
+        int width = [someSide.sideWidth intValue];
+        
+        if (width == 0) {
+            emptySide = YES;
+        }
+        
+        //проверяем диагонали на нулевые значения
+        NSArray *tmpDiagonalArray = [someSide.sideDiagonal allObjects];
+        int countDiagonalOfSide = 0;
+        while ((countDiagonalOfSide != tmpDiagonalArray.count) ) {
+            
+            PlotDiagonal *tmpDiagonal  = [tmpDiagonalArray objectAtIndex:countDiagonalOfSide];
+            int diagonalWidth = [tmpDiagonal.diagonalWidth intValue];
+            
+            if (diagonalWidth == 0) {
+                emptyDiagonal = YES;
+            }
+            countDiagonalOfSide++;
+        }
+        
+        //проверяем диагонали на колличественное соответствие
+        diagonalCount = diagonalCount+tmpDiagonalArray.count;
+        
+        count++;
     }
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Сохранено" message:@"Введенные данные сохранены" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [alert show];
+    if (emptySide == YES) {
+
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Построение чертежа" message:@"Не все стороны заполнены, пожалуйста введите все необходимые данные" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+    }
+    if (diagonalCount<mutableArraySides.count-3) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Построение чертежа" message:@"Вы ввели недостаточное колличество диагоналей, пожалуйста введите все необходимые данные" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+    }
+    if (emptyDiagonal == YES) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Построение чертежа" message:@"Одна или несколько диагоналей имеют нулевое значение, пожалуйста введите все необходимые данные" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+    }
+    
+    //если все впорядке пускаем в построение чертежа
+    if ((emptySide == NO) && (diagonalCount >= mutableArraySides.count-3) && (emptyDiagonal == NO) ) {
+        PlotVisualController *visualPlot = [self.storyboard instantiateViewControllerWithIdentifier:@"plotViewStoryboardId"];
+        visualPlot.plot = newPlot;
+        
+        
+        [self.navigationController pushViewController:visualPlot animated:YES];
+    }
 }
 
 
@@ -332,4 +384,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)saveAll:(id)sender {
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Сохранено" message:@"Введенные данные сохранены" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
+}
 @end

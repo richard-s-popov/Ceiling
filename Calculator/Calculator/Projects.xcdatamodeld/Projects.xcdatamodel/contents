@@ -21,7 +21,7 @@
         <attribute name="spotCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="plotDiagonal" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlotDiagonal" inverseName="diagonalPlot" inverseEntity="PlotDiagonal" syncable="YES"/>
         <relationship name="plotMaterial" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Materials" inverseName="materialPlot" inverseEntity="Materials" syncable="YES"/>
-        <relationship name="plotProject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Projects" inverseName="projectPlot" inverseEntity="Projects" syncable="YES"/>
+        <relationship name="plotProject" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Projects" inverseName="projectPlot" inverseEntity="Projects" syncable="YES"/>
         <relationship name="plotSide" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlotSide" inverseName="sidePlot" inverseEntity="PlotSide" syncable="YES"/>
     </entity>
     <entity name="PlotDiagonal" representedClassName="PlotDiagonal" syncable="YES">

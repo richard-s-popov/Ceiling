@@ -49,6 +49,7 @@
 		091EDC06182C0F32006A376D /* tabBarShadow2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 091EDC04182C0F32006A376D /* tabBarShadow2@2x.png */; };
 		091EDC09182C1110006A376D /* tbBackground_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 091EDC07182C1110006A376D /* tbBackground_new.png */; };
 		091EDC0A182C1110006A376D /* tbBackground_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 091EDC08182C1110006A376D /* tbBackground_new@2x.png */; };
+		091EDC0C182CC484006A376D /* buttonBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 091EDC0B182CC484006A376D /* buttonBg@2x.png */; };
 		0939C0B9182758CA000249CA /* testTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0939C0B8182758CA000249CA /* testTableViewController.m */; };
 		0942DE4C1815004A0088602F /* NewPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0942DE4B1815004A0088602F /* NewPlotViewController.m */; };
 		094BA1D917F3875700BD1904 /* tbSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 094BA1D817F3875700BD1904 /* tbSelected.png */; };
@@ -83,6 +84,8 @@
 		0982697917C4C5EE007DB54D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982697817C4C5EE007DB54D /* icon.png */; };
 		098284351822E3B200BE7A9E /* PlotDiagonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 098284341822E3B200BE7A9E /* PlotDiagonalViewController.m */; };
 		09879C8217835733005B5E40 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09879C8117835733005B5E40 /* SettingsViewController.m */; };
+		099DECFF182D0ACF0097DCBF /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 099DECFD182D0ACF0097DCBF /* email.png */; };
+		099DED00182D0ACF0097DCBF /* email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 099DECFE182D0ACF0097DCBF /* email@2x.png */; };
 		09C82BBD1789DD8B00A47057 /* SettingsOptionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */; };
 		09C82BC01789DFE300A47057 /* SettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBF1789DFE200A47057 /* SettingsService.m */; };
 		09C93E881791B78100A4FBDC /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C93E871791B78100A4FBDC /* OptionsViewController.m */; };
@@ -158,6 +161,7 @@
 		091EDC04182C0F32006A376D /* tabBarShadow2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBarShadow2@2x.png"; sourceTree = "<group>"; };
 		091EDC07182C1110006A376D /* tbBackground_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tbBackground_new.png; sourceTree = "<group>"; };
 		091EDC08182C1110006A376D /* tbBackground_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tbBackground_new@2x.png"; sourceTree = "<group>"; };
+		091EDC0B182CC484006A376D /* buttonBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonBg@2x.png"; sourceTree = "<group>"; };
 		0939C0B7182758CA000249CA /* testTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testTableViewController.h; sourceTree = "<group>"; };
 		0939C0B8182758CA000249CA /* testTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testTableViewController.m; sourceTree = "<group>"; };
 		0942DE4A1815004A0088602F /* NewPlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlotViewController.h; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 		098284341822E3B200BE7A9E /* PlotDiagonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotDiagonalViewController.m; sourceTree = "<group>"; };
 		09879C8017835733005B5E40 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		09879C8117835733005B5E40 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		099DECFD182D0ACF0097DCBF /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
+		099DECFE182D0ACF0097DCBF /* email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email@2x.png"; sourceTree = "<group>"; };
 		09C82BBB1789DD8B00A47057 /* SettingsOptionsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsOptionsModel.h; sourceTree = "<group>"; };
 		09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsOptionsModel.m; sourceTree = "<group>"; };
 		09C82BBE1789DFE200A47057 /* SettingsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsService.h; sourceTree = "<group>"; };
@@ -369,10 +375,10 @@
 		09598145177F676E001D2122 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				096FD47117EF5EBB0059F2C4 /* NewProject */,
 				26E76C0F1812C6A80027A6F4 /* Services */,
 				0942DE491814FFD90088602F /* newPlot */,
 				0906E27817F18AFE0084D6FD /* Slider */,
-				096FD47117EF5EBB0059F2C4 /* NewProject */,
 				094D320B17E6452000D685EF /* Materials */,
 				0982697A17C530A5007DB54D /* Settings */,
 				0910CDB217D144260032060C /* Additionally Settings */,
@@ -396,6 +402,9 @@
 			children = (
 				094D323717EAD61300D685EF /* addBtn.png */,
 				090BDD6F17EB8C2500B767A5 /* addBtn@2x.png */,
+				099DECFD182D0ACF0097DCBF /* email.png */,
+				099DECFE182D0ACF0097DCBF /* email@2x.png */,
+				091EDC0B182CC484006A376D /* buttonBg@2x.png */,
 				094D323117EA33CB00D685EF /* backBtn.png */,
 				090BDD7717EB8E4000B767A5 /* backBtn@2x.png */,
 				094D323317EA3E4C00D685EF /* barBtn.png */,
@@ -599,12 +608,14 @@
 			files = (
 				091EDC06182C0F32006A376D /* tabBarShadow2@2x.png in Resources */,
 				091EDC05182C0F32006A376D /* tabBarShadow2.png in Resources */,
+				099DED00182D0ACF0097DCBF /* email@2x.png in Resources */,
 				090BDD6C17EB349400B767A5 /* Futuris Cyrillic.ttf in Resources */,
 				090BDD6B17EB32BB00B767A5 /* PTN57F.ttf in Resources */,
 				091EDBFF182C05F5006A376D /* project_additionalPlot2.png in Resources */,
 				091EDBFA182BF145006A376D /* settings_new@2x.png in Resources */,
 				0959814A177F676E001D2122 /* InfoPlist.strings in Resources */,
 				09598152177F676E001D2122 /* Default.png in Resources */,
+				099DECFF182D0ACF0097DCBF /* email.png in Resources */,
 				09598154177F676E001D2122 /* Default@2x.png in Resources */,
 				09598156177F676E001D2122 /* Default-568h@2x.png in Resources */,
 				09598159177F676E001D2122 /* MainStoryboard.storyboard in Resources */,
@@ -613,6 +624,7 @@
 				091EDC00182C05F5006A376D /* project_addPlot.png in Resources */,
 				094D322417E9DA5000D685EF /* icon57x57.png in Resources */,
 				094D322617E9E0DA00D685EF /* icon114x114.png in Resources */,
+				091EDC0C182CC484006A376D /* buttonBg@2x.png in Resources */,
 				094D322E17EA1DF900D685EF /* navBar4.png in Resources */,
 				094D323017EA1F2B00D685EF /* navBarShadow.png in Resources */,
 				091EDBF7182BF145006A376D /* home_new.png in Resources */,

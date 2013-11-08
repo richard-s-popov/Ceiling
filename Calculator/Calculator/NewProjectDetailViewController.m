@@ -12,6 +12,7 @@
     NSMutableArray *mutableArray;
     NSArray *plotArray;
     UITextField *namePlot;
+    int numberOfButton;
 }
 
 @end
@@ -62,9 +63,11 @@
     
     //поле для названия чертежа
     //создание текстового поля для ввода диагоналей
-    namePlot = [[UITextField alloc] initWithFrame:CGRectMake(20, 133, 100, 30)];
+    UIImage *additionalButtomBackground = [[UIImage imageNamed:@"project_additionalPlot2.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    namePlot = [[UITextField alloc] initWithFrame:CGRectMake(0, 123, 160, 40)];
     namePlot.delegate = self;
-    namePlot.borderStyle = UITextBorderStyleRoundedRect;
+    namePlot.borderStyle = UITextBorderStyleBezel;
+    namePlot.background = additionalButtomBackground;
     namePlot.placeholder = @"Название";
     namePlot.autocapitalizationType = UITextAutocapitalizationTypeWords;
     namePlot.tag = 2;
@@ -159,6 +162,10 @@
         NewPlotViewController *newPlotViewController = segue.destinationViewController;
         newPlotViewController.plotFromProject = [plotArray objectAtIndex:PlotTableView.indexPathForSelectedRow.row];
     }
+    if ([segue.identifier isEqual:@"NewMailSegue"]) {
+        emailViewController *emailViewController = segue.destinationViewController;
+        emailViewController.project = project;
+    }
 }
 
 
@@ -224,7 +231,7 @@
     UIImage *additionalButtomBackground = [[UIImage imageNamed:@"project_additionalPlot2.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     UIButton *additionalPlotButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     additionalPlotButton.frame = CGRectMake(0, 50, 320, 50);
-    [additionalPlotButton setTitle:@"Дополнительные настройки" forState:UIControlStateNormal];
+    [additionalPlotButton setTitle:@"Детали" forState:UIControlStateNormal];
     [[additionalPlotButton titleLabel] setFont:[UIFont fontWithName:@"FuturisCyrillic" size:16]];
     [additionalPlotButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal ];
     [additionalPlotButton setBackgroundImage:additionalButtomBackground forState:UIControlStateNormal];
@@ -279,14 +286,30 @@
 
 //метод для удаления чертежа
 -(void)deletePlotAction:(UIButton*)deletePlotButton {
-    
-    [project removeProjectPlotObject:[plotArray objectAtIndex:[deletePlotButton tag]-1]];
-    
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
+    numberOfButton = [deletePlotButton tag]-1;
+    [self alertOKCancelAction];
+}
+
+//метод подтверждения удаления чертежа
+- (void)alertOKCancelAction {
+    // open a alert with an OK and cancel button
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Удаление чертежа" message:@"Вы уверены, что хотите удалить этот чертеж?" delegate:self cancelButtonTitle:@"Удалить" otherButtonTitles:@"Отмена", nil];
+    [alert show];
+}
+
+
+- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    // the user clicked one of the OK/Cancel buttons
+    if (buttonIndex == 0)
+    {
+        [project removeProjectPlotObject:[plotArray objectAtIndex:numberOfButton]];
+        
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+        }
+        
+        [self reloadPlotTable];
     }
-    
-    [self reloadPlotTable];
 }
 
 
@@ -294,6 +317,9 @@
     [scrollView addSubview:namePlot];
     [namePlot becomeFirstResponder];
     namePlot.text = @"";
+}
+
+- (IBAction)pushToEmail:(id)sender {
 }
 
 //метод для button newPlot

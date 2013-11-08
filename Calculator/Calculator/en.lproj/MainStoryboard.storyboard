@@ -75,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYd-j0-mxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3328" y="1129"/>
+            <point key="canvasLocation" x="3186" y="1325"/>
         </scene>
         <!--Cost View Controller - Стоимость-->
         <scene sceneID="EP8-ec-d82">
@@ -85,68 +85,106 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="итого:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qNO-FT-7JX">
-                                <rect key="frame" x="221" y="265" width="79" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h72-Sn-k92">
-                                <rect key="frame" x="190" y="294" width="110" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="oBb-kP-oqF">
-                                <rect key="frame" x="203" y="81" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <action selector="calculateTextField:" destination="pVq-l1-Bjo" eventType="editingDidEnd" id="h5h-jb-wCY"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="hSv-Sk-uG0">
-                                <rect key="frame" x="203" y="119" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <action selector="calculateTextField:" destination="pVq-l1-Bjo" eventType="editingDidEnd" id="DTy-Oc-lzc"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="BaU-9m-0VJ">
-                                <rect key="frame" x="203" y="157" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <action selector="calculateTextField:" destination="pVq-l1-Bjo" eventType="editingDidEnd" id="mmc-5P-Oqo"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кол-во люстр" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xfN-zM-vYp">
-                                <rect key="frame" x="20" y="84" width="112" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кол-во обводов" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SWG-hc-NRu">
-                                <rect key="frame" x="20" y="122" width="130" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кол-во светильников" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qbz-0h-3N4">
-                                <rect key="frame" x="20" y="161" width="173" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="YqS-ll-Xpj">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="итого:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qNO-FT-7JX">
+                                        <rect key="frame" x="221" y="380" width="79" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h72-Sn-k92">
+                                        <rect key="frame" x="190" y="402" width="110" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Площадь:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H9x-HX-FqH">
+                                        <rect key="frame" x="20" y="351" width="80" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T8g-7Z-fyP">
+                                        <rect key="frame" x="114" y="351" width="85" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Периметр:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qDT-ZP-Tbg">
+                                        <rect key="frame" x="20" y="380" width="86" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J5r-fT-X9b">
+                                        <rect key="frame" x="114" y="380" width="85" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" id="I5x-Gq-eYK">
+                                        <rect key="frame" x="0.0" y="165" width="320" height="162"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="pVq-l1-Bjo" id="4Xj-Jv-3RX"/>
+                                            <outlet property="delegate" destination="pVq-l1-Bjo" id="wPI-XQ-aVL"/>
+                                        </connections>
+                                    </pickerView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кол-во светильников" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qbz-0h-3N4">
+                                        <rect key="frame" x="20" y="121" width="173" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="BaU-9m-0VJ">
+                                        <rect key="frame" x="203" y="117" width="97" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <action selector="calculateTextField:" destination="pVq-l1-Bjo" eventType="editingDidEnd" id="mmc-5P-Oqo"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кол-во обводов" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SWG-hc-NRu">
+                                        <rect key="frame" x="20" y="86" width="130" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="hSv-Sk-uG0">
+                                        <rect key="frame" x="203" y="83" width="97" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <action selector="calculateTextField:" destination="pVq-l1-Bjo" eventType="editingDidEnd" id="DTy-Oc-lzc"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кол-во люстр" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xfN-zM-vYp">
+                                        <rect key="frame" x="20" y="48" width="112" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" id="oBb-kP-oqF">
+                                        <rect key="frame" x="203" y="45" width="97" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <action selector="calculateTextField:" destination="pVq-l1-Bjo" eventType="editingDidEnd" id="h5h-jb-wCY"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -155,12 +193,17 @@
                         <outlet property="bypassField" destination="hSv-Sk-uG0" id="668-Hn-15a"/>
                         <outlet property="lastCost" destination="h72-Sn-k92" id="j51-XP-ti6"/>
                         <outlet property="lusterField" destination="oBb-kP-oqF" id="ubd-bf-h3l"/>
+                        <outlet property="perimetrLabel" destination="J5r-fT-X9b" id="tFY-ed-Ozn"/>
+                        <outlet property="pickerView" destination="I5x-Gq-eYK" id="DMb-HZ-mDC"/>
+                        <outlet property="pickerViewField" destination="I5x-Gq-eYK" id="SVK-ug-aXu"/>
+                        <outlet property="scrollView" destination="YqS-ll-Xpj" id="3ng-Oc-6ou"/>
                         <outlet property="spotField" destination="BaU-9m-0VJ" id="6ta-lo-68M"/>
+                        <outlet property="squareLabel" destination="T8g-7Z-fyP" id="rjJ-ea-rd2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZG-qd-tXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3328" y="-304"/>
+            <point key="canvasLocation" x="3668" y="-876"/>
         </scene>
         <!--Plot Rect View Controller - Чертеж-->
         <scene sceneID="5nj-I0-Y8h">
@@ -434,20 +477,48 @@
             </objects>
             <point key="canvasLocation" x="-367" y="444"/>
         </scene>
-        <!--Email View Controller-->
+        <!--Email View Controller - Отправить E-mail-->
         <scene sceneID="aik-aJ-WJi">
             <objects>
                 <viewController storyboardIdentifier="E-Mail" id="Uxx-Kj-FDb" customClass="emailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PIA-1D-nbZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ujd-u5-lbG">
+                                <rect key="frame" x="20" y="105" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Отправить проект:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MYU-zg-E1x">
+                                <rect key="frame" x="20" y="76" width="151" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="v1C-to-8f4">
+                                <rect key="frame" x="207" y="134" width="93" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Отправить">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendEmailAction:" destination="Uxx-Kj-FDb" eventType="touchUpInside" id="xnQ-dv-dFD"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="QhY-jF-xG3"/>
+                    <navigationItem key="navigationItem" title="Отправить E-mail" id="QhY-jF-xG3"/>
+                    <connections>
+                        <outlet property="nameOfProject" destination="ujd-u5-lbG" id="amI-G4-pLu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kDa-Gj-BOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3695" y="-304"/>
+            <point key="canvasLocation" x="4059" y="-876"/>
         </scene>
         <!--Materials Detail View Controller-->
         <scene sceneID="r4e-KA-Mh1">
@@ -524,7 +595,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYo-1K-ZNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3251" y="444"/>
+            <point key="canvasLocation" x="4059" y="480"/>
         </scene>
         <!--New Project List View Controller - Клиенты-->
         <scene sceneID="Rkn-fv-KOz">
@@ -575,7 +646,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4EW-Oj-w0f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2143" y="-231"/>
+            <point key="canvasLocation" x="2295" y="-543"/>
         </scene>
         <!--View Controller - Настройки-->
         <scene sceneID="Gyl-vz-ZG5">
@@ -586,9 +657,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rhv-ca-1MI">
-                                <rect key="frame" x="20" y="90" width="280" height="34"/>
+                                <rect key="frame" x="20" y="86" width="280" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Настройка материалов">
+                                <state key="normal" title="Настройка материалов" backgroundImage="buttonBg.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -596,9 +667,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="L1r-0H-M7v">
-                                <rect key="frame" x="20" y="132" width="280" height="30"/>
+                                <rect key="frame" x="20" y="143" width="280" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Контакты">
+                                <state key="normal" title="Контакты" backgroundImage="buttonBg.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -606,21 +677,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9ap-V7-HPX">
-                                <rect key="frame" x="20" y="170" width="280" height="30"/>
+                                <rect key="frame" x="20" y="200" width="280" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Дополнительные">
+                                <state key="normal" title="Дополнительные" backgroundImage="buttonBg.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="eQk-3S-jeL" kind="push" id="hyy-qO-Wqx"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2mi-nu-LSg">
-                                <rect key="frame" x="20" y="208" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Тест чертежа">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -629,7 +693,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4p-Ry-4ie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2034" y="823"/>
+            <point key="canvasLocation" x="2392" y="1135"/>
         </scene>
         <!--Materials List View Controller - Материалы-->
         <scene sceneID="bdK-TS-gJf">
@@ -698,7 +762,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SkO-zf-VS4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2834" y="444"/>
+            <point key="canvasLocation" x="3186" y="692"/>
         </scene>
         <!--New Project Detail View Controller-->
         <scene sceneID="v6Z-9Q-kLS">
@@ -716,7 +780,7 @@
                                         <rect key="frame" x="48" y="44" width="34" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" id="pxe-tL-oYf">
@@ -729,6 +793,7 @@
                                         <rect key="frame" x="20" y="86" width="62" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" id="ez3-Yg-fkS">
@@ -737,24 +802,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ecl-NB-jMR">
-                                        <rect key="frame" x="20" y="520" width="280" height="127"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="b2E-en-Pwl">
                                         <rect key="frame" x="20" y="478" width="102" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="eMail"/>
-                                        <connections>
-                                            <segue destination="Uxx-Kj-FDb" kind="push" identifier="NewMail" id="VRv-JW-Avw"/>
-                                        </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="ybF-OX-DwY">
-                                        <rect key="frame" x="0.0" y="171" width="320" height="173"/>
+                                        <rect key="frame" x="0.0" y="200" width="320" height="173"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -792,16 +846,37 @@
                                         </connections>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cxb-dh-Cdp">
-                                        <rect key="frame" x="148" y="136" width="152" height="27"/>
+                                        <rect key="frame" x="0.0" y="123" width="160" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="добавить чертеж">
+                                        <state key="normal" title="добавить чертеж" backgroundImage="project_addPlot.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="addPlot:" destination="gvs-l1-TvH" eventType="touchUpInside" id="fQo-VG-Tf0"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="l42-7s-M7p">
+                                        <rect key="frame" x="160" y="123" width="160" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="email.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pushToEmail:" destination="gvs-l1-TvH" eventType="touchUpInside" id="O7C-im-s0z"/>
+                                            <segue destination="Uxx-Kj-FDb" kind="push" identifier="NewMailSegue" id="Zsp-lI-v2h"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Чертежи этого проекта:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hkj-Ga-yPW">
+                                        <rect key="frame" x="20" y="171" width="194" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -810,14 +885,13 @@
                     <connections>
                         <outlet property="PlotTableView" destination="ybF-OX-DwY" id="9DN-gs-BTy"/>
                         <outlet property="adressClient" destination="ez3-Yg-fkS" id="0yj-1v-rTf"/>
-                        <outlet property="explaneClient" destination="ecl-NB-jMR" id="BGk-X2-ehJ"/>
                         <outlet property="nameClient" destination="pxe-tL-oYf" id="JRS-OB-NmR"/>
                         <outlet property="scrollView" destination="vQp-kb-7SE" id="m6A-ay-2NY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nD8-i6-sMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2602" y="-231"/>
+            <point key="canvasLocation" x="2754" y="-543"/>
         </scene>
         <!--Settings View Controller - Контакты-->
         <scene sceneID="7Nc-wv-U9g">
@@ -917,7 +991,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lxg-G3-JYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3731" y="829"/>
+            <point key="canvasLocation" x="4059" y="1135"/>
         </scene>
         <!--View Controller - Настройте Самсон-Мастре-->
         <scene sceneID="3vv-Qr-qL4">
@@ -956,7 +1030,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2143" y="-999"/>
+            <point key="canvasLocation" x="2287" y="-1291"/>
         </scene>
         <!--View Controller - Cоздайте новый проект-->
         <scene sceneID="xPr-C7-DDv">
@@ -990,7 +1064,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2646" y="-999"/>
+            <point key="canvasLocation" x="2790" y="-1291"/>
         </scene>
         <!--View Controller - Создайте чертеж-->
         <scene sceneID="8Jy-7Z-1PV">
@@ -1014,7 +1088,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIG-Ri-7sE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3088" y="-999"/>
+            <point key="canvasLocation" x="3232" y="-1291"/>
         </scene>
         <!--Navigation Controller - Проекты-->
         <scene sceneID="qR6-Gu-7H9">
@@ -1033,7 +1107,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XED-fg-tTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1617" y="-231"/>
+            <point key="canvasLocation" x="1769" y="-543"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eAV-zo-kNn">
@@ -1053,7 +1127,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQn-xj-bjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="957" y="204"/>
+            <point key="canvasLocation" x="741" y="140"/>
         </scene>
         <!--Navigation Controller - Настройки-->
         <scene sceneID="wHR-dp-Nn7">
@@ -1072,13 +1146,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="75J-Hb-7qx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1617" y="823"/>
+            <point key="canvasLocation" x="1975" y="1135"/>
         </scene>
         <!--New Plot View Controller - Ввод сторон-->
         <scene sceneID="Len-7Y-aPt">
             <objects>
                 <viewController storyboardIdentifier="PlotSidesStoryboardId" id="tv2-aW-OD2" customClass="NewPlotViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="MTx-co-cwU">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="MTx-co-cwU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -1125,9 +1199,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Ввод сторон" id="SLL-iu-Hnj">
-                        <barButtonItem key="rightBarButtonItem" title="Построить" id="igG-Uo-1iS">
+                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="Tco-rM-MMf">
                             <connections>
-                                <segue destination="Wz3-PS-9u2" kind="push" identifier="plotPlotId" id="xy5-VE-EZn"/>
+                                <action selector="saveAll:" destination="tv2-aW-OD2" id="WPH-wI-2ae"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1138,7 +1212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xR2-ZC-CKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2143" y="2429"/>
+            <point key="canvasLocation" x="4059" y="-247"/>
         </scene>
         <!--Plot Diagonal View Controller - Ввод диагоналей-->
         <scene sceneID="A5k-w4-bNM">
@@ -1202,18 +1276,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCX-SE-vZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3104" y="2236"/>
+            <point key="canvasLocation" x="4756" y="-247"/>
         </scene>
         <!--Plot Visual Controller-->
         <scene sceneID="RLS-3z-NxZ">
             <objects>
-                <viewController id="Wz3-PS-9u2" customClass="PlotVisualController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="plotViewStoryboardId" id="Wz3-PS-9u2" customClass="PlotVisualController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CmS-yt-a57">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="7p6-em-ceF">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -1251,7 +1325,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3104" y="2905"/>
+            <point key="canvasLocation" x="4756" y="393"/>
         </scene>
         <!--Navigation Controller - Помощь-->
         <scene sceneID="XII-sO-EvH">
@@ -1270,7 +1344,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gD-2c-Mf0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1617" y="-999"/>
+            <point key="canvasLocation" x="1761" y="-1291"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mXG-3P-4po">
@@ -1289,7 +1363,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SxL-NZ-hJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1617" y="1939"/>
+            <point key="canvasLocation" x="3277" y="-33"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="VxI-M3-WTH">
@@ -1304,7 +1378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ScI-9i-NKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2143" y="2285"/>
+            <point key="canvasLocation" x="4791" y="-468"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QZp-Nb-EIG">
@@ -1319,12 +1393,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aB5-mM-tGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3104" y="2067"/>
+            <point key="canvasLocation" x="5472" y="-468"/>
         </scene>
     </scenes>
     <resources>
+        <image name="buttonBg.png" width="303" height="49"/>
+        <image name="email.png" width="170" height="40"/>
         <image name="guide_new.png" width="34" height="34"/>
         <image name="home_new.png" width="34" height="34"/>
+        <image name="project_addPlot.png" width="150" height="40"/>
         <image name="settings_new.png" width="34" height="34"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

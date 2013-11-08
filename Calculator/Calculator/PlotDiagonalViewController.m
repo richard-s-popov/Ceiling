@@ -9,17 +9,23 @@
 #import "PlotDiagonalViewController.h"
 
 @interface PlotDiagonalViewController () {
-    NSArray *list;
-    NSMutableArray *listDiagonal;
+//    NSArray *list;
     UITextField *myTextField;
-    UITextField *diagonalTextField;
+    
     PlotSide *newSide;
     NSNumber *lustSide;
     NSNumber *lustDiagonal;
+    
+    UITextField *diagonalTextField;
     NSMutableArray *textFieldArray;
     BOOL isSide;
     UILabel *startLable;
+    
     NSIndexPath *diagonalIndexPath;
+    PlotDiagonal *tmpDiagonalForSave;
+    
+    NSMutableArray *listDiagonal;
+    NSArray *savedDiagonals;
 }
 
 @end
@@ -183,10 +189,6 @@
             //создаем массив диагоналей
             [listDiagonal addObject:diagonalTmp];
             
-            //создаем массив текстовых полей для диагоналей
-//            [self addDiagonalTextField];
-//            [textFieldArray addObject:diagonalTextField];
-            
             sidesCount++;
         }
     }
@@ -311,16 +313,39 @@
     else {
         diagonalTmp = [listDiagonal objectAtIndex:diagonalIndexPath.row];
         lustDiagonal = [NSNumber numberWithInt:[diagonalTextField.text intValue]];
-    
-        PlotDiagonal *tmpDiagonal = [NSEntityDescription insertNewObjectForEntityForName:@"PlotDiagonal" inManagedObjectContext:self.managedObjectContext];
-        tmpDiagonal.diagonalWidth = lustDiagonal;
-        tmpDiagonal.angleFirst = diagonalTmp.angleFirst;
-        tmpDiagonal.angleSecond = diagonalTmp.angleSecond;
         
-        [plot addPlotDiagonalObject:tmpDiagonal];
-        [side addSideDiagonalObject:tmpDiagonal];
+        //проверка диагонали
+        NSLog(@"diagonalWidth = %d", [diagonalTmp.diagonalWidth intValue]);
+        if ([diagonalTmp.diagonalWidth intValue] == 0) {
+            NSLog(@"diagonal = 0");
+            tmpDiagonalForSave = [NSEntityDescription insertNewObjectForEntityForName:@"PlotDiagonal" inManagedObjectContext:self.managedObjectContext];
+            
+            tmpDiagonalForSave.diagonalWidth = lustDiagonal;
+            tmpDiagonalForSave.angleFirst = diagonalTmp.angleFirst;
+            tmpDiagonalForSave.angleSecond = diagonalTmp.angleSecond;
+            
+            [plot addPlotDiagonalObject:tmpDiagonalForSave];
+            [side addSideDiagonalObject:tmpDiagonalForSave];
+            
+            
+            [self populateDiagonalWidth];
+        }
+        //условие для изменения диагонали в контексте , если диагональ уже была создана
+        else {
+
+            //создаем выборку по углам
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(angleFirst == %@) && (angleSecond == %@)", diagonalTmp.angleFirst, diagonalTmp.angleSecond];
+            NSSet *filteredSet = [side.sideDiagonal filteredSetUsingPredicate:predicate];
+            //извлекаем и изменяем объект
+            PlotDiagonal *filteredDiagonal = [[filteredSet allObjects] objectAtIndex:0];
+            filteredDiagonal.diagonalWidth = lustDiagonal;
+            //вносим визуальные изменения в таблицу и во временный массив
+            diagonalTmp.diagonalWidth = lustDiagonal;
+            
+        }
         
-        [self populateDiagonalWidth];
+        
+        
         [diagonalTextField removeFromSuperview];
         startLable.text = @"Нажимая на диагонали вводите их длинну";
         

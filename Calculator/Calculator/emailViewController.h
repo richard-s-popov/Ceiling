@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <MessageUI/MFMailComposeViewController.h>
+#import "CalcAppDelegate.h"
+#import "Projects.h"
 
-@interface emailViewController : UIViewController <MFMailComposeViewControllerDelegate>
+@interface emailViewController : UIViewController <MFMailComposeViewControllerDelegate> {
+    
+    
+    __weak IBOutlet UILabel *nameOfProject;
+}
 
-
+@property (nonatomic, strong) Projects *project;
+- (IBAction)sendEmailAction:(id)sender;
 
 @end

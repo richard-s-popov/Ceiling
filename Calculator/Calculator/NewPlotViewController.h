@@ -29,4 +29,6 @@
 @property (strong, nonatomic) IBOutlet UIView *sidesView;
 @property (weak, nonatomic) IBOutlet UIView *sidesConteinerView;
 
+- (IBAction)saveAll:(id)sender;
+
 @end

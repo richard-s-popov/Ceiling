@@ -226,7 +226,6 @@
                 case 0:
                     newSide.angleFirst = [NSString stringWithFormat:@"%@", alphabet[countTmp]];
                     newSide.angleSecond = [NSString stringWithFormat:@"%@", alphabet[countTmp+1]];
-                    //                cell.textLabel.text = [NSString stringWithFormat:@"%@%@", newSide.angleFirst, newSide.angleSecond];
                     break;
                 case 1:
                     newSide.angleFirst = [NSString stringWithFormat:@"%@1", alphabet[countTmp-26]];
@@ -301,11 +300,60 @@
 }
 
 -(void) buildPlot {
-    PlotVisualController *visualPlot = [self.storyboard instantiateViewControllerWithIdentifier:@"plotViewStoryboardId"];
-    visualPlot.plot = newPlot;
-
     
-    [self.navigationController pushViewController:visualPlot animated:YES];
+    //проверка на заполнение сторон и диагоналей
+    int count = 0;
+    int diagonalCount = 0;
+    BOOL emptySide = NO;
+    BOOL emptyDiagonal = NO;
+    
+    while (count != mutableArraySides.count) {
+        
+        PlotSide *someSide = [mutableArraySides objectAtIndex:count];
+        int width = [someSide.sideWidth intValue];
+        
+        if (width == 0) {
+            emptySide = YES;
+        }
+        
+        //проверяем диагонали на нулевые значения
+        NSArray *tmpDiagonalArray = [someSide.sideDiagonal allObjects];
+        int countDiagonalOfSide = 0;
+        while ((countDiagonalOfSide != tmpDiagonalArray.count) ) {
+            
+            PlotDiagonal *tmpDiagonal  = [tmpDiagonalArray objectAtIndex:countDiagonalOfSide];
+            int diagonalWidth = [tmpDiagonal.diagonalWidth intValue];
+            
+            if (diagonalWidth == 0) {
+                emptyDiagonal = YES;
+            }
+            countDiagonalOfSide++;
+        }
+        
+        //проверяем диагонали на колличественное соответствие
+        diagonalCount = diagonalCount+tmpDiagonalArray.count;
+        
+        count++;
+    }
+    
+    if (emptySide == YES) {
+        NSLog(@"не все стороны заполнены!");
+    }
+    if (diagonalCount<mutableArraySides.count-3) {
+        NSLog(@"недостаточное колличество диагоналей!");
+    }
+    if (emptyDiagonal == YES) {
+        NSLog(@"Одна или несколько диагоналей имеют нулевое значение");
+    }
+    
+    //если все впорядке пускаем в построение чертежа
+    if ((emptySide == NO) && (diagonalCount >= mutableArraySides.count-3) && (emptyDiagonal == NO) ) {
+        PlotVisualController *visualPlot = [self.storyboard instantiateViewControllerWithIdentifier:@"plotViewStoryboardId"];
+        visualPlot.plot = newPlot;
+        
+        
+        [self.navigationController pushViewController:visualPlot animated:YES];
+    }
 }
 
 

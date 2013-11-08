@@ -127,6 +127,12 @@
     
     contacts = settingsService.Read;
     
+    //создаем временный объект проекта
+    Projects *tmpProject = project;
+    NSArray *tmpArrayPlots = [project.projectPlot allObjects];
+    
+    NSString *message = [NSString stringWithFormat:@"имя: %@ \n адрес:%@ \n колличество потолков:%d", tmpProject.projectName, tmpProject.projectAdress, tmpArrayPlots.count];
+    
     // Проверяем, настроен ли почтовый клиент на отправку почту
     if (([MFMailComposeViewController canSendMail]) & (contacts.managerMail != nil) & (![contacts.managerMail isEqual:@""]) ) {
         
@@ -139,7 +145,7 @@
         // Тема письма
         [mailController setSubject:@"Приложение"];
         // Текст письма
-        [mailController setMessageBody:@"Успешная отправка!!!" isHTML:NO];
+        [mailController setMessageBody:message isHTML:NO];
         // Если объект создан
         if (mailController) {
             // Показываем контроллер

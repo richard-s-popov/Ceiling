@@ -337,13 +337,18 @@
     }
     
     if (emptySide == YES) {
-        NSLog(@"не все стороны заполнены!");
+
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Построение чертежа" message:@"Не все стороны заполнены, пожалуйста введите все необходимые данные" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
     }
     if (diagonalCount<mutableArraySides.count-3) {
-        NSLog(@"недостаточное колличество диагоналей!");
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Построение чертежа" message:@"Вы ввели недостаточное колличество диагоналей, пожалуйста введите все необходимые данные" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
     }
     if (emptyDiagonal == YES) {
-        NSLog(@"Одна или несколько диагоналей имеют нулевое значение");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Построение чертежа" message:@"Одна или несколько диагоналей имеют нулевое значение, пожалуйста введите все необходимые данные" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
     }
     
     //если все впорядке пускаем в построение чертежа

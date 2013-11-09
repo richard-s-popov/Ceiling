@@ -62,9 +62,8 @@
 
     
     //поле для названия чертежа
-    //создание текстового поля для ввода диагоналей
     UIImage *additionalButtomBackground = [[UIImage imageNamed:@"project_additionalPlot2.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-    namePlot = [[UITextField alloc] initWithFrame:CGRectMake(0, 123, 160, 40)];
+    namePlot = [[UITextField alloc] initWithFrame:CGRectMake(0, 141, 160, 40)];
     namePlot.delegate = self;
     namePlot.borderStyle = UITextBorderStyleBezel;
     namePlot.background = additionalButtomBackground;

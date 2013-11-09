@@ -62,13 +62,18 @@ char alphabet2[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     CalculationService *calcService = [[CalculationService alloc] init];
     coordsArray = [calcService getCoords:plot];
     diagonalArray = [calcService getDiagonalCoords:plot];
+    double s = [calcService getSpaceValue:coordsArray];
+    double p = [calcService getPerimetr:plot];
+    
+    plot.plotPrice = [NSNumber numberWithDouble:s / 10000];
+    plot.plotPerimetr = [NSNumber numberWithDouble:p / 100];
     
     scaleFactor = [[UIScreen mainScreen] scale];
     CGRect screen = [[UIScreen mainScreen] bounds];
     CGFloat widthInPixel = screen.size.width * scaleFactor;
     CGFloat heightInPixel = screen.size.height * scaleFactor;
     
-    // Сохраняем размеры области рисования
+    // Сохраняем размеры области рисования0
     size = CGSizeMake(widthInPixel, heightInPixel);
     
     CoordModel *firstCoord = [coordsArray objectAtIndex:0];

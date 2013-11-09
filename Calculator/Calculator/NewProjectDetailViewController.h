@@ -28,11 +28,9 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *nameClient;
 @property (strong, nonatomic) IBOutlet UITextField *adressClient;
+@property (weak, nonatomic) IBOutlet UITextField *phoneClient;
+
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) IBOutlet UITextField *lusterClient;
-@property (strong, nonatomic) IBOutlet UITextField *bypassClient;
-@property (strong, nonatomic) IBOutlet UITextField *spotClient;
-@property (strong, nonatomic) IBOutlet UITextView *explaneClient;
 
 @property (weak, nonatomic) IBOutlet UITableView *PlotTableView;
 @property (nonatomic, strong) Plot *plot;

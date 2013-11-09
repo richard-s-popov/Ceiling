@@ -17,7 +17,9 @@
         <attribute name="bypassCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="lusterCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="plotName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plotPerimetr" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="plotPrice" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="plotSquare" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
         <attribute name="spotCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="plotDiagonal" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlotDiagonal" inverseName="diagonalPlot" inverseEntity="PlotDiagonal" syncable="YES"/>
         <relationship name="plotMaterial" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Materials" inverseName="materialPlot" inverseEntity="Materials" syncable="YES"/>
@@ -43,6 +45,7 @@
         <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="projectAdress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectPhone" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="projectPlot" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Plot" inverseName="plotProject" inverseEntity="Plot" syncable="YES"/>
     </entity>
     <elements>

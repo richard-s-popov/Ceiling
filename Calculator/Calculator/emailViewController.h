@@ -15,6 +15,8 @@
     
     
     __weak IBOutlet UILabel *nameOfProject;
+    __weak IBOutlet UILabel *adresslabel;
+    __weak IBOutlet UILabel *phoneLabel;
 }
 
 @property (nonatomic, strong) Projects *project;

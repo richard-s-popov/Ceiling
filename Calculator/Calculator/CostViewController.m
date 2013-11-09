@@ -113,8 +113,8 @@
     spotField.inputAccessoryView = numberToolbar;
     
     //подтягиваем площадь и периметр
-    int square = 10;
-    int perimetr = 14;
+    int square = [plot.plotSquare floatValue];
+    int perimetr = [plot.plotPerimetr floatValue];
     squareLabel.text = [NSString stringWithFormat:@"%d м.кв.", square];
     perimetrLabel.text = [NSString stringWithFormat:@"%d м.", perimetr];
     
@@ -187,6 +187,20 @@ numberOfRowsInComponent:(NSInteger)component
     
     plot.plotPrice = [NSNumber numberWithInt:price];
     lastCost.text = [NSString stringWithFormat:@"%@ руб.", plot.plotPrice];
+    
+    NSArray *plotArray = [project.projectPlot allObjects];
+    int countPlot = 0;
+    project.projectPrice = 0;
+    int projectPrice = 0;
+    while (countPlot != plotArray.count) {
+        
+        NSNumber *plotPrice = [[plotArray objectAtIndex:countPlot] plotPrice];
+        projectPrice = projectPrice + [plotPrice intValue];
+        
+        countPlot++;
+    }
+    
+    project.projectPrice = [NSNumber numberWithInt:projectPrice];
 }
 
 - (void)didReceiveMemoryWarning

@@ -46,6 +46,7 @@
         <attribute name="projectAdress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="projectPhone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectPrice" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="projectPlot" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Plot" inverseName="plotProject" inverseEntity="Plot" syncable="YES"/>
     </entity>
     <elements>

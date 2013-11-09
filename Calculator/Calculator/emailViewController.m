@@ -33,6 +33,8 @@
     Projects *tmpProject = project;
     
     nameOfProject.text = [NSString stringWithFormat:@"%@", tmpProject.projectName];
+    adresslabel.text = [NSString stringWithFormat:@"%@", tmpProject.projectAdress];
+    phoneLabel.text = [NSString stringWithFormat:@"%@", tmpProject.projectPhone];
     
 //    // Создади кноку типа отправить
 //    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -50,45 +52,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-- (void)onButtonPressed
-{
-//    //подключаем сохраненные данные настроек
-//    
-//    SettingsOptionsModel *contacts = [[SettingsOptionsModel alloc] init];
-//    SettingsService *settingsService = [[SettingsService alloc] init];
-//    
-//    contacts = settingsService.Read;
-//    
-//    // Проверяем, настроен ли почтовый клиент на отправку почту
-//    if (([MFMailComposeViewController canSendMail]) & (contacts.managerMail != nil) & (![contacts.managerMail isEqual:@""]) ) {
-//        
-//        // Создаем контроллер
-//        MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
-//        // Делегатом будем мы
-//        mailController.mailComposeDelegate = self;
-//        // Задаем адрес на который отправлять почту
-//        [mailController setToRecipients:@[contacts.managerMail]];
-//        // Тема письма
-//        [mailController setSubject:@"Приложение"];
-//        // Текст письма
-//        [mailController setMessageBody:@"Успешная отправка!!!" isHTML:NO];
-//        // Если объект создан
-//        if (mailController) {
-//            // Показываем контроллер
-//            [self presentViewController:mailController animated:YES completion:nil];
-//        }
-//        
-//    } else {
-//        
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Внимание" message:@"Пожалуста, внесите данные в настройки контактов" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-//        [alert show];
-//        
-//        NSLog(@"пожалуйста введите данные в настройках");
-//        // TODO: Обработка ошибки
-//    }
 }
 
 

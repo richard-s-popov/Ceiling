@@ -39,6 +39,29 @@ double dliny[Nmax][Nmax];
     return array;
 }
 
+-(NSMutableArray*)getDiagonalCoords:(Plot *)plot
+{
+    NSMutableArray *array = [NSMutableArray array];
+    
+    NSArray *diagonalArray = [[NSArray alloc] init];
+    diagonalArray = [plot.plotDiagonal allObjects];
+    
+    for (int i = 0; i < diagonalArray.count; i++) {
+        PlotDiagonal *tmpDiagonal = [diagonalArray objectAtIndex:i];
+        
+        int a = [self getNumberByLetter:tmpDiagonal.angleFirst];
+        int b = [self getNumberByLetter:tmpDiagonal.angleSecond];
+        
+        CoordModel *point = [[CoordModel alloc] init];
+        point.x = a;
+        point.y = b;
+        
+        [array addObject:point];
+    }
+    
+    return array;
+}
+
 -(NSString*)getLetterByNumber:(int)num
 {
     char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -107,8 +130,6 @@ double dliny[Nmax][Nmax];
     NSArray *diagonalArray = [[NSArray alloc] init];
     sideArray = [plot.plotSide allObjects];
     diagonalArray = [plot.plotDiagonal allObjects];
-    
-    
 
     double l;
     for (i = 0; i < N; i++)
@@ -122,7 +143,7 @@ double dliny[Nmax][Nmax];
         }
         else // для последнего сегмента
         {
-            l = [self getValueFromSideArray:sideArray ByFirstPoint:i AndSecondPoint:i + 1];
+            l = [self getValueFromSideArray:sideArray ByFirstPoint:i AndSecondPoint:0];
             
             dliny[i][0] = l;
             dliny[0][i] = l;
@@ -224,8 +245,8 @@ double dliny[Nmax][Nmax];
         h = sqrt(r1 * r1 - a * a);
         x0 = x1 + a * (x2 - x1) / d;
         y0 = y1 + a * (y2 - y1)/ d;
-        coord[C].x = x0 - h * (y2 - y1) / d;
-        coord[C].y = y0 + h * (x2 - x1) / d;
+        coord[C].x = x0 + h * (y2 - y1) / d;
+        coord[C].y = y0 - h * (x2 - x1) / d;
         coord[C].def = 1; // считаем точку определенной
         // cout <<"C.x:"<<coord[C].x<<" C.y:"<<coord[C].y<<endl;
         

@@ -16,5 +16,6 @@
 @interface CalculationService : NSObject
 
 -(NSMutableArray*)getCoords:(Plot *)plot;
+-(NSMutableArray*)getDiagonalCoords:(Plot *)plot;
 
 @end

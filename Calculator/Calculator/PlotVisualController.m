@@ -57,18 +57,11 @@ char alphabet2[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 - (void)drawPlot
 {
     NSMutableArray *coordsArray = [[NSMutableArray alloc] init];
+    NSMutableArray *diagonalArray = [[NSMutableArray alloc] init];
     
     CalculationService *calcService = [[CalculationService alloc] init];
     coordsArray = [calcService getCoords:plot];
-    
-    for (int i = 0; i < coordsArray.count; i++) {
-        CoordModel *coord = [coordsArray objectAtIndex:i];
-        
-        coord.x = coord.x * 30;
-        coord.y = coord.y * 30;
-        
-        [coordsArray replaceObjectAtIndex:i withObject:coord];
-    }
+    diagonalArray = [calcService getDiagonalCoords:plot];
     
     scaleFactor = [[UIScreen mainScreen] scale];
     CGRect screen = [[UIScreen mainScreen] bounds];
@@ -77,6 +70,56 @@ char alphabet2[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     
     // Сохраняем размеры области рисования
     size = CGSizeMake(widthInPixel, heightInPixel);
+    
+    CoordModel *firstCoord = [coordsArray objectAtIndex:0];
+    double maxOx = firstCoord.x;
+    double maxOy = firstCoord.y;
+    double minOx = firstCoord.x;
+    double minOy = firstCoord.y;
+    
+    NSLog(@"x: %f, y: %f", firstCoord.x, firstCoord.y);
+    for (int i = 1; i < coordsArray.count; i++) {
+        CoordModel *coord = [coordsArray objectAtIndex:i];
+        
+        NSLog(@"x: %f, y: %f", coord.x, coord.y);
+        
+        if (coord.x > maxOx)
+        {
+            maxOx = coord.x;
+        }
+        
+        if (coord.x < minOx)
+        {
+            minOx = coord.x;
+        }
+        
+        if (coord.y > maxOy)
+        {
+            maxOy = coord.y;
+        }
+        
+        if (coord.y < minOy)
+        {
+            minOy = coord.y;
+        }
+    }
+    
+    double marginX = 100; // отступ слева и справа
+    double figureWidht = widthInPixel - marginX * 2; // ширина фигуры на экране устройства
+    double factFigureWidht = maxOx - minOx; // фактическая ширина в реальном мире
+    double figureFactor = figureWidht / factFigureWidht; // коэффицент отношения ширин
+    
+    double figureHeight = (maxOy - minOy) * figureFactor;
+    double marginY = (heightInPixel - (70 * scaleFactor) - figureHeight) / 2;
+    
+    for (int i = 0; i < coordsArray.count; i++) {
+        CoordModel *coord = [coordsArray objectAtIndex:i];
+        
+        coord.x = coord.x * figureFactor + marginX;
+        coord.y = coord.y * figureFactor + marginY;
+        
+        [coordsArray replaceObjectAtIndex:i withObject:coord];
+    }
     
     UIGraphicsBeginImageContext(size);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -89,7 +132,9 @@ char alphabet2[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     
     CGContextFillRect(context, CGRectMake(0.0f, 0.0f, size.width, size.height));
     
-    CGContextSetLineWidth(context, 5.0f * scaleFactor);
+    CGContextSetLineWidth(context, 3.0f * scaleFactor);
+    
+    [coordsArray addObject:[coordsArray objectAtIndex:0]];
     
     for (int i = 0; i < [coordsArray count] - 1; i++) {
         CoordModel *coord = [coordsArray objectAtIndex:i];
@@ -103,13 +148,37 @@ char alphabet2[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         CGContextStrokePath(context);
     }
     
+    for (int i = 0; i < [diagonalArray count]; i++) {
+        CoordModel *diagonalPoints = [diagonalArray objectAtIndex:i];
+        
+        CoordModel *coord = [coordsArray objectAtIndex:diagonalPoints.x - 1];
+        CoordModel *coord2 = [coordsArray objectAtIndex:diagonalPoints.y - 1];
+        
+        CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
+        CGContextSetLineWidth(context, 1.0f * scaleFactor);
+        
+        // делаем линии пунктирными
+        float dash[2]={10 ,7}; // pattern 10 times “solid”, 7 times “empty”
+        CGContextSetLineDash(context,0,dash,2);
+        
+        CGContextMoveToPoint(context, coord.x, coord.y);
+        CGContextAddLineToPoint(context, coord2.x, coord2.y);
+        
+        CGContextStrokePath(context);
+    }
+    
+    // делаем линии обычными
+    float normal[1]={1};
+    CGContextSetLineDash(context,0,normal,0);
+    CGContextSetLineWidth(context, 3.0f * scaleFactor);
+    
     // зарисовка точек
     for (int i = 0; i < [coordsArray count]; i++) {
         CoordModel *coord = [coordsArray objectAtIndex:i];
         
         CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
         
-        CGContextAddArc(context, coord.x, coord.y, 10 * scaleFactor, 0, 2*M_PI, YES);
+        CGContextAddArc(context, coord.x, coord.y, 6 * scaleFactor, 0, 2*M_PI, YES);
         CGContextDrawPath(context, kCGPathFill);
     }
     
@@ -122,10 +191,10 @@ char alphabet2[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         // Если периметр завершен, то букву к последней точке не ставим
         if (i != [coordsArray count] - 1)
         {
-            CGContextSetLineWidth(context, 2.0f * scaleFactor);
-            CGContextSelectFont(context, "Helvetica", 20.f, kCGEncodingMacRoman);
+            CGContextSetLineWidth(context, 0.7f * scaleFactor);
+            CGContextSelectFont(context, "Helvetica", 30.f, kCGEncodingMacRoman);
             CGContextSetTextDrawingMode(context, kCGTextFillStroke);
-            CGContextShowTextAtPoint(context, coord.x - 20, coord.y - 25, &alphabet2[i], 1);
+            CGContextShowTextAtPoint(context, coord.x - 30, coord.y + 15, &alphabet2[i], 1);
         }
         
         CGContextDrawPath(context, kCGPathFill);

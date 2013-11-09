@@ -67,6 +67,7 @@
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"matName" ascending:YES];
     NSArray *tmpMatArray = [NSArray arrayWithObject:sortDescriptor];
     materialsArray = [tmpMaterialsArray sortedArrayUsingDescriptors:tmpMatArray];
+
     
     //получаем данные по AddPrice из Core Data
     NSFetchRequest *fetchRequestAddPrice = [NSFetchRequest fetchRequestWithEntityName:@"AddPrice"];
@@ -116,6 +117,15 @@
     int perimetr = 14;
     squareLabel.text = [NSString stringWithFormat:@"%d м.кв.", square];
     perimetrLabel.text = [NSString stringWithFormat:@"%d м.", perimetr];
+    
+    //предустановка положения pickerView
+    if (plot.plotMaterial) {
+        
+        int indexMaterial = [materialsArray indexOfObject:plot.plotMaterial];
+        [pickerView selectRow:indexMaterial inComponent:0 animated:YES];
+        
+        [self calculateAll];
+    }
 }
 
 
@@ -168,7 +178,7 @@ numberOfRowsInComponent:(NSInteger)component
     //считаем дополнительные параметры
     lastCostInt = (lusterCount*lusterPrice) + (bypassCount*bypassPrice) + (spotCount*spotPrice);
     //считаем стоимость полотна
-    int squarePrice = [squareLabel.text intValue]*[material.matPrice intValue];
+    int squarePrice = [squareLabel.text intValue]*[plot.plotMaterial.matPrice intValue];
     //считаем кантик
     int cantikPrice = [perimetrLabel.text intValue]*80;
     

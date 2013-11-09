@@ -23,10 +23,7 @@
 
 @synthesize nameClient;
 @synthesize adressClient;
-@synthesize lusterClient;
-@synthesize bypassClient;
-@synthesize spotClient;
-@synthesize explaneClient;
+@synthesize phoneClient;
 
 @synthesize PlotTableView;
 @synthesize plot;
@@ -55,16 +52,12 @@
     [scrollView setContentSize:CGSizeMake(320, 900)];
     [nameClient setDelegate:self];
     [adressClient setDelegate:self];
-    [lusterClient setDelegate:self];
-    [bypassClient setDelegate:self];
-    [spotClient setDelegate:self];
-    [explaneClient setDelegate:self];
+    [phoneClient setDelegate:self];
 
     
     //поле для названия чертежа
-    //создание текстового поля для ввода диагоналей
     UIImage *additionalButtomBackground = [[UIImage imageNamed:@"project_additionalPlot2.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-    namePlot = [[UITextField alloc] initWithFrame:CGRectMake(0, 123, 160, 40)];
+    namePlot = [[UITextField alloc] initWithFrame:CGRectMake(0, 201, 160, 40)];
     namePlot.delegate = self;
     namePlot.borderStyle = UITextBorderStyleBezel;
     namePlot.background = additionalButtomBackground;
@@ -128,6 +121,7 @@
 -(void)reloadData {
     nameClient.text = project.projectName;
     adressClient.text = project.projectAdress;
+    phoneClient.text = project.projectPhone;
     
     [self reloadPlotTable];
 
@@ -137,6 +131,7 @@
 -(void)saveData {
     project.projectName = nameClient.text;
     project.projectAdress = adressClient.text;
+    project.projectPhone = phoneClient.text;
     
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
@@ -181,10 +176,7 @@
 
     [nameClient resignFirstResponder];
     [adressClient resignFirstResponder];
-    [lusterClient resignFirstResponder];
-    [bypassClient resignFirstResponder];
-    [spotClient resignFirstResponder];
-    [explaneClient resignFirstResponder];
+    [phoneClient resignFirstResponder];
 }
 
 
@@ -243,7 +235,7 @@
     UIImage *viewButtomBackground = [[UIImage imageNamed:@"project_viewPlot.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     UIButton *viewPlotButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     viewPlotButton.frame = CGRectMake(0, 100, 220, 50);
-    [viewPlotButton setTitle:@"Редактировать" forState:UIControlStateNormal];
+    [viewPlotButton setTitle:@"Построить" forState:UIControlStateNormal];
     [viewPlotButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
     [viewPlotButton setBackgroundImage:viewButtomBackground forState:UIControlStateNormal];
     [viewPlotButton addTarget:self action:@selector(viewPlotAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -358,7 +350,7 @@
     PlotTableView.frame = frame;
     
     //scrollView соответственный таблице
-    [scrollView setContentSize:CGSizeMake(320, frame.size.height + 120)];
+    [scrollView setContentSize:CGSizeMake(320, frame.size.height + 200)];
     
 }
 

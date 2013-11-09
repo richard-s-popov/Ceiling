@@ -66,6 +66,7 @@
     Projects *addProject = [NSEntityDescription insertNewObjectForEntityForName:@"Projects" inManagedObjectContext:self.managedObjectContext];
     addProject.projectName = @"Новый проект";
     addProject.projectAdress = @"Новый адрес";
+    addProject.projectPhone = @"89117774422";
     addProject.created = [NSDate date];
     
     NSError *error;
@@ -80,6 +81,36 @@
 
     [tbl insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
+    NewProjectDetailViewController *detailProject = [self.storyboard instantiateViewControllerWithIdentifier:@"ProjectDetailStoryboardId"];
+    detailProject.project = [projectArray objectAtIndex:indexPath.row];
+    
+    lastName = [[projectArray objectAtIndex:indexPath.row] projectName];
+    lastAdress = [[projectArray objectAtIndex:indexPath.row] projectAdress];
+    
+    indexPathSegue = indexPath;
+    indexPathRow = indexPathSegue.row;
+    
+    [self.navigationController pushViewController:detailProject animated:YES];
+}
+
+
+#pragma mark - Navigation
+
+// In a story board-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    NSIndexPath *indexPath = [self.tbl indexPathForSelectedRow];
+    
+    if ([segue.identifier isEqualToString:@"ToDetailProject"]) {
+        NewProjectDetailViewController *detailProject = segue.destinationViewController;
+        detailProject.project = [projectArray objectAtIndex:indexPath.row];
+        
+        lastName = [[projectArray objectAtIndex:indexPath.row] projectName];
+        lastAdress = [[projectArray objectAtIndex:indexPath.row] projectAdress];
+        
+        indexPathSegue = indexPath;
+        indexPathRow = indexPathSegue.row;
+    }
 }
 
 
@@ -162,8 +193,6 @@
 }
 
 
-// Override to support conditional editing of the table view.
-
 /*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -179,24 +208,7 @@
 */
 
 
-#pragma mark - Navigation
 
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    NSIndexPath *indexPath = [self.tbl indexPathForSelectedRow];
-    
-    if ([segue.identifier isEqualToString:@"ToDetailProject"]) {
-        NewProjectDetailViewController *detailProject = segue.destinationViewController;
-        detailProject.project = [projectArray objectAtIndex:indexPath.row];
-        
-        lastName = [[projectArray objectAtIndex:indexPath.row] projectName];
-        lastAdress = [[projectArray objectAtIndex:indexPath.row] projectAdress];
-        
-        indexPathSegue = indexPath;
-        indexPathRow = indexPathSegue.row;
-    }
-}
 
 
 #pragma mark - ViewDidAppear

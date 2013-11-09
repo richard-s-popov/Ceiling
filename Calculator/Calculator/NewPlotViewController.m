@@ -104,7 +104,7 @@
     UIImage *viewButtomBackground = [[UIImage imageNamed:@"project_viewPlot.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     UIButton *viewPlotButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     viewPlotButton.frame = CGRectMake(0, 0, 220, 50);
-    [viewPlotButton setTitle:@"Построить" forState:UIControlStateNormal];
+    [viewPlotButton setTitle:@"Просмотр чертежа" forState:UIControlStateNormal];
     [viewPlotButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
     [viewPlotButton setBackgroundImage:viewButtomBackground forState:UIControlStateNormal];
     [viewPlotButton addTarget:self action:@selector(buildPlot) forControlEvents:UIControlEventTouchUpInside];

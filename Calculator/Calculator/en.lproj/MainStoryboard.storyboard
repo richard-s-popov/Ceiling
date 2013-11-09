@@ -597,7 +597,7 @@
             </objects>
             <point key="canvasLocation" x="4059" y="480"/>
         </scene>
-        <!--New Project List View Controller - Клиенты-->
+        <!--New Project List View Controller - Проекты-->
         <scene sceneID="Rkn-fv-KOz">
             <objects>
                 <tableViewController id="byB-HK-CyX" customClass="NewProjectListViewController" sceneMemberID="viewController">
@@ -639,7 +639,7 @@
                             <outlet property="delegate" destination="byB-HK-CyX" id="zxr-zI-Ubw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Клиенты" id="Q7H-iU-GHc"/>
+                    <navigationItem key="navigationItem" title="Проекты" id="Q7H-iU-GHc"/>
                     <connections>
                         <outlet property="tbl" destination="tYp-1c-OTX" id="9dv-XZ-7yV"/>
                     </connections>
@@ -767,7 +767,7 @@
         <!--New Project Detail View Controller-->
         <scene sceneID="v6Z-9Q-kLS">
             <objects>
-                <viewController id="gvs-l1-TvH" customClass="NewProjectDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProjectDetailStoryboardId" id="gvs-l1-TvH" customClass="NewProjectDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yjd-4U-BLi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

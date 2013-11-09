@@ -80,30 +80,60 @@
 
     [tbl insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
+    NewProjectDetailViewController *detailProject = [self.storyboard instantiateViewControllerWithIdentifier:@"ProjectDetailStoryboardId"];
+    detailProject.project = [projectArray objectAtIndex:indexPath.row];
+    
+    lastName = [[projectArray objectAtIndex:indexPath.row] projectName];
+    lastAdress = [[projectArray objectAtIndex:indexPath.row] projectAdress];
+    
+    indexPathSegue = indexPath;
+    indexPathRow = indexPathSegue.row;
+    
+    [self.navigationController pushViewController:detailProject animated:YES];
 }
 
 
-//-(void)setEditing:(BOOL)editing animated:(BOOL)animated {
-//    //важное условие для swipe
-//    if (!_cellSwiped) {
-//        [super setEditing:editing animated:animated];
-//    } else if (!editing) {
-//        _cellSwiped = NO;
-//    }
-//    
-//    if (editing) {
-//        self.editButtonItem.title = NSLocalizedString(@"Сохранить", @"Сохранить");
-//        
-//        //добавляем кнопку добавить
-//        UIBarButtonItem *addButton =[[UIBarButtonItem alloc] initWithTitle:@"Добавить" style:UIBarButtonItemStyleBordered target:self action:@selector(addBtn)];
-//        self.navigationItem.leftBarButtonItem = addButton;
-//    }
-//    else {
-//        
-//        self.editButtonItem.title = NSLocalizedString(@"Изменить", @"Изменить");
-//        self.navigationItem.leftBarButtonItem = nil;
-//    }
-//}
+#pragma mark - Navigation
+
+// In a story board-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    NSIndexPath *indexPath = [self.tbl indexPathForSelectedRow];
+    
+    if ([segue.identifier isEqualToString:@"ToDetailProject"]) {
+        NewProjectDetailViewController *detailProject = segue.destinationViewController;
+        detailProject.project = [projectArray objectAtIndex:indexPath.row];
+        
+        lastName = [[projectArray objectAtIndex:indexPath.row] projectName];
+        lastAdress = [[projectArray objectAtIndex:indexPath.row] projectAdress];
+        
+        indexPathSegue = indexPath;
+        indexPathRow = indexPathSegue.row;
+    }
+}
+
+
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    //важное условие для swipe
+    if (!_cellSwiped) {
+        [super setEditing:editing animated:animated];
+    } else if (!editing) {
+        _cellSwiped = NO;
+    }
+    
+    if (editing) {
+        self.editButtonItem.title = NSLocalizedString(@"Сохранить", @"Сохранить");
+        
+        //добавляем кнопку добавить
+        UIBarButtonItem *addButton =[[UIBarButtonItem alloc] initWithTitle:@"Добавить" style:UIBarButtonItemStyleBordered target:self action:@selector(addBtn)];
+        self.navigationItem.leftBarButtonItem = addButton;
+    }
+    else {
+        
+        self.editButtonItem.title = NSLocalizedString(@"Изменить", @"Изменить");
+        self.navigationItem.leftBarButtonItem = nil;
+    }
+}
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -162,8 +192,6 @@
 }
 
 
-// Override to support conditional editing of the table view.
-
 /*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -179,24 +207,7 @@
 */
 
 
-#pragma mark - Navigation
 
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    NSIndexPath *indexPath = [self.tbl indexPathForSelectedRow];
-    
-    if ([segue.identifier isEqualToString:@"ToDetailProject"]) {
-        NewProjectDetailViewController *detailProject = segue.destinationViewController;
-        detailProject.project = [projectArray objectAtIndex:indexPath.row];
-        
-        lastName = [[projectArray objectAtIndex:indexPath.row] projectName];
-        lastAdress = [[projectArray objectAtIndex:indexPath.row] projectAdress];
-        
-        indexPathSegue = indexPath;
-        indexPathRow = indexPathSegue.row;
-    }
-}
 
 
 #pragma mark - ViewDidAppear

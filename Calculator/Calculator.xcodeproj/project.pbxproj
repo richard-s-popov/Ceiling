@@ -33,8 +33,6 @@
 		091EDBE2182BF04C006A376D /* PlotSide.m in Sources */ = {isa = PBXBuildFile; fileRef = 091EDBE1182BF04C006A376D /* PlotSide.m */; };
 		091EDBE5182BF04C006A376D /* Materials.m in Sources */ = {isa = PBXBuildFile; fileRef = 091EDBE4182BF04C006A376D /* Materials.m */; };
 		091EDBE8182BF04D006A376D /* AddPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 091EDBE7182BF04D006A376D /* AddPrice.m */; };
-		091EDBEB182BF04D006A376D /* Plot.m in Sources */ = {isa = PBXBuildFile; fileRef = 091EDBEA182BF04D006A376D /* Plot.m */; };
-		091EDBEE182BF04D006A376D /* Projects.m in Sources */ = {isa = PBXBuildFile; fileRef = 091EDBED182BF04D006A376D /* Projects.m */; };
 		091EDBF5182BF145006A376D /* guide_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 091EDBEF182BF145006A376D /* guide_new.png */; };
 		091EDBF6182BF145006A376D /* guide_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 091EDBF0182BF145006A376D /* guide_new@2x.png */; };
 		091EDBF7182BF145006A376D /* home_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 091EDBF1182BF145006A376D /* home_new.png */; };
@@ -86,6 +84,8 @@
 		09879C8217835733005B5E40 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09879C8117835733005B5E40 /* SettingsViewController.m */; };
 		099DECFF182D0ACF0097DCBF /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 099DECFD182D0ACF0097DCBF /* email.png */; };
 		099DED00182D0ACF0097DCBF /* email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 099DECFE182D0ACF0097DCBF /* email@2x.png */; };
+		099DED03182E348E0097DCBF /* Projects.m in Sources */ = {isa = PBXBuildFile; fileRef = 099DED02182E348E0097DCBF /* Projects.m */; };
+		099DED06182E348E0097DCBF /* Plot.m in Sources */ = {isa = PBXBuildFile; fileRef = 099DED05182E348E0097DCBF /* Plot.m */; };
 		09C82BBD1789DD8B00A47057 /* SettingsOptionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */; };
 		09C82BC01789DFE300A47057 /* SettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBF1789DFE200A47057 /* SettingsService.m */; };
 		09C93E881791B78100A4FBDC /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C93E871791B78100A4FBDC /* OptionsViewController.m */; };
@@ -143,10 +143,6 @@
 		091EDBE4182BF04C006A376D /* Materials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Materials.m; sourceTree = "<group>"; };
 		091EDBE6182BF04D006A376D /* AddPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPrice.h; sourceTree = "<group>"; };
 		091EDBE7182BF04D006A376D /* AddPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPrice.m; sourceTree = "<group>"; };
-		091EDBE9182BF04D006A376D /* Plot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plot.h; sourceTree = "<group>"; };
-		091EDBEA182BF04D006A376D /* Plot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plot.m; sourceTree = "<group>"; };
-		091EDBEC182BF04D006A376D /* Projects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projects.h; sourceTree = "<group>"; };
-		091EDBED182BF04D006A376D /* Projects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projects.m; sourceTree = "<group>"; };
 		091EDBEF182BF145006A376D /* guide_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_new.png; sourceTree = "<group>"; };
 		091EDBF0182BF145006A376D /* guide_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide_new@2x.png"; sourceTree = "<group>"; };
 		091EDBF1182BF145006A376D /* home_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_new.png; sourceTree = "<group>"; };
@@ -215,6 +211,10 @@
 		09879C8117835733005B5E40 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		099DECFD182D0ACF0097DCBF /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
 		099DECFE182D0ACF0097DCBF /* email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email@2x.png"; sourceTree = "<group>"; };
+		099DED01182E348E0097DCBF /* Projects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projects.h; sourceTree = "<group>"; };
+		099DED02182E348E0097DCBF /* Projects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projects.m; sourceTree = "<group>"; };
+		099DED04182E348E0097DCBF /* Plot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plot.h; sourceTree = "<group>"; };
+		099DED05182E348E0097DCBF /* Plot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plot.m; sourceTree = "<group>"; };
 		09C82BBB1789DD8B00A47057 /* SettingsOptionsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsOptionsModel.h; sourceTree = "<group>"; };
 		09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsOptionsModel.m; sourceTree = "<group>"; };
 		09C82BBE1789DFE200A47057 /* SettingsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsService.h; sourceTree = "<group>"; };
@@ -311,11 +311,11 @@
 		094D321B17E8BDCE00D685EF /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				099DED01182E348E0097DCBF /* Projects.h */,
+				099DED04182E348E0097DCBF /* Plot.h */,
+				099DED05182E348E0097DCBF /* Plot.m */,
+				099DED02182E348E0097DCBF /* Projects.m */,
 				09E307C117DCE6F5006E5CE5 /* Projects.xcdatamodeld */,
-				091EDBEC182BF04D006A376D /* Projects.h */,
-				091EDBED182BF04D006A376D /* Projects.m */,
-				091EDBE9182BF04D006A376D /* Plot.h */,
-				091EDBEA182BF04D006A376D /* Plot.m */,
 				091EDBE6182BF04D006A376D /* AddPrice.h */,
 				091EDBE7182BF04D006A376D /* AddPrice.m */,
 				091EDBE3182BF04C006A376D /* Materials.h */,
@@ -667,7 +667,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				091EDBEB182BF04D006A376D /* Plot.m in Sources */,
+				099DED06182E348E0097DCBF /* Plot.m in Sources */,
 				091EDBE5182BF04C006A376D /* Materials.m in Sources */,
 				0959814C177F676E001D2122 /* main.m in Sources */,
 				09598150177F676E001D2122 /* CalcAppDelegate.m in Sources */,
@@ -682,7 +682,7 @@
 				26BB58B91827758C007701A6 /* PlotVisualController.m in Sources */,
 				26BB58BC1827BAAB007701A6 /* CoordModel.m in Sources */,
 				09C82BC01789DFE300A47057 /* SettingsService.m in Sources */,
-				091EDBEE182BF04D006A376D /* Projects.m in Sources */,
+				099DED03182E348E0097DCBF /* Projects.m in Sources */,
 				09D5DF66178CEAA5004FAA8C /* ECSlidingViewController.m in Sources */,
 				09D5DF67178CEAA5004FAA8C /* UIImage+ImageWithUIView.m in Sources */,
 				09D5DF6A178CEAED004FAA8C /* InitViewController.m in Sources */,

@@ -62,6 +62,69 @@ double dliny[Nmax][Nmax];
     return array;
 }
 
+-(double)getSpaceValue:(NSMutableArray *)array
+{
+    NSMutableArray *coordsArray = [NSMutableArray array];
+    
+    for (int i = 0; i < array.count; i++) {
+        CoordModel *point = [array objectAtIndex:i];
+        CoordModel *point2 = [CoordModel alloc];
+        
+        point2.x = point.x;
+        point2.y = point.y;
+        
+        [coordsArray addObject:point2];
+    }
+    
+    CoordModel *min = [coordsArray objectAtIndex:0];
+    
+    [coordsArray addObject:min];
+    
+//    for (int i = 1; i < coordsArray.count - 1; i++)
+//    {
+//        CoordModel *point = [coordsArray objectAtIndex:i];
+//        if (min.y > point.y)
+//        {
+//            min.y = point.y;
+//        }
+//    }
+//    
+//    for (int i = 0; i < coordsArray.count; i++) {
+//        CoordModel *point = [coordsArray objectAtIndex:i];
+//        
+//        point.y = point.y - min.y;
+//        
+//        [coordsArray replaceObjectAtIndex:i withObject:point];
+//    }
+    
+    
+    double s = 0.0;
+    for (int i = 0; i < coordsArray.count - 1; i++) {
+        CoordModel *point = [coordsArray objectAtIndex:i];
+        CoordModel *point2 = [coordsArray objectAtIndex:i + 1];
+        
+        s = s + (point.x * point2.y - point.y * point2.x);
+    }
+    
+    s = abs(s / 2);
+    
+    return s;
+}
+
+-(double)getPerimetr:(Plot *)plot
+{
+    NSArray *sideArray = [[NSArray alloc] init];
+    sideArray = [plot.plotSide allObjects];
+    
+    double sum = 0.0;
+    for (int i = 0; i < sideArray.count; i++) {
+        PlotSide *tmpSide = [sideArray objectAtIndex:i];
+        sum += tmpSide.sideWidth.doubleValue;
+    }
+    
+    return sum;
+}
+
 -(NSString*)getLetterByNumber:(int)num
 {
     char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

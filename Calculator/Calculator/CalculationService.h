@@ -18,4 +18,7 @@
 -(NSMutableArray*)getCoords:(Plot *)plot;
 -(NSMutableArray*)getDiagonalCoords:(Plot *)plot;
 
+-(double)getSpaceValue:(NSMutableArray *)coordsArray;
+-(double)getPerimetr:(Plot *)plot;
+
 @end

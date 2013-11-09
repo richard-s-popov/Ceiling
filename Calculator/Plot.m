@@ -20,6 +20,8 @@
 @dynamic plotName;
 @dynamic plotPrice;
 @dynamic spotCount;
+@dynamic plotSquare;
+@dynamic plotPerimetr;
 @dynamic plotDiagonal;
 @dynamic plotMaterial;
 @dynamic plotProject;

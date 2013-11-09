@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSDate * created;
 @property (nonatomic, retain) NSString * projectAdress;
 @property (nonatomic, retain) NSString * projectName;
+@property (nonatomic, retain) NSString * projectPhone;
 @property (nonatomic, retain) NSSet *projectPlot;
 @end
 

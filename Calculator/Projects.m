@@ -15,6 +15,7 @@
 @dynamic created;
 @dynamic projectAdress;
 @dynamic projectName;
+@dynamic projectPhone;
 @dynamic projectPlot;
 
 @end

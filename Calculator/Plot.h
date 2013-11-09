@@ -18,6 +18,8 @@
 @property (nonatomic, retain) NSString * plotName;
 @property (nonatomic, retain) NSNumber * plotPrice;
 @property (nonatomic, retain) NSNumber * spotCount;
+@property (nonatomic, retain) NSNumber * plotSquare;
+@property (nonatomic, retain) NSNumber * plotPerimetr;
 @property (nonatomic, retain) NSSet *plotDiagonal;
 @property (nonatomic, retain) Materials *plotMaterial;
 @property (nonatomic, retain) Projects *plotProject;

@@ -851,7 +851,6 @@
                                                 <connections>
                                                     <outlet property="namePlot" destination="W3q-dE-A2S" id="i79-D5-u1m"/>
                                                     <outlet property="pricePlot" destination="8bk-pb-hfq" id="i5Q-wD-OrB"/>
-                                                    <segue destination="tv2-aW-OD2" kind="push" id="XS5-vI-rni"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -1182,7 +1181,7 @@
             <objects>
                 <viewController storyboardIdentifier="PlotSidesStoryboardId" id="tv2-aW-OD2" customClass="NewPlotViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="MTx-co-cwU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <containerView key="tableHeaderView" contentMode="scaleToFill" id="VXo-D5-0Bf">
@@ -1248,11 +1247,11 @@
             <objects>
                 <viewController id="he5-1f-p2v" customClass="PlotDiagonalViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pmG-xc-9JZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="62" sectionHeaderHeight="10" sectionFooterHeight="10" id="GVo-qp-TU7">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <containerView key="tableHeaderView" contentMode="scaleToFill" id="UzK-sD-eYN">
@@ -1438,7 +1437,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="XS5-vI-rni"/>
-    </inferredMetricsTieBreakers>
 </document>

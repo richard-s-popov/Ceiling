@@ -22,6 +22,16 @@
     UIButton *saveButton;
     NSIndexPath *indexPathForSelectedRow;
     Plot *newPlot;
+    
+    //для криволинейного участка
+    UITextField *angleCurvLine;
+    UILabel *curvLineLabel;
+    int numberAngleCurv;
+    NSString *angleCurvFirst;
+    NSString *angleCurvSecond;
+    BOOL isGeneratingCurv;
+    UIButton *buttonCurv;
+    
 }
 
 @end
@@ -76,6 +86,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    isGeneratingCurv = NO;
 	// Do any additional setup after loading the view.
     
     //кнопки меню бара
@@ -128,6 +140,7 @@
     [sidesConteinerView addSubview:angleCountField];
     
     
+    
     //условие если стороны уже были сгенерированы для текущего чертежа
     newPlot = plotFromProject;
     if (newPlot.plotSide.count != 0) {
@@ -140,13 +153,134 @@
         
         angleCountField.enabled = NO;
         button.enabled = NO;
+        
+        [self showCurvButton];
     }
 }
 
 
+-(void)showCurvButton {
+
+    [angleCountField removeFromSuperview];
+    [button removeFromSuperview];
+    
+    
+    //кнопка добавить криволинейный участок
+    buttonCurv = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    buttonCurv.frame = CGRectMake(20, 54, 280, 30);
+    buttonCurv.titleLabel.text = @"Добавить криволинейный участок";
+    buttonCurv.titleLabel.textColor = [UIColor blackColor];
+    [buttonCurv setTitle:@"Добавить криволинейный участок" forState:UIControlStateNormal];
+    [buttonCurv addTarget:self action:@selector(clickAddCurvButton) forControlEvents:UIControlEventTouchUpInside];
+    buttonCurv.tag = 1;
+    [sidesConteinerView addSubview:buttonCurv];
+    
+}
+
+-(void)clickAddCurvButton {
+    
+    [buttonCurv removeFromSuperview];
+    
+    angleCurvLine = [[UITextField alloc] initWithFrame:CGRectMake(15,54, 50, 30)];
+    angleCurvLine.borderStyle = UITextBorderStyleRoundedRect;
+    angleCurvLine.placeholder = @"A";
+    angleCurvLine.enabled = YES;
+    angleCurvLine.delegate = self;
+    angleCurvLine.keyboardType = UIKeyboardTypeDefault;
+    angleCurvLine.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+    [sidesConteinerView addSubview:angleCurvLine];
+    
+    curvLineLabel = [[UILabel alloc] initWithFrame:CGRectMake(80,54, 220, 30)];
+    curvLineLabel.text = @"введите первый угол участка";
+    [curvLineLabel setTextColor:[UIColor blackColor]];
+    [curvLineLabel setFont:[UIFont fontWithName:@"FuturisCyrillic" size:14]];
+    [sidesConteinerView addSubview:curvLineLabel];
+    
+    //добвляем кнопки для NumPad
+    UIButton *buttonCancel = [UIButton buttonWithType:UIButtonTypeCustom];
+    [buttonCancel setTitle:@"Отмена" forState:UIControlStateNormal];
+    buttonCancel.titleLabel.font = [UIFont fontWithName:@"FuturisCyrillic" size:14.0f];
+    [buttonCancel.layer setCornerRadius:4.0f];
+    [buttonCancel.layer setMasksToBounds:YES];
+    [buttonCancel.layer setBorderWidth:1.0f];
+    [buttonCancel.layer setBorderColor: [[UIColor grayColor] CGColor]];
+    buttonCancel.frame=CGRectMake(0.0, 100.0, 70.0, 30.0);
+    [buttonCancel addTarget:self action:@selector(cancelNumberPad)  forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    UIButton *saveButtonToolbar = [UIButton buttonWithType:UIButtonTypeCustom];
+    [saveButtonToolbar setTitle:@"Далее" forState:UIControlStateNormal];
+    saveButtonToolbar.titleLabel.font = [UIFont fontWithName:@"FuturisCyrillic" size:14.0f];
+    [saveButtonToolbar.layer setCornerRadius:4.0f];
+    [saveButtonToolbar.layer setMasksToBounds:YES];
+    [saveButtonToolbar.layer setBorderWidth:1.0f];
+    [saveButtonToolbar.layer setBorderColor: [[UIColor grayColor] CGColor]];
+    saveButtonToolbar.frame=CGRectMake(0.0, 100.0, 100.0, 30.0);
+    [saveButtonToolbar addTarget:self action:@selector(nextCurvLineNumberPad)  forControlEvents:UIControlEventTouchUpInside];
+    
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UIBarStyleBlackOpaque;
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc] initWithCustomView:buttonCancel],
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc] initWithCustomView:saveButtonToolbar],
+                           nil];
+    [numberToolbar sizeToFit];
+    
+    numberAngleCurv = 0;
+    angleCurvLine.inputAccessoryView = numberToolbar;
+}
+
+-(void)nextCurvLineNumberPad {
+    numberAngleCurv++;
+    
+    if (numberAngleCurv == 1) {
+        angleCurvFirst = angleCurvLine.text;
+        curvLineLabel.text = @"введите последний угол участка";
+        angleCurvLine.text = @"";
+    }
+    
+    if (numberAngleCurv == 2) {
+        angleCurvSecond = angleCurvLine.text;
+        [angleCurvLine resignFirstResponder];
+        angleCurvLine.text = [NSString stringWithFormat:@"%@%@", angleCurvFirst, angleCurvSecond];
+        NSLog(@"криволинейный участок = %@%@", angleCurvFirst, angleCurvSecond );
+        
+        [angleCurvLine removeFromSuperview];
+        [curvLineLabel removeFromSuperview];
+        [sidesConteinerView addSubview:buttonCurv];
+        numberAngleCurv = 0;
+    }
+}
+
+-(void)cancelNumberPad {
+    [angleCurvLine resignFirstResponder];
+}
+
+
+//метод подтверждения удаления чертежа
 -(void)deletePlotAction {
-    [project removeProjectPlotObject:newPlot];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self alertOKCancelAction];
+}
+
+- (void)alertOKCancelAction {
+    // open a alert with an OK and cancel button
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Удаление чертежа" message:@"Вы уверены, что хотите удалить этот чертеж?" delegate:self cancelButtonTitle:@"Удалить" otherButtonTitles:@"Отмена", nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    // the user clicked one of the OK/Cancel buttons
+    if (buttonIndex == 0)
+    {
+        [project removeProjectPlotObject:newPlot];
+        
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+        }
+
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 
@@ -180,6 +314,13 @@
     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     newSide = [mutableArraySides objectAtIndex:indexPath.row];
+    
+    if (newSide.angleFirst == angleCurvFirst) {
+        newPlot.plotPrice = 0;
+        isGeneratingCurv = YES;
+    }
+    if (isGeneratingCurv == YES) {
+    }
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@%@", newSide.angleFirst, newSide.angleSecond];
     cell.detailTextLabel.text = [newSide.sideWidth stringValue];
@@ -276,6 +417,7 @@
     [angleCountField resignFirstResponder];
     angleCountField.enabled = NO;
     button.enabled = NO;
+    [self showCurvButton];
     [tableOfSides reloadData];
 }
 
@@ -393,4 +535,6 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Сохранено" message:@"Введенные данные сохранены" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
 }
+
+
 @end

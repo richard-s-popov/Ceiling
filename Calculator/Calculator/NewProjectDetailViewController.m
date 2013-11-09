@@ -223,7 +223,7 @@
     UIImage *additionalButtomBackground = [[UIImage imageNamed:@"project_additionalPlot2.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     UIButton *additionalPlotButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     additionalPlotButton.frame = CGRectMake(0, 50, 320, 50);
-    [additionalPlotButton setTitle:@"Детали" forState:UIControlStateNormal];
+    [additionalPlotButton setTitle:@"Посчитать стоимость" forState:UIControlStateNormal];
     [[additionalPlotButton titleLabel] setFont:[UIFont fontWithName:@"FuturisCyrillic" size:16]];
     [additionalPlotButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal ];
     [additionalPlotButton setBackgroundImage:additionalButtomBackground forState:UIControlStateNormal];
@@ -350,7 +350,7 @@
     PlotTableView.frame = frame;
     
     //scrollView соответственный таблице
-    [scrollView setContentSize:CGSizeMake(320, frame.size.height + 200)];
+    [scrollView setContentSize:CGSizeMake(320, frame.size.height + 400)];
     
 }
 

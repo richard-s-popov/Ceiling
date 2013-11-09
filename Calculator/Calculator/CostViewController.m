@@ -188,6 +188,7 @@ numberOfRowsInComponent:(NSInteger)component
     plot.plotPrice = [NSNumber numberWithInt:price];
     lastCost.text = [NSString stringWithFormat:@"%@ руб.", plot.plotPrice];
     
+    //считаем стоимость проекта
     NSArray *plotArray = [project.projectPlot allObjects];
     int countPlot = 0;
     project.projectPrice = 0;

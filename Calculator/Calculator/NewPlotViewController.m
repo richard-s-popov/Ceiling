@@ -47,6 +47,8 @@
 @synthesize plotFromProject;
 @synthesize project;
 
+@synthesize curve;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -181,6 +183,8 @@
     
     [buttonCurv removeFromSuperview];
     
+    curve = [[CurveLineModel alloc] init];
+    
     angleCurvLine = [[UITextField alloc] initWithFrame:CGRectMake(15,54, 50, 30)];
     angleCurvLine.borderStyle = UITextBorderStyleRoundedRect;
     angleCurvLine.placeholder = @"A";
@@ -188,6 +192,7 @@
     angleCurvLine.delegate = self;
     angleCurvLine.keyboardType = UIKeyboardTypeDefault;
     angleCurvLine.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+    [angleCurvLine addTarget:self action:@selector(characterAdd)  forControlEvents:UIControlEventEditingChanged];
     [sidesConteinerView addSubview:angleCurvLine];
     
     curvLineLabel = [[UILabel alloc] initWithFrame:CGRectMake(80,54, 220, 30)];
@@ -206,52 +211,45 @@
     [buttonCancel.layer setBorderColor: [[UIColor grayColor] CGColor]];
     buttonCancel.frame=CGRectMake(0.0, 100.0, 70.0, 30.0);
     [buttonCancel addTarget:self action:@selector(cancelNumberPad)  forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    UIButton *saveButtonToolbar = [UIButton buttonWithType:UIButtonTypeCustom];
-    [saveButtonToolbar setTitle:@"Далее" forState:UIControlStateNormal];
-    saveButtonToolbar.titleLabel.font = [UIFont fontWithName:@"FuturisCyrillic" size:14.0f];
-    [saveButtonToolbar.layer setCornerRadius:4.0f];
-    [saveButtonToolbar.layer setMasksToBounds:YES];
-    [saveButtonToolbar.layer setBorderWidth:1.0f];
-    [saveButtonToolbar.layer setBorderColor: [[UIColor grayColor] CGColor]];
-    saveButtonToolbar.frame=CGRectMake(0.0, 100.0, 100.0, 30.0);
-    [saveButtonToolbar addTarget:self action:@selector(nextCurvLineNumberPad)  forControlEvents:UIControlEventTouchUpInside];
+
     
     UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
     numberToolbar.barStyle = UIBarStyleBlackOpaque;
     numberToolbar.items = [NSArray arrayWithObjects:
                            [[UIBarButtonItem alloc] initWithCustomView:buttonCancel],
                            [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                           [[UIBarButtonItem alloc] initWithCustomView:saveButtonToolbar],
                            nil];
     [numberToolbar sizeToFit];
     
     numberAngleCurv = 0;
     angleCurvLine.inputAccessoryView = numberToolbar;
+    
 }
 
--(void)nextCurvLineNumberPad {
-    numberAngleCurv++;
-    
-    if (numberAngleCurv == 1) {
-        angleCurvFirst = angleCurvLine.text;
-        curvLineLabel.text = @"введите последний угол участка";
-        angleCurvLine.text = @"";
-    }
-    
-    if (numberAngleCurv == 2) {
-        angleCurvSecond = angleCurvLine.text;
-        [angleCurvLine resignFirstResponder];
-        angleCurvLine.text = [NSString stringWithFormat:@"%@%@", angleCurvFirst, angleCurvSecond];
-        NSLog(@"криволинейный участок = %@%@", angleCurvFirst, angleCurvSecond );
+-(void) characterAdd {
+
+    if (angleCurvLine.text.length ==1) {
         
+        curve.angleFirstCurve = angleCurvLine.text;
+        curvLineLabel.text = @"введите последний угол участка";
+    }
+    if (angleCurvLine.text.length == 2) {
+        
+        curve.angleSecondCurve = [angleCurvLine.text substringFromIndex:1];
+        NSLog(@"введена кривая - %@%@", curve.angleFirstCurve, curve.angleSecondCurve);
+        
+        CalculateCurveLine *calculateCurve = [[CalculateCurveLine alloc] init];
+        calculateCurve.plot = plotFromProject;
+        [calculateCurve SaveCurve:curve];
+        
+        
+        [angleCurvLine resignFirstResponder];
         [angleCurvLine removeFromSuperview];
         [curvLineLabel removeFromSuperview];
         [sidesConteinerView addSubview:buttonCurv];
-        numberAngleCurv = 0;
     }
 }
+
 
 -(void)cancelNumberPad {
     [angleCurvLine resignFirstResponder];
@@ -319,8 +317,8 @@
         newPlot.plotPrice = 0;
         isGeneratingCurv = YES;
     }
-    if (isGeneratingCurv == YES) {
-    }
+//    if (isGeneratingCurv == YES) {
+//    }
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@%@", newSide.angleFirst, newSide.angleSecond];
     cell.detailTextLabel.text = [newSide.sideWidth stringValue];

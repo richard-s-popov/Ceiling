@@ -9,5 +9,17 @@
 #import "CalculateCurveLine.h"
 
 @implementation CalculateCurveLine
+@synthesize plot;
+
+-(void)SaveCurve:(CurveLineModel *)curve {
+
+    NSArray *alphabet = [@"A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+                         componentsSeparatedByString:@" "];
+    
+    NSArray *plotSideArray = [plot.plotSide allObjects];
+    
+    NSLog(@"передана кривая - %@%@, длинна криволинейной = %@", curve.angleFirstCurve, curve.angleSecondCurve, plot.plotCurve);
+}
 
 @end
+

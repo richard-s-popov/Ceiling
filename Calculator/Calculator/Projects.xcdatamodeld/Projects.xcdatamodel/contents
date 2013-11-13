@@ -2,6 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="AddPrice" representedClassName="AddPrice" syncable="YES">
         <attribute name="bypassPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="kantPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="lusterPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="spotPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
@@ -15,10 +16,12 @@
     </entity>
     <entity name="Plot" representedClassName="Plot" syncable="YES">
         <attribute name="bypassCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="isCheckKant" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="lusterCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="plotCurve" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
         <attribute name="plotName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="plotPerimetr" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="plotPrice" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="plotPrice" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
         <attribute name="plotSquare" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
         <attribute name="spotCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="plotDiagonal" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlotDiagonal" inverseName="diagonalPlot" inverseEntity="PlotDiagonal" syncable="YES"/>

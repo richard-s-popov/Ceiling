@@ -214,8 +214,8 @@
     cell.namePlot.text = [NSString stringWithFormat:@"%@", tmpPlotModel.plotName];
     cell.namePlot.frame = CGRectMake(20, 20, 150, 30);
     [cell.namePlot setFont:[UIFont fontWithName:@"FuturisCyrillic" size:22]];
-    cell.pricePlot.text = [NSString stringWithFormat:@"%@ руб.", tmpPlotModel.plotPrice];
-    cell.pricePlot.frame = CGRectMake(200, 20, 100, 30);
+    cell.pricePlot.text = [NSString stringWithFormat:@"%1.2f руб.", [tmpPlotModel.plotPrice floatValue]];
+    cell.pricePlot.frame = CGRectMake(200, 20, 110, 30);
     
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     

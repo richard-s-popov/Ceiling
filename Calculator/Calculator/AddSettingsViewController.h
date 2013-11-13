@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *lusterTextField;
 @property (weak, nonatomic) IBOutlet UITextField *bypassTextField;
 @property (weak, nonatomic) IBOutlet UITextField *spotTextField;
+@property (weak, nonatomic) IBOutlet UITextField *kantTextField;
 
 @property (nonatomic, strong) AddPrice *addPrice;
 @property (nonatomic, strong) NSArray *fetchArray;

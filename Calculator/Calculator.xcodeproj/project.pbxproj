@@ -32,7 +32,6 @@
 		091EDBDF182BF04C006A376D /* PlotDiagonal.m in Sources */ = {isa = PBXBuildFile; fileRef = 091EDBDE182BF04C006A376D /* PlotDiagonal.m */; };
 		091EDBE2182BF04C006A376D /* PlotSide.m in Sources */ = {isa = PBXBuildFile; fileRef = 091EDBE1182BF04C006A376D /* PlotSide.m */; };
 		091EDBE5182BF04C006A376D /* Materials.m in Sources */ = {isa = PBXBuildFile; fileRef = 091EDBE4182BF04C006A376D /* Materials.m */; };
-		091EDBE8182BF04D006A376D /* AddPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 091EDBE7182BF04D006A376D /* AddPrice.m */; };
 		091EDBF5182BF145006A376D /* guide_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 091EDBEF182BF145006A376D /* guide_new.png */; };
 		091EDBF6182BF145006A376D /* guide_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 091EDBF0182BF145006A376D /* guide_new@2x.png */; };
 		091EDBF7182BF145006A376D /* home_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 091EDBF1182BF145006A376D /* home_new.png */; };
@@ -81,10 +80,17 @@
 		0982697717C3EE98007DB54D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0982697617C3EE98007DB54D /* MessageUI.framework */; };
 		0982697917C4C5EE007DB54D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982697817C4C5EE007DB54D /* icon.png */; };
 		098284351822E3B200BE7A9E /* PlotDiagonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 098284341822E3B200BE7A9E /* PlotDiagonalViewController.m */; };
+		098287491832190A00362A7D /* AddPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 098287481832190A00362A7D /* AddPrice.m */; };
+		0982874E183293D600362A7D /* checkbox_unabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982874A183293D600362A7D /* checkbox_unabled.png */; };
+		0982874F183293D600362A7D /* checkbox_unabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982874B183293D600362A7D /* checkbox_unabled@2x.png */; };
+		09828750183293D600362A7D /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982874C183293D600362A7D /* checkbox.png */; };
+		09828751183293D600362A7D /* checkbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982874D183293D600362A7D /* checkbox@2x.png */; };
+		098287571832CD5C00362A7D /* CalculateCurveLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 098287561832CD5C00362A7D /* CalculateCurveLine.m */; };
+		0982875A1832CF3A00362A7D /* Plot.m in Sources */ = {isa = PBXBuildFile; fileRef = 098287591832CF3A00362A7D /* Plot.m */; };
+		0982875D1832CFF100362A7D /* CurveLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982875C1832CFF100362A7D /* CurveLineModel.m */; };
 		09879C8217835733005B5E40 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09879C8117835733005B5E40 /* SettingsViewController.m */; };
 		099DECFF182D0ACF0097DCBF /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 099DECFD182D0ACF0097DCBF /* email.png */; };
 		099DED00182D0ACF0097DCBF /* email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 099DECFE182D0ACF0097DCBF /* email@2x.png */; };
-		09A51544182E8EE200472126 /* Plot.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A51543182E8EE200472126 /* Plot.m */; };
 		09A51547182EA86700472126 /* Projects.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A51546182EA86700472126 /* Projects.m */; };
 		09C82BBD1789DD8B00A47057 /* SettingsOptionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */; };
 		09C82BC01789DFE300A47057 /* SettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBF1789DFE200A47057 /* SettingsService.m */; };
@@ -141,8 +147,6 @@
 		091EDBE1182BF04C006A376D /* PlotSide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotSide.m; sourceTree = "<group>"; };
 		091EDBE3182BF04C006A376D /* Materials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Materials.h; sourceTree = "<group>"; };
 		091EDBE4182BF04C006A376D /* Materials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Materials.m; sourceTree = "<group>"; };
-		091EDBE6182BF04D006A376D /* AddPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPrice.h; sourceTree = "<group>"; };
-		091EDBE7182BF04D006A376D /* AddPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPrice.m; sourceTree = "<group>"; };
 		091EDBEF182BF145006A376D /* guide_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_new.png; sourceTree = "<group>"; };
 		091EDBF0182BF145006A376D /* guide_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide_new@2x.png"; sourceTree = "<group>"; };
 		091EDBF1182BF145006A376D /* home_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_new.png; sourceTree = "<group>"; };
@@ -207,12 +211,22 @@
 		0982697817C4C5EE007DB54D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		098284331822E3B200BE7A9E /* PlotDiagonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotDiagonalViewController.h; sourceTree = "<group>"; };
 		098284341822E3B200BE7A9E /* PlotDiagonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotDiagonalViewController.m; sourceTree = "<group>"; };
+		098287471832190A00362A7D /* AddPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPrice.h; sourceTree = "<group>"; };
+		098287481832190A00362A7D /* AddPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPrice.m; sourceTree = "<group>"; };
+		0982874A183293D600362A7D /* checkbox_unabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_unabled.png; sourceTree = "<group>"; };
+		0982874B183293D600362A7D /* checkbox_unabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_unabled@2x.png"; sourceTree = "<group>"; };
+		0982874C183293D600362A7D /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
+		0982874D183293D600362A7D /* checkbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox@2x.png"; sourceTree = "<group>"; };
+		098287551832CD5C00362A7D /* CalculateCurveLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateCurveLine.h; sourceTree = "<group>"; };
+		098287561832CD5C00362A7D /* CalculateCurveLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateCurveLine.m; sourceTree = "<group>"; };
+		098287581832CF3A00362A7D /* Plot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plot.h; sourceTree = "<group>"; };
+		098287591832CF3A00362A7D /* Plot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plot.m; sourceTree = "<group>"; };
+		0982875B1832CFF100362A7D /* CurveLineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurveLineModel.h; sourceTree = "<group>"; };
+		0982875C1832CFF100362A7D /* CurveLineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurveLineModel.m; sourceTree = "<group>"; };
 		09879C8017835733005B5E40 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		09879C8117835733005B5E40 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		099DECFD182D0ACF0097DCBF /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
 		099DECFE182D0ACF0097DCBF /* email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email@2x.png"; sourceTree = "<group>"; };
-		09A51542182E8EE200472126 /* Plot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plot.h; sourceTree = "<group>"; };
-		09A51543182E8EE200472126 /* Plot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plot.m; sourceTree = "<group>"; };
 		09A51545182EA86700472126 /* Projects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projects.h; sourceTree = "<group>"; };
 		09A51546182EA86700472126 /* Projects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projects.m; sourceTree = "<group>"; };
 		09C82BBB1789DD8B00A47057 /* SettingsOptionsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsOptionsModel.h; sourceTree = "<group>"; };
@@ -291,6 +305,8 @@
 				0942DE4B1815004A0088602F /* NewPlotViewController.m */,
 				098284331822E3B200BE7A9E /* PlotDiagonalViewController.h */,
 				098284341822E3B200BE7A9E /* PlotDiagonalViewController.m */,
+				098287551832CD5C00362A7D /* CalculateCurveLine.h */,
+				098287561832CD5C00362A7D /* CalculateCurveLine.m */,
 			);
 			name = newPlot;
 			sourceTree = "<group>";
@@ -311,13 +327,13 @@
 		094D321B17E8BDCE00D685EF /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				098287581832CF3A00362A7D /* Plot.h */,
+				098287591832CF3A00362A7D /* Plot.m */,
 				09E307C117DCE6F5006E5CE5 /* Projects.xcdatamodeld */,
+				098287471832190A00362A7D /* AddPrice.h */,
+				098287481832190A00362A7D /* AddPrice.m */,
 				09A51545182EA86700472126 /* Projects.h */,
 				09A51546182EA86700472126 /* Projects.m */,
-				09A51542182E8EE200472126 /* Plot.h */,
-				09A51543182E8EE200472126 /* Plot.m */,
-				091EDBE6182BF04D006A376D /* AddPrice.h */,
-				091EDBE7182BF04D006A376D /* AddPrice.m */,
 				091EDBE3182BF04C006A376D /* Materials.h */,
 				091EDBE4182BF04C006A376D /* Materials.m */,
 				091EDBE0182BF04C006A376D /* PlotSide.h */,
@@ -401,6 +417,10 @@
 			isa = PBXGroup;
 			children = (
 				094D323717EAD61300D685EF /* addBtn.png */,
+				0982874A183293D600362A7D /* checkbox_unabled.png */,
+				0982874B183293D600362A7D /* checkbox_unabled@2x.png */,
+				0982874C183293D600362A7D /* checkbox.png */,
+				0982874D183293D600362A7D /* checkbox@2x.png */,
 				090BDD6F17EB8C2500B767A5 /* addBtn@2x.png */,
 				099DECFD182D0ACF0097DCBF /* email.png */,
 				099DECFE182D0ACF0097DCBF /* email@2x.png */,
@@ -508,6 +528,8 @@
 				091EDBD2182BEC68006A376D /* PlotModel.m */,
 				091EDBD7182BED61006A376D /* DiagonalTmp.h */,
 				091EDBD8182BED61006A376D /* DiagonalTmp.m */,
+				0982875B1832CFF100362A7D /* CurveLineModel.h */,
+				0982875C1832CFF100362A7D /* CurveLineModel.m */,
 			);
 			name = Model;
 			path = Calculator;
@@ -608,6 +630,7 @@
 			files = (
 				091EDC06182C0F32006A376D /* tabBarShadow2@2x.png in Resources */,
 				091EDC05182C0F32006A376D /* tabBarShadow2.png in Resources */,
+				0982874F183293D600362A7D /* checkbox_unabled@2x.png in Resources */,
 				099DED00182D0ACF0097DCBF /* email@2x.png in Resources */,
 				090BDD6C17EB349400B767A5 /* Futuris Cyrillic.ttf in Resources */,
 				090BDD6B17EB32BB00B767A5 /* PTN57F.ttf in Resources */,
@@ -622,8 +645,10 @@
 				0982697917C4C5EE007DB54D /* icon.png in Resources */,
 				0906194117C6AC7C00C36A79 /* textLableBg.png in Resources */,
 				091EDC00182C05F5006A376D /* project_addPlot.png in Resources */,
+				0982874E183293D600362A7D /* checkbox_unabled.png in Resources */,
 				094D322417E9DA5000D685EF /* icon57x57.png in Resources */,
 				094D322617E9E0DA00D685EF /* icon114x114.png in Resources */,
+				09828750183293D600362A7D /* checkbox.png in Resources */,
 				091EDC0C182CC484006A376D /* buttonBg@2x.png in Resources */,
 				094D322E17EA1DF900D685EF /* navBar4.png in Resources */,
 				094D323017EA1F2B00D685EF /* navBarShadow.png in Resources */,
@@ -645,6 +670,7 @@
 				091EDBF9182BF145006A376D /* settings_new.png in Resources */,
 				090BDD7017EB8C2500B767A5 /* addBtn@2x.png in Resources */,
 				090BDD7217EB8C5D00B767A5 /* navBar4@2x.png in Resources */,
+				09828751183293D600362A7D /* checkbox@2x.png in Resources */,
 				090BDD7417EB8C7200B767A5 /* navBarShadow@2x.png in Resources */,
 				090BDD7817EB8E4000B767A5 /* backBtn@2x.png in Resources */,
 				091EDC0A182C1110006A376D /* tbBackground_new@2x.png in Resources */,
@@ -667,7 +693,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09A51544182E8EE200472126 /* Plot.m in Sources */,
 				091EDBE5182BF04C006A376D /* Materials.m in Sources */,
 				0959814C177F676E001D2122 /* main.m in Sources */,
 				09598150177F676E001D2122 /* CalcAppDelegate.m in Sources */,
@@ -675,9 +700,10 @@
 				0959815C177F676E001D2122 /* CalcViewController.m in Sources */,
 				09879C8217835733005B5E40 /* SettingsViewController.m in Sources */,
 				0942DE4C1815004A0088602F /* NewPlotViewController.m in Sources */,
+				0982875D1832CFF100362A7D /* CurveLineModel.m in Sources */,
 				26BF92FE1788441600C90497 /* PlotRectViewController.m in Sources */,
+				098287491832190A00362A7D /* AddPrice.m in Sources */,
 				09C82BBD1789DD8B00A47057 /* SettingsOptionsModel.m in Sources */,
-				091EDBE8182BF04D006A376D /* AddPrice.m in Sources */,
 				091EDBD9182BED61006A376D /* DiagonalTmp.m in Sources */,
 				26BB58B91827758C007701A6 /* PlotVisualController.m in Sources */,
 				26BB58BC1827BAAB007701A6 /* CoordModel.m in Sources */,
@@ -689,6 +715,7 @@
 				09D5DF6D178CEB32004FAA8C /* MenuViewController.m in Sources */,
 				09D5DF70178CEB66004FAA8C /* MainViewController.m in Sources */,
 				09D5DF77178CEE16004FAA8C /* BuildViewController.m in Sources */,
+				098287571832CD5C00362A7D /* CalculateCurveLine.m in Sources */,
 				09C93E881791B78100A4FBDC /* OptionsViewController.m in Sources */,
 				0982697117C27142007DB54D /* MaterialCell.m in Sources */,
 				0982697517C3E9C6007DB54D /* emailViewController.m in Sources */,
@@ -704,6 +731,7 @@
 				094D321117E645A400D685EF /* MaterialsDetailViewController.m in Sources */,
 				098284351822E3B200BE7A9E /* PlotDiagonalViewController.m in Sources */,
 				0939C0B9182758CA000249CA /* testTableViewController.m in Sources */,
+				0982875A1832CF3A00362A7D /* Plot.m in Sources */,
 				094D322217E9865000D685EF /* ProjectCell.m in Sources */,
 				091EDBD3182BEC68006A376D /* PlotModel.m in Sources */,
 				091EDBDF182BF04C006A376D /* PlotDiagonal.m in Sources */,

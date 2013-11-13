@@ -9,5 +9,8 @@
 #import "CurveLineModel.h"
 
 @implementation CurveLineModel
+@synthesize angleFirstCurve;
+@synthesize angleSecondCurve;
+@synthesize curveLength;
 
 @end

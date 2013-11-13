@@ -10,4 +10,9 @@
 
 @interface CurveLineModel : NSObject
 
+@property (nonatomic, strong) NSString *angleFirstCurve;
+@property (nonatomic, strong) NSString *angleSecondCurve;
+@property (nonatomic, strong) NSNumber *curveLength;
+
+
 @end

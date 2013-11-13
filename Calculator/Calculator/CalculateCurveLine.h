@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NewPlotViewController.h"
+#import "CalcAppDelegate.h"
+#import "Plot.h"
+#import "PlotSide.h"
+#import "CurveLineModel.h"
 
 @interface CalculateCurveLine : NSObject
+@property (nonatomic, strong) Plot *plot;
+
+-(void)SaveCurve:(CurveLineModel*)curve;
 
 @end

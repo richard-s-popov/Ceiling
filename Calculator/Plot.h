@@ -2,7 +2,7 @@
 //  Plot.h
 //  Calculator
 //
-//  Created by Александр Коровкин on 09.11.13.
+//  Created by Александр Коровкин on 13.11.13.
 //  Copyright (c) 2013 Александр Коровкин. All rights reserved.
 //
 
@@ -16,10 +16,12 @@
 @property (nonatomic, retain) NSNumber * bypassCount;
 @property (nonatomic, retain) NSNumber * lusterCount;
 @property (nonatomic, retain) NSString * plotName;
-@property (nonatomic, retain) NSNumber * plotPrice;
-@property (nonatomic, retain) NSNumber * spotCount;
-@property (nonatomic, retain) NSNumber * plotSquare;
 @property (nonatomic, retain) NSNumber * plotPerimetr;
+@property (nonatomic, retain) NSNumber * plotPrice;
+@property (nonatomic, retain) NSNumber * plotSquare;
+@property (nonatomic, retain) NSNumber * spotCount;
+@property (nonatomic, retain) NSNumber * isCheckKant;
+@property (nonatomic, retain) NSNumber * plotCurve;
 @property (nonatomic, retain) NSSet *plotDiagonal;
 @property (nonatomic, retain) Materials *plotMaterial;
 @property (nonatomic, retain) Projects *plotProject;

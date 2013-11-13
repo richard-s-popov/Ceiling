@@ -2,7 +2,7 @@
 //  AddPrice.h
 //  Calculator
 //
-//  Created by Александр Коровкин on 07.11.13.
+//  Created by Александр Коровкин on 12.11.13.
 //  Copyright (c) 2013 Александр Коровкин. All rights reserved.
 //
 
@@ -15,5 +15,6 @@
 @property (nonatomic, retain) NSNumber * bypassPrice;
 @property (nonatomic, retain) NSNumber * lusterPrice;
 @property (nonatomic, retain) NSNumber * spotPrice;
+@property (nonatomic, retain) NSNumber * kantPrice;
 
 @end

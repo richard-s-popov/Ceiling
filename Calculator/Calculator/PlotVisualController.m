@@ -65,7 +65,7 @@ char alphabet2[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     double s = [calcService getSpaceValue:coordsArray];
     double p = [calcService getPerimetr:plot];
     
-    plot.plotPrice = [NSNumber numberWithDouble:s / 10000];
+    plot.plotSquare = [NSNumber numberWithDouble:s / 10000];
     plot.plotPerimetr = [NSNumber numberWithDouble:p / 100];
     
     scaleFactor = [[UIScreen mainScreen] scale];

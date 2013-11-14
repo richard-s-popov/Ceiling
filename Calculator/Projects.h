@@ -2,7 +2,7 @@
 //  Projects.h
 //  Calculator
 //
-//  Created by Александр Коровкин on 09.11.13.
+//  Created by Александр Коровкин on 10.11.13.
 //  Copyright (c) 2013 Александр Коровкин. All rights reserved.
 //
 
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString * projectAdress;
 @property (nonatomic, retain) NSString * projectName;
 @property (nonatomic, retain) NSString * projectPhone;
+@property (nonatomic, retain) NSNumber * projectPrice;
 @property (nonatomic, retain) NSSet *projectPlot;
 @end
 

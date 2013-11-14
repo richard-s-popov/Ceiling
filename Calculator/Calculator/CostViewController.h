@@ -21,11 +21,13 @@
     __weak IBOutlet UITextField *lusterField;
     __weak IBOutlet UITextField *bypassField;
     __weak IBOutlet UITextField *spotField;
+    __weak IBOutlet UIButton *checkBoxKant;
     
     __weak IBOutlet UIPickerView *pickerViewField;
     
     __weak IBOutlet UILabel *squareLabel;
     __weak IBOutlet UILabel *perimetrLabel;
+    __weak IBOutlet UILabel *curveLabel;
     __weak IBOutlet UIScrollView *scrollView;
 }
 
@@ -45,5 +47,6 @@
 
 - (IBAction)calculateTextField:(id)sender;
 - (IBAction)pickMaterial:(id)sender;
+- (IBAction)kantCheckBox:(id)sender;
 
 @end

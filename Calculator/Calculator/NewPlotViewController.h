@@ -15,6 +15,9 @@
 #import "PlotDiagonalViewController.h"
 #import "PlotVisualController.h"
 
+#import "CalculateCurveLine.h"
+#import "CurveLineModel.h"
+
 @interface NewPlotViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate> {
 }
 
@@ -28,6 +31,8 @@
 @property (nonatomic, strong) Projects *project;
 @property (strong, nonatomic) IBOutlet UIView *sidesView;
 @property (weak, nonatomic) IBOutlet UIView *sidesConteinerView;
+
+@property (nonatomic, strong) CurveLineModel *curve;
 
 - (IBAction)saveAll:(id)sender;
 

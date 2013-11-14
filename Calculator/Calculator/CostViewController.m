@@ -13,6 +13,9 @@
     unsigned lusterPrice;
     unsigned bypassPrice;
     unsigned spotPrice;
+    unsigned kantPrice;
+    
+    BOOL kantIsChecked;
 }
 
 @end
@@ -50,11 +53,15 @@
     
     //запускаем скроллер
     [scrollView setScrollEnabled:YES];
-    [scrollView setContentSize:CGSizeMake(320, 500)];
+    [scrollView setContentSize:CGSizeMake(320, 650)];
     
     lusterField.delegate = self;
     bypassField.delegate = self;
     spotField.delegate = self;
+    
+    kantIsChecked = [plot.isCheckKant boolValue];
+    [self checkKantCondition];
+    
     
     [self populateFields];
     
@@ -84,6 +91,7 @@
     lusterPrice = [addPrice.lusterPrice integerValue];
     bypassPrice = [addPrice.bypassPrice integerValue];
     spotPrice = [addPrice.spotPrice integerValue];
+    kantPrice = [addPrice.kantPrice integerValue];
     
     [self calculateAll];
     
@@ -101,9 +109,7 @@
     UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
     numberToolbar.barStyle = UIBarStyleBlackOpaque;
     numberToolbar.items = [NSArray arrayWithObjects:
-                           //                           [[UIBarButtonItem alloc]initWithTitle:@"Отмена" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNamePlot)],
                            [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                           //                           [[UIBarButtonItem alloc]initWithTitle:@"Сохранить" style:UIBarButtonItemStyleDone target:self action:@selector(doneNamePlot)],
                            [[UIBarButtonItem alloc] initWithCustomView:saveButtonToolbar],
                            nil];
     [numberToolbar sizeToFit];
@@ -112,11 +118,6 @@
     bypassField.inputAccessoryView = numberToolbar;
     spotField.inputAccessoryView = numberToolbar;
     
-    //подтягиваем площадь и периметр
-    int square = 10;
-    int perimetr = 14;
-    squareLabel.text = [NSString stringWithFormat:@"%d м.кв.", square];
-    perimetrLabel.text = [NSString stringWithFormat:@"%d м.", perimetr];
     
     //предустановка положения pickerView
     if (plot.plotMaterial) {
@@ -145,8 +146,8 @@ numberOfRowsInComponent:(NSInteger)component
 
 - (NSString *)pickerView:(UIPickerView *)pickerView
              titleForRow:(NSInteger)row
-            forComponent:(NSInteger)component
-{
+            forComponent:(NSInteger)component {
+    
     NSString *nameOfMaterial = [NSString stringWithFormat:@"%@ - %@",[[materialsArray objectAtIndex:row] matName], [[materialsArray objectAtIndex:row] matWidth]];
     return nameOfMaterial;
 }
@@ -155,8 +156,8 @@ numberOfRowsInComponent:(NSInteger)component
 #pragma mark -
 #pragma mark PickerView Delegate
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
-      inComponent:(NSInteger)component
-{
+      inComponent:(NSInteger)component {
+    
     material = [materialsArray objectAtIndex:row];
     plot.plotMaterial = material;
     [self calculateAll];
@@ -164,13 +165,23 @@ numberOfRowsInComponent:(NSInteger)component
 
 
 -(void)populateFields {
+    
     lusterField.text = [plot.lusterCount stringValue];
     bypassField.text = [plot.bypassCount stringValue];
     spotField.text = [plot.spotCount stringValue];
+    
+    //подтягиваем площадь и периметр
+    float square = [plot.plotSquare floatValue];
+    float perimetr = [plot.plotPerimetr floatValue];
+    float curve = [plot.plotCurve floatValue];
+    squareLabel.text = [NSString stringWithFormat:@"%1.2f м.кв.", square];
+    perimetrLabel.text = [NSString stringWithFormat:@"%1.2f м.", perimetr];
+    curveLabel.text = [NSString stringWithFormat:@"%1.2f м.", curve];
 }
 
 
 -(void)calculateAll {
+    
     unsigned lusterCount = [plot.lusterCount integerValue];
     unsigned bypassCount = [plot.bypassCount integerValue];
     unsigned spotCount = [plot.spotCount integerValue];
@@ -178,15 +189,41 @@ numberOfRowsInComponent:(NSInteger)component
     //считаем дополнительные параметры
     lastCostInt = (lusterCount*lusterPrice) + (bypassCount*bypassPrice) + (spotCount*spotPrice);
     //считаем стоимость полотна
-    int squarePrice = [squareLabel.text intValue]*[plot.plotMaterial.matPrice intValue];
+    float squarePrice = [plot.plotSquare floatValue] * [plot.plotMaterial.matPrice floatValue];
+    
     //считаем кантик
-    int cantikPrice = [perimetrLabel.text intValue]*80;
+    float cantikPrice = 0;
+    if (!kantIsChecked) {
+        cantikPrice = 0;
+    }
+    else if (kantIsChecked) {
+        cantikPrice = [plot.plotPerimetr floatValue]*kantPrice;
+    }
+    
+    //для криволинейного участка
+    int curvePrice = [addPrice.curvePrice intValue];
+    float curveCost = [plot.plotCurve floatValue]*curvePrice;
     
     //считаем итого
-    int price = lastCostInt + squarePrice + cantikPrice;
+    float price = lastCostInt + squarePrice + cantikPrice + curveCost;
     
-    plot.plotPrice = [NSNumber numberWithInt:price];
-    lastCost.text = [NSString stringWithFormat:@"%@ руб.", plot.plotPrice];
+    plot.plotPrice = [NSNumber numberWithFloat:price];
+    lastCost.text = [NSString stringWithFormat:@"%1.2f руб.", price];
+    
+    //считаем стоимость проекта
+    NSArray *plotArray = [project.projectPlot allObjects];
+    int countPlot = 0;
+    project.projectPrice = 0;
+    float projectPrice = 0;
+    while (countPlot != plotArray.count) {
+        
+        NSNumber *plotPrice = [[plotArray objectAtIndex:countPlot] plotPrice];
+        projectPrice = projectPrice + [plotPrice floatValue];
+        
+        countPlot++;
+    }
+    
+    project.projectPrice = [NSNumber numberWithInt:projectPrice];
 }
 
 - (void)didReceiveMemoryWarning
@@ -209,6 +246,35 @@ numberOfRowsInComponent:(NSInteger)component
 
 - (IBAction)pickMaterial:(id)sender {
     [sender resignFirstResponder];
+}
+
+- (IBAction)kantCheckBox:(id)sender {
+    
+    if (!kantIsChecked) {
+        UIImage *checkBoxBg = [[UIImage imageNamed:@"checkbox.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        [checkBoxKant setBackgroundImage:checkBoxBg forState:UIControlStateNormal];
+        kantIsChecked = YES;
+        [self calculateAll];
+    }
+    else if (kantIsChecked) {
+        UIImage *checkBoxUnBg = [[UIImage imageNamed:@"checkbox_unabled.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        [checkBoxKant setBackgroundImage:checkBoxUnBg forState:UIControlStateNormal];
+        kantIsChecked = NO;
+        [self calculateAll];
+    }
+}
+
+
+-(void) checkKantCondition {
+
+    if (!kantIsChecked) {
+        UIImage *checkBoxUnBg = [[UIImage imageNamed:@"checkbox_unabled.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        [checkBoxKant setBackgroundImage:checkBoxUnBg forState:UIControlStateNormal];
+    }
+    else if (kantIsChecked) {
+        UIImage *checkBoxBg = [[UIImage imageNamed:@"checkbox.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        [checkBoxKant setBackgroundImage:checkBoxBg forState:UIControlStateNormal];
+    }
 }
 
 

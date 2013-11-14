@@ -15,6 +15,8 @@
 
 @interface CalculateCurveLine : NSObject
 @property (nonatomic, strong) Plot *plot;
+@property int currentSideWidth;
+@property (nonatomic, strong) NSMutableArray *arrayOfSides;
 
 -(void)SaveCurve:(CurveLineModel*)curve;
 

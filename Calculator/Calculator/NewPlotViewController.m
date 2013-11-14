@@ -240,6 +240,7 @@
         
         CalculateCurveLine *calculateCurve = [[CalculateCurveLine alloc] init];
         calculateCurve.plot = plotFromProject;
+        calculateCurve.arrayOfSides = mutableArraySides;
         [calculateCurve SaveCurve:curve];
         
         

@@ -53,7 +53,7 @@
     
     //запускаем скроллер
     [scrollView setScrollEnabled:YES];
-    [scrollView setContentSize:CGSizeMake(320, 500)];
+    [scrollView setContentSize:CGSizeMake(320, 650)];
     
     lusterField.delegate = self;
     bypassField.delegate = self;
@@ -173,8 +173,10 @@ numberOfRowsInComponent:(NSInteger)component
     //подтягиваем площадь и периметр
     float square = [plot.plotSquare floatValue];
     float perimetr = [plot.plotPerimetr floatValue];
+    float curve = [plot.plotCurve floatValue];
     squareLabel.text = [NSString stringWithFormat:@"%1.2f м.кв.", square];
     perimetrLabel.text = [NSString stringWithFormat:@"%1.2f м.", perimetr];
+    curveLabel.text = [NSString stringWithFormat:@"%1.2f м.", curve];
 }
 
 
@@ -198,8 +200,12 @@ numberOfRowsInComponent:(NSInteger)component
         cantikPrice = [plot.plotPerimetr floatValue]*kantPrice;
     }
     
+    //для криволинейного участка
+    int curvePrice = [addPrice.curvePrice intValue];
+    float curveCost = [plot.plotCurve floatValue]*curvePrice;
+    
     //считаем итого
-    float price = lastCostInt + squarePrice + cantikPrice;
+    float price = lastCostInt + squarePrice + cantikPrice + curveCost;
     
     plot.plotPrice = [NSNumber numberWithFloat:price];
     lastCost.text = [NSString stringWithFormat:@"%1.2f руб.", price];

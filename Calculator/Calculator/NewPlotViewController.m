@@ -24,6 +24,7 @@
     Plot *newPlot;
     
     //для криволинейного участка
+    UIButton *clearButton;
     UITextField *angleCurvLine;
     UILabel *curvLineLabel;
     int numberAngleCurv;
@@ -31,6 +32,7 @@
     NSString *angleCurvSecond;
     BOOL isGeneratingCurv;
     UIButton *buttonCurv;
+    BOOL deleteCurve;
     
 }
 
@@ -89,6 +91,7 @@
 {
     [super viewDidLoad];
     
+    deleteCurve = NO;
     isGeneratingCurv = NO;
 	// Do any additional setup after loading the view.
     
@@ -169,19 +172,31 @@
     
     //кнопка добавить криволинейный участок
     buttonCurv = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    buttonCurv.frame = CGRectMake(20, 54, 280, 30);
-    buttonCurv.titleLabel.text = @"Добавить криволинейный участок";
+    buttonCurv.frame = CGRectMake(20, 54, 200, 30);
+    buttonCurv.titleLabel.font = [UIFont fontWithName:@"FuturisCyrillic" size:13.0f];
     buttonCurv.titleLabel.textColor = [UIColor blackColor];
     [buttonCurv setTitle:@"Добавить криволинейный участок" forState:UIControlStateNormal];
     [buttonCurv addTarget:self action:@selector(clickAddCurvButton) forControlEvents:UIControlEventTouchUpInside];
     buttonCurv.tag = 1;
     [sidesConteinerView addSubview:buttonCurv];
     
+    clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [clearButton setTitle:@"Удалить" forState:UIControlStateNormal];
+    [clearButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal ];
+    clearButton.titleLabel.font = [UIFont fontWithName:@"FuturisCyrillic" size:13.0f];
+    [clearButton.layer setCornerRadius:4.0f];
+    [clearButton.layer setBorderWidth:1.0f];
+    [clearButton.layer setBorderColor: [[UIColor grayColor] CGColor]];
+    clearButton.frame=CGRectMake(240, 54, 70.0, 30.0);
+    [clearButton addTarget:self action:@selector(clearCurveNumberPad)  forControlEvents:UIControlEventTouchUpInside];
+    [sidesConteinerView addSubview:clearButton];
+    
 }
 
 -(void)clickAddCurvButton {
     
     [buttonCurv removeFromSuperview];
+    [clearButton removeFromSuperview];
     
     curve = [[CurveLineModel alloc] init];
     
@@ -211,7 +226,6 @@
     [buttonCancel.layer setBorderColor: [[UIColor grayColor] CGColor]];
     buttonCancel.frame=CGRectMake(0.0, 100.0, 70.0, 30.0);
     [buttonCancel addTarget:self action:@selector(cancelNumberPad)  forControlEvents:UIControlEventTouchUpInside];
-
     
     UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
     numberToolbar.barStyle = UIBarStyleBlackOpaque;
@@ -248,7 +262,16 @@
         [angleCurvLine removeFromSuperview];
         [curvLineLabel removeFromSuperview];
         [sidesConteinerView addSubview:buttonCurv];
+        [sidesConteinerView addSubview:clearButton];
     }
+}
+
+
+-(void)clearCurveNumberPad {
+    deleteCurve = YES;
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Удаление" message:@"Вы уверены, что хотите удалить криволинейный участок?" delegate:self cancelButtonTitle:@"Удалить" otherButtonTitles:@"Отмена", nil];
+    [alert show];
 }
 
 
@@ -272,13 +295,19 @@
     // the user clicked one of the OK/Cancel buttons
     if (buttonIndex == 0)
     {
-        [project removeProjectPlotObject:newPlot];
-        
-        NSError *error;
-        if (![self.managedObjectContext save:&error]) {
+        //проверка на то что мы удаляем
+        if (deleteCurve == YES) {
+            plotFromProject.plotCurve = 0;
         }
-
-        [self.navigationController popViewControllerAnimated:YES];
+        else {
+            [project removeProjectPlotObject:newPlot];
+            
+            NSError *error;
+            if (![self.managedObjectContext save:&error]) {
+            }
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
 }
 

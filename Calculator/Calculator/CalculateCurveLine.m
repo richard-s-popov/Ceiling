@@ -19,7 +19,7 @@
 //                         componentsSeparatedByString:@" "];
     
     
-    int curveWidth = 0;
+    float curveWidth = 0;
     int countOfCurveAngle = 0;
     BOOL isCurve = NO;
     //создаем цыкл для пересчета криволинейности
@@ -41,10 +41,10 @@
         
         countOfCurveAngle++;
     }
-    plot.plotCurve = [NSNumber numberWithInt: curveWidth];
-    NSLog(@"длинна криволинейного участка = %d", curveWidth);
-    
-    NSLog(@"передана кривая - %@%@, длинна криволинейной = %@", curve.angleFirstCurve, curve.angleSecondCurve, plot.plotCurve);
+    float resumeCurveWidth = curveWidth/100 + [plot.plotCurve floatValue];
+    NSLog(@"длинна криволинейности = %1.2f", resumeCurveWidth);
+    plot.plotCurve = [NSNumber numberWithFloat:resumeCurveWidth];
+
 }
 
 @end

@@ -17,6 +17,7 @@
 @synthesize bypassTextField;
 @synthesize spotTextField;
 @synthesize kantTextField;
+@synthesize curveTextField;
 
 @synthesize managedObjectContext;
 @synthesize addPrice;
@@ -40,6 +41,7 @@
     [bypassTextField resignFirstResponder];
     [spotTextField resignFirstResponder];
     [kantTextField resignFirstResponder];
+    [curveTextField resignFirstResponder];
     
     return YES;
 }
@@ -65,6 +67,7 @@
     bypassTextField.delegate = self;
     spotTextField.delegate = self;
     kantTextField.delegate = self;
+    curveTextField.delegate = self;
     
     if (fetchArray.count == 0) {
         addPrice = [NSEntityDescription insertNewObjectForEntityForName:@"AddPrice" inManagedObjectContext:self.managedObjectContext];
@@ -82,12 +85,14 @@
         bypassTextField.text = [addPrice.bypassPrice stringValue];
         spotTextField.text = [addPrice.spotPrice stringValue];
         kantTextField.text  = [addPrice.kantPrice stringValue];
+        curveTextField.text = [addPrice.curvePrice stringValue];
     }
     else {
         lusterTextField.text = @"";
         bypassTextField.text = @"";
         spotTextField.text = @"";
         kantTextField.text = @"";
+        curveTextField.text = @"";
     }
     
     //скрываем клавиатуру по нажатию на фон
@@ -120,6 +125,7 @@
     addPrice.bypassPrice = [NSNumber numberWithInt:[bypassTextField.text intValue]];
     addPrice.spotPrice = [NSNumber numberWithInt:[spotTextField.text intValue]];
     addPrice.kantPrice = [NSNumber numberWithInt:[kantTextField.text intValue]];
+    addPrice.curvePrice = [NSNumber numberWithInt:[curveTextField.text intValue]];
     
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
@@ -135,6 +141,7 @@
     [bypassTextField resignFirstResponder];
     [spotTextField resignFirstResponder];
     [kantTextField resignFirstResponder];
+    [curveTextField resignFirstResponder];
 }
 
 @end

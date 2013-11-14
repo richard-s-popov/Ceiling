@@ -47,6 +47,7 @@
 		091EDC09182C1110006A376D /* tbBackground_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 091EDC07182C1110006A376D /* tbBackground_new.png */; };
 		091EDC0A182C1110006A376D /* tbBackground_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 091EDC08182C1110006A376D /* tbBackground_new@2x.png */; };
 		091EDC0C182CC484006A376D /* buttonBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 091EDC0B182CC484006A376D /* buttonBg@2x.png */; };
+		09313E6818353F49006270B0 /* AddPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 09313E6718353F49006270B0 /* AddPrice.m */; };
 		0939C0B9182758CA000249CA /* testTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0939C0B8182758CA000249CA /* testTableViewController.m */; };
 		0942DE4C1815004A0088602F /* NewPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0942DE4B1815004A0088602F /* NewPlotViewController.m */; };
 		094BA1D917F3875700BD1904 /* tbSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 094BA1D817F3875700BD1904 /* tbSelected.png */; };
@@ -80,7 +81,6 @@
 		0982697717C3EE98007DB54D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0982697617C3EE98007DB54D /* MessageUI.framework */; };
 		0982697917C4C5EE007DB54D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982697817C4C5EE007DB54D /* icon.png */; };
 		098284351822E3B200BE7A9E /* PlotDiagonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 098284341822E3B200BE7A9E /* PlotDiagonalViewController.m */; };
-		098287491832190A00362A7D /* AddPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 098287481832190A00362A7D /* AddPrice.m */; };
 		0982874E183293D600362A7D /* checkbox_unabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982874A183293D600362A7D /* checkbox_unabled.png */; };
 		0982874F183293D600362A7D /* checkbox_unabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982874B183293D600362A7D /* checkbox_unabled@2x.png */; };
 		09828750183293D600362A7D /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 0982874C183293D600362A7D /* checkbox.png */; };
@@ -162,6 +162,8 @@
 		091EDC07182C1110006A376D /* tbBackground_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tbBackground_new.png; sourceTree = "<group>"; };
 		091EDC08182C1110006A376D /* tbBackground_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tbBackground_new@2x.png"; sourceTree = "<group>"; };
 		091EDC0B182CC484006A376D /* buttonBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonBg@2x.png"; sourceTree = "<group>"; };
+		09313E6618353F49006270B0 /* AddPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPrice.h; sourceTree = "<group>"; };
+		09313E6718353F49006270B0 /* AddPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPrice.m; sourceTree = "<group>"; };
 		0939C0B7182758CA000249CA /* testTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testTableViewController.h; sourceTree = "<group>"; };
 		0939C0B8182758CA000249CA /* testTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testTableViewController.m; sourceTree = "<group>"; };
 		0942DE4A1815004A0088602F /* NewPlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlotViewController.h; sourceTree = "<group>"; };
@@ -211,8 +213,6 @@
 		0982697817C4C5EE007DB54D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		098284331822E3B200BE7A9E /* PlotDiagonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotDiagonalViewController.h; sourceTree = "<group>"; };
 		098284341822E3B200BE7A9E /* PlotDiagonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotDiagonalViewController.m; sourceTree = "<group>"; };
-		098287471832190A00362A7D /* AddPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPrice.h; sourceTree = "<group>"; };
-		098287481832190A00362A7D /* AddPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPrice.m; sourceTree = "<group>"; };
 		0982874A183293D600362A7D /* checkbox_unabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_unabled.png; sourceTree = "<group>"; };
 		0982874B183293D600362A7D /* checkbox_unabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_unabled@2x.png"; sourceTree = "<group>"; };
 		0982874C183293D600362A7D /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
@@ -329,9 +329,9 @@
 			children = (
 				098287581832CF3A00362A7D /* Plot.h */,
 				098287591832CF3A00362A7D /* Plot.m */,
+				09313E6618353F49006270B0 /* AddPrice.h */,
+				09313E6718353F49006270B0 /* AddPrice.m */,
 				09E307C117DCE6F5006E5CE5 /* Projects.xcdatamodeld */,
-				098287471832190A00362A7D /* AddPrice.h */,
-				098287481832190A00362A7D /* AddPrice.m */,
 				09A51545182EA86700472126 /* Projects.h */,
 				09A51546182EA86700472126 /* Projects.m */,
 				091EDBE3182BF04C006A376D /* Materials.h */,
@@ -702,7 +702,6 @@
 				0942DE4C1815004A0088602F /* NewPlotViewController.m in Sources */,
 				0982875D1832CFF100362A7D /* CurveLineModel.m in Sources */,
 				26BF92FE1788441600C90497 /* PlotRectViewController.m in Sources */,
-				098287491832190A00362A7D /* AddPrice.m in Sources */,
 				09C82BBD1789DD8B00A47057 /* SettingsOptionsModel.m in Sources */,
 				091EDBD9182BED61006A376D /* DiagonalTmp.m in Sources */,
 				26BB58B91827758C007701A6 /* PlotVisualController.m in Sources */,
@@ -733,6 +732,7 @@
 				0939C0B9182758CA000249CA /* testTableViewController.m in Sources */,
 				0982875A1832CF3A00362A7D /* Plot.m in Sources */,
 				094D322217E9865000D685EF /* ProjectCell.m in Sources */,
+				09313E6818353F49006270B0 /* AddPrice.m in Sources */,
 				091EDBD3182BEC68006A376D /* PlotModel.m in Sources */,
 				091EDBDF182BF04C006A376D /* PlotDiagonal.m in Sources */,
 			);

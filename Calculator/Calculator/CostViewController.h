@@ -27,6 +27,7 @@
     
     __weak IBOutlet UILabel *squareLabel;
     __weak IBOutlet UILabel *perimetrLabel;
+    __weak IBOutlet UILabel *curveLabel;
     __weak IBOutlet UIScrollView *scrollView;
 }
 

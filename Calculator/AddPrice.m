@@ -2,7 +2,7 @@
 //  AddPrice.m
 //  Calculator
 //
-//  Created by Александр Коровкин on 12.11.13.
+//  Created by Александр Коровкин on 15.11.13.
 //  Copyright (c) 2013 Александр Коровкин. All rights reserved.
 //
 
@@ -12,8 +12,9 @@
 @implementation AddPrice
 
 @dynamic bypassPrice;
+@dynamic kantPrice;
 @dynamic lusterPrice;
 @dynamic spotPrice;
-@dynamic kantPrice;
+@dynamic curvePrice;
 
 @end

@@ -29,8 +29,6 @@
 		091EDBD3182BEC68006A376D /* PlotModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 091EDBD2182BEC68006A376D /* PlotModel.m */; };
 		091EDBD9182BED61006A376D /* DiagonalTmp.m in Sources */ = {isa = PBXBuildFile; fileRef = 091EDBD8182BED61006A376D /* DiagonalTmp.m */; };
 		091EDBDC182BEE27006A376D /* ProjectPlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 091EDBDB182BEE27006A376D /* ProjectPlotCell.m */; };
-		091EDBDF182BF04C006A376D /* PlotDiagonal.m in Sources */ = {isa = PBXBuildFile; fileRef = 091EDBDE182BF04C006A376D /* PlotDiagonal.m */; };
-		091EDBE2182BF04C006A376D /* PlotSide.m in Sources */ = {isa = PBXBuildFile; fileRef = 091EDBE1182BF04C006A376D /* PlotSide.m */; };
 		091EDBE5182BF04C006A376D /* Materials.m in Sources */ = {isa = PBXBuildFile; fileRef = 091EDBE4182BF04C006A376D /* Materials.m */; };
 		091EDBF5182BF145006A376D /* guide_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 091EDBEF182BF145006A376D /* guide_new.png */; };
 		091EDBF6182BF145006A376D /* guide_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 091EDBF0182BF145006A376D /* guide_new@2x.png */; };
@@ -97,6 +95,8 @@
 		09C93E881791B78100A4FBDC /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C93E871791B78100A4FBDC /* OptionsViewController.m */; };
 		09CA819A17F3AF0E00A3BAE6 /* SliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CA819917F3AF0E00A3BAE6 /* SliderViewController.m */; };
 		09CA819C17F3B8B800A3BAE6 /* questionmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CA819B17F3B8B800A3BAE6 /* questionmark.png */; };
+		09D4A0741853965700A101BC /* PlotDiagonal.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D4A0731853965700A101BC /* PlotDiagonal.m */; };
+		09D4A0771853965700A101BC /* PlotSide.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D4A0761853965700A101BC /* PlotSide.m */; };
 		09D5DF66178CEAA5004FAA8C /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF63178CEAA5004FAA8C /* ECSlidingViewController.m */; };
 		09D5DF67178CEAA5004FAA8C /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF65178CEAA5004FAA8C /* UIImage+ImageWithUIView.m */; };
 		09D5DF6A178CEAED004FAA8C /* InitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF69178CEAED004FAA8C /* InitViewController.m */; };
@@ -141,10 +141,6 @@
 		091EDBD8182BED61006A376D /* DiagonalTmp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiagonalTmp.m; sourceTree = "<group>"; };
 		091EDBDA182BEE27006A376D /* ProjectPlotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectPlotCell.h; sourceTree = "<group>"; };
 		091EDBDB182BEE27006A376D /* ProjectPlotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectPlotCell.m; sourceTree = "<group>"; };
-		091EDBDD182BF04C006A376D /* PlotDiagonal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotDiagonal.h; sourceTree = "<group>"; };
-		091EDBDE182BF04C006A376D /* PlotDiagonal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotDiagonal.m; sourceTree = "<group>"; };
-		091EDBE0182BF04C006A376D /* PlotSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotSide.h; sourceTree = "<group>"; };
-		091EDBE1182BF04C006A376D /* PlotSide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotSide.m; sourceTree = "<group>"; };
 		091EDBE3182BF04C006A376D /* Materials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Materials.h; sourceTree = "<group>"; };
 		091EDBE4182BF04C006A376D /* Materials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Materials.m; sourceTree = "<group>"; };
 		091EDBEF182BF145006A376D /* guide_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_new.png; sourceTree = "<group>"; };
@@ -238,6 +234,10 @@
 		09CA819817F3AF0E00A3BAE6 /* SliderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderViewController.h; sourceTree = "<group>"; };
 		09CA819917F3AF0E00A3BAE6 /* SliderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderViewController.m; sourceTree = "<group>"; };
 		09CA819B17F3B8B800A3BAE6 /* questionmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questionmark.png; sourceTree = "<group>"; };
+		09D4A0721853965700A101BC /* PlotDiagonal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotDiagonal.h; sourceTree = "<group>"; };
+		09D4A0731853965700A101BC /* PlotDiagonal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotDiagonal.m; sourceTree = "<group>"; };
+		09D4A0751853965700A101BC /* PlotSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotSide.h; sourceTree = "<group>"; };
+		09D4A0761853965700A101BC /* PlotSide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotSide.m; sourceTree = "<group>"; };
 		09D5DF62178CEAA5004FAA8C /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
 		09D5DF63178CEAA5004FAA8C /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
 		09D5DF64178CEAA5004FAA8C /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
@@ -332,14 +332,14 @@
 				09313E6618353F49006270B0 /* AddPrice.h */,
 				09313E6718353F49006270B0 /* AddPrice.m */,
 				09E307C117DCE6F5006E5CE5 /* Projects.xcdatamodeld */,
+				09D4A0751853965700A101BC /* PlotSide.h */,
+				09D4A0761853965700A101BC /* PlotSide.m */,
+				09D4A0721853965700A101BC /* PlotDiagonal.h */,
+				09D4A0731853965700A101BC /* PlotDiagonal.m */,
 				09A51545182EA86700472126 /* Projects.h */,
 				09A51546182EA86700472126 /* Projects.m */,
 				091EDBE3182BF04C006A376D /* Materials.h */,
 				091EDBE4182BF04C006A376D /* Materials.m */,
-				091EDBE0182BF04C006A376D /* PlotSide.h */,
-				091EDBE1182BF04C006A376D /* PlotSide.m */,
-				091EDBDD182BF04C006A376D /* PlotDiagonal.h */,
-				091EDBDE182BF04C006A376D /* PlotDiagonal.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -698,12 +698,14 @@
 				09598150177F676E001D2122 /* CalcAppDelegate.m in Sources */,
 				091EDBDC182BEE27006A376D /* ProjectPlotCell.m in Sources */,
 				0959815C177F676E001D2122 /* CalcViewController.m in Sources */,
+				09D4A0771853965700A101BC /* PlotSide.m in Sources */,
 				09879C8217835733005B5E40 /* SettingsViewController.m in Sources */,
 				0942DE4C1815004A0088602F /* NewPlotViewController.m in Sources */,
 				0982875D1832CFF100362A7D /* CurveLineModel.m in Sources */,
 				26BF92FE1788441600C90497 /* PlotRectViewController.m in Sources */,
 				09C82BBD1789DD8B00A47057 /* SettingsOptionsModel.m in Sources */,
 				091EDBD9182BED61006A376D /* DiagonalTmp.m in Sources */,
+				09D4A0741853965700A101BC /* PlotDiagonal.m in Sources */,
 				26BB58B91827758C007701A6 /* PlotVisualController.m in Sources */,
 				26BB58BC1827BAAB007701A6 /* CoordModel.m in Sources */,
 				09C82BC01789DFE300A47057 /* SettingsService.m in Sources */,
@@ -726,7 +728,6 @@
 				09E307C317DCE6F5006E5CE5 /* Projects.xcdatamodeld in Sources */,
 				096FD47A17EF5FDC0059F2C4 /* NewProjectListViewController.m in Sources */,
 				094D320E17E6456300D685EF /* MaterialsListViewController.m in Sources */,
-				091EDBE2182BF04C006A376D /* PlotSide.m in Sources */,
 				094D321117E645A400D685EF /* MaterialsDetailViewController.m in Sources */,
 				098284351822E3B200BE7A9E /* PlotDiagonalViewController.m in Sources */,
 				0939C0B9182758CA000249CA /* testTableViewController.m in Sources */,
@@ -734,7 +735,6 @@
 				094D322217E9865000D685EF /* ProjectCell.m in Sources */,
 				09313E6818353F49006270B0 /* AddPrice.m in Sources */,
 				091EDBD3182BEC68006A376D /* PlotModel.m in Sources */,
-				091EDBDF182BF04C006A376D /* PlotDiagonal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -304,6 +304,10 @@
     //сохранение стороны
     if (isSide == YES) {
         side.sideWidth = [NSNumber numberWithInt:[diagonalTextField.text intValue]];
+        
+        float sideWidthFactorTmp = [side.sideWidth floatValue] - ([side.sideWidth floatValue]*0.07);
+        side.sideWidthFactor = [NSNumber numberWithFloat:sideWidthFactorTmp];
+        
         [diagonalTextField removeFromSuperview];
         startLable.text = @"Нажимая на диагонали вводите их длинну";
         [self.tableOfDiagonal reloadRowsAtIndexPaths:[NSArray arrayWithObject:diagonalIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
@@ -324,6 +328,10 @@
             tmpDiagonalForSave.angleFirst = diagonalTmp.angleFirst;
             tmpDiagonalForSave.angleSecond = diagonalTmp.angleSecond;
             
+            //считаем диагональ с учетом утяжки
+            float diagonalWidthFactorTmp = [tmpDiagonalForSave.diagonalWidth floatValue] - ([tmpDiagonalForSave.diagonalWidth floatValue]*0.07);
+            tmpDiagonalForSave.diagonalWidthFactor = [NSNumber numberWithFloat:diagonalWidthFactorTmp];
+            
             [plot addPlotDiagonalObject:tmpDiagonalForSave];
             [side addSideDiagonalObject:tmpDiagonalForSave];
             
@@ -332,15 +340,20 @@
         }
         //условие для изменения диагонали в контексте , если диагональ уже была создана
         else {
-
+            
             //создаем выборку по углам
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(angleFirst == %@) && (angleSecond == %@)", diagonalTmp.angleFirst, diagonalTmp.angleSecond];
             NSSet *filteredSet = [side.sideDiagonal filteredSetUsingPredicate:predicate];
             //извлекаем и изменяем объект
             PlotDiagonal *filteredDiagonal = [[filteredSet allObjects] objectAtIndex:0];
             filteredDiagonal.diagonalWidth = lustDiagonal;
+            
             //вносим визуальные изменения в таблицу и во временный массив
             diagonalTmp.diagonalWidth = lustDiagonal;
+            
+            //считаем диагональ с учетом утяжки
+            float diagonalWidthFactorTmp = [filteredDiagonal.diagonalWidth floatValue] - ([filteredDiagonal.diagonalWidth floatValue]*0.07);
+            filteredDiagonal.diagonalWidthFactor = [NSNumber numberWithFloat:diagonalWidthFactorTmp];
             
         }
         

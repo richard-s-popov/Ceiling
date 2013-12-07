@@ -34,6 +34,7 @@
         <attribute name="angleFirst" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="angleSecond" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="diagonalWidth" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="diagonalWidthFactor" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="diagonalPlot" maxCount="1" deletionRule="Nullify" destinationEntity="Plot" inverseName="plotDiagonal" inverseEntity="Plot" syncable="YES"/>
         <relationship name="diagonalSide" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlotSide" inverseName="sideDiagonal" inverseEntity="PlotSide" syncable="YES"/>
     </entity>
@@ -42,6 +43,7 @@
         <attribute name="angleSecond" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sidePosition" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="sideWidth" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sideWidthFactor" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="sideDiagonal" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PlotDiagonal" inverseName="diagonalSide" inverseEntity="PlotDiagonal" syncable="YES"/>
         <relationship name="sidePlot" maxCount="1" deletionRule="Nullify" destinationEntity="Plot" inverseName="plotSide" inverseEntity="Plot" syncable="YES"/>
     </entity>

@@ -2,7 +2,7 @@
 //  PlotSide.m
 //  Calculator
 //
-//  Created by Александр Коровкин on 07.11.13.
+//  Created by Александр Коровкин on 08.12.13.
 //  Copyright (c) 2013 Александр Коровкин. All rights reserved.
 //
 
@@ -15,8 +15,9 @@
 
 @dynamic angleFirst;
 @dynamic angleSecond;
-@dynamic sideWidth;
 @dynamic sidePosition;
+@dynamic sideWidth;
+@dynamic sideWidthFactor;
 @dynamic sideDiagonal;
 @dynamic sidePlot;
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bQN-Xz-x2b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bQN-Xz-x2b">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
@@ -1082,7 +1082,7 @@
             </objects>
             <point key="canvasLocation" x="4059" y="1135"/>
         </scene>
-        <!--View Controller - Настройте Самсон-Мастре-->
+        <!--View Controller - Настройте приложение-->
         <scene sceneID="3vv-Qr-qL4">
             <objects>
                 <viewController id="aQk-YQ-4vF" sceneMemberID="viewController">
@@ -1108,7 +1108,7 @@
                             <outletCollection property="gestureRecognizers" destination="UPq-x0-tkX" appends="YES" id="rcI-9A-qmb"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Настройте Самсон-Мастре" id="DXW-sK-jRb">
+                    <navigationItem key="navigationItem" title="Настройте приложение" id="DXW-sK-jRb">
                         <barButtonItem key="backBarButtonItem" title=" " id="18i-C1-UIy"/>
                     </navigationItem>
                 </viewController>

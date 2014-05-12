@@ -64,15 +64,19 @@
     switch (result) {
         case MFMailComposeResultSent:
             // TODO: Успешно отправлено
+            NSLog(@"успех %@", error);
             break;
         case MFMailComposeResultCancelled:
             // TODO: Отменено пользователем
+            NSLog(@"отмена");
             break;
         case MFMailComposeResultFailed:
             // TODO: Произошла ошибка
+            NSLog(@"ошибка");
             break;
         case MFMailComposeResultSaved:
             // TODO: Сохранено как черновик
+            NSLog(@"сохранено");
             break;
         default:
             break;

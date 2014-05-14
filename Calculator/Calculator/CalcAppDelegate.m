@@ -7,6 +7,7 @@
 //
 
 #import "CalcAppDelegate.h"
+#import <MessageUI/MFMailComposeViewController.h>
 
 @implementation CalcAppDelegate
 
@@ -62,6 +63,12 @@
     
     [[UILabel appearance] setFont:[UIFont fontWithName:@"FuturisCyrillic" size:17]];
     
+    
+    //для MFMailComposeViewController убираем стили навигации что бы не глючила отправка писем
+    [[UINavigationBar appearanceWhenContainedIn:[MFMailComposeViewController class], nil] setTitleTextAttributes:
+     @{
+       UITextAttributeFont : [UIFont boldSystemFontOfSize:14.0f],
+       }];
     
     //toolbar
 //    [[UIToolbar appearance] setBackgroundImage:navBackgroundImage forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];

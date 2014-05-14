@@ -21,6 +21,7 @@
 
 @implementation PlotVisualController
 @synthesize plot;
+@synthesize project;
 
 CGFloat __scale;
 CGFloat __previousScale;
@@ -208,8 +209,26 @@ char alphabet2[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     UIImage* result = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
+    //сохрание картинки чертежа
+    [self saveImage:result];
+    
     self.imageView.image = result;
     [self.imageView setNeedsDisplay];
+}
+
+//сохранение картинки чертежа
+-(void)saveImage: (UIImage*)image {
+//    NSString *imageFileName;
+    NSString *imageFileName = plot.plotName;
+    NSString *imageProjectName = project.projectName;
+    
+    if (image != nil) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *path = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_%@.png", imageProjectName , imageFileName]];
+        NSData *data = UIImagePNGRepresentation(image);
+        [data writeToFile:path atomically:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning

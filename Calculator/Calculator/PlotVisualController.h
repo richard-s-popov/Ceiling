@@ -11,9 +11,11 @@
 #import "PlotDiagonal.h"
 #import "CalculationService.h"
 #import "CoordModel.h"
+#import "Projects.h"
 
 @interface PlotVisualController : UIViewController
 
 @property (nonatomic, strong) Plot *plot;
+@property (nonatomic, strong) Projects *project;
 
 @end

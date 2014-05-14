@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bQN-Xz-x2b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bQN-Xz-x2b">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Add Settings View Controller-->
@@ -547,20 +547,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ujd-u5-lbG">
-                                <rect key="frame" x="20" y="105" width="280" height="21"/>
+                                <rect key="frame" x="20" y="79" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Отправить проект:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MYU-zg-E1x">
-                                <rect key="frame" x="20" y="76" width="151" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="v1C-to-8f4">
-                                <rect key="frame" x="207" y="192" width="93" height="30"/>
+                                <rect key="frame" x="213" y="166" width="93" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Отправить">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -570,24 +564,29 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Адрес" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b3C-CQ-86T">
-                                <rect key="frame" x="20" y="134" width="280" height="21"/>
+                                <rect key="frame" x="20" y="108" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Телефон" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iOr-qj-US8">
-                                <rect key="frame" x="20" y="163" width="280" height="21"/>
+                                <rect key="frame" x="20" y="137" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="DZH-UA-tc6">
+                                <rect key="frame" x="0.0" y="192" width="171" height="259"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Отправить E-mail" id="QhY-jF-xG3"/>
                     <connections>
                         <outlet property="adresslabel" destination="b3C-CQ-86T" id="O1O-oL-k19"/>
+                        <outlet property="imageView" destination="DZH-UA-tc6" id="Dxf-WW-0XF"/>
                         <outlet property="nameOfProject" destination="ujd-u5-lbG" id="amI-G4-pLu"/>
                         <outlet property="phoneLabel" destination="iOr-qj-US8" id="SUe-vO-eJX"/>
                     </connections>
@@ -1082,7 +1081,7 @@
             </objects>
             <point key="canvasLocation" x="4059" y="1135"/>
         </scene>
-        <!--View Controller - Настройте Самсон-Мастре-->
+        <!--View Controller - Настройте приложение-->
         <scene sceneID="3vv-Qr-qL4">
             <objects>
                 <viewController id="aQk-YQ-4vF" sceneMemberID="viewController">
@@ -1108,7 +1107,7 @@
                             <outletCollection property="gestureRecognizers" destination="UPq-x0-tkX" appends="YES" id="rcI-9A-qmb"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Настройте Самсон-Мастре" id="DXW-sK-jRb">
+                    <navigationItem key="navigationItem" title="Настройте приложение" id="DXW-sK-jRb">
                         <barButtonItem key="backBarButtonItem" title=" " id="18i-C1-UIy"/>
                     </navigationItem>
                 </viewController>

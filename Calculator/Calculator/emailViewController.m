@@ -98,16 +98,26 @@
     plots =(NSArray*)[project.projectPlot allObjects];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *imagePath = [NSString stringWithFormat:@"%@/%@", [paths objectAtIndex:0] , project.projectName ];
+
     
     NSLog(@"колличество чертежей %i", plots.count);
     imagesArray = [[NSMutableArray alloc] init];
+    
+    //проверяем существует ли папка с чертежами
+    if ([[NSFileManager defaultManager] fileExistsAtPath:imagePath]) {
+        NSLog(@"путь к чертежам: %@", imagePath);
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Внимание" message:@"Вы не создали ни одного чертежа" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
     
     int i = 0;
     while (i != plots.count) {
         plotForImage = [plots objectAtIndex:i];
         
-        NSString *path = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_%@.png", project.projectName , plotForImage.plotName ]];
+        NSString *path = [imagePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png" , plotForImage.plotName ]];
         UIImage *image = [UIImage imageWithContentsOfFile:path];
         
         //создаем массив чертежей

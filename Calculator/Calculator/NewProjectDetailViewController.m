@@ -269,11 +269,19 @@
 //метод для перехода на чертеж
 -(void)viewPlotAction:(UIButton*)viewPlotButton {
     
-    NewPlotViewController *newPlotViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PlotSidesStoryboardId"];
-    newPlotViewController.plotFromProject = [plotArray objectAtIndex:[viewPlotButton tag]-1];
-    newPlotViewController.project = project;
+    if (![nameClient.text isEqualToString:@"Новый проект"]) {
+        project.projectName = nameClient.text;
+        NewPlotViewController *newPlotViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PlotSidesStoryboardId"];
+        newPlotViewController.plotFromProject = [plotArray objectAtIndex:[viewPlotButton tag]-1];
+        newPlotViewController.project = project;
+        
+        [self.navigationController pushViewController: newPlotViewController animated:YES];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Внимание" message:@"Введите уникальное имя клиента" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
     
-    [self.navigationController pushViewController: newPlotViewController animated:YES];
 }
 
 //метод для удаления чертежа

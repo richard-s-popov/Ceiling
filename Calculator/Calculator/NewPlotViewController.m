@@ -525,6 +525,7 @@
     if ((emptySide == NO) && (diagonalCount >= mutableArraySides.count-3) && (emptyDiagonal == NO) ) {
         PlotVisualController *visualPlot = [self.storyboard instantiateViewControllerWithIdentifier:@"plotViewStoryboardId"];
         visualPlot.plot = newPlot;
+        visualPlot.project = project;
         
         
         [self.navigationController pushViewController:visualPlot animated:YES];

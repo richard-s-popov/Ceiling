@@ -11,11 +11,15 @@
 #import "SettingsService.h"
 
 @interface emailViewController ()
-
+@property (nonatomic, strong) NSArray *plots;
+@property (nonatomic, strong) NSMutableArray *imagesArray;
 @end
 
 @implementation emailViewController
 @synthesize project;
+@synthesize plots;
+@synthesize plotForImage;
+@synthesize imagesArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +39,8 @@
     nameOfProject.text = [NSString stringWithFormat:@"%@", tmpProject.projectName];
     adresslabel.text = [NSString stringWithFormat:@"%@", tmpProject.projectAdress];
     phoneLabel.text = [NSString stringWithFormat:@"%@", tmpProject.projectPhone];
+    
+    [self loadImage];
     
 //    // Создади кноку типа отправить
 //    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -61,28 +67,57 @@
           didFinishWithResult:(MFMailComposeResult)result
                         error:(NSError *)error
 {
+    UIAlertView *alertSuccess = [[UIAlertView alloc] initWithTitle:@"Отправлено" message:@"Ваше письмо успешно отправлено, спасибо что пользуетесь нашем приложением!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    UIAlertView *alertError = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Произошла непредвиденая ошибка, если она будет повторяться, пожалуйста обратитесь в службу поддержки" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    
     switch (result) {
         case MFMailComposeResultSent:
             // TODO: Успешно отправлено
-            NSLog(@"успех %@", error);
+            [alertSuccess show];
             break;
         case MFMailComposeResultCancelled:
             // TODO: Отменено пользователем
-            NSLog(@"отмена");
             break;
         case MFMailComposeResultFailed:
             // TODO: Произошла ошибка
-            NSLog(@"ошибка");
+            [alertError show];
             break;
         case MFMailComposeResultSaved:
             // TODO: Сохранено как черновик
-            NSLog(@"сохранено");
             break;
         default:
             break;
     }
     // Убираем окно
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)loadImage {
+    
+    plots = [[NSArray alloc] init];
+    plots =(NSArray*)[project.projectPlot allObjects];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSLog(@"колличество чертежей %i", plots.count);
+    imagesArray = [[NSMutableArray alloc] init];
+    
+    int i = 0;
+    while (i != plots.count) {
+        plotForImage = [plots objectAtIndex:i];
+        
+        NSString *path = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_%@.png", project.projectName , plotForImage.plotName ]];
+        UIImage *image = [UIImage imageWithContentsOfFile:path];
+        
+        //создаем массив чертежей
+        [imagesArray addObject:image];
+        
+        self.imageView.image = image;
+        [self.imageView setNeedsDisplay];
+        i++;
+    }
+    
 }
 
 - (IBAction)sendEmailAction:(id)sender {
@@ -107,10 +142,17 @@
         MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
         // Делегатом будем мы
         mailController.mailComposeDelegate = self;
+        
         // Задаем адрес на который отправлять почту
         [mailController setToRecipients:@[contacts.managerMail]];
         // Тема письма
         [mailController setSubject:@"Приложение"];
+
+        //прикрепляем файлы с чертежами к письму
+        UIImage *plotImage = [imagesArray objectAtIndex:0];
+        NSData *imageData = UIImagePNGRepresentation(plotImage);
+        [mailController addAttachmentData:imageData mimeType:@"image/png" fileName:@"image.png"];
+        
         // Текст письма
         [mailController setMessageBody:message isHTML:NO];
         // Если объект создан

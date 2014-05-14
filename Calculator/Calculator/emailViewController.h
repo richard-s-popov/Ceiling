@@ -11,6 +11,7 @@
 #import <MessageUI/MessageUI.h>
 #import "CalcAppDelegate.h"
 #import "Projects.h"
+#import "Plot.h"
 
 @interface emailViewController : UIViewController <MFMailComposeViewControllerDelegate> {
     
@@ -20,7 +21,9 @@
     __weak IBOutlet UILabel *phoneLabel;
 }
 
+@property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) Projects *project;
+@property (nonatomic, strong) Plot *plotForImage;
 - (IBAction)sendEmailAction:(id)sender;
 
 @end

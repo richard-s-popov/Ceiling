@@ -97,7 +97,7 @@
     plots = [[NSArray alloc] init];
     plots =(NSArray*)[project.projectPlot allObjects];
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     
     NSLog(@"колличество чертежей %i", plots.count);

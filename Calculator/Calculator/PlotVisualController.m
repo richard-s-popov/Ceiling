@@ -223,8 +223,11 @@ char alphabet2[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     NSString *imageProjectName = project.projectName;
     
     if (image != nil) {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
+        
+        NSLog(@"путь к файлам: %@", documentsDirectory); //проверка пути
+        
         NSString *path = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_%@.png", imageProjectName , imageFileName]];
         NSData *data = UIImagePNGRepresentation(image);
         [data writeToFile:path atomically:YES];

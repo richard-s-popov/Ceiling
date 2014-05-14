@@ -167,8 +167,6 @@
         //удаляем папку с чертежами
         NSString *imagePath = [NSString stringWithFormat:@"%@/%@", [paths objectAtIndex:0], projectName];
         if (![[NSFileManager defaultManager] removeItemAtPath:imagePath error:nil]) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Ошибка удаления директории с чертежами" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            [alert show];
         }
         
         //ссобщение при ошибке удаления
@@ -246,8 +244,7 @@
     NSLog(@"index path: %d", indexPathRow);
     
     //условие для реализации перезагрузки ячейки таблицы при изменении
-    if ((lastName != nil) && ((![lastName isEqual:newName]) || (![lastAdress isEqual:newAdress]))) {
-
+    if ((lastName != nil) && ((![lastName isEqual:newName]) || (![lastAdress isEqual:newAdress])) &&([projectArray count]!=0)) {
         [self.tbl reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPathSegue] withRowAnimation:UITableViewRowAnimationLeft];
     }
     

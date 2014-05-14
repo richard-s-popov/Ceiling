@@ -202,10 +202,6 @@ numberOfRowsInComponent:(NSInteger)component
     //считаем стоимость полотна
     NSString *squareCalc = [NSString stringWithFormat:@"%1.2f", [plot.plotSquare floatValue]];
     float squarePrice = [squareCalc floatValue] * [plot.plotMaterial.matPrice floatValue];
-    NSLog(@"squareCalc = %@", squareCalc);
-    NSLog(@"plot.plotMaterial.matPrice = %@", plot.plotMaterial.matPrice);
-    NSLog(@"squarePrice = %f", squarePrice);
-    
     
     //считаем кантик
     float cantikPrice = 0;
@@ -222,10 +218,8 @@ numberOfRowsInComponent:(NSInteger)component
     
     //считаем итого
     float price = lastCostInt + squarePrice + cantikPrice + curveCost;
-    NSLog(@"totalPrice = %f", price);
     
     plot.plotPrice = [NSNumber numberWithFloat:price];
-    NSLog(@"plot.plotPrice = %@", plot.plotPrice);
     
     lastCost.text = [NSString stringWithFormat:@"%1.2f руб.", price];
     

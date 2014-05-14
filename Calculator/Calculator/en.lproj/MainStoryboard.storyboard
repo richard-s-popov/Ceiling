@@ -543,7 +543,7 @@
             <objects>
                 <viewController storyboardIdentifier="E-Mail" id="Uxx-Kj-FDb" customClass="emailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PIA-1D-nbZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ujd-u5-lbG">
@@ -939,7 +939,6 @@
                                         </state>
                                         <connections>
                                             <action selector="pushToEmail:" destination="gvs-l1-TvH" eventType="touchUpInside" id="O7C-im-s0z"/>
-                                            <segue destination="Uxx-Kj-FDb" kind="push" identifier="NewMailSegue" id="Zsp-lI-v2h"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Чертежи этого проекта:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hkj-Ga-yPW">

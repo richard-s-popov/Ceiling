@@ -220,15 +220,21 @@ char alphabet2[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 -(void)saveImage: (UIImage*)image {
 //    NSString *imageFileName;
     NSString *imageFileName = plot.plotName;
-    NSString *imageProjectName = project.projectName;
     
     if (image != nil) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@" , project.projectName ]];
         
-        NSLog(@"путь к файлам: %@", documentsDirectory); //проверка пути
+        //создаем папку с чертежами проекта
+        NSError *error = nil;
+        if (![[NSFileManager defaultManager] fileExistsAtPath:imagePath]) {
+            [[NSFileManager defaultManager] createDirectoryAtPath:imagePath withIntermediateDirectories:NO attributes:nil error:&error];
+        }
         
-        NSString *path = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_%@.png", imageProjectName , imageFileName]];
+        NSLog(@"путь к файлам: %@", imagePath); //проверка пути
+        
+        NSString *path = [imagePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", imageFileName]];
         NSData *data = UIImagePNGRepresentation(image);
         [data writeToFile:path atomically:YES];
     }

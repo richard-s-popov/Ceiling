@@ -156,9 +156,25 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        //получаем имя проекта для удаления папки с чертежами
+        NSString *projectName = [[projectArray objectAtIndex:indexPathRow] projectName];
+        
+        //удаляем объект
         [self.managedObjectContext deleteObject:[projectArray objectAtIndex:indexPath.row]];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        
+        //удаляем папку с чертежами
+        NSString *imagePath = [NSString stringWithFormat:@"%@/%@", [paths objectAtIndex:0], projectName];
+        if (![[NSFileManager defaultManager] removeItemAtPath:imagePath error:nil]) {
+        }
+        
+        //ссобщение при ошибке удаления
         NSError *error = nil;
         if (![self.managedObjectContext save:&error]) {
+            NSString *messageError =[NSString stringWithFormat:@"Ошибка удаления проекта: \n %@", error];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:messageError delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
         }
         
         [self pullArrayFromCoreData];
@@ -228,8 +244,7 @@
     NSLog(@"index path: %d", indexPathRow);
     
     //условие для реализации перезагрузки ячейки таблицы при изменении
-    if ((lastName != nil) && ((![lastName isEqual:newName]) || (![lastAdress isEqual:newAdress]))) {
-
+    if ((lastName != nil) && ((![lastName isEqual:newName]) || (![lastAdress isEqual:newAdress])) &&([projectArray count]!=0)) {
         [self.tbl reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPathSegue] withRowAnimation:UITableViewRowAnimationLeft];
     }
     

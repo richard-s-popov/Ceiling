@@ -200,7 +200,8 @@ numberOfRowsInComponent:(NSInteger)component
     //считаем дополнительные параметры
     lastCostInt = (lusterCount*lusterPrice) + (bypassCount*bypassPrice) + (spotCount*spotPrice);
     //считаем стоимость полотна
-    float squarePrice = [plot.plotSquare floatValue] * [plot.plotMaterial.matPrice floatValue];
+    NSString *squareCalc = [NSString stringWithFormat:@"%1.2f", [plot.plotSquare floatValue]];
+    float squarePrice = [squareCalc floatValue] * [plot.plotMaterial.matPrice floatValue];
     
     //считаем кантик
     float cantikPrice = 0;
@@ -219,6 +220,7 @@ numberOfRowsInComponent:(NSInteger)component
     float price = lastCostInt + squarePrice + cantikPrice + curveCost;
     
     plot.plotPrice = [NSNumber numberWithFloat:price];
+    
     lastCost.text = [NSString stringWithFormat:@"%1.2f руб.", price];
     
     //считаем стоимость проекта

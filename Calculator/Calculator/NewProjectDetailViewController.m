@@ -30,6 +30,9 @@
 
 @synthesize scrollView;
 
+@synthesize imagesArray;
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -157,10 +160,10 @@
         NewPlotViewController *newPlotViewController = segue.destinationViewController;
         newPlotViewController.plotFromProject = [plotArray objectAtIndex:PlotTableView.indexPathForSelectedRow.row];
     }
-    if ([segue.identifier isEqual:@"NewMailSegue"]) {
-        emailViewController *emailViewController = segue.destinationViewController;
-        emailViewController.project = project;
-    }
+//    if ([segue.identifier isEqual:@"NewMailSegue"]) {
+//        emailViewController *emailViewController = segue.destinationViewController;
+//        emailViewController.project = project;
+//    }
 }
 
 
@@ -269,11 +272,20 @@
 //метод для перехода на чертеж
 -(void)viewPlotAction:(UIButton*)viewPlotButton {
     
-    NewPlotViewController *newPlotViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PlotSidesStoryboardId"];
-    newPlotViewController.plotFromProject = [plotArray objectAtIndex:[viewPlotButton tag]-1];
-    newPlotViewController.project = project;
+    //условие проверки имени клиента
+    if (![nameClient.text isEqualToString:@"Новый проект"]) {
+        project.projectName = nameClient.text;
+        NewPlotViewController *newPlotViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PlotSidesStoryboardId"];
+        newPlotViewController.plotFromProject = [plotArray objectAtIndex:[viewPlotButton tag]-1];
+        newPlotViewController.project = project;
+        
+        [self.navigationController pushViewController: newPlotViewController animated:YES];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Внимание" message:@"Введите уникальное имя клиента" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
     
-    [self.navigationController pushViewController: newPlotViewController animated:YES];
 }
 
 //метод для удаления чертежа
@@ -311,8 +323,6 @@
     namePlot.text = @"";
 }
 
-- (IBAction)pushToEmail:(id)sender {
-}
 
 //метод для button newPlot
 - (void)doneNamePlot {
@@ -359,6 +369,151 @@
     [namePlot resignFirstResponder];
     [namePlot removeFromSuperview];
 }
+
+
+
+
+
+
+
+
+
+                                        //*** *** *** //
+//--- // --- // --- // --- // --- // --- ОТПРАВКА ПИСЕМ --- //--- // --- // --- // --- // --- //
+                                        //*** *** *** //
+
+
+-(void)loadImage {
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *imagePath = [NSString stringWithFormat:@"%@/%@", [paths objectAtIndex:0] , project.projectName ];
+    
+    
+    NSLog(@"колличество чертежей %i", project.projectPlot.count);
+    imagesArray = [[NSMutableArray alloc] init];
+    
+    //проверяем существует ли папка с чертежами
+    if ([[NSFileManager defaultManager] fileExistsAtPath:imagePath]) {
+        NSLog(@"путь к чертежам: %@", imagePath);
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Внимание" message:@"Вы не создали ни одного чертежа" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+    
+    NSArray *plots = [[NSArray alloc] init];
+    plots =(NSArray*)[project.projectPlot allObjects];
+    
+    int i = 0;
+    while (i != project.projectPlot.count) {
+        
+        NSString *path = [imagePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png" , [[plots objectAtIndex:i] plotName] ]];
+        UIImage *image = [UIImage imageWithContentsOfFile:path];
+        
+        //создаем массив чертежей
+        [imagesArray addObject:image];
+        
+        i++;
+    }
+    
+}
+
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError *)error
+{
+    UIAlertView *alertSuccess = [[UIAlertView alloc] initWithTitle:@"Отправлено" message:@"Ваше письмо успешно отправлено, спасибо что пользуетесь нашем приложением!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    UIAlertView *alertError = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Произошла непредвиденая ошибка, если она будет повторяться, пожалуйста обратитесь в службу поддержки" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    
+    switch (result) {
+        case MFMailComposeResultSent:
+            // TODO: Успешно отправлено
+            [alertSuccess show];
+            break;
+        case MFMailComposeResultCancelled:
+            // TODO: Отменено пользователем
+            break;
+        case MFMailComposeResultFailed:
+            // TODO: Произошла ошибка
+            [alertError show];
+            break;
+        case MFMailComposeResultSaved:
+            // TODO: Сохранено как черновик
+            break;
+        default:
+            break;
+    }
+    // Убираем окно
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (IBAction)pushToEmail:(id)sender {
+    
+    [self loadImage];
+    
+    //подключаем сохраненные данные настроек
+    SettingsOptionsModel *contacts = [[SettingsOptionsModel alloc] init];
+    SettingsService *settingsService = [[SettingsService alloc] init];
+    
+    contacts = settingsService.Read;
+    
+    NSString *message = [NSString stringWithFormat:@"имя: %@ \n адрес:%@ \n колличество потолков:%d", project.projectName, project.projectAdress, [[project.projectPlot allObjects] count]];
+    
+    // Проверяем, настроен ли почтовый клиент на отправку почту
+    if (([MFMailComposeViewController canSendMail]) & (contacts.managerMail != nil) & (![contacts.managerMail isEqual:@""]) ) {
+        
+        // Создаем контроллер
+        MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
+        // Делегатом будем мы
+        mailController.mailComposeDelegate = self;
+        
+        // Задаем адрес на который отправлять почту
+        [mailController setToRecipients:@[contacts.managerMail]];
+        // Тема письма
+        [mailController setSubject:@"Приложение"];
+        
+        //прикрепляем файлы с чертежами к письму
+        if (imagesArray.count != 0) {
+            UIImage *plotImage = [imagesArray objectAtIndex:0];
+            NSData *imageData = UIImagePNGRepresentation(plotImage);
+            [mailController addAttachmentData:imageData mimeType:@"image/png" fileName:@"image.png"];
+        }
+        
+        
+        // Текст письма
+        [mailController setMessageBody:message isHTML:NO];
+        // Если объект создан
+        if (mailController) {
+            // Показываем контроллер
+            [self presentViewController:mailController animated:YES completion:nil];
+        }
+        
+    } else {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Внимание" message:@"Пожалуста, внесите данные в настройки контактов" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        
+        NSLog(@"пожалуйста введите данные в настройках");
+        // TODO: Обработка ошибки
+    }
+    
+}
+
+
+
+                                            //*** *** *** //
+//--- // --- // --- // --- // --- // --- КОНЕЦ ОТПРАВКИ ПИСЕМ --- //--- // --- // --- // --- // --- //
+                                            //*** *** *** //
+
+
+
+
+
+
+
+
 
 
 -(void)viewDidAppear:(BOOL)animated {

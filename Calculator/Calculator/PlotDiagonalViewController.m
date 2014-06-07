@@ -79,12 +79,12 @@
     
     //создание надписи start
     startLable = [[UILabel alloc] initWithFrame:CGRectMake(30, 54, 320, 30)];
-    [startLable setFont:[UIFont fontWithName:@"FuturisCyrillic" size:14]];
+    [startLable setFont:[UIFont fontWithName:@"OpenSans" size:14]];
     startLable.text = @"Нажмите на сторону или диагональ";
     [diagonalConteinerView addSubview:startLable];
     
     //создание текстового поля для ввода диагоналей
-    diagonalTextField = [[UITextField alloc] initWithFrame:CGRectMake(170, 54, 100, 30)];
+    diagonalTextField = [[UITextField alloc] initWithFrame:CGRectMake(180, 54, 100, 30)];
     diagonalTextField.delegate = self;
     diagonalTextField.borderStyle = UITextBorderStyleRoundedRect;
     diagonalTextField.placeholder = @"";
@@ -95,7 +95,7 @@
     //добвляем кнопки для NumPad
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:@"Отмена" forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont fontWithName:@"FuturisCyrillic" size:14.0f];
+    button.titleLabel.font = [UIFont fontWithName:@"OpenSans" size:14.0f];
     [button.layer setCornerRadius:4.0f];
     [button.layer setMasksToBounds:YES];
     [button.layer setBorderWidth:1.0f];
@@ -106,7 +106,7 @@
     
     UIButton *saveButtonToolbar = [UIButton buttonWithType:UIButtonTypeCustom];
     [saveButtonToolbar setTitle:@"Сохранить" forState:UIControlStateNormal];
-    saveButtonToolbar.titleLabel.font = [UIFont fontWithName:@"FuturisCyrillic" size:14.0f];
+    saveButtonToolbar.titleLabel.font = [UIFont fontWithName:@"OpenSans" size:14.0f];
     [saveButtonToolbar.layer setCornerRadius:4.0f];
     [saveButtonToolbar.layer setMasksToBounds:YES];
     [saveButtonToolbar.layer setBorderWidth:1.0f];

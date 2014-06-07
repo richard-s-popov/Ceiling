@@ -49,14 +49,14 @@
     [self pullArrayFromCoreData];
 
     //редактируем и добавляем Edit Button
-    UIImage *rightButtonImage = [[UIImage imageNamed:@"rightBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
-    [self.editButtonItem setBackgroundImage:rightButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    UIImage *rightButtonImage = [[UIImage imageNamed:@"rightBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
+//    [self.editButtonItem setBackgroundImage:rightButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     self.editButtonItem.title = NSLocalizedString(@"Изменить", @"Изменить");
     [self.editButtonItem setTitleTextAttributes:blackText forState:UIControlStateNormal];
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Материалы" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
     
     [tbl reloadData];
@@ -154,10 +154,10 @@
     if (cell == nil) {
         cell = [[MaterialCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellId];
     }
-    [cell.priceCell setFont:[UIFont fontWithName:@"FuturisCyrillic" size:19]];
-    [cell.nameCell setFont:[UIFont fontWithName:@"FuturisCyrillic" size:19]];
-    [cell.widthCell setFont:[UIFont fontWithName:@"FuturisCyrillic" size:14]];
-    [cell.labelPriceCell setFont:[UIFont fontWithName:@"FuturisCyrillic" size:12]];
+    [cell.priceCell setFont:[UIFont fontWithName:@"OpenSans" size:19]];
+    [cell.nameCell setFont:[UIFont fontWithName:@"OpenSans" size:19]];
+    [cell.widthCell setFont:[UIFont fontWithName:@"OpenSans" size:14]];
+    [cell.labelPriceCell setFont:[UIFont fontWithName:@"OpenSans" size:12]];
     
     
     //создаем объект ячейки из массива данных

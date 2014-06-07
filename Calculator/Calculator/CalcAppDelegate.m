@@ -33,7 +33,7 @@
     NSDictionary *tabBarTitle = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [UIColor blackColor],UITextAttributeTextColor,
                                  [UIColor clearColor], UITextAttributeTextShadowColor,
-                                 [UIFont fontWithName:@"PTSans-Narrow" size:10],UITextAttributeFont,
+                                 [UIFont fontWithName:@"OpenSans" size:10],UITextAttributeFont,
                                  [NSValue valueWithUIOffset:UIOffsetMake(-1, 0)], UITextAttributeTextShadowOffset, nil];
     [[UITabBarItem appearance] setTitleTextAttributes:tabBarTitle forState:UIControlStateNormal];
     //    [[UITabBar appearance] setSelectedImageTintColor:[UIColor grayColor]];
@@ -42,7 +42,7 @@
     NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                                [UIColor blackColor],UITextAttributeTextColor,
                                                [UIColor clearColor], UITextAttributeTextShadowColor,
-                                               [UIFont fontWithName:@"PTSans-Narrow" size:25],UITextAttributeFont,
+                                               [UIFont fontWithName:@"OpenSans-CondensedLight" size:25],UITextAttributeFont,
                                                [NSValue valueWithUIOffset:UIOffsetMake(-1, 0)], UITextAttributeTextShadowOffset, nil];
     
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
@@ -53,16 +53,16 @@
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                           [UIColor blackColor], UITextAttributeTextColor,
-                                                          [UIFont fontWithName:@"FuturisCyrillic" size:15],UITextAttributeFont,
+                                                          [UIFont fontWithName:@"OpenSans" size:14],UITextAttributeFont,
                                                           [UIColor clearColor], UITextAttributeTextShadowColor,
                                                           nil]
                                                 forState:UIControlStateNormal];
     
     
-    UIImage *barButtonImage = [[UIImage imageNamed:@"barBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12, 0, 12)];
-    [[UIBarButtonItem appearance] setBackgroundImage:barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    UIImage *barButtonImage = [[UIImage imageNamed:@"barBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12, 0, 12)];
+//    [[UIBarButtonItem appearance] setBackgroundImage:barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
-    [[UILabel appearance] setFont:[UIFont fontWithName:@"FuturisCyrillic" size:17]];
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"OpenSans" size:16]];
     
     
     

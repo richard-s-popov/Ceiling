@@ -54,10 +54,20 @@
 //    self.editButtonItem.title = @"Изменить";
     
     //добавляем кнопку добавить
-    UIImage *rightButtonImage = [[UIImage imageNamed:@"rightBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
+//    UIImage *rightButtonImage = [[UIImage imageNamed:@"rightBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
     UIBarButtonItem *addButton =[[UIBarButtonItem alloc] initWithTitle:@"Добавить" style:UIBarButtonItemStyleBordered target:self action:@selector(addBtn)];
-    [addButton setBackgroundImage:rightButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    [addButton setBackgroundImage:rightButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    for (NSString *familyName in [UIFont familyNames]) {
+        
+        for (NSString *fontName in [UIFont fontNamesForFamilyName:familyName]) {
+            
+            NSLog(@"%@", fontName);
+            
+        }
+        
+    }
     
 }
 
@@ -204,6 +214,9 @@
     Projects *project = [projectArray objectAtIndex:indexPath.row];
     cell.textLabel.text = project.projectName;
     cell.detailTextLabel.text = project.projectAdress;
+    
+    [cell.textLabel setFont:[UIFont fontWithName:@"OpenSans" size:18]];
+    [cell.detailTextLabel setFont:[UIFont fontWithName:@"OpenSans" size:14]];
     
     return cell;
 }

@@ -376,9 +376,14 @@
     
     //кнопка добавить криволинейный участок
     buttonCurv = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    buttonCurv.frame = CGRectMake(20, 54, 200, 30);
-    buttonCurv.titleLabel.font = [UIFont fontWithName:@"FuturisCyrillic" size:13.0f];
+    buttonCurv.frame = CGRectMake(10, 54, 220, 30);
+    buttonCurv.titleLabel.font = [UIFont fontWithName:@"OpenSans-CondensedLight" size:18.0f];
     buttonCurv.titleLabel.textColor = [UIColor blackColor];
+    
+    [buttonCurv.layer setCornerRadius:4.0f];
+    [buttonCurv.layer setBorderWidth:1.0f];
+    [buttonCurv.layer setBorderColor: [[UIColor grayColor] CGColor]];
+    
     [buttonCurv setTitle:@"Добавить криволинейный участок" forState:UIControlStateNormal];
     [buttonCurv addTarget:self action:@selector(clickAddCurvButton) forControlEvents:UIControlEventTouchUpInside];
     buttonCurv.tag = 1;
@@ -387,7 +392,7 @@
     clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [clearButton setTitle:@"Удалить" forState:UIControlStateNormal];
     [clearButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal ];
-    clearButton.titleLabel.font = [UIFont fontWithName:@"FuturisCyrillic" size:13.0f];
+    clearButton.titleLabel.font = [UIFont fontWithName:@"OpenSans" size:12.0f];
     [clearButton.layer setCornerRadius:4.0f];
     [clearButton.layer setBorderWidth:1.0f];
     [clearButton.layer setBorderColor: [[UIColor grayColor] CGColor]];
@@ -417,13 +422,13 @@
     curvLineLabel = [[UILabel alloc] initWithFrame:CGRectMake(80,54, 220, 30)];
     curvLineLabel.text = @"введите первый угол участка";
     [curvLineLabel setTextColor:[UIColor blackColor]];
-    [curvLineLabel setFont:[UIFont fontWithName:@"FuturisCyrillic" size:14]];
+    [curvLineLabel setFont:[UIFont fontWithName:@"OpenSans-CondensedLight" size:18]];
     [sidesConteinerView addSubview:curvLineLabel];
     
     //добвляем кнопки для NumPad
     UIButton *buttonCancel = [UIButton buttonWithType:UIButtonTypeCustom];
     [buttonCancel setTitle:@"Отмена" forState:UIControlStateNormal];
-    buttonCancel.titleLabel.font = [UIFont fontWithName:@"FuturisCyrillic" size:14.0f];
+    buttonCancel.titleLabel.font = [UIFont fontWithName:@"OpenSans" size:12.0f];
     [buttonCancel.layer setCornerRadius:4.0f];
     [buttonCancel.layer setMasksToBounds:YES];
     [buttonCancel.layer setBorderWidth:1.0f];

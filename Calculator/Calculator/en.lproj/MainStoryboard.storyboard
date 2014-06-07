@@ -1487,6 +1487,7 @@
         <image name="project_addPlot.png" width="150" height="40"/>
         <image name="settings_new.png" width="34" height="34"/>
     </resources>
+    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

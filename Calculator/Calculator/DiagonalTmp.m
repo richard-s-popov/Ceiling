@@ -13,5 +13,6 @@
 @synthesize angleFirst;
 @synthesize angleSecond;
 @synthesize diagonalWidth;
+@synthesize diagonalWidthFactor;
 
 @end

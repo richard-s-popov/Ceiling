@@ -34,6 +34,10 @@
     UIButton *buttonCurv;
     BOOL deleteCurve;
     
+//    для алерта
+    UIAlertView *alert;
+    BOOL emptySide;
+    BOOL emptyDiagonal;
 }
 
 @end
@@ -117,7 +121,7 @@
     [sidesConteinerView addSubview:button];
     
     
-    //кнопка сохранить
+    //кнопка просмотра чертежа
     UIImage *viewButtomBackground = [[UIImage imageNamed:@"project_viewPlot.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     UIButton *viewPlotButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     viewPlotButton.frame = CGRectMake(0, 0, 220, 50);
@@ -159,10 +163,210 @@
         angleCountField.enabled = NO;
         button.enabled = NO;
         
+        
+        //ПОКАЗЫВАЕМ КНОПКУ ДЛЯ КРИВОЛИНЕЙНОГО УЧАСТКА
+        
         [self showCurvButton];
+        
     }
 }
 
+
+
+//МЕТОД ВЫЧИСЛЕНИЯ ДИАГОНАЛИ ПО УГЛУ 90 ГРАДУСОВ
+
+-(void)calculateAngle90 {
+    
+    //ПЕРЕБИРАЕМ ВСЕ СТОРОНЫ ДЛЯ ПРОВЕРКИ УГЛА 90
+    
+    int i = 0;
+    while (i < mutableArraySides.count) {
+        
+        PlotSide *sideFor90 = [mutableArraySides objectAtIndex:i];
+        if (sideFor90.angle == [NSNumber numberWithInt:1]) {  //ЕСЛИ УГЛ 90 ГРАДУСОВ
+            
+            
+            //ЕСЛИ УГОЛ А
+            
+            if (sideFor90 == [mutableArraySides firstObject]) {
+                
+                
+                //ПЕРЕДАЕМ СТОРОНЫ В МЕТОД И ПОЛУЧАЕМ СОЗДАННУЮ ДАИГОНАЛЬ
+                
+                PlotSide *side90Second = [mutableArraySides lastObject];
+                DiagonalTmp *diagonal90 = [self diagonal90 :side90Second :sideFor90];
+                
+                
+                
+                //СОЗДАЕМ ДИАГОНАЛЬ НА ОСНОВЕ 90 ГРАДУСОВ, ЕСЛИ ОНА НЕ СОЗДАНА
+                //ПРОВЕРЯЕМ СУЩЕСТВУЕТ ЛИ ОБЪЕКТ ДИАГОНАЛЬ
+                
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(angleFirst == %@) && (angleSecond == %@)", diagonal90.angleFirst, diagonal90.angleSecond];
+                NSSet *filteredSet = [side90Second.sideDiagonal filteredSetUsingPredicate:predicate];
+                
+                
+                
+                //ЕСЛИ НЕТ НУЖНОЙ ДИАГОНАЛИ - СОЗДАЕМ ЕЕ
+                
+                if (filteredSet.count == 0) {
+                    
+                    PlotDiagonal *newDiagonal90 = [NSEntityDescription insertNewObjectForEntityForName:@"PlotDiagonal" inManagedObjectContext:self.managedObjectContext];
+                    newDiagonal90.diagonalWidth = diagonal90.diagonalWidth;
+                    newDiagonal90.angleFirst = diagonal90.angleFirst;
+                    newDiagonal90.angleSecond = diagonal90.angleSecond;
+                    newDiagonal90.diagonalWidthFactor = diagonal90.diagonalWidthFactor;
+                    
+                    [newPlot addPlotDiagonalObject:newDiagonal90];
+                    [side90Second addSideDiagonalObject:newDiagonal90];
+                    
+                }
+                else {
+                    
+                    PlotDiagonal *originDiagonal90 = [[filteredSet allObjects] objectAtIndex:0];
+                    originDiagonal90.diagonalWidth = diagonal90.diagonalWidth;
+                    originDiagonal90.diagonalWidthFactor = diagonal90.diagonalWidthFactor;
+
+                }
+                
+                
+            }
+            
+            
+            
+            //ЕСЛИ НЕ ПЕРВЫЙ И НЕ ПОСЛЕДНИЙ УГОЛ
+            
+            if ((sideFor90 != [mutableArraySides firstObject]) && (sideFor90 != [mutableArraySides lastObject])) {
+                
+                
+                //ПЕРЕДАЕМ СТОРОНЫ В МЕТОД И ПОЛУЧАЕМ СОЗДАННУЮ ДАИГОНАЛЬ
+                
+                PlotSide *side90Second = [mutableArraySides objectAtIndex:i-1];
+                DiagonalTmp *diagonal90 = [self diagonal90 :side90Second :sideFor90];
+                
+                
+                
+                //СОЗДАЕМ ДИАГОНАЛЬ НА ОСНОВЕ 90 ГРАДУСОВ, ЕСЛИ ОНА НЕ СОЗДАНА
+                //ПРОВЕРЯЕМ СУЩЕСТВУЕТ ЛИ ОБЪЕКТ ДИАГОНАЛЬ
+                
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(angleFirst == %@) && (angleSecond == %@)", diagonal90.angleFirst, diagonal90.angleSecond];
+                NSSet *filteredSet = [side90Second.sideDiagonal filteredSetUsingPredicate:predicate];
+                
+                
+                
+                //ЕСЛИ НЕТ НУЖНОЙ ДИАГОНАЛИ - СОЗДАЕМ ЕЕ
+                
+                if (filteredSet.count == 0) {
+                    
+                    PlotDiagonal *newDiagonal90 = [NSEntityDescription insertNewObjectForEntityForName:@"PlotDiagonal" inManagedObjectContext:self.managedObjectContext];
+                    newDiagonal90.diagonalWidth = diagonal90.diagonalWidth;
+                    newDiagonal90.angleFirst = diagonal90.angleFirst;
+                    newDiagonal90.angleSecond = diagonal90.angleSecond;
+                    newDiagonal90.diagonalWidthFactor = diagonal90.diagonalWidthFactor;
+                    
+                    [newPlot addPlotDiagonalObject:newDiagonal90];
+                    [side90Second addSideDiagonalObject:newDiagonal90];
+                    
+                }
+                else {
+                    
+                    PlotDiagonal *originDiagonal90 = [[filteredSet allObjects] objectAtIndex:0];
+                    originDiagonal90.diagonalWidth = diagonal90.diagonalWidth;
+                    originDiagonal90.diagonalWidthFactor = diagonal90.diagonalWidthFactor;
+                    
+                }
+                
+                
+            }
+            
+            
+            
+            //ЕСЛИ ПОСЛЕДНИЙ УГОЛ
+            
+            if (sideFor90 == [mutableArraySides lastObject]) {
+                
+                                
+                //ПЕРЕДАЕМ СТОРОНЫ В МЕТОД И ПОЛУЧАЕМ СОЗДАННУЮ ДАИГОНАЛЬ
+                
+                PlotSide *side90Second = [mutableArraySides objectAtIndex:i-1];
+                DiagonalTmp *diagonal90 = [self diagonal90 :side90Second :sideFor90];
+
+                
+                
+                //СОЗДАЕМ ДИАГОНАЛЬ НА ОСНОВЕ 90 ГРАДУСОВ, ЕСЛИ ОНА НЕ СОЗДАНА
+                //ПРОВЕРЯЕМ СУЩЕСТВУЕТ ЛИ ОБЪЕКТ ДИАГОНАЛЬ
+                
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(angleFirst == %@) && (angleSecond == %@)", diagonal90.angleFirst, diagonal90.angleSecond];
+                NSSet *filteredSet = [side90Second.sideDiagonal filteredSetUsingPredicate:predicate];
+                
+                
+                
+                //ЕСЛИ НЕТ НУЖНОЙ ДИАГОНАЛИ - СОЗДАЕМ ЕЕ
+                
+                if (filteredSet.count == 0) {
+                    
+                    PlotDiagonal *newDiagonal90 = [NSEntityDescription insertNewObjectForEntityForName:@"PlotDiagonal" inManagedObjectContext:self.managedObjectContext];
+                    newDiagonal90.diagonalWidth = diagonal90.diagonalWidth;
+                    newDiagonal90.angleFirst = diagonal90.angleFirst;
+                    newDiagonal90.angleSecond = diagonal90.angleSecond;
+                    newDiagonal90.diagonalWidthFactor = diagonal90.diagonalWidthFactor;
+                    
+                    [newPlot addPlotDiagonalObject:newDiagonal90];
+                    [side90Second addSideDiagonalObject:newDiagonal90];
+                    
+                }
+                else {
+                    
+                    PlotDiagonal *originDiagonal90 = [[filteredSet allObjects] objectAtIndex:0];
+                    originDiagonal90.diagonalWidth = diagonal90.diagonalWidth;
+                    originDiagonal90.diagonalWidthFactor = diagonal90.diagonalWidthFactor;
+                    
+                }
+                
+                
+            }
+            
+            
+            
+        }
+        
+        
+        i++; //ИНКРЕМЕНТ
+        
+        
+    }
+
+}
+
+
+
+//МЕТОД ВЫЧИСЛЕНИЯ ДЛИННЫ ДИАГОНАЛИ
+
+-(DiagonalTmp*)diagonal90 :(PlotSide*)side90Second :(PlotSide*)mainSide {
+    
+    DiagonalTmp *diagonal90 = [[DiagonalTmp alloc] init];
+    diagonal90.angleFirst = side90Second.angleFirst;
+    diagonal90.angleSecond = mainSide.angleSecond;
+    
+    
+    double tangentFirst = [mainSide.sideWidth doubleValue];
+    double tangentSecond = [side90Second.sideWidth doubleValue];
+    double cotangent = sqrt( pow(tangentFirst, 2.0) + pow(tangentSecond, 2.0));
+    
+    diagonal90.diagonalWidth = [NSNumber numberWithDouble:cotangent];
+    
+    
+    //считаем диагональ с учетом утяжки
+    float diagonalWidthFactorTmp = [diagonal90.diagonalWidth floatValue] - ([diagonal90.diagonalWidth floatValue]*0.07);
+    diagonal90.diagonalWidthFactor = [NSNumber numberWithFloat:diagonalWidthFactorTmp];
+    
+    
+    return diagonal90;
+
+}
+
+
+
+//МЕТОД ПОКАЗАТЬ КНОПКУ ДЛЯ КРИВОЛИНЕЙНОГО УЧАСТКА
 
 -(void)showCurvButton {
 
@@ -240,6 +444,8 @@
     
 }
 
+
+
 -(void) characterAdd {
 
     if (angleCurvLine.text.length ==1) {
@@ -267,12 +473,15 @@
 }
 
 
+
 -(void)clearCurveNumberPad {
     deleteCurve = YES;
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Удаление" message:@"Вы уверены, что хотите удалить криволинейный участок?" delegate:self cancelButtonTitle:@"Удалить" otherButtonTitles:@"Отмена", nil];
+    alert = [[UIAlertView alloc] initWithTitle:@"Удаление" message:@"Вы уверены, что хотите удалить криволинейный участок?" delegate:self cancelButtonTitle:@"Удалить" otherButtonTitles:@"Отмена", nil];
+    alert.tag = 1;
     [alert show];
 }
+
 
 
 -(void)cancelNumberPad {
@@ -280,36 +489,45 @@
 }
 
 
+
 //метод подтверждения удаления чертежа
+
 -(void)deletePlotAction {
     [self alertOKCancelAction];
 }
 
+
+
 - (void)alertOKCancelAction {
     // open a alert with an OK and cancel button
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Удаление чертежа" message:@"Вы уверены, что хотите удалить этот чертеж?" delegate:self cancelButtonTitle:@"Удалить" otherButtonTitles:@"Отмена", nil];
+    alert = [[UIAlertView alloc] initWithTitle:@"Удаление чертежа" message:@"Вы уверены, что хотите удалить этот чертеж?" delegate:self cancelButtonTitle:@"Удалить" otherButtonTitles:@"Отмена", nil];
     [alert show];
 }
+
+
 
 - (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     // the user clicked one of the OK/Cancel buttons
     if (buttonIndex == 0)
     {
         //проверка на то что мы удаляем
-        if (deleteCurve == YES) {
-            plotFromProject.plotCurve = 0;
-        }
-        else {
-            [project removeProjectPlotObject:newPlot];
-            
-            NSError *error;
-            if (![self.managedObjectContext save:&error]) {
+        if (alert.tag == 1) {
+            if (deleteCurve == YES) {
+                plotFromProject.plotCurve = 0;
             }
-            
-            [self.navigationController popViewControllerAnimated:YES];
+            else {
+                [project removeProjectPlotObject:newPlot];
+                
+                NSError *error;
+                if (![self.managedObjectContext save:&error]) {
+                }
+                
+                [self.navigationController popViewControllerAnimated:YES];
+            }
         }
     }
 }
+
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -317,6 +535,7 @@
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
+
 
 
 #pragma mark - Table view data source
@@ -328,10 +547,12 @@
 }
 
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return countOfSides;
 }
+
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -357,6 +578,7 @@
 }
 
 
+
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSString *result  =nil;
     if (section == 0) {
@@ -366,6 +588,7 @@
     }
     return result;
 }
+
 
 
 -(void)generatesSides {
@@ -450,12 +673,21 @@
 }
 
 
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"sidesDiagonalsSegue"]) {
         PlotDiagonalViewController *detailPlot = segue.destinationViewController;
         detailPlot.side = [mutableArraySides objectAtIndex:tableOfSides.indexPathForSelectedRow.row];
 
+        //передаем следующую сторону для создания диагонали исходя из 90 градусов
+        if (tableOfSides.indexPathForSelectedRow.row!=countOfSides-1) {
+            detailPlot.sideFor90 = [mutableArraySides objectAtIndex:tableOfSides.indexPathForSelectedRow.row+1];
+        }
+        else {
+            detailPlot.sideFor90 = [mutableArraySides objectAtIndex:0];
+        }
+        
         detailPlot.plot = newPlot;
         detailPlot.mutableArray = mutableArraySides;
         detailPlot.index = tableOfSides.indexPathForSelectedRow.row;
@@ -469,19 +701,22 @@
     }
 }
 
+
+
 -(void) buildPlot {
     
     //проверка на заполнение сторон и диагоналей
     int count = 0;
     int diagonalCount = 0;
-    BOOL emptySide = NO;
-    BOOL emptyDiagonal = NO;
+    emptySide = NO;
+    emptyDiagonal = NO;
     
     while (count != mutableArraySides.count) {
         
         PlotSide *someSide = [mutableArraySides objectAtIndex:count];
-        int width = [someSide.sideWidth intValue];
         
+//        проверка значения сторон
+        int width = [someSide.sideWidth intValue];
         if (width == 0) {
             emptySide = YES;
         }
@@ -506,21 +741,6 @@
         count++;
     }
     
-    if (emptySide == YES) {
-
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Построение чертежа" message:@"Не все стороны заполнены, пожалуйста введите все необходимые данные" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        [alert show];
-    }
-    if (diagonalCount<mutableArraySides.count-3) {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Построение чертежа" message:@"Вы ввели недостаточное колличество диагоналей, пожалуйста введите все необходимые данные" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        [alert show];
-    }
-    if (emptyDiagonal == YES) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Построение чертежа" message:@"Одна или несколько диагоналей имеют нулевое значение, пожалуйста введите все необходимые данные" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        [alert show];
-    }
-    
     //если все впорядке пускаем в построение чертежа
     if ((emptySide == NO) && (diagonalCount >= mutableArraySides.count-3) && (emptyDiagonal == NO) ) {
         PlotVisualController *visualPlot = [self.storyboard instantiateViewControllerWithIdentifier:@"plotViewStoryboardId"];
@@ -530,7 +750,27 @@
         
         [self.navigationController pushViewController:visualPlot animated:YES];
     }
+    else {
+        if (emptySide == NO && mutableArraySides.count == 0) {
+            alert = [[UIAlertView alloc] initWithTitle:@"Построение чертежа" message:@"Вы не ввели колличество углов, это необходимо для дальнейшего построения чертежа" delegate:self cancelButtonTitle:@"Хорошо" otherButtonTitles:nil];
+            [alert show];
+        }
+        if (emptySide == YES) {
+            alert = [[UIAlertView alloc] initWithTitle:@"Построение чертежа" message:@"Не все стороны заполнены, пожалуйста введите все необходимые данные" delegate:self cancelButtonTitle:@"Хорошо" otherButtonTitles:nil];
+            [alert show];
+        }
+        if (diagonalCount<mutableArraySides.count-3) {
+            alert = [[UIAlertView alloc] initWithTitle:@"Построение чертежа" message:@"Вы ввели недостаточное колличество диагоналей, пожалуйста введите все необходимые данные" delegate:self cancelButtonTitle:@"Хорошо" otherButtonTitles:nil];
+            [alert show];
+        }
+        if (emptyDiagonal == YES) {
+            alert = [[UIAlertView alloc] initWithTitle:@"Построение чертежа" message:@"Одна или несколько диагоналей имеют нулевое значение, пожалуйста введите все необходимые данные" delegate:self cancelButtonTitle:@"Хорошо" otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+    
 }
+
 
 
 //анимация затухания выделения ячейки при возвращении в таблицу
@@ -540,13 +780,41 @@
     
     
     //условие для реализации перезагрузки ячейки таблицы при изменении
+    
     if (indexPathForSelectedRow) {
         [self.tableOfSides reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPathForSelectedRow] withRowAnimation:UITableViewRowAnimationLeft];
         [self.tableOfSides deselectRowAtIndexPath:[self.tableOfSides indexPathForSelectedRow] animated:YES];
     }
     
     
+    
+    //ЦЫКЛ ДЛЯ ПРОВЕРКИ НЕ ПУСТЫХ СТОРОН И ВЫЧИСЛЕНИЯ ДИАГОНАЛИ ПО 90 ГРАДУСАМ
+    
+    if (mutableArraySides.count != 0) {
+        
+        
+        BOOL emptySideForAngle90 = NO;
+        
+        for (int i=0; i < mutableArraySides.count; i++) {
+            
+            PlotSide *sideForCheck = [mutableArraySides objectAtIndex:i];
+            NSNumber *zero = [NSNumber numberWithInt:0];
+            
+            if ([sideForCheck.sideWidth isEqual:zero]) {
+                emptySideForAngle90 = YES;
+            }
+        }
+        
+        
+        if (emptySideForAngle90 == NO) {
+            
+            //ВЫСЧИТЫВАЕМ ДИАГОНАЛЬ ПО УГЛУ 90
+            [self calculateAngle90];
+        }
+    }
+    
 }
+
 
 
 - (void)didReceiveMemoryWarning
@@ -555,13 +823,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
 - (IBAction)saveAll:(id)sender {
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
     }
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Сохранено" message:@"Введенные данные сохранены" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    alert = [[UIAlertView alloc] initWithTitle:@"Сохранено" message:@"Введенные данные сохранены" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
 }
 

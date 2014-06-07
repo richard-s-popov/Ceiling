@@ -418,11 +418,11 @@
     
 }
 
-
 - (void)mailComposeController:(MFMailComposeViewController *)controller
           didFinishWithResult:(MFMailComposeResult)result
                         error:(NSError *)error
 {
+    
     UIAlertView *alertSuccess = [[UIAlertView alloc] initWithTitle:@"Отправлено" message:@"Ваше письмо успешно отправлено, спасибо что пользуетесь нашем приложением!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     UIAlertView *alertError = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Произошла непредвиденая ошибка, если она будет повторяться, пожалуйста обратитесь в службу поддержки" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     
@@ -476,9 +476,13 @@
         
         //прикрепляем файлы с чертежами к письму
         if (imagesArray.count != 0) {
-            UIImage *plotImage = [imagesArray objectAtIndex:0];
-            NSData *imageData = UIImagePNGRepresentation(plotImage);
-            [mailController addAttachmentData:imageData mimeType:@"image/png" fileName:@"image.png"];
+            int i = 0;
+            while (i != imagesArray.count) {
+                UIImage *plotImage = [imagesArray objectAtIndex:i];
+                NSData *imageData = UIImagePNGRepresentation(plotImage);
+                [mailController addAttachmentData:imageData mimeType:@"image/png" fileName:[NSString stringWithFormat:@"image%i.png", i ]];
+                i++;
+            }
         }
         
         

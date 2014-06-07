@@ -2,8 +2,8 @@
 //  PlotSide.m
 //  Calculator
 //
-//  Created by Александр Коровкин on 08.12.13.
-//  Copyright (c) 2013 Александр Коровкин. All rights reserved.
+//  Created by Александр Коровкин on 03.06.14.
+//  Copyright (c) 2014 Александр Коровкин. All rights reserved.
 //
 
 #import "PlotSide.h"
@@ -18,6 +18,7 @@
 @dynamic sidePosition;
 @dynamic sideWidth;
 @dynamic sideWidthFactor;
+@dynamic angle;
 @dynamic sideDiagonal;
 @dynamic sidePlot;
 

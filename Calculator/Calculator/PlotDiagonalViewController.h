@@ -18,6 +18,7 @@
 
 @property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) PlotSide *side;
+@property (nonatomic, strong) PlotSide *sideFor90;
 @property (nonatomic, strong) Plot *plot;
 @property (nonatomic, strong) PlotDiagonal *diagonal;
 @property (nonatomic, strong) DiagonalTmp *diagonalTmp;

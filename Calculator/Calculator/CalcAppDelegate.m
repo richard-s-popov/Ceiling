@@ -7,6 +7,7 @@
 //
 
 #import "CalcAppDelegate.h"
+#import "NewProjectDetailViewController.h"
 #import <MessageUI/MFMailComposeViewController.h>
 
 @implementation CalcAppDelegate
@@ -32,7 +33,7 @@
     NSDictionary *tabBarTitle = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [UIColor blackColor],UITextAttributeTextColor,
                                  [UIColor clearColor], UITextAttributeTextShadowColor,
-                                 [UIFont fontWithName:@"PTSans-Narrow" size:10],UITextAttributeFont,
+                                 [UIFont fontWithName:@"OpenSans" size:10],UITextAttributeFont,
                                  [NSValue valueWithUIOffset:UIOffsetMake(-1, 0)], UITextAttributeTextShadowOffset, nil];
     [[UITabBarItem appearance] setTitleTextAttributes:tabBarTitle forState:UIControlStateNormal];
     //    [[UITabBar appearance] setSelectedImageTintColor:[UIColor grayColor]];
@@ -41,7 +42,7 @@
     NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                                [UIColor blackColor],UITextAttributeTextColor,
                                                [UIColor clearColor], UITextAttributeTextShadowColor,
-                                               [UIFont fontWithName:@"PTSans-Narrow" size:25],UITextAttributeFont,
+                                               [UIFont fontWithName:@"OpenSans-CondensedLight" size:25],UITextAttributeFont,
                                                [NSValue valueWithUIOffset:UIOffsetMake(-1, 0)], UITextAttributeTextShadowOffset, nil];
     
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
@@ -52,23 +53,35 @@
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                           [UIColor blackColor], UITextAttributeTextColor,
-                                                          [UIFont fontWithName:@"FuturisCyrillic" size:15],UITextAttributeFont,
+                                                          [UIFont fontWithName:@"OpenSans" size:14],UITextAttributeFont,
                                                           [UIColor clearColor], UITextAttributeTextShadowColor,
                                                           nil]
                                                 forState:UIControlStateNormal];
     
     
-    UIImage *barButtonImage = [[UIImage imageNamed:@"barBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12, 0, 12)];
-    [[UIBarButtonItem appearance] setBackgroundImage:barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    UIImage *barButtonImage = [[UIImage imageNamed:@"barBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12, 0, 12)];
+//    [[UIBarButtonItem appearance] setBackgroundImage:barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
-    [[UILabel appearance] setFont:[UIFont fontWithName:@"FuturisCyrillic" size:17]];
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"OpenSans" size:14]];
+    
+    
     
     
     //для MFMailComposeViewController убираем стили навигации что бы не глючила отправка писем
     [[UINavigationBar appearanceWhenContainedIn:[MFMailComposeViewController class], nil] setTitleTextAttributes:
      @{
-       UITextAttributeFont : [UIFont boldSystemFontOfSize:14.0f],
+       UITextAttributeFont : [UIFont boldSystemFontOfSize:10.0f],
        }];
+    
+//    [[UIBarButtonItem appearanceWhenContainedIn:[MFMailComposeViewController class], [NewProjectDetailViewController class], nil]
+//     setTintColor:[UIColor whiteColor]];
+    
+//    UIImage *imageTest = [UIImage imageNamed:@"project_viewPlot.png"];
+//    [[UINavigationBar appearanceWhenContainedIn:[MFMailComposeViewController class], nil] setBackgroundImage:imageTest forBarMetrics:UIBarMetricsDefault];
+    
+    
+    
+    
     
     //toolbar
 //    [[UIToolbar appearance] setBackgroundImage:navBackgroundImage forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];

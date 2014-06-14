@@ -90,13 +90,24 @@
 		099DECFF182D0ACF0097DCBF /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 099DECFD182D0ACF0097DCBF /* email.png */; };
 		099DED00182D0ACF0097DCBF /* email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 099DECFE182D0ACF0097DCBF /* email@2x.png */; };
 		09A51547182EA86700472126 /* Projects.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A51546182EA86700472126 /* Projects.m */; };
+		09AAA7251943A14E00D442D8 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09AAA71B1943A00E00D442D8 /* OpenSans-Bold.ttf */; };
+		09AAA7261943A14E00D442D8 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09AAA71C1943A00E00D442D8 /* OpenSans-BoldItalic.ttf */; };
+		09AAA7271943A14E00D442D8 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09AAA71D1943A00E00D442D8 /* OpenSans-ExtraBold.ttf */; };
+		09AAA7281943A14E00D442D8 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09AAA71E1943A00E00D442D8 /* OpenSans-ExtraBoldItalic.ttf */; };
+		09AAA7291943A14E00D442D8 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09AAA71F1943A00E00D442D8 /* OpenSans-Italic.ttf */; };
+		09AAA72A1943A14E00D442D8 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09AAA7201943A00E00D442D8 /* OpenSans-Light.ttf */; };
+		09AAA72B1943A14E00D442D8 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09AAA7211943A00E00D442D8 /* OpenSans-LightItalic.ttf */; };
+		09AAA72C1943A14E00D442D8 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09AAA7221943A00E00D442D8 /* OpenSans-Regular.ttf */; };
+		09AAA72D1943A14E00D442D8 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09AAA7231943A00E00D442D8 /* OpenSans-Semibold.ttf */; };
+		09AAA72E1943A14E00D442D8 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09AAA7241943A00E00D442D8 /* OpenSans-SemiboldItalic.ttf */; };
+		09AAA7301943AAFB00D442D8 /* Open Sans Condensed  Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09AAA72F1943AACC00D442D8 /* Open Sans Condensed  Light.ttf */; };
+		09ACBE2F193DB98E00506BEF /* PlotSide.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ACBE2E193DB98E00506BEF /* PlotSide.m */; };
 		09C82BBD1789DD8B00A47057 /* SettingsOptionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */; };
 		09C82BC01789DFE300A47057 /* SettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82BBF1789DFE200A47057 /* SettingsService.m */; };
 		09C93E881791B78100A4FBDC /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C93E871791B78100A4FBDC /* OptionsViewController.m */; };
 		09CA819A17F3AF0E00A3BAE6 /* SliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CA819917F3AF0E00A3BAE6 /* SliderViewController.m */; };
 		09CA819C17F3B8B800A3BAE6 /* questionmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CA819B17F3B8B800A3BAE6 /* questionmark.png */; };
 		09D4A0741853965700A101BC /* PlotDiagonal.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D4A0731853965700A101BC /* PlotDiagonal.m */; };
-		09D4A0771853965700A101BC /* PlotSide.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D4A0761853965700A101BC /* PlotSide.m */; };
 		09D5DF66178CEAA5004FAA8C /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF63178CEAA5004FAA8C /* ECSlidingViewController.m */; };
 		09D5DF67178CEAA5004FAA8C /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF65178CEAA5004FAA8C /* UIImage+ImageWithUIView.m */; };
 		09D5DF6A178CEAED004FAA8C /* InitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5DF69178CEAED004FAA8C /* InitViewController.m */; };
@@ -225,6 +236,19 @@
 		099DECFE182D0ACF0097DCBF /* email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email@2x.png"; sourceTree = "<group>"; };
 		09A51545182EA86700472126 /* Projects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projects.h; sourceTree = "<group>"; };
 		09A51546182EA86700472126 /* Projects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projects.m; sourceTree = "<group>"; };
+		09AAA71B1943A00E00D442D8 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		09AAA71C1943A00E00D442D8 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		09AAA71D1943A00E00D442D8 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		09AAA71E1943A00E00D442D8 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		09AAA71F1943A00E00D442D8 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		09AAA7201943A00E00D442D8 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		09AAA7211943A00E00D442D8 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		09AAA7221943A00E00D442D8 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		09AAA7231943A00E00D442D8 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		09AAA7241943A00E00D442D8 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		09AAA72F1943AACC00D442D8 /* Open Sans Condensed  Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Open Sans Condensed  Light.ttf"; sourceTree = "<group>"; };
+		09ACBE2D193DB98E00506BEF /* PlotSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotSide.h; sourceTree = "<group>"; };
+		09ACBE2E193DB98E00506BEF /* PlotSide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotSide.m; sourceTree = "<group>"; };
 		09C82BBB1789DD8B00A47057 /* SettingsOptionsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsOptionsModel.h; sourceTree = "<group>"; };
 		09C82BBC1789DD8B00A47057 /* SettingsOptionsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsOptionsModel.m; sourceTree = "<group>"; };
 		09C82BBE1789DFE200A47057 /* SettingsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsService.h; sourceTree = "<group>"; };
@@ -236,8 +260,6 @@
 		09CA819B17F3B8B800A3BAE6 /* questionmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questionmark.png; sourceTree = "<group>"; };
 		09D4A0721853965700A101BC /* PlotDiagonal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotDiagonal.h; sourceTree = "<group>"; };
 		09D4A0731853965700A101BC /* PlotDiagonal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotDiagonal.m; sourceTree = "<group>"; };
-		09D4A0751853965700A101BC /* PlotSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotSide.h; sourceTree = "<group>"; };
-		09D4A0761853965700A101BC /* PlotSide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotSide.m; sourceTree = "<group>"; };
 		09D5DF62178CEAA5004FAA8C /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
 		09D5DF63178CEAA5004FAA8C /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
 		09D5DF64178CEAA5004FAA8C /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
@@ -331,9 +353,9 @@
 				098287591832CF3A00362A7D /* Plot.m */,
 				09313E6618353F49006270B0 /* AddPrice.h */,
 				09313E6718353F49006270B0 /* AddPrice.m */,
+				09ACBE2D193DB98E00506BEF /* PlotSide.h */,
+				09ACBE2E193DB98E00506BEF /* PlotSide.m */,
 				09E307C117DCE6F5006E5CE5 /* Projects.xcdatamodeld */,
-				09D4A0751853965700A101BC /* PlotSide.h */,
-				09D4A0761853965700A101BC /* PlotSide.m */,
 				09D4A0721853965700A101BC /* PlotDiagonal.h */,
 				09D4A0731853965700A101BC /* PlotDiagonal.m */,
 				09A51545182EA86700472126 /* Projects.h */,
@@ -418,6 +440,7 @@
 			children = (
 				094D323717EAD61300D685EF /* addBtn.png */,
 				0982874A183293D600362A7D /* checkbox_unabled.png */,
+				09AAA72F1943AACC00D442D8 /* Open Sans Condensed  Light.ttf */,
 				0982874B183293D600362A7D /* checkbox_unabled@2x.png */,
 				0982874C183293D600362A7D /* checkbox.png */,
 				0982874D183293D600362A7D /* checkbox@2x.png */,
@@ -453,6 +476,16 @@
 				094D322D17EA1DF900D685EF /* navBar4.png */,
 				090BDD7117EB8C5D00B767A5 /* navBar4@2x.png */,
 				094D322F17EA1F2B00D685EF /* navBarShadow.png */,
+				09AAA71B1943A00E00D442D8 /* OpenSans-Bold.ttf */,
+				09AAA71C1943A00E00D442D8 /* OpenSans-BoldItalic.ttf */,
+				09AAA71D1943A00E00D442D8 /* OpenSans-ExtraBold.ttf */,
+				09AAA71E1943A00E00D442D8 /* OpenSans-ExtraBoldItalic.ttf */,
+				09AAA71F1943A00E00D442D8 /* OpenSans-Italic.ttf */,
+				09AAA7201943A00E00D442D8 /* OpenSans-Light.ttf */,
+				09AAA7211943A00E00D442D8 /* OpenSans-LightItalic.ttf */,
+				09AAA7221943A00E00D442D8 /* OpenSans-Regular.ttf */,
+				09AAA7231943A00E00D442D8 /* OpenSans-Semibold.ttf */,
+				09AAA7241943A00E00D442D8 /* OpenSans-SemiboldItalic.ttf */,
 				090BDD7317EB8C7100B767A5 /* navBarShadow@2x.png */,
 				091EDBFB182C05F5006A376D /* project_additionalPlot2.png */,
 				091EDBFC182C05F5006A376D /* project_addPlot.png */,
@@ -628,6 +661,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09AAA7301943AAFB00D442D8 /* Open Sans Condensed  Light.ttf in Resources */,
+				09AAA7251943A14E00D442D8 /* OpenSans-Bold.ttf in Resources */,
+				09AAA7261943A14E00D442D8 /* OpenSans-BoldItalic.ttf in Resources */,
+				09AAA7271943A14E00D442D8 /* OpenSans-ExtraBold.ttf in Resources */,
+				09AAA7281943A14E00D442D8 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				09AAA7291943A14E00D442D8 /* OpenSans-Italic.ttf in Resources */,
+				09AAA72A1943A14E00D442D8 /* OpenSans-Light.ttf in Resources */,
+				09AAA72B1943A14E00D442D8 /* OpenSans-LightItalic.ttf in Resources */,
+				09AAA72C1943A14E00D442D8 /* OpenSans-Regular.ttf in Resources */,
+				09AAA72D1943A14E00D442D8 /* OpenSans-Semibold.ttf in Resources */,
+				09AAA72E1943A14E00D442D8 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				091EDC06182C0F32006A376D /* tabBarShadow2@2x.png in Resources */,
 				091EDC05182C0F32006A376D /* tabBarShadow2.png in Resources */,
 				0982874F183293D600362A7D /* checkbox_unabled@2x.png in Resources */,
@@ -698,7 +742,7 @@
 				09598150177F676E001D2122 /* CalcAppDelegate.m in Sources */,
 				091EDBDC182BEE27006A376D /* ProjectPlotCell.m in Sources */,
 				0959815C177F676E001D2122 /* CalcViewController.m in Sources */,
-				09D4A0771853965700A101BC /* PlotSide.m in Sources */,
+				09ACBE2F193DB98E00506BEF /* PlotSide.m in Sources */,
 				09879C8217835733005B5E40 /* SettingsViewController.m in Sources */,
 				0942DE4C1815004A0088602F /* NewPlotViewController.m in Sources */,
 				0982875D1832CFF100362A7D /* CurveLineModel.m in Sources */,

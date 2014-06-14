@@ -72,7 +72,7 @@
     //добвляем кнопки для NumPad
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:@"Отмена" forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont fontWithName:@"FuturisCyrillic" size:14.0f];
+    button.titleLabel.font = [UIFont fontWithName:@"OpenSans" size:14.0f];
     [button.layer setCornerRadius:4.0f];
     [button.layer setMasksToBounds:YES];
     [button.layer setBorderWidth:1.0f];
@@ -83,7 +83,7 @@
     
     UIButton *saveButtonToolbar = [UIButton buttonWithType:UIButtonTypeCustom];
     [saveButtonToolbar setTitle:@"Сохранить" forState:UIControlStateNormal];
-    saveButtonToolbar.titleLabel.font = [UIFont fontWithName:@"FuturisCyrillic" size:14.0f];
+    saveButtonToolbar.titleLabel.font = [UIFont fontWithName:@"OpenSans" size:14.0f];
     [saveButtonToolbar.layer setCornerRadius:4.0f];
     [saveButtonToolbar.layer setMasksToBounds:YES];
     [saveButtonToolbar.layer setBorderWidth:1.0f];
@@ -105,15 +105,15 @@
     namePlot.inputAccessoryView = numberToolbar;
     
     //добавляем кнопку редактирования
-    UIImage *rightButtonImage = [[UIImage imageNamed:@"rightBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
+//    UIImage *rightButtonImage = [[UIImage imageNamed:@"rightBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 23, 0, 6)];
     UIBarButtonItem *addButton =[[UIBarButtonItem alloc] initWithTitle:@"Сохранить" style:UIBarButtonItemStyleBordered target:self action:@selector(saveData)];
-    [addButton setBackgroundImage:rightButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [addButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                       [UIColor blackColor], UITextAttributeTextColor,
-                                       [UIFont fontWithName:@"FuturisCyrillic" size:15],UITextAttributeFont,
-                                       [UIColor clearColor], UITextAttributeTextShadowColor,
-                                       nil]
-                             forState:UIControlStateNormal];
+//    [addButton setBackgroundImage:rightButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    [addButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+//                                       [UIColor blackColor], UITextAttributeTextColor,
+//                                       [UIFont fontWithName:@"OpenSans-CondensedLight" size:18],UITextAttributeFont,
+//                                       [UIColor clearColor], UITextAttributeTextShadowColor,
+//                                       nil]
+//                             forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = addButton;
 
     [self reloadData];
@@ -200,7 +200,6 @@
     else {
         count = plotArray.count;
     }
-    NSLog(@"массив с чертежами = %d", count);
     return count;
 }
 
@@ -216,9 +215,10 @@
     
     cell.namePlot.text = [NSString stringWithFormat:@"%@", tmpPlotModel.plotName];
     cell.namePlot.frame = CGRectMake(20, 20, 150, 30);
-    [cell.namePlot setFont:[UIFont fontWithName:@"FuturisCyrillic" size:22]];
+    [cell.namePlot setFont:[UIFont fontWithName:@"OpenSans" size:18]];
     cell.pricePlot.text = [NSString stringWithFormat:@"%1.2f руб.", [tmpPlotModel.plotPrice floatValue]];
     cell.pricePlot.frame = CGRectMake(200, 20, 110, 30);
+    [cell.pricePlot setFont:[UIFont fontWithName:@"OpenSans" size:18]];
     
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
@@ -227,7 +227,7 @@
     UIButton *additionalPlotButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     additionalPlotButton.frame = CGRectMake(0, 50, 320, 50);
     [additionalPlotButton setTitle:@"Посчитать стоимость" forState:UIControlStateNormal];
-    [[additionalPlotButton titleLabel] setFont:[UIFont fontWithName:@"FuturisCyrillic" size:16]];
+    [[additionalPlotButton titleLabel] setFont:[UIFont fontWithName:@"OpenSans" size:16]];
     [additionalPlotButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal ];
     [additionalPlotButton setBackgroundImage:additionalButtomBackground forState:UIControlStateNormal];
     [additionalPlotButton addTarget:self action:@selector(additionalPlotAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -418,11 +418,11 @@
     
 }
 
-
 - (void)mailComposeController:(MFMailComposeViewController *)controller
           didFinishWithResult:(MFMailComposeResult)result
                         error:(NSError *)error
 {
+    
     UIAlertView *alertSuccess = [[UIAlertView alloc] initWithTitle:@"Отправлено" message:@"Ваше письмо успешно отправлено, спасибо что пользуетесь нашем приложением!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     UIAlertView *alertError = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Произошла непредвиденая ошибка, если она будет повторяться, пожалуйста обратитесь в службу поддержки" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     
@@ -476,9 +476,13 @@
         
         //прикрепляем файлы с чертежами к письму
         if (imagesArray.count != 0) {
-            UIImage *plotImage = [imagesArray objectAtIndex:0];
-            NSData *imageData = UIImagePNGRepresentation(plotImage);
-            [mailController addAttachmentData:imageData mimeType:@"image/png" fileName:@"image.png"];
+            int i = 0;
+            while (i != imagesArray.count) {
+                UIImage *plotImage = [imagesArray objectAtIndex:i];
+                NSData *imageData = UIImagePNGRepresentation(plotImage);
+                [mailController addAttachmentData:imageData mimeType:@"image/png" fileName:[NSString stringWithFormat:@"image%i.png", i ]];
+                i++;
+            }
         }
         
         

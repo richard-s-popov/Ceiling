@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSString *angleFirst;
 @property (nonatomic, strong) NSString *angleSecond;
 @property (nonatomic, strong) NSNumber *diagonalWidth;
+@property (nonatomic, retain) NSNumber * diagonalWidthFactor;
 
 @end

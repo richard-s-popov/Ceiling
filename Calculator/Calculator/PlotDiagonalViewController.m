@@ -33,6 +33,7 @@
 @implementation PlotDiagonalViewController
 @synthesize plot;
 @synthesize side;
+@synthesize sideFor90;
 @synthesize diagonal;
 @synthesize managedObjectContext;
 @synthesize tableOfDiagonal;
@@ -66,14 +67,24 @@
     listDiagonal = [[NSMutableArray alloc] init];
     textFieldArray = [[NSMutableArray alloc] init];
     
+    //кнопка 90 градусов
+    UIImage *viewButtomBackground = [[UIImage imageNamed:@"project_viewPlot.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIButton *viewPlotButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    viewPlotButton.frame = CGRectMake(0, 0, 320, 50);
+    [viewPlotButton setTitle:[NSString stringWithFormat:@"Установить угол %@ как 90 градусов", side.angleFirst] forState:UIControlStateNormal];
+    [viewPlotButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
+    [viewPlotButton setBackgroundImage:viewButtomBackground forState:UIControlStateNormal];
+    [viewPlotButton addTarget:self action:@selector(add90) forControlEvents:UIControlEventTouchUpInside];
+    [diagonalConteinerView addSubview:viewPlotButton];
+    
     //создание надписи start
-    startLable = [[UILabel alloc] initWithFrame:CGRectMake(30, 7, 320, 30)];
-    [startLable setFont:[UIFont fontWithName:@"FuturisCyrillic" size:14]];
-    startLable.text = @"Нажимая на диагонали вводите их длинну";
+    startLable = [[UILabel alloc] initWithFrame:CGRectMake(30, 54, 320, 30)];
+    [startLable setFont:[UIFont fontWithName:@"OpenSans" size:14]];
+    startLable.text = @"Нажмите на сторону или диагональ";
     [diagonalConteinerView addSubview:startLable];
     
     //создание текстового поля для ввода диагоналей
-    diagonalTextField = [[UITextField alloc] initWithFrame:CGRectMake(170, 7, 100, 30)];
+    diagonalTextField = [[UITextField alloc] initWithFrame:CGRectMake(180, 54, 100, 30)];
     diagonalTextField.delegate = self;
     diagonalTextField.borderStyle = UITextBorderStyleRoundedRect;
     diagonalTextField.placeholder = @"";
@@ -84,7 +95,7 @@
     //добвляем кнопки для NumPad
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:@"Отмена" forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont fontWithName:@"FuturisCyrillic" size:14.0f];
+    button.titleLabel.font = [UIFont fontWithName:@"OpenSans" size:14.0f];
     [button.layer setCornerRadius:4.0f];
     [button.layer setMasksToBounds:YES];
     [button.layer setBorderWidth:1.0f];
@@ -95,7 +106,7 @@
     
     UIButton *saveButtonToolbar = [UIButton buttonWithType:UIButtonTypeCustom];
     [saveButtonToolbar setTitle:@"Сохранить" forState:UIControlStateNormal];
-    saveButtonToolbar.titleLabel.font = [UIFont fontWithName:@"FuturisCyrillic" size:14.0f];
+    saveButtonToolbar.titleLabel.font = [UIFont fontWithName:@"OpenSans" size:14.0f];
     [saveButtonToolbar.layer setCornerRadius:4.0f];
     [saveButtonToolbar.layer setMasksToBounds:YES];
     [saveButtonToolbar.layer setBorderWidth:1.0f];
@@ -199,10 +210,21 @@
     
 }
 
+//добавляем 90 градусов к углу
+-(void)add90 {
+    side.angle = [NSNumber numberWithInt:1];
+    
+    DiagonalTmp *diagonalForAngle90 = [listDiagonal lastObject];
+    NSLog(@"listDiagonal - %@%@", diagonalForAngle90.angleFirst, diagonalForAngle90.angleSecond);
+    NSLog(@"%i", index);
+    
+}
 
-//метод для заселнеия уже созданных диагоналей
+//метод для заселения уже созданных диагоналей
 -(void)populateDiagonalWidth {
+    
     int countTmp = 0;
+    
     NSArray *diagonalArrayFromSet = [side.sideDiagonal allObjects];
     
     while (countTmp < side.sideDiagonal.count) {
@@ -319,9 +341,7 @@
         lustDiagonal = [NSNumber numberWithInt:[diagonalTextField.text intValue]];
         
         //проверка диагонали
-        NSLog(@"diagonalWidth = %d", [diagonalTmp.diagonalWidth intValue]);
         if ([diagonalTmp.diagonalWidth intValue] == 0) {
-            NSLog(@"diagonal = 0");
             tmpDiagonalForSave = [NSEntityDescription insertNewObjectForEntityForName:@"PlotDiagonal" inManagedObjectContext:self.managedObjectContext];
             
             tmpDiagonalForSave.diagonalWidth = lustDiagonal;

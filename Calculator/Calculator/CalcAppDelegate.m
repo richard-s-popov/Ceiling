@@ -62,7 +62,7 @@
 //    UIImage *barButtonImage = [[UIImage imageNamed:@"barBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12, 0, 12)];
 //    [[UIBarButtonItem appearance] setBackgroundImage:barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
-    [[UILabel appearance] setFont:[UIFont fontWithName:@"OpenSans" size:16]];
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"OpenSans" size:14]];
     
     
     

@@ -78,12 +78,13 @@
     [diagonalConteinerView addSubview:viewPlotButton];
     
     //кнопка для пометки шва
-    UIImage *shovBackground = [[UIImage imageNamed:@"project_deletePlot.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIImage *shovBackground = [[UIImage imageNamed:@"greenBg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     UIButton *shovButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     shovButton.frame = CGRectMake(0, 50, 320, 50);
-    [shovButton setTitle:[NSString stringWithFormat:@"Установить сторону %@%@ для шва", side.angleFirst, side.angleSecond] forState:UIControlStateNormal];
+    [shovButton setTitle:[NSString stringWithFormat:@"Установить сторону %@%@ как начало шва", side.angleFirst, side.angleSecond] forState:UIControlStateNormal];
     [shovButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
     [shovButton setBackgroundImage:shovBackground forState:UIControlStateNormal];
+//    [shovButton setBackgroundColor:[UIColor greenColor]];
     [shovButton addTarget:self action:@selector(addShov) forControlEvents:UIControlEventTouchUpInside];
     [diagonalConteinerView addSubview:shovButton];
     
@@ -231,7 +232,7 @@
 }
 
 -(void)addShov {
-
+    side.isStartShov = [NSNumber numberWithInt:1];
 }
 
 //метод для заселения уже созданных диагоналей

@@ -77,14 +77,25 @@
     [viewPlotButton addTarget:self action:@selector(add90) forControlEvents:UIControlEventTouchUpInside];
     [diagonalConteinerView addSubview:viewPlotButton];
     
+    //кнопка для пометки шва
+    UIImage *shovBackground = [[UIImage imageNamed:@"greenBg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIButton *shovButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    shovButton.frame = CGRectMake(0, 50, 320, 50);
+    [shovButton setTitle:[NSString stringWithFormat:@"Установить сторону %@%@ как начало шва", side.angleFirst, side.angleSecond] forState:UIControlStateNormal];
+    [shovButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal ];
+    [shovButton setBackgroundImage:shovBackground forState:UIControlStateNormal];
+//    [shovButton setBackgroundColor:[UIColor greenColor]];
+    [shovButton addTarget:self action:@selector(addShov) forControlEvents:UIControlEventTouchUpInside];
+    [diagonalConteinerView addSubview:shovButton];
+    
     //создание надписи start
-    startLable = [[UILabel alloc] initWithFrame:CGRectMake(30, 54, 320, 30)];
+    startLable = [[UILabel alloc] initWithFrame:CGRectMake(30, 104, 320, 30)];
     [startLable setFont:[UIFont fontWithName:@"OpenSans" size:14]];
     startLable.text = @"Нажмите на сторону или диагональ";
     [diagonalConteinerView addSubview:startLable];
     
     //создание текстового поля для ввода диагоналей
-    diagonalTextField = [[UITextField alloc] initWithFrame:CGRectMake(180, 54, 100, 30)];
+    diagonalTextField = [[UITextField alloc] initWithFrame:CGRectMake(180, 104, 100, 30)];
     diagonalTextField.delegate = self;
     diagonalTextField.borderStyle = UITextBorderStyleRoundedRect;
     diagonalTextField.placeholder = @"";
@@ -218,6 +229,10 @@
     NSLog(@"listDiagonal - %@%@", diagonalForAngle90.angleFirst, diagonalForAngle90.angleSecond);
     NSLog(@"%i", index);
     
+}
+
+-(void)addShov {
+    side.isStartShov = [NSNumber numberWithInt:1];
 }
 
 //метод для заселения уже созданных диагоналей

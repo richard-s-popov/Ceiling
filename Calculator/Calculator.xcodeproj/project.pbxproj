@@ -151,6 +151,7 @@
 		090C9CBB17CD6418008A5E10 /* CostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CostViewController.m; sourceTree = "<group>"; };
 		0910CDB617D145D10032060C /* AddSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSettingsViewController.h; sourceTree = "<group>"; };
 		0910CDB717D145D10032060C /* AddSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSettingsViewController.m; sourceTree = "<group>"; };
+		091D40BA1AD65BED008BFADB /* RestKit-0.20.3.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = "RestKit-0.20.3.zip"; path = "../../RestKit-0.20.3.zip"; sourceTree = "<group>"; };
 		091EDBD1182BEC68006A376D /* PlotModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotModel.h; sourceTree = "<group>"; };
 		091EDBD2182BEC68006A376D /* PlotModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotModel.m; sourceTree = "<group>"; };
 		091EDBD7182BED61006A376D /* DiagonalTmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiagonalTmp.h; sourceTree = "<group>"; };
@@ -406,6 +407,7 @@
 		0959813E177F676E001D2122 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				091D40BA1AD65BED008BFADB /* RestKit-0.20.3.zip */,
 				0906E28A17F33D2A0084D6FD /* XCTest.framework */,
 				0959813F177F676E001D2122 /* UIKit.framework */,
 				09598141177F676E001D2122 /* Foundation.framework */,
@@ -470,7 +472,6 @@
 				0904E27A197164E0006767E2 /* greenBg.png */,
 				091EDBF2182BF145006A376D /* home_new@2x.png */,
 				0982697817C4C5EE007DB54D /* icon.png */,
-				090BDD8B17EBA27700B767A5 /* imageMenu0.png */,
 				090BDD8917EB9F6B00B767A5 /* imageMenu0@2x.png */,
 				090BDD8D17EBA28300B767A5 /* imageMenu1.png */,
 				090BDD8F17EBA28A00B767A5 /* imageMenu1@2x.png */,
@@ -878,7 +879,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Calculator/Calculator-Prefix.pch";
 				INFOPLIST_FILE = "Calculator/Calculator-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -897,7 +898,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Calculator/Calculator-Prefix.pch";
 				INFOPLIST_FILE = "Calculator/Calculator-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

@@ -78,7 +78,8 @@
     [diagonalConteinerView addSubview:viewPlotButton];
     
     //кнопка для пометки шва
-    UIImage *shovBackground = [[UIImage imageNamed:@"greenBg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+//    UIImage *shovBackground = [[UIImage imageNamed:@"greenBg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIImage *shovBackground = [[UIImage imageNamed:@"checkbox.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     UIButton *shovButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     shovButton.frame = CGRectMake(0, 50, 320, 50);
     [shovButton setTitle:[NSString stringWithFormat:@"Установить сторону %@%@ как начало шва", side.angleFirst, side.angleSecond] forState:UIControlStateNormal];
@@ -87,6 +88,7 @@
 //    [shovButton setBackgroundColor:[UIColor greenColor]];
     [shovButton addTarget:self action:@selector(addShov) forControlEvents:UIControlEventTouchUpInside];
     [diagonalConteinerView addSubview:shovButton];
+    
     
     //создание надписи start
     startLable = [[UILabel alloc] initWithFrame:CGRectMake(30, 104, 320, 30)];
@@ -232,7 +234,17 @@
 }
 
 -(void)addShov {
+    
+    int i = 0;
+    while (i < mutableArray.count) {
+        
+        PlotSide *tmp_side = [mutableArray objectAtIndex:i];
+        tmp_side.isStartShov = NULL;
+        i++; //ИНКРЕМЕНТ
+    }
+    
     side.isStartShov = [NSNumber numberWithInt:1];
+    NSLog(@"shov - %@%@", side.angleFirst, side.angleSecond);
 }
 
 //метод для заселения уже созданных диагоналей

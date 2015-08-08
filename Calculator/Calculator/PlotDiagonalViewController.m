@@ -232,7 +232,17 @@
 }
 
 -(void)addShov {
+    
+    int i = 0;
+    while (i < mutableArray.count) {
+        
+        PlotSide *tmp_side = [mutableArray objectAtIndex:i];
+        tmp_side.isStartShov = NULL;
+        i++; //ИНКРЕМЕНТ
+    }
+    
     side.isStartShov = [NSNumber numberWithInt:1];
+    NSLog(@"shov - %@%@", side.angleFirst, side.angleSecond);
 }
 
 //метод для заселения уже созданных диагоналей

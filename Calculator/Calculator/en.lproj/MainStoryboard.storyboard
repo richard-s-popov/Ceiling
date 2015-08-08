@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bQN-Xz-x2b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bQN-Xz-x2b">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Add Settings View Controller-->
@@ -107,7 +106,7 @@
             </objects>
             <point key="canvasLocation" x="3186" y="1325"/>
         </scene>
-        <!--Cost View Controller - Стоимость-->
+        <!--Стоимость-->
         <scene sceneID="EP8-ec-d82">
             <objects>
                 <viewController storyboardIdentifier="CostStoryboardId" id="pVq-l1-Bjo" customClass="CostViewController" sceneMemberID="viewController">
@@ -266,7 +265,7 @@
             </objects>
             <point key="canvasLocation" x="3668" y="-876"/>
         </scene>
-        <!--Plot Rect View Controller - Чертеж-->
+        <!--Чертеж-->
         <scene sceneID="5nj-I0-Y8h">
             <objects>
                 <viewController storyboardIdentifier="Чертеж" useStoryboardIdentifierAsRestorationIdentifier="YES" id="P3h-FK-9FS" customClass="PlotRectViewController" sceneMemberID="viewController">
@@ -303,7 +302,7 @@
             </objects>
             <point key="canvasLocation" x="22" y="444"/>
         </scene>
-        <!--Calc View Controller - Калькулятор-->
+        <!--Калькулятор-->
         <scene sceneID="5">
             <objects>
                 <viewController storyboardIdentifier="Калькулятор" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2" customClass="CalcViewController" sceneMemberID="viewController">
@@ -538,7 +537,7 @@
             </objects>
             <point key="canvasLocation" x="-367" y="444"/>
         </scene>
-        <!--Email View Controller - Отправить E-mail-->
+        <!--Отправить E-mail-->
         <scene sceneID="aik-aJ-WJi">
             <objects>
                 <viewController storyboardIdentifier="E-Mail" id="Uxx-Kj-FDb" customClass="emailViewController" sceneMemberID="viewController">
@@ -672,7 +671,7 @@
             </objects>
             <point key="canvasLocation" x="4059" y="480"/>
         </scene>
-        <!--New Project List View Controller - Проекты-->
+        <!--Проекты-->
         <scene sceneID="Rkn-fv-KOz">
             <objects>
                 <tableViewController id="byB-HK-CyX" customClass="NewProjectListViewController" sceneMemberID="viewController">
@@ -685,7 +684,7 @@
                                 <rect key="frame" x="0.0" y="86" width="320" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wP3-Dd-Tcu" id="tKo-10-TrN">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="65"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="65.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V7g-Mf-Tep">
@@ -723,7 +722,7 @@
             </objects>
             <point key="canvasLocation" x="2295" y="-543"/>
         </scene>
-        <!--View Controller - Настройки-->
+        <!--Настройки-->
         <scene sceneID="Gyl-vz-ZG5">
             <objects>
                 <viewController id="7XQ-po-wGx" sceneMemberID="viewController">
@@ -770,7 +769,7 @@
             </objects>
             <point key="canvasLocation" x="2392" y="1135"/>
         </scene>
-        <!--Materials List View Controller - Материалы-->
+        <!--Материалы-->
         <scene sceneID="bdK-TS-gJf">
             <objects>
                 <tableViewController id="RMJ-y8-Af1" customClass="MaterialsListViewController" sceneMemberID="viewController">
@@ -783,7 +782,7 @@
                                 <rect key="frame" x="0.0" y="86" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uvi-u7-oY5" id="veG-Ne-vLc">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="63"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="63.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3GW-k6-DsM">
@@ -887,7 +886,7 @@
                                                 <rect key="frame" x="0.0" y="22" width="320" height="150"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zEM-Lk-D7w" id="9Wl-ch-dHC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="287" height="149"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="287" height="149.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W3q-dE-A2S">
@@ -976,7 +975,7 @@
             </objects>
             <point key="canvasLocation" x="2754" y="-543"/>
         </scene>
-        <!--Settings View Controller - Контакты-->
+        <!--Контакты-->
         <scene sceneID="7Nc-wv-U9g">
             <objects>
                 <viewController id="5Ip-4Z-EbB" customClass="SettingsViewController" sceneMemberID="viewController">
@@ -1076,7 +1075,7 @@
             </objects>
             <point key="canvasLocation" x="4059" y="1135"/>
         </scene>
-        <!--View Controller - Настройте приложение-->
+        <!--Настройте приложение-->
         <scene sceneID="3vv-Qr-qL4">
             <objects>
                 <viewController id="aQk-YQ-4vF" sceneMemberID="viewController">
@@ -1115,7 +1114,7 @@
             </objects>
             <point key="canvasLocation" x="2287" y="-1291"/>
         </scene>
-        <!--View Controller - Cоздайте новый проект-->
+        <!--Cоздайте новый проект-->
         <scene sceneID="xPr-C7-DDv">
             <objects>
                 <viewController id="w7G-fB-6SI" sceneMemberID="viewController">
@@ -1149,7 +1148,7 @@
             </objects>
             <point key="canvasLocation" x="2790" y="-1291"/>
         </scene>
-        <!--View Controller - Создайте чертеж-->
+        <!--Создайте чертеж-->
         <scene sceneID="8Jy-7Z-1PV">
             <objects>
                 <viewController id="J3r-ub-gOy" sceneMemberID="viewController">
@@ -1173,7 +1172,7 @@
             </objects>
             <point key="canvasLocation" x="3232" y="-1291"/>
         </scene>
-        <!--Navigation Controller - Проекты-->
+        <!--Проекты-->
         <scene sceneID="qR6-Gu-7H9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hGq-q8-PzX" sceneMemberID="viewController">
@@ -1212,7 +1211,7 @@
             </objects>
             <point key="canvasLocation" x="741" y="140"/>
         </scene>
-        <!--Navigation Controller - Настройки-->
+        <!--Настройки-->
         <scene sceneID="wHR-dp-Nn7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cPC-kh-c9H" sceneMemberID="viewController">
@@ -1231,7 +1230,7 @@
             </objects>
             <point key="canvasLocation" x="1975" y="1135"/>
         </scene>
-        <!--New Plot View Controller - Ввод сторон-->
+        <!--Ввод сторон-->
         <scene sceneID="Len-7Y-aPt">
             <objects>
                 <viewController storyboardIdentifier="PlotSidesStoryboardId" id="tv2-aW-OD2" customClass="NewPlotViewController" sceneMemberID="viewController">
@@ -1249,10 +1248,10 @@
                         </containerView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PlotList" textLabel="IDJ-Ri-4io" detailTextLabel="ul6-hu-o9u" rowHeight="65" style="IBUITableViewCellStyleValue1" id="c24-wN-lWE">
-                                <rect key="frame" x="0.0" y="209" width="320" height="65"/>
+                                <rect key="frame" x="0.0" y="203.5" width="320" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c24-wN-lWE" id="sWF-M0-JOp">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="64"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IDJ-Ri-4io">
@@ -1297,7 +1296,7 @@
             </objects>
             <point key="canvasLocation" x="4059" y="-247"/>
         </scene>
-        <!--Plot Diagonal View Controller - Ввод диагоналей-->
+        <!--Ввод диагоналей-->
         <scene sceneID="A5k-w4-bNM">
             <objects>
                 <viewController id="he5-1f-p2v" customClass="PlotDiagonalViewController" sceneMemberID="viewController">
@@ -1319,10 +1318,10 @@
                                 </containerView>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="diagonalCell" textLabel="IoF-xi-CTx" detailTextLabel="szl-Qx-MwB" rowHeight="62" style="IBUITableViewCellStyleValue1" id="jl2-6m-LDK">
-                                        <rect key="frame" x="0.0" y="259" width="320" height="62"/>
+                                        <rect key="frame" x="0.0" y="253.5" width="320" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jl2-6m-LDK" id="1qt-zR-dLO">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="61.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IoF-xi-CTx">
@@ -1410,7 +1409,7 @@
             </objects>
             <point key="canvasLocation" x="4756" y="393"/>
         </scene>
-        <!--Navigation Controller - Помощь-->
+        <!--Помощь-->
         <scene sceneID="XII-sO-EvH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GB2-CP-Oar" sceneMemberID="viewController">
@@ -1461,7 +1460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ScI-9i-NKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4791" y="-468"/>
+            <point key="canvasLocation" x="4756" y="-598"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QZp-Nb-EIG">
@@ -1488,10 +1487,10 @@
         <image name="project_addPlot.png" width="150" height="40"/>
         <image name="settings_new.png" width="34" height="34"/>
     </resources>
-    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

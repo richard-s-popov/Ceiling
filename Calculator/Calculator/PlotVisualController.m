@@ -165,7 +165,7 @@ char alphabet2[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         
         // делаем линии пунктирными
         float dash[2]={10 ,7}; // pattern 10 times “solid”, 7 times “empty”
-        CGContextSetLineDash(context,0,dash,2);
+//        CGContextSetLineDash(context,0,dash,2);
         
         CGContextMoveToPoint(context, coord.x, coord.y);
         CGContextAddLineToPoint(context, coord2.x, coord2.y);
@@ -175,7 +175,7 @@ char alphabet2[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     
     // делаем линии обычными
     float normal[1]={1};
-    CGContextSetLineDash(context,0,normal,0);
+//    CGContextSetLineDash(context,0,normal,0);
     CGContextSetLineWidth(context, 3.0f * scaleFactor);
     
     // зарисовка точек

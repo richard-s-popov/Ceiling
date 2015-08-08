@@ -30,13 +30,17 @@
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
     [[UITabBar appearance] setShadowImage:imageTabBarShadow];
     
+//    NSDictionary *tabBarTitle = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                 [UIColor blackColor],UITextAttributeTextColor,
+//                                 [UIColor clearColor], UITextAttributeTextShadowColor,
+//                                 [UIFont fontWithName:@"OpenSans" size:10],UITextAttributeFont,
+//                                 [NSValue valueWithUIOffset:UIOffsetMake(-1, 0)], UITextAttributeTextShadowOffset, nil];
+
     NSDictionary *tabBarTitle = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [UIColor blackColor],UITextAttributeTextColor,
-                                 [UIColor clearColor], UITextAttributeTextShadowColor,
-                                 [UIFont fontWithName:@"OpenSans" size:10],UITextAttributeFont,
+                                 [UIColor blackColor],NSForegroundColorAttributeName,
+                                 [UIFont fontWithName:@"OpenSans" size:10],NSFontAttributeName,
                                  [NSValue valueWithUIOffset:UIOffsetMake(-1, 0)], UITextAttributeTextShadowOffset, nil];
     [[UITabBarItem appearance] setTitleTextAttributes:tabBarTitle forState:UIControlStateNormal];
-    //    [[UITabBar appearance] setSelectedImageTintColor:[UIColor grayColor]];
     
     //настраиваем цвет title в приложении
     NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:

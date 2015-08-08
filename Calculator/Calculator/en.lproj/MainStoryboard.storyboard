@@ -681,7 +681,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewProjectList" textLabel="V7g-Mf-Tep" detailTextLabel="raC-tG-C9z" rowHeight="66" style="IBUITableViewCellStyleSubtitle" id="wP3-Dd-Tcu">
-                                <rect key="frame" x="0.0" y="86" width="320" height="66"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wP3-Dd-Tcu" id="tKo-10-TrN">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="65.5"/>
@@ -779,7 +779,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MatListCell" rowHeight="64" id="Uvi-u7-oY5" customClass="MaterialCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="64"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uvi-u7-oY5" id="veG-Ne-vLc">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="63.5"/>
